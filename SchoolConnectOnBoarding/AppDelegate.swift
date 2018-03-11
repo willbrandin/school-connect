@@ -16,6 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        
+        // Set Background Color of window
+        window?.backgroundColor = UIColor.white
+        
+        let landingVC = LandingViewController()
+        let nav = UINavigationController(rootViewController: landingVC)
+        nav.navigationBar.isHidden = true
+//      if School is chosen then do not present the View Controller sequence.
+//      let defaults = UserDefaults.standard
+//      let schoolIsChosen = defaults.bool(forKey: "SchoolIsChosen")
+        
+        
+        window?.rootViewController = nav
+        
+        
+        // Make the window visible
+        window!.makeKeyAndVisible()
+        
+        
         return true
     }
 
