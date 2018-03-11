@@ -33,4 +33,5 @@ class LandingViewController: UIViewController {
         landingView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         landingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
+    
 }
