@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LandingPageDelegate: class {
+    func didTapContinue()
+}
+
 class LandingViewController: UIViewController {
 
     //MARK - Properties
@@ -16,15 +20,22 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setupLandingView()
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+
     }
 
     //MARK: - Methods
     func setupLandingView(){
         landingView = LandingScreenView()
         landingView.customizeUI()
+        landingView.delegate = self
         self.view.addSubview(landingView)
         
         landingView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,6 +43,15 @@ class LandingViewController: UIViewController {
         landingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         landingView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         landingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    }
+    
+}
+
+extension LandingViewController: LandingPageDelegate {
+    
+    func didTapContinue() {
+        let searchVC = SearchViewController()
+        show(searchVC, sender: nil)
     }
     
 }

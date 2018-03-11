@@ -22,21 +22,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Set Background Color of window
         window?.backgroundColor = UIColor.white
         
-        let landingVC = LandingViewController()
-        let nav = UINavigationController(rootViewController: landingVC)
-        nav.navigationBar.isHidden = true
+        let defaults = UserDefaults.standard
+        
+        
 //      if School is chosen then do not present the View Controller sequence.
-//      let defaults = UserDefaults.standard
-//      let schoolIsChosen = defaults.bool(forKey: "SchoolIsChosen")
+        let schoolIsChosen = defaults.bool(forKey: "SchoolIsChosen")
         
-        
-        window?.rootViewController = nav
-        
-        
+        if schoolIsChosen {
+            let vc = UIViewController()
+            vc.view.backgroundColor = UIColor.blue
+            window?.rootViewController = vc
+        } else {
+            let landingVC = LandingViewController()
+            let nav = UINavigationController(rootViewController: landingVC)
+            nav.navigationBar.isHidden = true
+            window?.rootViewController = nav
+        }
+    
         // Make the window visible
         window!.makeKeyAndVisible()
-        
-        
+      
         return true
     }
 

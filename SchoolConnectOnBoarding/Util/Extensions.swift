@@ -57,19 +57,19 @@ extension UIColor {
         return UIColor(hex: "3498db")
     }
     
-    class func snMidnightBlue() -> UIColor {
+    class func scMidnightBlue() -> UIColor {
         return UIColor(hex: "2c3e50")
     }
     
-    class func snGray() -> UIColor {
+    class func scGray() -> UIColor {
         return UIColor(hex: "2d3436")
     }
     
-    class func snGrayText() -> UIColor {
+    class func scGrayText() -> UIColor {
         return UIColor(hex: "3d3d3d")
     }
     
-    class func snRed() -> UIColor {
+    class func scRed() -> UIColor {
         return UIColor(hex: "e55039")
     }
     

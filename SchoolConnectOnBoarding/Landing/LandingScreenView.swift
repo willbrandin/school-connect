@@ -11,10 +11,12 @@ import UIKit
 class LandingScreenView: UIView {
 
     //MARK: - Properties
+    weak var delegate: LandingPageDelegate?
+    
     lazy var schoolConnectTitle: UILabel! = {
         let title = UILabel()
         title.font = UIFont.systemFont(ofSize: 28.0, weight: .bold)
-        title.textColor = UIColor.snGrayText()
+        title.textColor = UIColor.scGrayText()
         title.textAlignment = .center
         title.text = "School Connect"
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +37,7 @@ class LandingScreenView: UIView {
         let label = UILabel()
         label.text = "School News with you"
         label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
-        label.textColor = UIColor.snGrayText()
+        label.textColor = UIColor.scGrayText()
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -46,9 +48,17 @@ class LandingScreenView: UIView {
         let label = UILabel()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
-        label.textColor = UIColor.snGray()
+        label.textColor = UIColor.scGray()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.lineSpacing = 20
+//
+//        let attrString = NSMutableAttributedString(string: descriptionText)
+//        attrString.addAttribute(.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
+//
+//        label.attributedText = attrString
 
         return label
     }()
@@ -59,6 +69,7 @@ class LandingScreenView: UIView {
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()
+        button.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
         
@@ -130,6 +141,10 @@ class LandingScreenView: UIView {
         continueButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20.0).isActive = true
         
+    }
+    
+    @objc func handleButtonTap(){
+        self.delegate?.didTapContinue()
     }
     
 }
