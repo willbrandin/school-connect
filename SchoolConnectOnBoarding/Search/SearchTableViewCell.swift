@@ -41,7 +41,7 @@ class SearchTableViewCell: UITableViewCell {
     }
     
     func configureCell(_ school: SchoolSearch){
-        
+        schoolLabel.text = school.name
     }
     
 
