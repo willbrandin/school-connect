@@ -29,12 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 //      if School is chosen then do not present the View Controller sequence.
-        let schoolIsChosen = defaults.bool(forKey: "SchoolIsChosen")
+        let schoolIsChosen = defaults.bool(forKey: "schoolIsChosen")
+        let schoolId = defaults.string(forKey: "selectedSchoolId")
         
-        if schoolIsChosen {
-            let vc = UIViewController()
-            vc.view.backgroundColor = UIColor.blue
-            window?.rootViewController = vc
+        if schoolIsChosen && schoolId != nil {
+            if let id = schoolId {
+                let vc = UIViewController()
+                print(id)
+                vc.view.backgroundColor = UIColor.blue
+                window?.rootViewController = vc
+            }
         } else {
             let landingVC = LandingViewController()
             let nav = UINavigationController(rootViewController: landingVC)

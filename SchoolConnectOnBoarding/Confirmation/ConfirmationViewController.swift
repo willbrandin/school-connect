@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ConfirmationDelegate: class {
+    func didConfirmSchool()
+}
+
 class ConfirmationViewController: UIViewController {
 
     //MARK: - Properties
@@ -29,6 +33,7 @@ class ConfirmationViewController: UIViewController {
     func setupConfirmationView(){
         confirmationView = ConfirmationView()
         confirmationView.customizeUI(selectedSchool)
+        confirmationView.confirmationDelegate = self
         self.view.addSubview(confirmationView)
         
         confirmationView.translatesAutoresizingMaskIntoConstraints = false
@@ -37,8 +42,21 @@ class ConfirmationViewController: UIViewController {
         confirmationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         confirmationView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
-    
-    
 
+}
+
+extension ConfirmationViewController: ConfirmationDelegate {
+    
+    func didConfirmSchool() {
+        let defaults = UserDefaults.standard
+        let vc = UIViewController()
+        vc.navigationController?.navigationBar.isHidden = true
+        vc.view.backgroundColor = UIColor.red
+
+        defaults.set(selectedSchool.schoolId, forKey: "selectedSchoolId")
+        defaults.set(true, forKey: "schoolIsChosen")
+        self.show(vc, sender: nil)
+    }
+    
+    
 }

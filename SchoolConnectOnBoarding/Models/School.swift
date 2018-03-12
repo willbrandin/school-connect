@@ -10,12 +10,13 @@ import Foundation
 import Firebase
 
 class School {
+    
     var schoolName: String?
     var schoolId: String?
     var schoolCity: String?
     var schoolState: String?
     
-    func initWithResponse(_ dataDictionary: NSDictionary){
+    func initForSearch(_ dataDictionary: NSDictionary){
         self.schoolName = dataDictionary["schoolName"] as? String
         self.schoolCity = dataDictionary["schoolCity"] as? String
         self.schoolState = dataDictionary["schoolState"] as? String
@@ -32,12 +33,14 @@ class School {
             
             if let data = snapshot.value as? NSDictionary {
                 let newSchool = School()
-                newSchool.initWithResponse(data)
+                newSchool.initForSearch(data)
                 newSchool.schoolId = snapshot.key
                 schoolNames.append(newSchool)
                 completion(schoolNames)
             }
         }
     }
+    
+    
     
 }

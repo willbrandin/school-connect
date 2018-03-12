@@ -11,7 +11,7 @@ import UIKit
 class ConfirmationView: UIView {
 
     //MARK: - Properties
-    //weak var confirmationDelegate
+    weak var confirmationDelegate: ConfirmationDelegate?
     
     //MARK: - UI Elements
     
@@ -110,7 +110,7 @@ class ConfirmationView: UIView {
     }
     
     @objc func handleConfirmationTap(){
-        
+        self.confirmationDelegate?.didConfirmSchool()
     }
     
 }
