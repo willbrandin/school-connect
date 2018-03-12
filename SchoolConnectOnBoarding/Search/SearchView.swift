@@ -10,9 +10,46 @@ import UIKit
 
 class SearchView: UIView {
 
-    func customizeUI() {
-        backgroundColor = UIColor.brown
+    //MARK: - Properties
+    
+    
+    lazy var searchBar: UISearchBar! = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search"
+        searchBar.barStyle = .default
+        searchBar.isTranslucent = false
         
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        return searchBar
+    }()
+    
+    lazy var tableView: UITableView! = {
+        let tableView = UITableView()
+        tableView.tag = 1
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    //MARK: - Methods
+    func customizeUI() {
+        backgroundColor = UIColor.white
+        setupSearchBarConstraints()
+        setupTableViewConstraints()
     }
-
+    
+    func setupSearchBarConstraints(){
+        addSubview(searchBar)
+        searchBar.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
+        searchBar.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        searchBar.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
+    func setupTableViewConstraints(){
+        addSubview(tableView)
+        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
 }
