@@ -16,8 +16,7 @@ class SearchViewController: UIViewController {
     
     
     //Search Properties
-    var schoolList = [SchoolSearch]()
-    var filteredSchoolList = [SchoolSearch]()
+    var schoolList = [School]()
     var shouldShowSearchResults = false
     
     
@@ -37,7 +36,7 @@ class SearchViewController: UIViewController {
     //MARK: - Methods
     func setupLandingView(){
         searchView = SearchView()
-        searchView.customizeUI()
+        searchView.customizeUI(shouldShowSearchResults)
         self.view.addSubview(searchView)
         
         searchView.translatesAutoresizingMaskIntoConstraints = false
@@ -73,14 +72,21 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let str = searchBar.text as! String
         if str.count == 0 {
-            
+            shouldShowSearchResults = false
             self.schoolList.removeAll()
             self.searchView.tableView.reloadData()
+            let newView = SearchBlankView()
+            newView.customizeUI()
+            self.searchView.tableView.separatorStyle  = .none
+            self.searchView.tableView.backgroundView = newView
             
         } else if str.count > 2 {
             let strResult = str.removeSpecialCharactersFromText()
-            
-            SchoolSearch.fetchNames(input: strResult, completion: { (schools) in
+            shouldShowSearchResults = true
+            self.searchView.tableView.backgroundView = nil
+            self.searchView.tableView.separatorStyle = .singleLine
+
+            School.fetchNames(input: strResult, completion: { (schools) in
                 if schools.count == 0 {
                     self.schoolList.removeAll()
                     self.searchView.tableView.reloadData()

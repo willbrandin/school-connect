@@ -25,7 +25,7 @@ class SearchTableViewCell: UITableViewCell {
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()
         
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,13 +36,12 @@ class SearchTableViewCell: UITableViewCell {
         self.contentView.addSubview(schoolLabel)
         schoolLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
         schoolLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12.0).isActive = true
-        schoolLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 12.0).isActive = true
+        schoolLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15.0).isActive = true
         schoolLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12.0).isActive = true
     }
     
-    func configureCell(_ school: SchoolSearch){
-        schoolLabel.text = school.name
+    func configureCell(_ school: School){
+        schoolLabel.text = school.schoolName
     }
-    
 
 }

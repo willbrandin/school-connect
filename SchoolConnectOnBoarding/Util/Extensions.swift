@@ -13,6 +13,10 @@ extension UIImage {
     static func landingPageIcon() -> UIImage {
         return UIImage(named: "landingPageIcon")!
     }
+    
+    static func searchIcon() -> UIImage {
+        return UIImage(named: "searchIcon")!
+    }
 }
 
 extension UIColor {

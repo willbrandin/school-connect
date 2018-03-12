@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 let SCHOOL_NAMES = [
     "Rogers High School",
@@ -18,15 +19,35 @@ let SCHOOL_NAMES = [
 ]
 
 struct SchoolSearch {
+    
     var name: String?
-  
+    var id: String?
+    
+    
     static func fetchNames(input: String , completion: @escaping ([SchoolSearch])->Void) {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
         var schoolNames = [SchoolSearch]()
-        let filtered = SCHOOL_NAMES.filter({$0.contains(input)})
-        for name in filtered {
-            let newSchool = SchoolSearch(name: name)
-            schoolNames.append(newSchool)
-            completion(schoolNames)
+        
+        var query = ref.child("Schools").queryOrdered(byChild: "name").queryStarting(atValue: input).queryEnding(atValue: input + "\u{F8FF}")
+        
+        query.observe(.childAdded) { (snapshot) in
+        
+            if let data = snapshot.value as? NSDictionary {
+                var newSchool = SchoolSearch()
+                newSchool.name = data["name"] as? String
+                newSchool.id = snapshot.key
+                schoolNames.append(newSchool)
+                completion(schoolNames)
+            }
         }
     }
+    
 }
+
+
+
+
+
+
+

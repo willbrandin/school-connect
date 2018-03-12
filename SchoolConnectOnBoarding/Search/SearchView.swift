@@ -12,7 +12,6 @@ class SearchView: UIView {
 
     //MARK: - Properties
     
-    
     lazy var searchBar: UISearchBar! = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "Search"
@@ -30,11 +29,23 @@ class SearchView: UIView {
         return tableView
     }()
     
+    
+    
     //MARK: - Methods
-    func customizeUI() {
+    func customizeUI(_ showingCells: Bool) {
         backgroundColor = UIColor.white
         setupSearchBarConstraints()
         setupTableViewConstraints()
+        if showingCells {
+            tableView.backgroundView = nil
+            tableView.separatorStyle = .singleLine
+            tableView.backgroundColor = UIColor.white
+        } else {
+            let newView = SearchBlankView()
+            newView.customizeUI()
+            tableView.separatorStyle  = .none
+            tableView.backgroundView = newView
+        }
     }
     
     func setupSearchBarConstraints(){
