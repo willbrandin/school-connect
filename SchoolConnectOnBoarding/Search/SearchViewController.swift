@@ -67,6 +67,7 @@ class SearchViewController: UIViewController {
     
 }
 
+//MARK: - Search Delegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -102,6 +103,7 @@ extension SearchViewController: UISearchBarDelegate {
     
 }
 
+//MARK: - TableView Delegates
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -124,12 +126,13 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        tableView.deselectRow(at: indexPath, animated: true)
+        let confirmationVC = ConfirmationViewController()
+        let selectedSchool = schoolList[indexPath.row]
+        
+        confirmationVC.selectedSchool = selectedSchool
+        
+        self.show(confirmationVC, sender: nil)
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        //cell height 1/6th of the phone screen
-//        return self.view.frame.height * 0.10
-//    }
     
 }

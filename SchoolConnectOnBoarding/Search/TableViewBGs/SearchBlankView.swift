@@ -48,8 +48,8 @@ class SearchBlankView: UIView {
     func setupLabelConstraints(){
         addSubview(searchLabel)
         searchLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 40.0).isActive = true
-        searchLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12.0).isActive = true
-        searchLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12.0).isActive = true
+        searchLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
+        searchLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         searchLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
     }
     

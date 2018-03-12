@@ -46,7 +46,7 @@ class LandingScreenView: UIView {
     
     lazy var schoolConnectDescription: UILabel! = {
         let label = UILabel()
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
         label.textColor = UIColor.scGray()
         label.numberOfLines = 0
@@ -116,8 +116,8 @@ class LandingScreenView: UIView {
         
         landingMainStackView.topAnchor.constraint(equalTo: schoolConnectTitle.bottomAnchor, constant: 75.0).isActive = true
         landingMainStackView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -65.0).isActive = true
-        landingMainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12.0).isActive = true
-        landingMainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12.0).isActive = true
+        landingMainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
+        landingMainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         
         setupImageConstraints()
     }
@@ -139,7 +139,7 @@ class LandingScreenView: UIView {
         continueButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         continueButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -20.0).isActive = true
+        continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30.0).isActive = true
         
     }
     
