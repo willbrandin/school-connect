@@ -13,7 +13,7 @@ class SearchTableViewCell: UITableViewCell {
     //MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        setupLabelConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,8 +25,8 @@ class SearchTableViewCell: UITableViewCell {
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()
         
-        label.font = UIFont.systemFont(ofSize: 26.0, weight: .bold)
-        label.textColor = UIColor.cfnGreen()
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03320D0820560C9D00B2B987 /* GoogleService-Info.plist */; };
 		03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CBB2054AB4400128D72 /* AppDelegate.swift */; };
 		03930CC72054AB4400128D72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03930CC62054AB4400128D72 /* Assets.xcassets */; };
 		03930CCA2054AB4400128D72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03930CC82054AB4400128D72 /* LaunchScreen.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03320D0820560C9D00B2B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		03930CB82054AB4400128D72 /* SchoolConnectOnBoarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolConnectOnBoarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03930CBB2054AB4400128D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03930CC62054AB4400128D72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				03930CC62054AB4400128D72 /* Assets.xcassets */,
 				03930CC82054AB4400128D72 /* LaunchScreen.storyboard */,
 				03930CCB2054AB4400128D72 /* Info.plist */,
+				03320D0820560C9D00B2B987 /* GoogleService-Info.plist */,
 			);
 			path = SchoolConnectOnBoarding;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			files = (
 				03930CCA2054AB4400128D72 /* LaunchScreen.storyboard in Resources */,
 				03930CC72054AB4400128D72 /* Assets.xcassets in Resources */,
+				03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

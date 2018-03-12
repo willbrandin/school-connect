@@ -8,15 +8,25 @@
 
 import Foundation
 
+let SCHOOL_NAMES = [
+    "Rogers High School",
+    "Smith High School",
+    "Davis High School",
+    "Rogers Middle School",
+    "Smith Elementry School",
+    "Williams high school"
+]
+
 struct SchoolSearch {
     var name: String?
-    
-    func fetchNames(_ data: [String]) -> [SchoolSearch] {
-        var schoolArray = [SchoolSearch]()
-        for school in data {
-            let newSchool = SchoolSearch(name: school)
-            schoolArray.append(newSchool)
+  
+    static func fetchNames(input: String , completion: @escaping ([SchoolSearch])->Void) {
+        var schoolNames = [SchoolSearch]()
+        let filtered = SCHOOL_NAMES.filter({$0.contains(input)})
+        for name in filtered {
+            let newSchool = SchoolSearch(name: name)
+            schoolNames.append(newSchool)
+            completion(schoolNames)
         }
-        return schoolArray
     }
 }

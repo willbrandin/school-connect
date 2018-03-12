@@ -16,8 +16,8 @@ class SearchViewController: UIViewController {
     
     
     //Search Properties
-    var schoolList = [String]()
-    var filteredSchoolList = [String]()
+    var schoolList = [SchoolSearch]()
+    var filteredSchoolList = [SchoolSearch]()
     var shouldShowSearchResults = false
     
     
@@ -28,6 +28,10 @@ class SearchViewController: UIViewController {
         setupNavBar()
         setupLandingView()
         setDelegates()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        searchView.searchBar.becomeFirstResponder()
     }
     
     //MARK: - Methods
@@ -64,14 +68,49 @@ class SearchViewController: UIViewController {
     
 }
 
-extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let str = searchBar.text as! String
+        if str.count == 0 {
+            
+            self.schoolList.removeAll()
+            self.searchView.tableView.reloadData()
+            
+        } else if str.count > 2 {
+            let strResult = str.removeSpecialCharactersFromText()
+            
+            SchoolSearch.fetchNames(input: strResult, completion: { (schools) in
+                if schools.count == 0 {
+                    self.schoolList.removeAll()
+                    self.searchView.tableView.reloadData()
+                } else {
+                    self.schoolList.removeAll()
+                    self.schoolList = schools
+                    self.searchView.tableView.reloadData()
+                }
+            })
+        }
+
+    }
+    
+}
+
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 50
+        if schoolList.count > 0 {
+            return schoolList.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = searchView.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SearchTableViewCell
+        if schoolList.count > 0 {
+            cell?.configureCell(schoolList[indexPath.row])
+
+        }
         return cell!
     }
     
@@ -82,9 +121,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource, UISe
         //
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        //cell height 1/6th of the phone screen
-        return self.view.frame.height * 0.18
-    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        //cell height 1/6th of the phone screen
+//        return self.view.frame.height * 0.10
+//    }
     
 }

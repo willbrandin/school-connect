@@ -75,3 +75,11 @@ extension UIColor {
     
     
 }
+
+extension String {
+    func removeSpecialCharactersFromText() -> String {
+        
+        let notAllowedChars: CharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ").inverted
+        return self.components(separatedBy: notAllowedChars).joined(separator: "")
+    }
+}
