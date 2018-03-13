@@ -19,4 +19,6 @@ enum FirebasePathStrings: String {
     case schools = "Schools"
     case appConfig = "appConfig"
     case infoPath = "Info"
+    case newsPath = "News"
+    case calendarPath = "Calendar"
 }

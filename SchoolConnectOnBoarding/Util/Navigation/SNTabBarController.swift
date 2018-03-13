@@ -18,19 +18,15 @@ class SNTabBarController: UITabBarController {
 
     func addViewControllers() -> [UIViewController]{
         let homeViewController = HomeViewController()
-        homeViewController.view.backgroundColor = UIColor.blue
         homeViewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage.homeTabBarIcon(), tag: 0)
         
-        let newsViewController = HomeViewController()
-        newsViewController.view.backgroundColor = UIColor.red
+        let newsViewController = NewsViewController()
         newsViewController.tabBarItem = UITabBarItem(title: "News", image: UIImage.newsTabBarIcon(), tag: 1)
         
-        let calendarViewController = HomeViewController()
-        calendarViewController.view.backgroundColor = UIColor.blue
+        let calendarViewController = CalendarViewController()
         calendarViewController.tabBarItem = UITabBarItem(title: "Calendar", image: UIImage.calendarTabBarIcon(), tag: 2)
         
-        let contactViewController = HomeViewController()
-        contactViewController.view.backgroundColor = UIColor.red
+        let contactViewController = ContactViewController()
         contactViewController.tabBarItem = UITabBarItem(title: "Contact", image: UIImage.contactTabBarIcon(), tag: 3)
         
         return [homeViewController, newsViewController, calendarViewController, contactViewController]

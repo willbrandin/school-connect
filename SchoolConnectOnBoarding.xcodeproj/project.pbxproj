@@ -14,6 +14,12 @@
 		0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67B20585524009327F3 /* SNBaseNavigationController.swift */; };
 		0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67D205855E0009327F3 /* HomeViewController.swift */; };
 		0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67F2058571C009327F3 /* SNBaseViewController.swift */; };
+		0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68420586E6D009327F3 /* NewsViewController.swift */; };
+		0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68620586EF4009327F3 /* NewsArticle.swift */; };
+		0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68A20587307009327F3 /* CalendarViewController.swift */; };
+		0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68C20587525009327F3 /* CalendarEvent.swift */; };
+		0312E68F20587959009327F3 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68E20587959009327F3 /* SideButton.swift */; };
+		0312E69220587A86009327F3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E69120587A86009327F3 /* ContactViewController.swift */; };
 		03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03320D0820560C9D00B2B987 /* GoogleService-Info.plist */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
 		0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67B2056FB1000284055 /* SearchBlankView.swift */; };
@@ -53,6 +59,12 @@
 		0312E67B20585524009327F3 /* SNBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseNavigationController.swift; sourceTree = "<group>"; };
 		0312E67D205855E0009327F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0312E67F2058571C009327F3 /* SNBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseViewController.swift; sourceTree = "<group>"; };
+		0312E68420586E6D009327F3 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		0312E68620586EF4009327F3 /* NewsArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
+		0312E68A20587307009327F3 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		0312E68C20587525009327F3 /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
+		0312E68E20587959009327F3 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
+		0312E69120587A86009327F3 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		03320D0820560C9D00B2B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SchoolConnectOnBoarding/Helper/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
@@ -122,6 +134,42 @@
 			path = "On-BoardingPath";
 			sourceTree = "<group>";
 		};
+		0312E68220586E36009327F3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0312E69020587A75009327F3 /* Contact */,
+				0312E688205872EE009327F3 /* Calendar */,
+				0312E68320586E5D009327F3 /* News */,
+				03930CE52054ACD300128D72 /* Home */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0312E68320586E5D009327F3 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				0312E68420586E6D009327F3 /* NewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		0312E688205872EE009327F3 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				0312E68A20587307009327F3 /* CalendarViewController.swift */,
+				0312E68E20587959009327F3 /* SideButton.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		0312E69020587A75009327F3 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				0312E69120587A86009327F3 /* ContactViewController.swift */,
+			);
+			path = Contact;
+			sourceTree = "<group>";
+		};
 		033418B72056BFD9003B61CE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +186,8 @@
 				03930CF42055FF0100128D72 /* SchoolSearch.swift */,
 				0382F6782056F6D800284055 /* School.swift */,
 				0312E671205831A1009327F3 /* SNAppSettings.swift */,
+				0312E68620586EF4009327F3 /* NewsArticle.swift */,
+				0312E68C20587525009327F3 /* CalendarEvent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,7 +227,7 @@
 				033418B72056BFD9003B61CE /* Helper */,
 				03930CF32055FEF000128D72 /* Database */,
 				03930CE82054B1B800128D72 /* Util */,
-				03930CE52054ACD300128D72 /* Home */,
+				0312E68220586E36009327F3 /* ViewControllers */,
 				03930CE42054ACCF00128D72 /* Loading */,
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
 				03930CC62054AB4400128D72 /* Assets.xcassets */,
@@ -501,20 +551,26 @@
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
+				0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */,
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
 				0312E674205833B5009327F3 /* SNEnums.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
+				0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */,
 				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,
 				03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */,
 				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
 				0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */,
+				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
+				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
+				0312E68F20587959009327F3 /* SideButton.swift in Sources */,
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
 				03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */,
 				03930CEA2054B1C700128D72 /* Extensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
+				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
 				03930CEC2054B23700128D72 /* SNUIKit.swift in Sources */,
 			);
