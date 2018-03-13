@@ -40,4 +40,13 @@ final class SNDatabaseQueryManager {
         
         return UIColor(hex: primaryColor)
     }
+    
+    class func getSavedSecondaryColor() -> UIColor? {
+        let defaults = UserDefaults.standard
+        guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return nil }
+        let schoolQuery = SNDatabase.object(ofType: School.self, forPrimaryKey: id)
+        guard let secondaryColor = schoolQuery?.appSettings?.secondaryColor else { return nil }
+        
+        return UIColor(hex: secondaryColor)
+    }
 }

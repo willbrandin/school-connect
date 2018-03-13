@@ -26,6 +26,9 @@ class ConfirmationViewController: UIViewController {
         setupConfirmationView()
     }
     
+    deinit {
+        print("deinit")
+    }
     
     
     //MARK: - Methods
@@ -49,15 +52,14 @@ extension ConfirmationViewController: ConfirmationDelegate {
     
     func didConfirmSchool() {
         let defaults = UserDefaults.standard
-        let vc = UIViewController()
-        vc.navigationController?.navigationBar.isHidden = true
-        vc.view.backgroundColor = UIColor.red
 
         defaults.set(selectedSchool.schoolId, forKey: UserDefaultKeys.selectedId.rawValue)
         defaults.set(true, forKey: UserDefaultKeys.schoolChosen.rawValue)
         School.getSchoolDetailsWithId()
-        self.show(vc, sender: nil)
-
+        
+        let tabBarController = SNTabBarController()
+        self.navigationController?.setViewControllers([tabBarController], animated: true)
+        self.navigationController?.popToViewController(tabBarController, animated: true)
     }
     
     
