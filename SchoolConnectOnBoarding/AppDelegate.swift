@@ -35,11 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if schoolIsChosen && schoolId != nil {
             if let id = schoolId {
-                let vc = UIViewController()
-                print(id)
-                vc.view.backgroundColor = UIColor.blue
+                let tabBarController = SNTabBarController()
                 School.getSchoolDetailsWithId(update: true)
-                self.window?.rootViewController = vc
+                self.window?.rootViewController = tabBarController
             }
         } else {
             let landingVC = LandingViewController()

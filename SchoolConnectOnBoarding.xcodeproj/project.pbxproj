@@ -10,6 +10,10 @@
 		0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E671205831A1009327F3 /* SNAppSettings.swift */; };
 		0312E674205833B5009327F3 /* SNEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E673205833B5009327F3 /* SNEnums.swift */; };
 		0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67520583A6D009327F3 /* DatabaseManager.swift */; };
+		0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E678205854E0009327F3 /* SNTabBarController.swift */; };
+		0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67B20585524009327F3 /* SNBaseNavigationController.swift */; };
+		0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67D205855E0009327F3 /* HomeViewController.swift */; };
+		0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67F2058571C009327F3 /* SNBaseViewController.swift */; };
 		03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03320D0820560C9D00B2B987 /* GoogleService-Info.plist */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
 		0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67B2056FB1000284055 /* SearchBlankView.swift */; };
@@ -45,6 +49,10 @@
 		0312E671205831A1009327F3 /* SNAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNAppSettings.swift; sourceTree = "<group>"; };
 		0312E673205833B5009327F3 /* SNEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNEnums.swift; sourceTree = "<group>"; };
 		0312E67520583A6D009327F3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		0312E678205854E0009327F3 /* SNTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNTabBarController.swift; sourceTree = "<group>"; };
+		0312E67B20585524009327F3 /* SNBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseNavigationController.swift; sourceTree = "<group>"; };
+		0312E67D205855E0009327F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		0312E67F2058571C009327F3 /* SNBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseViewController.swift; sourceTree = "<group>"; };
 		03320D0820560C9D00B2B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SchoolConnectOnBoarding/Helper/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
@@ -94,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0312E677205854C0009327F3 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0312E678205854E0009327F3 /* SNTabBarController.swift */,
+				0312E67B20585524009327F3 /* SNBaseNavigationController.swift */,
+				0312E67F2058571C009327F3 /* SNBaseViewController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		033418B72056BFD9003B61CE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +225,7 @@
 		03930CE52054ACD300128D72 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				0312E67D205855E0009327F3 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -214,6 +233,7 @@
 		03930CE82054B1B800128D72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				0312E677205854C0009327F3 /* Navigation */,
 				03930CE92054B1C700128D72 /* Extensions.swift */,
 				03930CEB2054B23700128D72 /* SNUIKit.swift */,
 				0312E673205833B5009327F3 /* SNEnums.swift */,
@@ -471,13 +491,17 @@
 			files = (
 				0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */,
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
+				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
 				0312E674205833B5009327F3 /* SNEnums.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
+				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,
 				03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */,
+				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
+				0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
 				03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */,

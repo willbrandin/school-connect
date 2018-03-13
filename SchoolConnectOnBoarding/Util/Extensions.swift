@@ -22,7 +22,8 @@ extension UIImage {
 extension UIColor {
     
     convenience init(hex: String) {
-        let scanner = Scanner(string: hex)
+        let filtered = hex.removeSpecialCharactersFromText()
+        let scanner = Scanner(string: filtered)
         scanner.scanLocation = 0
         
         var rgbValue: UInt64 = 0
