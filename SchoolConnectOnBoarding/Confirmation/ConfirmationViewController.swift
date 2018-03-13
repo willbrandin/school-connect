@@ -53,9 +53,11 @@ extension ConfirmationViewController: ConfirmationDelegate {
         vc.navigationController?.navigationBar.isHidden = true
         vc.view.backgroundColor = UIColor.red
 
-        defaults.set(selectedSchool.schoolId, forKey: "selectedSchoolId")
-        defaults.set(true, forKey: "schoolIsChosen")
+        defaults.set(selectedSchool.schoolId, forKey: UserDefaultKeys.selectedId.rawValue)
+        defaults.set(true, forKey: UserDefaultKeys.schoolChosen.rawValue)
+        School.getSchoolDetailsWithId()
         self.show(vc, sender: nil)
+
     }
     
     

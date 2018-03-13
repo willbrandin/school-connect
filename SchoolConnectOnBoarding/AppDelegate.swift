@@ -29,15 +29,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
 //      if School is chosen then do not present the View Controller sequence.
-        let schoolIsChosen = defaults.bool(forKey: "schoolIsChosen")
-        let schoolId = defaults.string(forKey: "selectedSchoolId")
+        let schoolIsChosen = defaults.bool(forKey: UserDefaultKeys.schoolChosen.rawValue)
+        let schoolId = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue)
+
         
         if schoolIsChosen && schoolId != nil {
             if let id = schoolId {
                 let vc = UIViewController()
                 print(id)
                 vc.view.backgroundColor = UIColor.blue
-                window?.rootViewController = vc
+                School.getSchoolDetailsWithId(update: true)
+                self.window?.rootViewController = vc
             }
         } else {
             let landingVC = LandingViewController()
@@ -74,6 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    
 
 }
 

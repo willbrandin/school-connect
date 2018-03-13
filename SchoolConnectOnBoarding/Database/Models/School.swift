@@ -12,17 +12,36 @@ import RealmSwift
 
 class School: Object {
     
+    //MARK: - Properties
     @objc dynamic var schoolName: String?
     @objc dynamic var schoolId: String?
     @objc dynamic var schoolCity: String?
     @objc dynamic var schoolState: String?
+    @objc dynamic var appSettings: SNAppSettings?
     
-    func initForSearch(_ dataDictionary: NSDictionary){
+    
+    //MARK: - Init
+    func initSchoolDetails(_ dataDictionary: NSDictionary){
         self.schoolName = dataDictionary["schoolName"] as? String
         self.schoolCity = dataDictionary["schoolCity"] as? String
         self.schoolState = dataDictionary["schoolState"] as? String
     }
     
+    func initAppSettings(_ data: NSDictionary){
+        let newSettings = SNAppSettings()
+        newSettings.initWithResponse(data)
+        appSettings = newSettings
+    }
+    
+    
+    //MARK: - Methods
+    
+    override open static func primaryKey() -> String? {
+        
+        return "schoolId"
+    }
+    
+    ///Fetches list of schools for onboarding.
     static func fetchNames(input: String , completion: @escaping ([School])->Void) {
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -34,7 +53,7 @@ class School: Object {
             
             if let data = snapshot.value as? NSDictionary {
                 let newSchool = School()
-                newSchool.initForSearch(data)
+                newSchool.initSchoolDetails(data)
                 newSchool.schoolId = snapshot.key
                 schoolNames.append(newSchool)
                 completion(schoolNames)
@@ -42,6 +61,48 @@ class School: Object {
         }
     }
     
-    
+    static func getSchoolDetailsWithId(update: Bool = false) {
+        //get school with id.
+        let ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        let defaults = UserDefaults.standard
+        guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return }
+        
+        let newStoredSchool = School()
+        newStoredSchool.schoolId = id
+        
+        let queryPath = ref.child(FirebasePathStrings.schoolInfo.rawValue).child(id)
+        queryPath.observe(.childAdded) { (snapshot) in
+            if snapshot.key == FirebasePathStrings.infoPath.rawValue {
+                //Init info
+                if let infoData = snapshot.value as? NSDictionary {
+                    newStoredSchool.initSchoolDetails(infoData)
+                }
+            }
+            if snapshot.key == FirebasePathStrings.appConfig.rawValue {
+                if let appSettingsData = snapshot.value as? NSDictionary {
+                    newStoredSchool.initAppSettings(appSettingsData)
+                    
+                    
+                    DispatchQueue.main.async {
+                        
+                        autoreleasepool {
+                            if update {
+                                
+                                DatabaseManager.save(newStoredSchool)
+                            } else {
+                                let realm = try! Realm()
+                                try! realm.write {
+                                    realm.add(newStoredSchool)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
     
 }
