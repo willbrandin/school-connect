@@ -8,13 +8,14 @@
 
 import Foundation
 import Firebase
+import RealmSwift
 
-class School {
+class School: Object {
     
-    var schoolName: String?
-    var schoolId: String?
-    var schoolCity: String?
-    var schoolState: String?
+    @objc dynamic var schoolName: String?
+    @objc dynamic var schoolId: String?
+    @objc dynamic var schoolCity: String?
+    @objc dynamic var schoolState: String?
     
     func initForSearch(_ dataDictionary: NSDictionary){
         self.schoolName = dataDictionary["schoolName"] as? String

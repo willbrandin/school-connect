@@ -98,6 +98,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		03466263205830DC00100737 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				03930CF42055FF0100128D72 /* SchoolSearch.swift */,
+				0382F6782056F6D800284055 /* School.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0382F67A2056FAF600284055 /* TableViewBGs */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				033418B72056BFD9003B61CE /* Helper */,
-				03930CF32055FEF000128D72 /* Models */,
+				03930CF32055FEF000128D72 /* Database */,
 				03930CE82054B1B800128D72 /* Util */,
 				03930CE52054ACD300128D72 /* Home */,
 				03930CE42054ACCF00128D72 /* Loading */,
@@ -204,13 +213,12 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		03930CF32055FEF000128D72 /* Models */ = {
+		03930CF32055FEF000128D72 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				03930CF42055FF0100128D72 /* SchoolSearch.swift */,
-				0382F6782056F6D800284055 /* School.swift */,
+				03466263205830DC00100737 /* Models */,
 			);
-			path = Models;
+			path = Database;
 			sourceTree = "<group>";
 		};
 		5CFB9665A1B6E9333E8D5493 /* Pods */ = {
