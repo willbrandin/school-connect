@@ -31,9 +31,9 @@ class SNBaseNavigationController: UINavigationController {
     func setupNavigationAttributes() {
         self.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
-        let barColor = SNDatabaseQueryManager.getSavedPrimaryColor()
-        self.navigationBar.barTintColor = barColor
-        if (barColor?.isLight)! {
+//        guard let barColor = SNDatabaseQueryManager.getSavedPrimaryColor() else { return }
+        self.navigationBar.barTintColor = SNDatabaseQueryManager.getSavedPrimaryColor()
+        if (navigationBar.barTintColor?.isLight)! {
             let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
             self.navigationBar.titleTextAttributes = textAttributes
             self.navigationBar.largeTitleTextAttributes = textAttributes

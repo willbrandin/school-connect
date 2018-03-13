@@ -61,7 +61,7 @@ class School: Object {
         }
     }
     
-    static func getSchoolDetailsWithId(update: Bool = false) {
+    static func getSchoolDetailsWithId(update: Bool = false, completion: @escaping (Bool)-> Void = {_ in } ) {
         //get school with id.
         let ref: DatabaseReference!
         ref = Database.database().reference()
@@ -84,17 +84,15 @@ class School: Object {
                 if let appSettingsData = snapshot.value as? NSDictionary {
                     newStoredSchool.initAppSettings(appSettingsData)
                     
-                    
                     DispatchQueue.main.async {
-                        
                         autoreleasepool {
                             if update {
-                                
                                 DatabaseManager.save(newStoredSchool)
                             } else {
                                 let realm = try! Realm()
                                 try! realm.write {
                                     realm.add(newStoredSchool)
+                                    completion(true)
                                 }
                             }
                         }

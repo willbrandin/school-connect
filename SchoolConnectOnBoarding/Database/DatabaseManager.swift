@@ -13,6 +13,7 @@ let SNDatabase = try! Realm()
 
 final class DatabaseManager {
     
+    ///Saves object and updates
     class func save(_ thisObject:Object){
         
         try! SNDatabase.write {

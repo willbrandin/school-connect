@@ -17,6 +17,23 @@ extension UIImage {
     static func searchIcon() -> UIImage {
         return UIImage(named: "searchIcon")!
     }
+    
+    static func homeTabBarIcon() -> UIImage {
+        return UIImage(named: "diamond_round")!
+    }
+    
+    static func newsTabBarIcon() -> UIImage {
+        return UIImage(named: "news_grid")!
+    }
+    
+    static func calendarTabBarIcon() -> UIImage {
+        return UIImage(named: "calendar")!
+    }
+    
+    static func contactTabBarIcon() -> UIImage {
+        return UIImage(named: "email")!
+    }
+    
 }
 
 extension UIColor {
