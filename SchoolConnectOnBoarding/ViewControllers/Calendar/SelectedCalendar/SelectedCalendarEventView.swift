@@ -15,6 +15,13 @@ class SelectedCalendarEventView: UIView {
     //MARK: - UI Elements
     
     //MARK: - Init
+    func customizeUI(_ calendarEvent: CalendarEvent?){
+        if let event = calendarEvent {
+            backgroundColor = UIColor.blue
+
+        }
+    }
+    
     
     //MARK: - Methods
 

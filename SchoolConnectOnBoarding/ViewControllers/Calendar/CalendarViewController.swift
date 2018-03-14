@@ -18,7 +18,7 @@ class CalendarViewController: SNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Calendar Events"
+        self.title = "Calendar"
         
         
         setupCalendarView()
@@ -108,7 +108,18 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+        let selectedEvent = calendarArray[indexPath.row]
+        let selectedEventVC = SelectedCalendarEventViewController()
+        selectedEventVC.selectedEvent = selectedEvent
+        show(selectedEventVC, sender: nil)
     }
     
 }
+
+
+
+
+
+
+
+

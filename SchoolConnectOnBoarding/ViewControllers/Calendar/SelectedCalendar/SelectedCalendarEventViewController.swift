@@ -8,18 +8,37 @@
 
 import UIKit
 
-class SelectedCalendarEventViewController: UIViewController {
-    //MARK: - Properties
+class SelectedCalendarEventViewController: SNBaseViewController {
     
+    //MARK: - Properties
+    var eventView: SelectedCalendarEventView!
+    var selectedEvent: CalendarEvent?
     
     //MARK: - Life Cycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        setupEventView()
+        setTitle()
     }
 
     //MARK: - Methods
-
+    func setupEventView(){
+        eventView = SelectedCalendarEventView()
+        eventView.customizeUI(selectedEvent)
+        self.view.addSubview(eventView)
+        
+        eventView.translatesAutoresizingMaskIntoConstraints = false
+        eventView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        eventView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        eventView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+        eventView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+    }
+    
+    func setTitle(){
+        if let event = selectedEvent {
+            self.title = event.title
+        }
+    }
+    
 }

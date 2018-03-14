@@ -43,6 +43,8 @@ class SNBaseNavigationController: UINavigationController {
             self.navigationBar.largeTitleTextAttributes = textAttributes
         }
         
+        self.navigationBar.tintColor = SNDatabaseQueryManager.getSavedSecondaryColor()
+        
     }
 
 
