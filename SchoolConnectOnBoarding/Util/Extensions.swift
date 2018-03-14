@@ -95,7 +95,7 @@ extension UIColor {
     }
     
     class func scGrayText() -> UIColor {
-        return UIColor(hex: "3d3d3d")
+        return UIColor(hex: "555555")
     }
     
     class func scRed() -> UIColor {
@@ -113,4 +113,13 @@ extension String {
         let notAllowedChars: CharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ").inverted
         return self.components(separatedBy: notAllowedChars).joined(separator: "")
     }
+    
+    func stringToDate() -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        let date = dateFormatter.date(from: self)!
+        return date
+    }
+    
 }

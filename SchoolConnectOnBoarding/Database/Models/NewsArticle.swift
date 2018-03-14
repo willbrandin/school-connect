@@ -38,6 +38,8 @@ class NewsArticle {
     
     
     //MARK: Methods
+    
+    //TODO: - Limit the number of news items to 10? Then load again when they hit the bottom of the list.
     static func downloadNewsData(completion: @escaping ([NewsArticle]) -> Void) {
         var newsItems = [NewsArticle]()
         let ref = Database.database().reference()
