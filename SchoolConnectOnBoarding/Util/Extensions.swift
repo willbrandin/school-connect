@@ -107,6 +107,12 @@ extension UIColor {
     
 }
 
+extension Int {
+    func adjustForSize(size: CGFloat) -> Int {
+        return self * Int(size) / 100
+    }
+}
+
 extension String {
     func removeSpecialCharactersFromText() -> String {
         
