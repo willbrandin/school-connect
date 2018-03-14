@@ -117,7 +117,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = searchView.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SearchTableViewCell
         if schoolList.count > 0 {
             cell?.configureCell(schoolList[indexPath.row])
-
         }
         return cell!
     }

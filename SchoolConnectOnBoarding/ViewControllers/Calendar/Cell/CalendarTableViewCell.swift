@@ -26,15 +26,12 @@ class CalendarTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
-        makeShadow()
-    }
     
     //MARK: - Methods
     
     func configureCell(_ calendarEvent: CalendarEvent?){
         setupCardViewConstraints()
-        self.contentView.backgroundColor = UIColor.gray
+        self.contentView.backgroundColor = UIColor.white
         if let event = calendarEvent {
             cardView.calendarEvent = event
             cardView.customizeUI()
@@ -47,20 +44,15 @@ class CalendarTableViewCell: UITableViewCell {
         addSubview(cardView)
         cardView.translatesAutoresizingMaskIntoConstraints = false
         
-        cardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15.0).isActive = true
-        cardView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -15.0).isActive = true
-        cardView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20.0).isActive = true
-        cardView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20.0).isActive = true
+        cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 15.0).isActive = true
+        cardView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -23.0).isActive = true
+        cardView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0).isActive = true
+        cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0).isActive = true
     }
 
     func updateCornerRadius() {
-        self.layer.cornerRadius = 15.0
+        self.layer.cornerRadius = 20.0
         self.layer.masksToBounds = true
     }
-    func makeShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowRadius = 8.0
-    }
+    
 }

@@ -12,12 +12,18 @@ class CalendarViewController: SNBaseViewController {
 
     //MARK: - Properties
     var calendarView: CalendarView!
+    var calendarArray = [CalendarEvent]()
     
     //MARK: - View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "Calendar Events"
+        
+        
         setupCalendarView()
+        fetchCalendarEvents()
+        
         setDelegates()
         // Do any additional setup after loading the view.
     }
@@ -48,8 +54,16 @@ class CalendarViewController: SNBaseViewController {
 //MARK: - Network Call
 extension CalendarViewController {
     
-    
-    
+    func fetchCalendarEvents(){
+        CalendarEvent.downloadEventData { (calendars) in
+            self.calendarArray = calendars
+            //Sorts based on most recent  date
+            //self.newsArray.sort(by: { $0.pubDate!.stringToDate().timeIntervalSinceNow > $1.pubDate!.stringToDate().timeIntervalSinceNow })
+            DispatchQueue.main.async {
+                self.calendarView.tableView.reloadData()
+            }
+        }
+    }
 }
 
 
@@ -58,14 +72,15 @@ extension CalendarViewController {
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 15
+        return calendarArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = calendarView.tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.cellId, for: indexPath) as? CalendarTableViewCell
-//        cell?.configureCell()
-        
+        cell?.configureCell(calendarArray[indexPath.row])
+        cell?.selectionStyle = .none
+
         return cell!
     }
     
@@ -73,5 +88,27 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         return 120
     }
     
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            if let cell = tableView.cellForRow(at: indexPath) as? CalendarTableViewCell {
+                cell.cardView.transform = .init(scaleX: 0.97, y: 0.97)
+                
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            if let cell = tableView.cellForRow(at: indexPath) as? CalendarTableViewCell {
+                cell.cardView.transform = .identity
+                
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        <#code#>
+    }
     
 }

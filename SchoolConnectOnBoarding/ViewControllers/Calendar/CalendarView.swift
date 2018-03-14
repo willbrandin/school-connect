@@ -15,7 +15,7 @@ class CalendarView: UIView {
     //MARK: - UI Elements
     lazy var tableView: UITableView! = {
         let tableView = UITableView()
-        tableView.tag = 1
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()

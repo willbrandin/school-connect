@@ -27,6 +27,8 @@
 		0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6B205980430031CDE9 /* CalendarView.swift */; };
 		0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6D205982780031CDE9 /* CalendarTableViewCell.swift */; };
 		0349BF712059AA790031CDE9 /* CalendarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF702059AA790031CDE9 /* CalendarCardView.swift */; };
+		0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */; };
+		0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
 		0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67B2056FB1000284055 /* SearchBlankView.swift */; };
 		0382F67F205701E800284055 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67E205701E800284055 /* ConfirmationView.swift */; };
@@ -78,6 +80,8 @@
 		0349BF6B205980430031CDE9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0349BF6D205982780031CDE9 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		0349BF702059AA790031CDE9 /* CalendarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCardView.swift; path = "/Users/william.brandin/Library/Mobile Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/ViewControllers/Calendar/Cell/CalendarCardView.swift"; sourceTree = "<absolute>"; };
+		0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventViewController.swift; sourceTree = "<group>"; };
+		0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventView.swift; sourceTree = "<group>"; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
 		0382F67E205701E800284055 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -160,6 +164,7 @@
 		0312E68320586E5D009327F3 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				0349BF732059C1AF0031CDE9 /* SelectedNewsArticle */,
 				0349BF6620595F140031CDE9 /* Cell */,
 				0312E68420586E6D009327F3 /* NewsViewController.swift */,
 				0349BF6420595E350031CDE9 /* NewsView.swift */,
@@ -170,6 +175,7 @@
 		0312E688205872EE009327F3 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				0349BF722059C18F0031CDE9 /* SelectedCalendar */,
 				0349BF6F2059A9CB0031CDE9 /* Cell */,
 				0312E68A20587307009327F3 /* CalendarViewController.swift */,
 				0349BF6B205980430031CDE9 /* CalendarView.swift */,
@@ -224,6 +230,22 @@
 				0349BF6D205982780031CDE9 /* CalendarTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		0349BF722059C18F0031CDE9 /* SelectedCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */,
+				0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */,
+			);
+			path = SelectedCalendar;
+			sourceTree = "<group>";
+		};
+		0349BF732059C1AF0031CDE9 /* SelectedNewsArticle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SelectedNewsArticle;
 			sourceTree = "<group>";
 		};
 		0382F67A2056FAF600284055 /* TableViewBGs */ = {
@@ -602,6 +624,7 @@
 				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
 				0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */,
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
+				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */,
 				0312E68F20587959009327F3 /* SideButton.swift in Sources */,
@@ -610,6 +633,7 @@
 				0349BF6520595E350031CDE9 /* NewsView.swift in Sources */,
 				03930CEA2054B1C700128D72 /* Extensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
+				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
 				03930CEC2054B23700128D72 /* SNUIKit.swift in Sources */,
@@ -761,6 +785,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5QM989GLQ;
 				INFOPLIST_FILE = SchoolConnectOnBoarding/Helper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = willbrandin.com.SchoolConnectOnBoarding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -777,6 +802,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5QM989GLQ;
 				INFOPLIST_FILE = SchoolConnectOnBoarding/Helper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = willbrandin.com.SchoolConnectOnBoarding;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -65,7 +65,7 @@ class CalendarCardView: UIView {
     }()
     
     
-    //MARK: - Methods
+    //MARK: - Init
     
     func customizeUI(){
          self.backgroundColor = UIColor.white
@@ -76,17 +76,24 @@ class CalendarCardView: UIView {
         updateCornerRadius()
     }
     
+    override func layoutSubviews() {
+        makeShadow()
+    }
+    
+    
+    //MARK: - Methods
+
     func setupMainStackViewConstraints(){
         addSubview(mainStackView)
         mainStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8.0).isActive = true
         mainStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8.0).isActive = true
-        mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10.0).isActive = true
-        mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10.0).isActive = true
+        mainStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 14.0).isActive = true
+        mainStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12.0).isActive = true
         setupSideButtonViewConstraints()
     }
     
     func setupSideButtonViewConstraints(){
-        arrowImageView.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+        arrowImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         arrowImageView.widthAnchor.constraint(equalTo: arrowImageView.heightAnchor).isActive = true
     }
     
@@ -95,4 +102,10 @@ class CalendarCardView: UIView {
         self.layer.masksToBounds = false
     }
 
+    func makeShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 8.0
+    }
 }
