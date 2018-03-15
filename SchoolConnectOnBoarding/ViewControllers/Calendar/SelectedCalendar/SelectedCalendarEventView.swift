@@ -16,9 +16,9 @@ class SelectedCalendarEventView: UIView {
     
     lazy var informationTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Information:"
+        label.text = "Information"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,14 +33,39 @@ class SelectedCalendarEventView: UIView {
     
     lazy var dateAndTimeTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Date and Time:"
+        label.text = "Date and Time"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    lazy var dateAndTimeLabel: UILabel! = {
+    lazy var startDateSubtitle: UILabel! = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        label.textColor = UIColor.scGrayText()
+        label.text = "Start Date"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var endDateSubtitle: UILabel! = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        label.textColor = UIColor.scGrayText()
+        label.text = "End Date"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var startDateLabel: UILabel! = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    lazy var endDateLabel: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -49,9 +74,9 @@ class SelectedCalendarEventView: UIView {
     
     lazy var locationTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Location:"
+        label.text = "Location"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -83,8 +108,11 @@ class SelectedCalendarEventView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.addArrangedSubview(dateAndTimeTitleLabel)
-        stackView.addArrangedSubview(dateAndTimeLabel)
-        
+        stackView.addArrangedSubview(startDateSubtitle)
+        stackView.addArrangedSubview(startDateLabel)
+        stackView.addArrangedSubview(endDateSubtitle)
+        stackView.addArrangedSubview(endDateLabel)
+
         
         stackView.distribution = .fill
         stackView.alignment = .fill
@@ -118,7 +146,7 @@ class SelectedCalendarEventView: UIView {
 
         stackView.distribution = .fill
         stackView.alignment = .fill
-        stackView.spacing = 15.0
+        stackView.spacing = 20.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -139,8 +167,10 @@ class SelectedCalendarEventView: UIView {
         if let event = calendarEvent {
             backgroundColor = UIColor.white
             informationLabel.text = event.description
-            dateAndTimeLabel.text = event.startDate
             locationLabel.text = event.location
+            
+            formatForStartAndEndDate(event)
+            
         }
     }
     
@@ -161,6 +191,23 @@ class SelectedCalendarEventView: UIView {
         saveToCalendarButton.heightAnchor.constraint(equalToConstant: 55.0).isActive = true
         
 
+    }
+    
+    func formatForStartAndEndDate(_ event: CalendarEvent){
+        if event.startDate != nil && event.endDate != nil {
+            startDateLabel.text = event.startDate
+            endDateLabel.text = event.endDate
+            
+            startDateSubtitle.isHidden = false
+            endDateSubtitle.isHidden = false
+            endDateLabel.isHidden = false
+        } else {
+            startDateLabel.text = event.startDate
+            
+            startDateSubtitle.isHidden = true
+            endDateSubtitle.isHidden = true
+            endDateLabel.isHidden = true
+        }
     }
 
     @objc func handleAddToCalendar(){

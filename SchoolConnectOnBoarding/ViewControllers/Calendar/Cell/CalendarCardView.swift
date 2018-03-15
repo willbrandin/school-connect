@@ -70,9 +70,12 @@ class CalendarCardView: UIView {
     func customizeUI(){
          self.backgroundColor = UIColor.white
         setupMainStackViewConstraints()
-        titleLabel.text = "Bake sale"
-        eventDateLabel.text = "12/15/1993"
-       
+        if let event = calendarEvent {
+            titleLabel.text = event.title
+            eventDateLabel.text = event.startDate
+            
+        }
+        
         updateCornerRadius()
     }
     
