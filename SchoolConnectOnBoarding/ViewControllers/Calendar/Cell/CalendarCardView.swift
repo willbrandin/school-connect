@@ -72,7 +72,7 @@ class CalendarCardView: UIView {
         setupMainStackViewConstraints()
         if let event = calendarEvent {
             titleLabel.text = event.title
-            eventDateLabel.text = event.startDate
+            eventDateLabel.text = event.startDate?.stringWithDateFormat(.simpleDate)
             
         }
         

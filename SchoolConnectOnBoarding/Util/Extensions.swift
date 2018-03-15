@@ -122,10 +122,22 @@ extension String {
     
     func stringToDate() -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = WBDateFormat.serverDateFormat.rawValue
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
         let date = dateFormatter.date(from: self)!
         return date
     }
     
+    func stringWithDateFormat(_ format: WBDateFormat) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.rawValue // Your New Date format as per requirement change it own
+        let date = self.stringToDate()
+        
+        return dateFormatter.string(from: date)
+        
+    }
+    
+    
 }
+

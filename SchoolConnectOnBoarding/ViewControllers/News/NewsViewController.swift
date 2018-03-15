@@ -53,7 +53,7 @@ extension NewsViewController {
         NewsArticle.downloadNewsData { (newsArticles) in
             self.newsArray = newsArticles
             //Sorts based on most recent pub date
-            //self.newsArray.sort(by: { $0.pubDate!.stringToDate().timeIntervalSinceNow > $1.pubDate!.stringToDate().timeIntervalSinceNow })
+            self.newsArray.sort(by: { $0.pubDate!.stringToDate().timeIntervalSinceNow > $1.pubDate!.stringToDate().timeIntervalSinceNow })
             DispatchQueue.main.async {
                 self.newsView.collectionView.reloadData()
             }

@@ -22,3 +22,10 @@ enum FirebasePathStrings: String {
     case newsPath = "News"
     case calendarPath = "Calendar"
 }
+
+enum WBDateFormat: String {
+    case simpleDate = "MM/dd/yyyy"
+    case dateAndTime = "MMMM d, h:mm a"
+    case weekDayAndTime = "EEEE, MMMM d, h:mm a"
+    case serverDateFormat = "E, d MMM yyyy HH:mm:ss Z"
+}

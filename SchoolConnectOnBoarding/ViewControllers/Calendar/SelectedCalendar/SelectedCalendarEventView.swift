@@ -195,14 +195,14 @@ class SelectedCalendarEventView: UIView {
     
     func formatForStartAndEndDate(_ event: CalendarEvent){
         if event.startDate != nil && event.endDate != nil {
-            startDateLabel.text = event.startDate
-            endDateLabel.text = event.endDate
+            startDateLabel.text = event.startDate?.stringWithDateFormat(.weekDayAndTime)
+            endDateLabel.text = event.endDate?.stringWithDateFormat(.weekDayAndTime)
             
             startDateSubtitle.isHidden = false
             endDateSubtitle.isHidden = false
             endDateLabel.isHidden = false
         } else {
-            startDateLabel.text = event.startDate
+            startDateLabel.text = event.startDate?.stringWithDateFormat(.weekDayAndTime)
             
             startDateSubtitle.isHidden = true
             endDateSubtitle.isHidden = true

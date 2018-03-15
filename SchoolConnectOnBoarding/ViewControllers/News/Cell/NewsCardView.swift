@@ -69,7 +69,7 @@ class NewsCardView: UIView {
         setupStackViewContraints()
         
         if let news = newsArticle {
-            pubDateLabel.text = news.pubDate
+            pubDateLabel.text = news.pubDate?.stringWithDateFormat(.simpleDate)
             titleLabel.text = news.title
             subTitleLabel.text = news.subtitle
 

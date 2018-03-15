@@ -58,7 +58,7 @@ extension CalendarViewController {
         CalendarEvent.downloadEventData { (calendars) in
             self.calendarArray = calendars
             //Sorts based on most recent  date
-            //self.newsArray.sort(by: { $0.pubDate!.stringToDate().timeIntervalSinceNow > $1.pubDate!.stringToDate().timeIntervalSinceNow })
+            self.calendarArray.sort(by: { $0.startDate!.stringToDate().timeIntervalSinceNow > $1.startDate!.stringToDate().timeIntervalSinceNow })
             DispatchQueue.main.async {
                 self.calendarView.tableView.reloadData()
             }
