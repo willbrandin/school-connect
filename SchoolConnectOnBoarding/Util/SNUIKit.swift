@@ -91,8 +91,9 @@ class SNRoundedSchoolButton: UIButton {
         guard let primaryColor = SNDatabaseQueryManager.getSavedPrimaryColor() else { return }
         guard let secondaryColor = SNDatabaseQueryManager.getSavedSecondaryColor() else { return }
         self.backgroundColor = UIColor.white
-        
-        if primaryColor.isLight {
+        if primaryColor.isLight && secondaryColor.isLight {
+            self.setTitleColor(UIColor.scGray(), for: .normal)
+        }else if primaryColor.isLight {
             self.setTitleColor(secondaryColor, for: .normal)
         } else {
             self.setTitleColor(primaryColor, for: .normal)

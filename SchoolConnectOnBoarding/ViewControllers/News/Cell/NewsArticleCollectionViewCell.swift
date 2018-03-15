@@ -45,7 +45,7 @@ class NewsArticleCollectionViewCell: UICollectionViewCell {
         cardView = NewsCardView()
         addSubview(cardView)
         cardView.translatesAutoresizingMaskIntoConstraints = false
-        cardView.topAnchor.constraint(equalTo: self.topAnchor, constant: 15.0).isActive = true
+        cardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15.0).isActive = true
         cardView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         cardView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.90).isActive = true
