@@ -123,10 +123,19 @@ class SelectedCalendarEventView: UIView {
         return stackView
     }()
     
+    lazy var saveToCalendarButton: SNRoundedSchoolButton! = {
+        let button = SNRoundedSchoolButton()
+        button.setTitle("Save to Calendar", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleAddToCalendar), for: .touchUpInside)
+        return button
+    }()
+    
     
     //MARK: - Init
     func customizeUI(_ calendarEvent: CalendarEvent?){
         setupStackViewConstraints()
+        setupButtonConstraints()
         if let event = calendarEvent {
             backgroundColor = UIColor.white
             informationLabel.text = event.description
@@ -143,4 +152,19 @@ class SelectedCalendarEventView: UIView {
         bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         bodyTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
     }
+    
+    func setupButtonConstraints(){
+        addSubview(saveToCalendarButton)
+        saveToCalendarButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0).isActive = true
+        saveToCalendarButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        saveToCalendarButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6).isActive = true
+        saveToCalendarButton.heightAnchor.constraint(equalToConstant: 55.0).isActive = true
+        
+
+    }
+
+    @objc func handleAddToCalendar(){
+        print("Saved")
+    }
+
 }

@@ -95,7 +95,7 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if let cell = collectionView.cellForItem(at: indexPath) as? NewsArticleCollectionViewCell {
-                cell.cardView.transform = .init(scaleX: 0.95, y: 0.95)
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
  
             }
         }
@@ -104,7 +104,7 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if let cell = collectionView.cellForItem(at: indexPath) as? NewsArticleCollectionViewCell {
-                cell.cardView.transform = .identity
+                cell.transform = .identity
                 
             }
         }

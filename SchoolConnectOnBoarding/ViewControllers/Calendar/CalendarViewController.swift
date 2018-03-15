@@ -92,7 +92,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if let cell = tableView.cellForRow(at: indexPath) as? CalendarTableViewCell {
-                cell.cardView.transform = .init(scaleX: 0.97, y: 0.97)
+                cell.transform = .init(scaleX: 0.97, y: 0.97)
                 
             }
         }
@@ -101,7 +101,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if let cell = tableView.cellForRow(at: indexPath) as? CalendarTableViewCell {
-                cell.cardView.transform = .identity
+                cell.transform = .identity
                 
             }
         }
