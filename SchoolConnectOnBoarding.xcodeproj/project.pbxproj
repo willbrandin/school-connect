@@ -29,6 +29,8 @@
 		0349BF712059AA790031CDE9 /* CalendarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF702059AA790031CDE9 /* CalendarCardView.swift */; };
 		0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */; };
 		0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */; };
+		0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */; };
+		0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
 		0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67B2056FB1000284055 /* SearchBlankView.swift */; };
 		0382F67F205701E800284055 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67E205701E800284055 /* ConfirmationView.swift */; };
@@ -82,6 +84,8 @@
 		0349BF702059AA790031CDE9 /* CalendarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CalendarCardView.swift; path = "/Users/william.brandin/Library/Mobile Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/ViewControllers/Calendar/Cell/CalendarCardView.swift"; sourceTree = "<absolute>"; };
 		0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventViewController.swift; sourceTree = "<group>"; };
 		0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventView.swift; sourceTree = "<group>"; };
+		0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleView.swift; sourceTree = "<group>"; };
+		0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleViewController.swift; sourceTree = "<group>"; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
 		0382F67E205701E800284055 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 		0349BF732059C1AF0031CDE9 /* SelectedNewsArticle */ = {
 			isa = PBXGroup;
 			children = (
+				0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */,
+				0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */,
 			);
 			path = SelectedNewsArticle;
 			sourceTree = "<group>";
@@ -634,7 +640,9 @@
 				03930CEA2054B1C700128D72 /* Extensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
+				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
+				0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
 				03930CEC2054B23700128D72 /* SNUIKit.swift in Sources */,
 			);

@@ -44,7 +44,6 @@ class SNBaseNavigationController: UINavigationController {
         }
         
         self.navigationBar.tintColor = SNDatabaseQueryManager.getSavedSecondaryColor()
-        
     }
 
 
