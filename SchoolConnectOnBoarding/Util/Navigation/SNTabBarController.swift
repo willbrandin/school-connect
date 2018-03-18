@@ -41,7 +41,7 @@ class SNTabBarController: UITabBarController {
         if (tabBar.barTintColor?.isLight)! {
             tabBar.unselectedItemTintColor = UIColor.gray
         } else {
-            tabBar.unselectedItemTintColor = UIColor.lightGray
+            tabBar.unselectedItemTintColor = UIColor.darkGray
         }
     }
     

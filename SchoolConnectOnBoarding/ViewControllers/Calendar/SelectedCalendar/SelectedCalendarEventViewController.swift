@@ -55,6 +55,18 @@ extension SelectedCalendarEventViewController: SaveToCalendarEventDelegate {
     
     func didTapSaveToCalendar() {
         //Loading for set amount time
+        
+//        var popup = UIView(frame: CGRect(x: 100, y: 200, width: 200, height: 200))
+//
+//        let lb = UILabel(frame: CGRect(x: 100, y: 200, width: 200, height: 200))
+//        lb.text="anything"
+//        popup.backgroundColor = UIColor.red
+//
+//        // show on screen
+//        self.view.addSubview(popup)
+//        popup.addSubview(lb)
+//        lb.center = popup.center
+//
         addEventToCalendar { (success, err) in
             if success {
                 //Loading to a check mark
@@ -68,6 +80,9 @@ extension SelectedCalendarEventViewController: SaveToCalendarEventDelegate {
         }
     }
     
+    
+    
+    
     ///Adds the ability to add event to the user calendar as an event.
     func addEventToCalendar(completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
         
@@ -77,6 +92,7 @@ extension SelectedCalendarEventViewController: SaveToCalendarEventDelegate {
             
             eventStore.requestAccess(to: .event, completion: { (granted, error) in
                 if (granted) && (error == nil) {
+                    
                     let event = EKEvent(eventStore: eventStore)
                     event.title = newEvent.title
                     event.startDate = newEvent.startDate?.stringToDate()

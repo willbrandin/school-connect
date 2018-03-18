@@ -20,6 +20,13 @@
 		0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68C20587525009327F3 /* CalendarEvent.swift */; };
 		0312E68F20587959009327F3 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68E20587959009327F3 /* SideButton.swift */; };
 		0312E69220587A86009327F3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E69120587A86009327F3 /* ContactViewController.swift */; };
+		032685BA205C94E700905EB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685B9205C94E700905EB3 /* HomeView.swift */; };
+		032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */; };
+		032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */; };
+		032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */; };
+		032685C5205F0A6700905EB3 /* HomeFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C4205F0A6700905EB3 /* HomeFeatureView.swift */; };
+		032685C7205F0AEE00905EB3 /* HomeLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C6205F0AEE00905EB3 /* HomeLinkView.swift */; };
+		032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */; };
 		03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03320D0820560C9D00B2B987 /* GoogleService-Info.plist */; };
 		0349BF6520595E350031CDE9 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6420595E350031CDE9 /* NewsView.swift */; };
 		0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6720595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift */; };
@@ -75,6 +82,13 @@
 		0312E68C20587525009327F3 /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		0312E68E20587959009327F3 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
 		0312E69120587A86009327F3 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		032685B9205C94E700905EB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingCollectionViewCell.swift; sourceTree = "<group>"; };
+		032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingView.swift; sourceTree = "<group>"; };
+		032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureCollectionViewCell.swift; sourceTree = "<group>"; };
+		032685C4205F0A6700905EB3 /* HomeFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureView.swift; sourceTree = "<group>"; };
+		032685C6205F0AEE00905EB3 /* HomeLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkView.swift; sourceTree = "<group>"; };
+		032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkCollectionViewCell.swift; sourceTree = "<group>"; };
 		03320D0820560C9D00B2B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SchoolConnectOnBoarding/Helper/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0349BF6420595E350031CDE9 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		0349BF6720595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -193,6 +207,33 @@
 				0312E69120587A86009327F3 /* ContactViewController.swift */,
 			);
 			path = Contact;
+			sourceTree = "<group>";
+		};
+		032685BB205DAD9100905EB3 /* Greeting Cell */ = {
+			isa = PBXGroup;
+			children = (
+				032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */,
+				032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */,
+			);
+			path = "Greeting Cell";
+			sourceTree = "<group>";
+		};
+		032685BC205DADA400905EB3 /* Feature Cell */ = {
+			isa = PBXGroup;
+			children = (
+				032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */,
+				032685C4205F0A6700905EB3 /* HomeFeatureView.swift */,
+			);
+			path = "Feature Cell";
+			sourceTree = "<group>";
+		};
+		032685BD205DADAD00905EB3 /* Links Cell */ = {
+			isa = PBXGroup;
+			children = (
+				032685C6205F0AEE00905EB3 /* HomeLinkView.swift */,
+				032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */,
+			);
+			path = "Links Cell";
 			sourceTree = "<group>";
 		};
 		033418B72056BFD9003B61CE /* Helper */ = {
@@ -345,7 +386,11 @@
 		03930CE52054ACD300128D72 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				032685BB205DAD9100905EB3 /* Greeting Cell */,
+				032685BC205DADA400905EB3 /* Feature Cell */,
+				032685BD205DADAD00905EB3 /* Links Cell */,
 				0312E67D205855E0009327F3 /* HomeViewController.swift */,
+				032685B9205C94E700905EB3 /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -613,25 +658,31 @@
 				0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */,
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
+				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
+				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
 				0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */,
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
 				0312E674205833B5009327F3 /* SNEnums.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
+				032685C7205F0AEE00905EB3 /* HomeLinkView.swift in Sources */,
 				0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */,
 				0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */,
 				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,
 				03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */,
 				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
+				032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */,
 				0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */,
 				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
 				0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */,
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
 				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
+				032685C5205F0A6700905EB3 /* HomeFeatureView.swift in Sources */,
+				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
 				0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */,
 				0312E68F20587959009327F3 /* SideButton.swift in Sources */,
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
@@ -642,6 +693,7 @@
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
+				032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */,
 				0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
 				03930CEC2054B23700128D72 /* SNUIKit.swift in Sources */,

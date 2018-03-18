@@ -9,6 +9,7 @@
 import UIKit
 
 class NewsViewController: SNBaseViewController {
+    
     //MARK: - Properties
     var newsView: NewsView!
     var newsArray = [NewsArticle]()
@@ -89,7 +90,7 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.7)
+        return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.58)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

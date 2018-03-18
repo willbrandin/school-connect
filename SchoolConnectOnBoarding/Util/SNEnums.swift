@@ -29,3 +29,20 @@ enum WBDateFormat: String {
     case weekDayAndTime = "EEEE, MMMM d, h:mm a"
     case serverDateFormat = "E, d MMM yyyy HH:mm:ss Z"
 }
+
+enum HomeCellIndex: Int {
+    case greeting = 0
+    case featureCell = 1
+    case linksCell = 2
+}
+
+
+
+
+
+
+
+
+
+
+
