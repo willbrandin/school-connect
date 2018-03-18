@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeLinkCollectionViewCell: UICollectionViewCell {
+class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
     
     
     //MARK: - Properties
@@ -29,9 +29,6 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
         
     }
     
-    override func layoutSubviews() {
-        makeShadow()
-    }
     
     //MARK: - Methods
     func configureCell(){
@@ -48,15 +45,8 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
         linkView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15.0).isActive = true
         linkView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         linkView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
-        linkView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.90).isActive = true
-        
+        linkView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
     }
     
-    func makeShadow(){
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 10)
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowRadius = 20.0
-    }
     
 }

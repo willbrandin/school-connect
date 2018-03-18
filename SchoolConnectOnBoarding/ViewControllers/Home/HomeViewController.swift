@@ -57,19 +57,19 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         if indexPath.row == HomeCellIndex.greeting.rawValue {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGreetingCollectionViewCell.reuseID, for: indexPath) as! HomeGreetingCollectionViewCell
-            cell.backgroundColor = UIColor.green
+            cell.configureCell()
             return cell
             
         } else if indexPath.row == HomeCellIndex.featureCell.rawValue {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFeatureCollectionViewCell.reuseID, for: indexPath) as! HomeFeatureCollectionViewCell
-            cell.backgroundColor = UIColor.blue
+            cell.configureCell()
             return cell
             
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeLinkCollectionViewCell.reuseID, for: indexPath) as! HomeLinkCollectionViewCell
-            cell.backgroundColor = UIColor.red
+            cell.configureCell()
             return cell
             
         }
@@ -80,7 +80,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if indexPath.row == HomeCellIndex.greeting.rawValue {
-            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.5)
+            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.6)
 
         } else if indexPath.row == HomeCellIndex.featureCell.rawValue {
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.4)
@@ -90,6 +90,25 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         }
      
         return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.transform = .init(scaleX: 0.95, y: 0.95)
+                
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.transform = .identity
+                
+            }
+        }
     }
     
 }

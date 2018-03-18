@@ -23,7 +23,7 @@ class HomeFeatureView: UIView {
     
     //MARK: - Init
     func customizeUI(){
-        
+        backgroundColor = UIColor.white
         
     }
     override func layoutSubviews() {
