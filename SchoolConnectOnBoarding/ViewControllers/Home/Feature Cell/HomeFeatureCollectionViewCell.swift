@@ -17,8 +17,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell {
     
     
     //MARK: - UI Elements
-    
-    
+
     lazy var featureTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)

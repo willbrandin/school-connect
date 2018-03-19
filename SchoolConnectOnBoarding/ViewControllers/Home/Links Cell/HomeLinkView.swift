@@ -24,12 +24,12 @@ class HomeLinkView: UIView {
     
     //MARK: - Init
     func customizeUI(){
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.green
     }
     
     override func layoutSubviews() {
-        makeRoundCorners()
-
+        
+        
     }
     
     //MARK: - Methods

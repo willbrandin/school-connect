@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
+class HomeLinkCollectionViewCell: UICollectionViewCell {
     
     
     //MARK: - Properties
@@ -17,6 +17,15 @@ class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
     
     //MARK: - UI Elements
     
+    lazy var linkTitleLabel: UILabel! = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
+        label.text = "Useful Links"
+        label.textColor = UIColor.black
+        label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     //MARK: - Init
     
@@ -32,8 +41,8 @@ class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
     
     //MARK: - Methods
     func configureCell(){
+        setupTitleConstraints()
         setupCardViewConstraints()
-
         linkView.customizeUI()
         
     }
@@ -43,11 +52,18 @@ class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
         addSubview(linkView)
         
         linkView.translatesAutoresizingMaskIntoConstraints = false
-        linkView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15.0).isActive = true
+        linkView.topAnchor.constraint(equalTo: self.linkTitleLabel.bottomAnchor, constant: 5.0).isActive = true
         linkView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         linkView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         linkView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0).isActive = true
     }
     
+    func setupTitleConstraints(){
+        addSubview(linkTitleLabel)
+        linkTitleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15.0).isActive = true
+        linkTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
+        linkTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        linkTitleLabel.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
+    }
     
 }
