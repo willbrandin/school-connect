@@ -25,14 +25,15 @@ class HomeLinkView: UIView {
     //MARK: - Init
     func customizeUI(){
         backgroundColor = UIColor.white
-        
     }
+    
     override func layoutSubviews() {
         makeRoundCorners()
+
     }
     
     //MARK: - Methods
-    
+   
     
     
     

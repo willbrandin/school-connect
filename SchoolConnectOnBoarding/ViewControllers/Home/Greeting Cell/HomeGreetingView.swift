@@ -65,8 +65,12 @@ class HomeGreetingView: UIView {
     func customizeUI(){
         backgroundColor = UIColor.white
 
-        makeRoundCorners()
         setupStackViewContraints()
+    }
+    
+    override func layoutSubviews() {
+        makeRoundCorners()
+
     }
     
     

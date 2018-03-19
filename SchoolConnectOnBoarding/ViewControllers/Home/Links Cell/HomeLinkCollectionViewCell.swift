@@ -33,7 +33,7 @@ class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
     //MARK: - Methods
     func configureCell(){
         setupCardViewConstraints()
-        
+
         linkView.customizeUI()
         
     }
@@ -41,11 +41,12 @@ class HomeLinkCollectionViewCell: SCHomeCollectionViewCell {
     func setupCardViewConstraints(){
         linkView = HomeLinkView()
         addSubview(linkView)
+        
         linkView.translatesAutoresizingMaskIntoConstraints = false
         linkView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15.0).isActive = true
         linkView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         linkView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
-        linkView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
+        linkView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0).isActive = true
     }
     
     

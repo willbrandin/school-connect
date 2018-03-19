@@ -24,7 +24,7 @@
 		032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */; };
 		032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */; };
 		032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */; };
-		032685C5205F0A6700905EB3 /* HomeFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C4205F0A6700905EB3 /* HomeFeatureView.swift */; };
+		032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C4205F0A6700905EB3 /* FeatureCardView.swift */; };
 		032685C7205F0AEE00905EB3 /* HomeLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C6205F0AEE00905EB3 /* HomeLinkView.swift */; };
 		032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */; };
 		03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03320D0820560C9D00B2B987 /* GoogleService-Info.plist */; };
@@ -38,6 +38,7 @@
 		0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */; };
 		0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */; };
 		0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */; };
+		037733F320605AEC0046D276 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F220605AEC0046D276 /* FeatureCell.swift */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
 		0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67B2056FB1000284055 /* SearchBlankView.swift */; };
 		0382F67F205701E800284055 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67E205701E800284055 /* ConfirmationView.swift */; };
@@ -86,7 +87,7 @@
 		032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingCollectionViewCell.swift; sourceTree = "<group>"; };
 		032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingView.swift; sourceTree = "<group>"; };
 		032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureCollectionViewCell.swift; sourceTree = "<group>"; };
-		032685C4205F0A6700905EB3 /* HomeFeatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureView.swift; sourceTree = "<group>"; };
+		032685C4205F0A6700905EB3 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		032685C6205F0AEE00905EB3 /* HomeLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkView.swift; sourceTree = "<group>"; };
 		032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkCollectionViewCell.swift; sourceTree = "<group>"; };
 		03320D0820560C9D00B2B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SchoolConnectOnBoarding/Helper/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -100,6 +101,7 @@
 		0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventView.swift; sourceTree = "<group>"; };
 		0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleView.swift; sourceTree = "<group>"; };
 		0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleViewController.swift; sourceTree = "<group>"; };
+		037733F220605AEC0046D276 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
 		0382F67E205701E800284055 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -221,8 +223,8 @@
 		032685BC205DADA400905EB3 /* Feature Cell */ = {
 			isa = PBXGroup;
 			children = (
+				037733F120605AD60046D276 /* Cell */,
 				032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */,
-				032685C4205F0A6700905EB3 /* HomeFeatureView.swift */,
 			);
 			path = "Feature Cell";
 			sourceTree = "<group>";
@@ -293,6 +295,15 @@
 				0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */,
 			);
 			path = SelectedNewsArticle;
+			sourceTree = "<group>";
+		};
+		037733F120605AD60046D276 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				037733F220605AEC0046D276 /* FeatureCell.swift */,
+				032685C4205F0A6700905EB3 /* FeatureCardView.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0382F67A2056FAF600284055 /* TableViewBGs */ = {
@@ -666,6 +677,7 @@
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
 				0312E674205833B5009327F3 /* SNEnums.swift in Sources */,
+				037733F320605AEC0046D276 /* FeatureCell.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
 				032685C7205F0AEE00905EB3 /* HomeLinkView.swift in Sources */,
@@ -681,7 +693,7 @@
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
 				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
-				032685C5205F0A6700905EB3 /* HomeFeatureView.swift in Sources */,
+				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
 				0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */,
 				0312E68F20587959009327F3 /* SideButton.swift in Sources */,

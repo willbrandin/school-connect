@@ -15,6 +15,12 @@ class FeatureCardView: UIView {
     
     
     //MARK: - UI Elements
+    
+    var backgroundImageView: UIImageView! = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    
     lazy var featureTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 26.0, weight: .semibold)
@@ -25,6 +31,13 @@ class FeatureCardView: UIView {
         return label
     }()
     
+    lazy var featureSubtitleText: UILabel! = {
+        let label = UILabel()
+        return label
+    }()
+    
+    
+    
     //MARK: - StackView
     
     
@@ -32,13 +45,16 @@ class FeatureCardView: UIView {
     //MARK: - Init
     func customizeUI(){
         backgroundColor = UIColor.white
-        
+        makeRoundCorners()
     }
     
     
     
     //MARK: - Methods
-    
+    func makeRoundCorners(){
+        self.layer.cornerRadius = 20.0
+        self.layer.masksToBounds = true
+    }
   
     
 
