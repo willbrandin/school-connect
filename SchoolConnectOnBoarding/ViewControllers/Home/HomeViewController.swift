@@ -103,6 +103,10 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
 
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
+            
+            if SCDatabaseQueryManager.getSavedLinks().count > 3 {
+                return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
+            }
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.25)
         }
         
