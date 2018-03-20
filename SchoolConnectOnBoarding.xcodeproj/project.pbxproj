@@ -25,7 +25,6 @@
 		032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */; };
 		032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */; };
 		032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C4205F0A6700905EB3 /* FeatureCardView.swift */; };
-		032685C7205F0AEE00905EB3 /* HomeLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C6205F0AEE00905EB3 /* HomeLinkView.swift */; };
 		032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */; };
 		03320D0920560C9D00B2B987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03320D0820560C9D00B2B987 /* GoogleService-Info.plist */; };
 		0349BF6520595E350031CDE9 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6420595E350031CDE9 /* NewsView.swift */; };
@@ -39,6 +38,7 @@
 		0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */; };
 		0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */; };
 		037733F320605AEC0046D276 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F220605AEC0046D276 /* FeatureCell.swift */; };
+		037733F6206144BD0046D276 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F5206144BD0046D276 /* LinkCell.swift */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
 		0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67B2056FB1000284055 /* SearchBlankView.swift */; };
 		0382F67F205701E800284055 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F67E205701E800284055 /* ConfirmationView.swift */; };
@@ -88,7 +88,6 @@
 		032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingView.swift; sourceTree = "<group>"; };
 		032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureCollectionViewCell.swift; sourceTree = "<group>"; };
 		032685C4205F0A6700905EB3 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
-		032685C6205F0AEE00905EB3 /* HomeLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkView.swift; sourceTree = "<group>"; };
 		032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkCollectionViewCell.swift; sourceTree = "<group>"; };
 		03320D0820560C9D00B2B987 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "SchoolConnectOnBoarding/Helper/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		0349BF6420595E350031CDE9 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
@@ -102,6 +101,7 @@
 		0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleView.swift; sourceTree = "<group>"; };
 		0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleViewController.swift; sourceTree = "<group>"; };
 		037733F220605AEC0046D276 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
+		037733F5206144BD0046D276 /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
 		0382F67E205701E800284055 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		032685BD205DADAD00905EB3 /* Links Cell */ = {
 			isa = PBXGroup;
 			children = (
-				032685C6205F0AEE00905EB3 /* HomeLinkView.swift */,
+				037733F420608BC60046D276 /* Cell */,
 				032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */,
 			);
 			path = "Links Cell";
@@ -302,6 +302,14 @@
 			children = (
 				037733F220605AEC0046D276 /* FeatureCell.swift */,
 				032685C4205F0A6700905EB3 /* FeatureCardView.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		037733F420608BC60046D276 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				037733F5206144BD0046D276 /* LinkCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -670,6 +678,7 @@
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
+				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
 				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
@@ -680,7 +689,6 @@
 				037733F320605AEC0046D276 /* FeatureCell.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
-				032685C7205F0AEE00905EB3 /* HomeLinkView.swift in Sources */,
 				0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */,
 				0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */,
 				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,

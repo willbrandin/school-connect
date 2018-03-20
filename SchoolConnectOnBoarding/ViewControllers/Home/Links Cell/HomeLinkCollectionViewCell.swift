@@ -13,7 +13,6 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Properties
     static var reuseID = "HomeLinkCell"
-    var linkView: HomeLinkView!
     
     //MARK: - UI Elements
     
@@ -25,6 +24,13 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    lazy var tableView: UITableView! = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
     }()
     
     //MARK: - Init
@@ -42,20 +48,25 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     //MARK: - Methods
     func configureCell(){
         setupTitleConstraints()
-        setupCardViewConstraints()
-        linkView.customizeUI()
+        setupTableConstraints()
         
     }
     
-    func setupCardViewConstraints(){
-        linkView = HomeLinkView()
-        addSubview(linkView)
+    func setupTableConstraints(){
+        tableView = UITableView()
+        addSubview(tableView)
         
-        linkView.translatesAutoresizingMaskIntoConstraints = false
-        linkView.topAnchor.constraint(equalTo: self.linkTitleLabel.bottomAnchor, constant: 5.0).isActive = true
-        linkView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
-        linkView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
-        linkView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0).isActive = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: self.linkTitleLabel.bottomAnchor, constant: 5.0).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .none
+
+        tableView.register(LinkCell.self, forCellReuseIdentifier: LinkCell.cellId)
     }
     
     func setupTitleConstraints(){
@@ -67,3 +78,41 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     }
     
 }
+
+extension HomeLinkCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        //number of links
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: LinkCell.cellId, for: indexPath) as! LinkCell
+        cell.accessoryType = .disclosureIndicator
+        cell.configureCell()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func openInBrowser(){
+//        if let url = URL(string: link.linkURL) {
+//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+//        }
+    }
+
+}
+
+
+
+
+

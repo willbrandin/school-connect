@@ -89,6 +89,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell {
 extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //number of features
         return 2
     }
     
