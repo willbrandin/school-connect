@@ -66,6 +66,7 @@ class HomeGreetingView: UIView {
         backgroundColor = UIColor.white
 
         setupStackViewContraints()
+        todaysDateLabel.sizeToFit()
     }
     
     override func layoutSubviews() {
@@ -83,7 +84,7 @@ class HomeGreetingView: UIView {
         titleTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         titleTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         titleTextStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5.0).isActive = true
-        titleTextStackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25).isActive = true
+        titleTextStackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.27).isActive = true
         
         setupImgConstraints()
     }

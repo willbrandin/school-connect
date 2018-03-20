@@ -30,7 +30,7 @@ class NewsArticle {
         if let imageUrl = dataDictionary["imgUrl"] as? String {
             self.imgUrl = imageUrl
         } else {
-            self.imgUrl = SNDatabaseQueryManager.savedSchool()?.appSettings?.defaultImgUrl
+            self.imgUrl = SCDatabaseQueryManager.savedSchool()?.appSettings?.defaultImgUrl
         }
     }
     
@@ -44,7 +44,7 @@ class NewsArticle {
         var newsItems = [NewsArticle]()
         let ref = Database.database().reference()
         
-        guard let id = SNDatabaseQueryManager.savedSchool()?.schoolId else { return }
+        guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else { return }
         
         let newsQuery = ref.child(FirebasePathStrings.newsPath.rawValue).child(id)
         

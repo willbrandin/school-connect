@@ -13,7 +13,6 @@ class HomeViewController: SNBaseViewController {
     //MARK: - Properties
     var homeView: HomeView!
     
-    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +45,8 @@ class HomeViewController: SNBaseViewController {
         homeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
+   
+    
 }
 
 //MARK: - Collection Delegate
@@ -71,7 +72,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeLinkCollectionViewCell.reuseID, for: indexPath) as! HomeLinkCollectionViewCell
-
+            
             cell.configureCell()
         
             return cell
@@ -90,7 +91,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
 
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
-            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
+            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.25)
         }
         
         return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)

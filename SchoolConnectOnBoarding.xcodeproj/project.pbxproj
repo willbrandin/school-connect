@@ -55,6 +55,7 @@
 		03930CF02055D83A00128D72 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CEF2055D83A00128D72 /* SearchView.swift */; };
 		03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF12055FA1300128D72 /* SearchTableViewCell.swift */; };
 		03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF42055FF0100128D72 /* SchoolSearch.swift */; };
+		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		5E5C635B9A1B21BCA74E5572 /* Pods_SchoolConnectOnBoarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04357D378694E8878B954186 /* Pods_SchoolConnectOnBoarding.framework */; };
 		85B0A6D1F125BFC07351B73E /* Pods_SchoolConnectOnBoardingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		03930CEF2055D83A00128D72 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		03930CF12055FA1300128D72 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		03930CF42055FF0100128D72 /* SchoolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearch.swift; sourceTree = "<group>"; };
+		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		04357D378694E8878B954186 /* Pods_SchoolConnectOnBoarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolConnectOnBoarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		943F91FC6B6ACEA061A07C59 /* Pods-SchoolConnectOnBoarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.release.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.release.xcconfig"; sourceTree = "<group>"; };
 		A85DE3813FDEBD6EA3129232 /* Pods-SchoolConnectOnBoardingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoardingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoardingTests/Pods-SchoolConnectOnBoardingTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				0312E671205831A1009327F3 /* SNAppSettings.swift */,
 				0312E68620586EF4009327F3 /* NewsArticle.swift */,
 				0312E68C20587525009327F3 /* CalendarEvent.swift */,
+				03EA2B7320615E4300FACBBA /* SCHomeLink.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
 				03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */,
 				0349BF6520595E350031CDE9 /* NewsView.swift in Sources */,
+				03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */,
 				03930CEA2054B1C700128D72 /* Extensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,

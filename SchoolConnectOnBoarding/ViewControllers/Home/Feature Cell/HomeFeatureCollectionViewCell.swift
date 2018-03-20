@@ -106,5 +106,23 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
 
     }
     
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.transform = .init(scaleX: 0.97, y: 0.97)
+                
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.3) {
+            if let cell = collectionView.cellForItem(at: indexPath) {
+                cell.transform = .identity
+                
+            }
+        }
+    }
+    
     
 }

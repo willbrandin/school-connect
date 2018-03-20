@@ -35,7 +35,7 @@ class CalendarEvent {
         //Firebase Reference
         let ref = Database.database().reference()
         
-        guard let id = SNDatabaseQueryManager.savedSchool()?.schoolId else { return }
+        guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else { return }
         
         let calendarEventRef = ref.child(FirebasePathStrings.calendarPath.rawValue).child(id)
         

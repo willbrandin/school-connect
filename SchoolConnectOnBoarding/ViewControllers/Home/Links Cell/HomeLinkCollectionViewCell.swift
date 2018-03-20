@@ -65,7 +65,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-
+        tableView.isScrollEnabled = false
         tableView.register(LinkCell.self, forCellReuseIdentifier: LinkCell.cellId)
     }
     

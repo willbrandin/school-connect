@@ -32,7 +32,7 @@ class SNBaseNavigationController: UINavigationController {
         self.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
 //        guard let barColor = SNDatabaseQueryManager.getSavedPrimaryColor() else { return }
-        self.navigationBar.barTintColor = SNDatabaseQueryManager.getSavedPrimaryColor()
+        self.navigationBar.barTintColor = SCDatabaseQueryManager.getSavedPrimaryColor()
         if (navigationBar.barTintColor?.isLight)! {
             let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
             self.navigationBar.titleTextAttributes = textAttributes
@@ -43,7 +43,7 @@ class SNBaseNavigationController: UINavigationController {
             self.navigationBar.largeTitleTextAttributes = textAttributes
         }
         
-        self.navigationBar.tintColor = SNDatabaseQueryManager.getSavedSecondaryColor()
+        self.navigationBar.tintColor = SCDatabaseQueryManager.getSavedSecondaryColor()
     }
 
 

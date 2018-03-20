@@ -38,7 +38,7 @@ class FeatureCardView: UIView {
     lazy var featureSubtitleText: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -55,7 +55,8 @@ class FeatureCardView: UIView {
         stackView.addArrangedSubview(featureTitleLabel)
         stackView.addArrangedSubview(featureSubtitleText)
         
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
+
         stackView.alignment = .leading
         stackView.spacing = 10.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,6 +90,7 @@ class FeatureCardView: UIView {
     
     func setupTextStackView(){
         addSubview(bodyTextStackView)
+        bodyTextStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5.0).isActive = true
         bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0).isActive = true
         bodyTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0).isActive = true
         bodyTextStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5.0).isActive = true

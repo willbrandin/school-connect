@@ -21,6 +21,7 @@ enum FirebasePathStrings: String {
     case infoPath = "Info"
     case newsPath = "News"
     case calendarPath = "Calendar"
+    case homeLinks = "Links"
 }
 
 enum WBDateFormat: String {

@@ -23,8 +23,10 @@ final class DatabaseManager {
     
 }
 
-final class SNDatabaseQueryManager {
+
+final class SCDatabaseQueryManager {
     
+    //MARK: - Primary School Info
     class func savedSchool() -> School? {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return nil }
@@ -50,4 +52,23 @@ final class SNDatabaseQueryManager {
         
         return UIColor(hex: secondaryColor)
     }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
