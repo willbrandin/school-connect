@@ -18,7 +18,6 @@ class FeatureCardView: UIView {
     
     var backgroundImageView: UIImageView! = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "classroom")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -86,12 +85,18 @@ class FeatureCardView: UIView {
         case .bullyReporting:
             featureTitleLabel.text = "Bully Reporting"
             featureSubtitleText.text = "Report instances of bullying directly to your principal."
+            backgroundImageView.image = UIImage(named: "classroom")
+
         case .teacherContact:
             featureTitleLabel.text = "Contact your Teacher"
             featureSubtitleText.text = "Reach your teacher from your mobile device."
+            backgroundImageView.image = UIImage(named: "landingPageIcon")
+
         case .mapOfSchool:
             featureTitleLabel.text = "School Map"
             featureSubtitleText.text = "Get an arial view of the school!"
+            backgroundImageView.image = UIImage(named: "student-walk")
+
         }
     }
     
@@ -102,7 +107,6 @@ class FeatureCardView: UIView {
         backgroundImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-
     }
     
     func setupTextStackView(){
@@ -112,5 +116,5 @@ class FeatureCardView: UIView {
         bodyTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0).isActive = true
         bodyTextStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5.0).isActive = true
     }
-
+    
 }
