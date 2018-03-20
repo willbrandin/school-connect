@@ -17,7 +17,6 @@ class LinkCell: UITableViewCell {
     
     lazy var linkTitleLabel: UILabel! = {
         let label = UILabel()
-        label.text = "Facebook".uppercased()
         label.textColor = UIColor.scGrayText()
         label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -39,8 +38,11 @@ class LinkCell: UITableViewCell {
 
     }
     
-    func configureCell(){
-        setupTitleConstraints()
+    func configureCell(_ homeLink: SCHomeLink?){
+        if let link = homeLink {
+            setupTitleConstraints()
+            self.linkTitleLabel.text = link.title?.uppercased()
+        }
     }
     
     //MARK: - Methods

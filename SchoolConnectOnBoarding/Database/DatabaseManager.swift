@@ -21,6 +21,12 @@ final class DatabaseManager {
         }
     }
     
+    class func saveRealmArray(_ objects: [Object], update: Bool) {
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(objects, update: update)
+        }
+    }
 }
 
 
@@ -53,6 +59,10 @@ final class SCDatabaseQueryManager {
         return UIColor(hex: secondaryColor)
     }
     
+    class func getSavedLinks() -> [SCHomeLink] {
+        let linksQuery = SNDatabase.objects(SCHomeLink.self)
+        return Array(linksQuery)
+    }
     
     
 }

@@ -13,6 +13,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Properties
     static var reuseID = "HomeLinkCell"
+    var linksArray = [SCHomeLink]()
     
     //MARK: - UI Elements
     
@@ -49,7 +50,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     func configureCell(){
         setupTitleConstraints()
         setupTableConstraints()
-        
+        setLinksArrayWithDBData()
     }
     
     func setupTableConstraints(){
@@ -79,35 +80,49 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     
 }
 
+//MARK: - Networking
+extension HomeLinkCollectionViewCell {
+    
+    //get from database and put in array
+    func setLinksArrayWithDBData(){
+        //SCDataQueManager get links
+        let savedLinks = SCDatabaseQueryManager.getSavedLinks()
+        linksArray = savedLinks
+    }
+    
+}
+
+
+
 extension HomeLinkCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        //number of links
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return linksArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: LinkCell.cellId, for: indexPath) as! LinkCell
         cell.accessoryType = .disclosureIndicator
-        cell.configureCell()
+        cell.configureCell(linksArray[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
     }
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        openInBrowser(linksArray[indexPath.row])
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func openInBrowser(){
-//        if let url = URL(string: link.linkURL) {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        }
+    func openInBrowser(_ link: SCHomeLink){
+        guard let linkURL = link.linkUrl else { return }
+        if let url = URL(string: linkURL) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
 
 }

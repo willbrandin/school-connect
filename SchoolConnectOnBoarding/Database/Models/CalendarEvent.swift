@@ -47,7 +47,12 @@ class CalendarEvent {
                 completion(eventsArray)
             }
         }
+        
+        
     }
+    
+    
+    
     
     
 }

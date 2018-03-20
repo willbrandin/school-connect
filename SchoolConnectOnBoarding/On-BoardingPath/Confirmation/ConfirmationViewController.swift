@@ -56,11 +56,19 @@ extension ConfirmationViewController: ConfirmationDelegate {
         defaults.set(selectedSchool.schoolId, forKey: UserDefaultKeys.selectedId.rawValue)
         defaults.set(true, forKey: UserDefaultKeys.schoolChosen.rawValue)
         School.getSchoolDetailsWithId(update: false) { (completed) in
+            
             if completed {
-                let tabBarController = SNTabBarController()
-                self.navigationController?.setViewControllers([tabBarController], animated: true)
-                self.navigationController?.popToViewController(tabBarController, animated: true)
-                tabBarController.navigationController?.navigationBar.isHidden = true
+                
+                SCHomeLink.getHomeLinksForSchool(update: false, completion: { (didFinish) in
+                    if didFinish {
+                        
+                        let tabBarController = SNTabBarController()
+                        self.navigationController?.setViewControllers([tabBarController], animated: true)
+                        self.navigationController?.popToViewController(tabBarController, animated: true)
+                        tabBarController.navigationController?.navigationBar.isHidden = true
+                    }
+                })
+                
             }
         }
         

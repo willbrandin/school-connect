@@ -13,11 +13,13 @@ class HomeViewController: SNBaseViewController {
     //MARK: - Properties
     var homeView: HomeView!
     
+    
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
         
+        fetchLinksData()
         setupHomeView()
         
         homeView.collectionView.dataSource = self
@@ -48,6 +50,16 @@ class HomeViewController: SNBaseViewController {
    
     
 }
+
+//MARK: - Network calls
+extension HomeViewController {
+    //update Links DB
+    func fetchLinksData(){
+        SCHomeLink.getHomeLinksForSchool(update: true)
+    }
+}
+
+
 
 //MARK: - Collection Delegate
 extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
