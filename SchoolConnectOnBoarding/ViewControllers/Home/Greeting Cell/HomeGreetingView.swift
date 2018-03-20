@@ -16,7 +16,7 @@ class HomeGreetingView: UIView {
     //MARK: - UI Elements
     lazy var welcomeTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26.0, weight: .semibold)
+        label.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
         label.text = "Welcome to School Connect!"
         label.textColor = UIColor.black
         label.numberOfLines = 0
