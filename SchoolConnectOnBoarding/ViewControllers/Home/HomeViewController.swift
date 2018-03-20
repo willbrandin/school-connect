@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol HomeFeatureDelegate: class {
+    func didTapFeature(_ feature: HomeFeature?)
+}
+
+
 class HomeViewController: SNBaseViewController {
 
     //MARK: - Properties
@@ -59,7 +64,30 @@ extension HomeViewController {
     }
 }
 
-
+//MARK: - Feature Cell Selection Delegate
+extension HomeViewController: HomeFeatureDelegate {
+    
+    func didTapFeature(_ feature: HomeFeature?) {
+        guard let featureType = feature else { return }
+        switch featureType {
+        case .bullyReporting:
+            let vc = UIViewController()
+            vc.title = "Bully"
+            vc.view.backgroundColor = UIColor.blue
+            self.show(vc, sender: nil)
+        case .teacherContact:
+            let vc = UIViewController()
+            vc.title = "Teacher"
+            vc.view.backgroundColor = UIColor.green
+            self.show(vc, sender: nil)
+        case .mapOfSchool:
+            let vc = UIViewController()
+            vc.title = "School Map"
+            vc.view.backgroundColor = UIColor.red
+            self.show(vc, sender: nil)
+        }
+    }
+}
 
 //MARK: - Collection Delegate
 extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
@@ -79,6 +107,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFeatureCollectionViewCell.reuseID, for: indexPath) as! HomeFeatureCollectionViewCell
             cell.configureCell()
+            cell.featureCellDelegate = self
             return cell
             
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
@@ -105,7 +134,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
             
             if SCDatabaseQueryManager.getSavedLinks().count > 3 {
-                return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
+                return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.44)
             }
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
         }
@@ -134,7 +163,6 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
                     
                 }
             }
-
         }
     }
     

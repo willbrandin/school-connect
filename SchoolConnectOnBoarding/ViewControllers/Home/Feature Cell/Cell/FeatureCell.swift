@@ -29,9 +29,19 @@ class FeatureCell: SCHomeCollectionViewCell {
     }
     
     //MARK: - Methods
-    func configureCell(){
+    func configureCell(_ feature: HomeFeature?){
         setupCardViewConstraints()
-        cardView.customizeUI()
+        guard let featureType = feature else { return }
+        switch featureType {
+        case .bullyReporting:
+            cardView.customizeUI(.bullyReporting)
+        case .teacherContact:
+            cardView.customizeUI(.teacherContact)
+        case .mapOfSchool:
+            cardView.customizeUI(.mapOfSchool)
+        
+        }
+        //cardView.customizeUI(HomeFeature.bullyReporting)
     }
     
     func setupCardViewConstraints(){

@@ -64,11 +64,12 @@ class FeatureCardView: UIView {
     }()
     
     //MARK: - Init
-    func customizeUI(){
+    func customizeUI(_ feature: HomeFeature){
         backgroundColor = UIColor.white
         setupBackgroundImageView()
         setupTextStackView()
         makeRoundCorners()
+        configureViewFor(feature)
     }
     
     
@@ -78,6 +79,22 @@ class FeatureCardView: UIView {
         self.layer.cornerRadius = 20.0
         self.layer.masksToBounds = true
     }
+    
+    //Move to View Model? Or refactor out?
+    func configureViewFor(_ featureType: HomeFeature) {
+        switch featureType {
+        case .bullyReporting:
+            featureTitleLabel.text = "Bully Reporting"
+            featureSubtitleText.text = "Report instances of bullying directly to your principal."
+        case .teacherContact:
+            featureTitleLabel.text = "Contact your Teacher"
+            featureSubtitleText.text = "Reach your teacher from your mobile device."
+        case .mapOfSchool:
+            featureTitleLabel.text = "School Map"
+            featureSubtitleText.text = "Get an arial view of the school!"
+        }
+    }
+    
   
     func setupBackgroundImageView(){
         addSubview(backgroundImageView)

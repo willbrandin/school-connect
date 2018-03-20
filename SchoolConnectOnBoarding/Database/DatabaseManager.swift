@@ -64,6 +64,13 @@ final class SCDatabaseQueryManager {
         return Array(linksQuery)
     }
     
+    class func getSavedListOfFeatures() -> [String?] {
+        if let featureQuery = savedSchool()?.appSettings?.features {
+            return Array(featureQuery)
+        }
+        return [nil]
+    }
+    
     
 }
 

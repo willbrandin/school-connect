@@ -15,6 +15,7 @@ class SNAppSettings: Object {
     @objc dynamic var primaryColor: String?
     @objc dynamic var secondaryColor: String?
     @objc dynamic var defaultImgUrl: String?
+    var features = List<String>()
     
     //MARK: - Init
     
@@ -23,6 +24,11 @@ class SNAppSettings: Object {
         self.primaryColor = dataDictionary["primaryColor"] as? String
         self.secondaryColor = dataDictionary["secondaryColor"] as? String
         self.defaultImgUrl = dataDictionary["defaultImg"] as? String
+        if let features = dataDictionary["features"] as? [String] {
+            for feature in features {
+                self.features.append(feature)
+            }
+        }
     }
     
     //MARK: - Methods

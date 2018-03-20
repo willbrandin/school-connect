@@ -13,7 +13,8 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell {
     //MARK: - Properties
     static var reuseID = "HomeFeatureCell"
     var collectionView: UICollectionView!
-
+    var featureArray = [String]()
+    weak var featureCellDelegate: HomeFeatureDelegate?
     
     
     //MARK: - UI Elements
@@ -43,10 +44,15 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Methods
     func configureCell(){
+        setArrayValue()
         setupTitleConstraints()
         setupCollectionViewConstraints()
         
         collectionView.register(FeatureCell.self, forCellWithReuseIdentifier: FeatureCell.reuseID)
+    }
+    
+    func setArrayValue(){
+        featureArray = SCDatabaseQueryManager.getSavedListOfFeatures() as! [String]
     }
     
     func setupCollectionViewConstraints(){
@@ -90,13 +96,16 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //number of features
-        return 2
+        return featureArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCell.reuseID, for: indexPath) as! FeatureCell
         
-        cell.configureCell()
+        let enumCase = HomeFeature(rawValue: featureArray[indexPath.row])
+        
+        cell.configureCell(enumCase)
+        
         return cell
     }
     
@@ -104,6 +113,12 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
         
         return CGSize(width: collectionView.bounds.width * 0.90, height: self.frame.height * 0.75)
 
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedFeature = featureArray[indexPath.row] //string
+        let enumCase = HomeFeature(rawValue: selectedFeature)
+        featureCellDelegate?.didTapFeature(enumCase)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

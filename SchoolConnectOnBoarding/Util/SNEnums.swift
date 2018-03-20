@@ -24,6 +24,11 @@ enum FirebasePathStrings: String {
     case homeLinks = "Links"
 }
 
+enum FirebaseSchoolInfoPath: String {
+    case appConfig = "appConfig"
+    case infoPath = "Info"
+}
+
 enum WBDateFormat: String {
     case simpleDate = "MM/dd/yyyy"
     case dateAndTime = "MMMM d, h:mm a"
@@ -35,6 +40,12 @@ enum HomeCellIndex: Int {
     case greeting = 0
     case featureCell = 1
     case linksCell = 2
+}
+
+enum HomeFeature: String {
+    case bullyReporting = "bully-report"
+    case teacherContact = "teacher-contact"
+    case mapOfSchool = "map-of-school"
 }
 
 
