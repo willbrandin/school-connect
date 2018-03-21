@@ -25,19 +25,19 @@ class SNRoundedButton: UIButton {
     }
     
     func formatBoldButtonTitle(){
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
     }
     
     
     func updateCornerRadius() {
-        self.layer.cornerRadius = frame.size.height/4
+        self.layer.cornerRadius = frame.size.height/10
     }
     
     func makeShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 12)
-        self.layer.shadowOpacity = 0.15
-        self.layer.shadowRadius = 18.0
+        self.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 4.0
         self.layer.masksToBounds = false
     }
 }
@@ -71,19 +71,19 @@ class SNRoundedSchoolButton: UIButton {
     }
     
     func formatBoldButtonTitle(){
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
     }
     
     
     func updateCornerRadius() {
-        self.layer.cornerRadius = frame.size.height/4
+        self.layer.cornerRadius = frame.size.height/10
     }
     
     func makeShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 10)
-        self.layer.shadowOpacity = 0.1
-        self.layer.shadowRadius = 15.0
+        self.layer.shadowOffset = CGSize(width: 0, height: 6)
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowRadius = 5.0
         self.layer.masksToBounds = false
     }
     
