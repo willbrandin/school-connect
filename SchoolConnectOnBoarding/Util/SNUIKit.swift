@@ -48,9 +48,9 @@ class SNRoundedSchoolButton: UIButton {
     
     required init(withShadow: Bool = true) {
         self.withShadow = withShadow
-
-        super.init(frame: .zero)
         
+        super.init(frame: .zero)
+        self.setColor()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,7 +62,7 @@ class SNRoundedSchoolButton: UIButton {
         
         updateCornerRadius()
         formatBoldButtonTitle()
-        setColor()
+     
         
         if withShadow {
             makeShadow()
@@ -87,17 +87,31 @@ class SNRoundedSchoolButton: UIButton {
         self.layer.masksToBounds = false
     }
     
-    func setColor(){
+    func setColor(_ withSchoolColor: Bool = false){
         guard let primaryColor = SCDatabaseQueryManager.getSavedPrimaryColor() else { return }
         guard let secondaryColor = SCDatabaseQueryManager.getSavedSecondaryColor() else { return }
-        self.backgroundColor = UIColor.white
-        if primaryColor.isLight && secondaryColor.isLight {
-            self.setTitleColor(UIColor.scGray(), for: .normal)
-        }else if primaryColor.isLight {
-            self.setTitleColor(secondaryColor, for: .normal)
+        
+        if !withSchoolColor {
+            self.backgroundColor = UIColor.white
+            
+            if primaryColor.isLight && secondaryColor.isLight {
+                self.setTitleColor(UIColor.scGray(), for: .normal)
+            }else if primaryColor.isLight {
+                self.setTitleColor(secondaryColor, for: .normal)
+            } else {
+                self.setTitleColor(primaryColor, for: .normal)
+            }
         } else {
-            self.setTitleColor(primaryColor, for: .normal)
+            self.backgroundColor = secondaryColor
+            
+            if secondaryColor.isLight {
+                setTitleColor(UIColor.black, for: .normal)
+            } else {
+                setTitleColor(UIColor.white, for: .normal)
+            }
         }
+        
+        
     }
 }
 
@@ -121,6 +135,94 @@ class SCHomeCollectionViewCell: UICollectionViewCell {
     
 }
 
+
+class SCFloatingTextField: UITextField {
+    
+    //MARK: - Init
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        formatTextField()
+    }
+    required override init(frame: CGRect) {
+        super.init(frame: frame)
+        formatTextField()
+    }
+
+    //MARK: - Methods
+    
+    func formatTextField(){
+        
+        self.borderStyle = .none
+        self.backgroundColor = UIColor.white
+        self.autocorrectionType = .no
+        self.keyboardType = .default
+        self.returnKeyType = .next
+        self.contentVerticalAlignment = .center
+        self.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        self.textColor = UIColor.black
+        
+        roundCorners()
+        makeShadow()
+    }
+    
+    func addSpacer(){
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        self.leftViewMode = .always
+        self.leftView = spacerView
+    }
+    
+    func roundCorners(){
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        self.layer.shadowOpacity = 0.1
+    }
+    
+    func makeShadow(){
+        self.layer.borderWidth = self.frame.height/10
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.cornerRadius = 6.0
+    }
+    
+    
+}
+
+class SCFloatingTextView: UITextView {
+    
+    //MARK: - Init
+   
+    
+    //MARK: - Methods
+    
+    func formatTextField(){
+        
+        self.backgroundColor = UIColor.white
+        self.autocorrectionType = .no
+        self.keyboardType = .default
+        self.returnKeyType = .done
+        self.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        self.textColor = UIColor.black
+        self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        roundCorners()
+        makeShadow()
+    }
+   
+    
+    func roundCorners(){
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        self.layer.shadowOpacity = 0.1
+    }
+    
+    func makeShadow(){
+        self.layer.borderWidth = self.frame.height/10
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.cornerRadius = 6.0
+    }
+}
 
 
 
