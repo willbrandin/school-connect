@@ -85,7 +85,9 @@ class FeatureCardView: UIView {
         case .bullyReporting:
             featureTitleLabel.text = "Bully Reporting"
             featureSubtitleText.text = "Report instances of bullying directly to your principal."
+            
             backgroundImageView.image = UIImage(named: "classroom")
+
 
         case .teacherContact:
             featureTitleLabel.text = "Contact your Teacher"
@@ -108,6 +110,7 @@ class FeatureCardView: UIView {
         backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
+    
     
     func setupTextStackView(){
         addSubview(bodyTextStackView)

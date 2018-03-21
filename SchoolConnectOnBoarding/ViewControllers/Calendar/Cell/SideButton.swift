@@ -15,7 +15,7 @@ class CalendarCellSideButtonView: UIView {
     override func draw(_ rect: CGRect) {
         /// Oval Drawing
         let ovalPath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
-        SCDatabaseQueryManager.getSavedPrimaryColor()?.setFill()
+        SCDatabaseQueryManager.getSavedSecondaryColor()?.setFill()
         ovalPath.fill()
         
         
@@ -25,7 +25,7 @@ class CalendarCellSideButtonView: UIView {
         bezierPath.move(to: CGPoint(x: 47.adjustForSize(size: self.bounds.width), y: 29.adjustForSize(size: self.bounds.height)))
         bezierPath.addLine(to: CGPoint(x: 65.adjustForSize(size: self.bounds.width), y: 50.adjustForSize(size: self.bounds.height)))
         bezierPath.addLine(to: CGPoint(x: 47.adjustForSize(size: self.bounds.width), y: 71.adjustForSize(size: self.bounds.height)))
-        SCDatabaseQueryManager.getSavedSecondaryColor()?.setStroke()
+        SCDatabaseQueryManager.getSavedPrimaryColor()?.setStroke()
         bezierPath.lineWidth = 4
         bezierPath.lineCapStyle = .round
         bezierPath.lineJoinStyle = .round

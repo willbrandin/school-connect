@@ -22,7 +22,7 @@ class ConfirmationViewController: UIViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Confirm"
+        self.title = PageTitles.confirmation.rawValue
         setupConfirmationView()
     }
     

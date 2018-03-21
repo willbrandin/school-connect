@@ -12,7 +12,7 @@ class ContactViewController: SNBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Contact"
+        self.title = PageTitles.contact.rawValue
         // Do any additional setup after loading the view.
     }
 

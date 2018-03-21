@@ -24,6 +24,7 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = PageTitles.schoolSearch.rawValue
         setupNavBar()
         setupLandingView()
         setDelegates()
@@ -55,7 +56,6 @@ class SearchViewController: UIViewController {
     }
     
     func setupNavBar(){
-        self.title = "School Search"
         let attributes = [NSAttributedStringKey.foregroundColor: UIColor.scGray()]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController?.navigationBar.largeTitleTextAttributes = attributes

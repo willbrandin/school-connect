@@ -48,7 +48,14 @@ enum HomeFeature: String {
     case mapOfSchool = "map-of-school"
 }
 
-
+enum PageTitles: String {
+    case home = "Home"
+    case news = "News"
+    case confirmation = "Confirm"
+    case schoolSearch = "School Search"
+    case contact = "Contact"
+    case calendar = "Calendar"
+}
 
 
 

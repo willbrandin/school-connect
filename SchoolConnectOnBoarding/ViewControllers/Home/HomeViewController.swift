@@ -22,7 +22,7 @@ class HomeViewController: SNBaseViewController {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Home"
+        self.title = PageTitles.home.rawValue
         
         fetchLinksData()
         setupHomeView()

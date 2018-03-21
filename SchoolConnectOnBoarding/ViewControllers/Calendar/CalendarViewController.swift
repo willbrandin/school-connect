@@ -18,7 +18,7 @@ class CalendarViewController: SNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Calendar"
+        self.title = PageTitles.calendar.rawValue
         
         
         setupCalendarView()

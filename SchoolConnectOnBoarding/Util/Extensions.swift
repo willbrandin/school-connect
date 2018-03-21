@@ -10,6 +10,7 @@ import UIKit
 
 extension UIImage {
     
+    
     static func landingPageIcon() -> UIImage {
         return UIImage(named: "landingPageIcon")!
     }

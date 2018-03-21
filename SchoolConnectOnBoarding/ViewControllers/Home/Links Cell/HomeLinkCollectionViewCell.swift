@@ -38,6 +38,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.clipsToBounds = false
     }
     
     required init?(coder aDecoder: NSCoder) {

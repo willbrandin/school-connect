@@ -18,7 +18,7 @@ class NewsViewController: SNBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "News"
+        self.title = PageTitles.news.rawValue
         
         setupCustomView()
         fetchNewsArticles()
