@@ -151,20 +151,13 @@ extension ContactViewController: UITextFieldDelegate {
             contactScreenView.phoneNumberTextField.becomeFirstResponder()
         } else if textField == contactScreenView.phoneNumberTextField {
             contactScreenView.phoneNumberTextField.resignFirstResponder()
-            contactScreenView.messageTextView.text = ""
             contactScreenView.messageTextView.becomeFirstResponder()
+            return false
         } else {
             textField.resignFirstResponder()
         }
         return true
     }
-
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        //
-//    }
-    
-    
-    
     
 }
 

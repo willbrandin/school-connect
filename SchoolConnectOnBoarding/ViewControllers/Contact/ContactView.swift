@@ -136,6 +136,7 @@ class ContactView: UIView {
         let textView = SCFloatingTextView()
         textView.formatTextField()
         textView.text = "Message"
+        
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -206,6 +207,7 @@ class ContactView: UIView {
         setupScrollViewConstraints()
         setupInputConstraints()
         setupButtonContainerConstraints()
+
     }
     
     func setupScrollViewConstraints(){
