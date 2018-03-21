@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         if schoolIsChosen && schoolId != nil {
-            if let id = schoolId {
+            if let _ = schoolId {
                 let tabBarController = SNTabBarController()
                 School.getSchoolDetailsWithId(update: true)
                 self.window?.rootViewController = tabBarController

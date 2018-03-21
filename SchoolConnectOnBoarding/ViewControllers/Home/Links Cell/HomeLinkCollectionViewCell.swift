@@ -12,7 +12,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
     
     
     //MARK: - Properties
-    static var reuseID = "HomeLinkCell"
+    static var reuseID = CellReuseIds.homeLinkCollectionCell.rawValue
     var linksArray = [SCHomeLink]()
     
     //MARK: - UI Elements

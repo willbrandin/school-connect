@@ -11,7 +11,7 @@ import UIKit
 class NewsArticleCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Properties
-    static var reuseID = "NewsArticleCell"
+    static var reuseID = CellReuseIds.newsArticleCardCell.rawValue
     var cardView: NewsCardView!
     
     //MARK: - UI Elements

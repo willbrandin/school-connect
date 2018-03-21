@@ -11,7 +11,7 @@ import UIKit
 class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell {
     
     //MARK: - Properties
-    static var reuseID = "HomeGreetingCell"
+    static var reuseID = CellReuseIds.homeGreetingCollectionCell.rawValue
     var greetingView: HomeGreetingView!
     
     //MARK: - UI Elements

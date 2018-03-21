@@ -11,7 +11,7 @@ import UIKit
 class LinkCell: UITableViewCell {
 
     //MARK: - Properties
-    static var cellId = "LinkTableCell"
+    static var cellId = CellReuseIds.linkTableCell.rawValue
     
     //MARK: - UI Elements
     

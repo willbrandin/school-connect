@@ -12,7 +12,7 @@ class FeatureCell: SCHomeCollectionViewCell {
     
     //MARK: - Properties
     var cardView: FeatureCardView!
-    static var reuseID = "FeatureCell"
+    static var reuseID = CellReuseIds.featureCollectionCell.rawValue
     
     //MARK: - UI Elements
     

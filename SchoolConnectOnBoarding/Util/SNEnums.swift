@@ -57,6 +57,25 @@ enum PageTitles: String {
     case calendar = "Calendar"
 }
 
+enum CalendarEventTitles: String {
+    case information = "Information"
+    case dateAndTime = "Date and Time"
+    case startDate = "Start Date"
+    case endDate = "End Date"
+    case location = "Location"
+    case saveToCalendar = "Save to Calendar"
+}
+
+enum CellReuseIds: String {
+    case calendarCell = "CalendarCell"
+    case newsArticleCardCell = "NewsArticleCell"
+    case homeGreetingCollectionCell = "HomeGreetingCell"
+    case featureCollectionCell = "FeatureCell"
+    case homeFeatureCollectionCell = "HomeFeatureCell"
+    case homeLinkCollectionCell = "HomeLinkCell"
+    case linkTableCell = "LinkTableCell"
+    case searchSchoolNameTableCell = "SchoolNameCell"
+}
 
 
 

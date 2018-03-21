@@ -11,7 +11,7 @@ import UIKit
 class CalendarTableViewCell: UITableViewCell {
 
     //MARK: - Properties
-    static var cellId = "CalendarCell"
+    static var cellId = CellReuseIds.calendarCell.rawValue
     var cardView: CalendarCardView!
 
     //MARK: - UI Elements

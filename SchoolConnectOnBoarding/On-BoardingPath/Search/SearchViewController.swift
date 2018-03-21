@@ -12,7 +12,6 @@ class SearchViewController: UIViewController {
 
     //MARK - Properties
     var searchView: SearchView!
-    let cellID = "SchoolNameCell"
     
     
     //Search Properties
@@ -51,7 +50,7 @@ class SearchViewController: UIViewController {
         searchView.tableView.delegate = self
         searchView.tableView.dataSource = self
         searchView.searchBar.delegate = self
-        searchView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: cellID)
+        searchView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.cellId)
 
     }
     
@@ -114,7 +113,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = searchView.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? SearchTableViewCell
+        let cell = searchView.tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.cellId, for: indexPath) as? SearchTableViewCell
         if schoolList.count > 0 {
             cell?.configureCell(schoolList[indexPath.row])
         }

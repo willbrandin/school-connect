@@ -10,6 +10,21 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
+    
+    //MARK: - Properties
+    
+    static var cellId = CellReuseIds.searchSchoolNameTableCell.rawValue
+
+    
+    lazy var schoolLabel: UILabel! = {
+        let label = UILabel()
+        
+        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        label.textColor = UIColor.black
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     //MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,16 +35,7 @@ class SearchTableViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    //MARK: - Properties
     
-    lazy var schoolLabel: UILabel! = {
-        let label = UILabel()
-        
-        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
-        label.textColor = UIColor.black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     //MARK: - Methods
     func setupLabelConstraints(){

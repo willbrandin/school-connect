@@ -11,7 +11,7 @@ import UIKit
 class HomeFeatureCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Properties
-    static var reuseID = "HomeFeatureCell"
+    static var reuseID = CellReuseIds.homeFeatureCollectionCell.rawValue
     var collectionView: UICollectionView!
     var featureArray = [String]()
     weak var featureCellDelegate: HomeFeatureDelegate?

@@ -12,13 +12,9 @@ class HomeView: UIView {
 
     //MARK: - Properties
     var collectionView: UICollectionView!
-
-    
-    
-    //MARK: - UI Elements
   
-    
-    
+    //MARK: - UI Elements
+
     //MARK: - Init
     
     func customizeUI(){

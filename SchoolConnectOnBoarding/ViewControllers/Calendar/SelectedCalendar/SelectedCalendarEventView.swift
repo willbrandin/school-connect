@@ -20,7 +20,7 @@ class SelectedCalendarEventView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Information"
+        label.text = CalendarEventTitles.information.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -37,7 +37,7 @@ class SelectedCalendarEventView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Date and Time"
+        label.text = CalendarEventTitles.dateAndTime.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,7 +46,7 @@ class SelectedCalendarEventView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Start Date"
+        label.text = CalendarEventTitles.startDate.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,7 +55,7 @@ class SelectedCalendarEventView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "End Date"
+        label.text = CalendarEventTitles.endDate.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -78,7 +78,7 @@ class SelectedCalendarEventView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
         label.textColor = UIColor.scGrayText()
-        label.text = "Location"
+        label.text = CalendarEventTitles.location.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -155,7 +155,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var saveToCalendarButton: SNRoundedSchoolButton! = {
         let button = SNRoundedSchoolButton()
-        button.setTitle("Save to Calendar", for: .normal)
+        button.setTitle(CalendarEventTitles.saveToCalendar.rawValue, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAddToCalendar), for: .touchUpInside)
         return button
