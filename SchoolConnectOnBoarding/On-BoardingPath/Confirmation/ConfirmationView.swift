@@ -15,8 +15,8 @@ class ConfirmationView: UIView {
     
     //MARK: - UI Elements
     
-    var logoImgView: SNCircleImage! = {
-        let imageView = SNCircleImage()
+    var logoImgView: SCCircleImage! = {
+        let imageView = SCCircleImage()
         imageView.image = UIImage.landingPageIcon()
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,8 +45,8 @@ class ConfirmationView: UIView {
         return label
     }()
     
-    lazy var confirmButton: SNRoundedButton! = {
-        let button = SNRoundedButton()
+    lazy var confirmButton: SCRoundedButton! = {
+        let button = SCRoundedButton()
         button.backgroundColor = UIColor.cfnGreen()
         button.setTitle("Confirm", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)

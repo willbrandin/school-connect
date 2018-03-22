@@ -153,8 +153,8 @@ class SelectedCalendarEventView: UIView {
         return stackView
     }()
     
-    lazy var saveToCalendarButton: SNRoundedSchoolButton! = {
-        let button = SNRoundedSchoolButton()
+    lazy var saveToCalendarButton: SCRoundedSchoolButton! = {
+        let button = SCRoundedSchoolButton()
         button.setTitle(CalendarEventTitles.saveToCalendar.rawValue, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(handleAddToCalendar), for: .touchUpInside)

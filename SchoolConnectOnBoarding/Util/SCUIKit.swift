@@ -1,5 +1,5 @@
 //
-//  SNUIKit.swift
+//  SCUIKit.swift
 //  SchoolConnectOnBoarding
 //
 //  Created by William Brandin on 3/10/18.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class SNCircleImage: UIImageView {
+class SCCircleImage: UIImageView {
     override func layoutSubviews() {
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true
     }
 }
 
-class SNRoundedButton: UIButton {
+class SCRoundedButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -42,7 +42,7 @@ class SNRoundedButton: UIButton {
     }
 }
 
-class SNRoundedSchoolButton: UIButton {
+class SCRoundedSchoolButton: UIButton {
     
     var withShadow: Bool
     

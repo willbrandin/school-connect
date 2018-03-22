@@ -1,5 +1,5 @@
 //
-//  SNEnums.swift
+//  SCEnums.swift
 //  SchoolConnectOnBoarding
 //
 //  Created by William Brandin on 3/13/18.

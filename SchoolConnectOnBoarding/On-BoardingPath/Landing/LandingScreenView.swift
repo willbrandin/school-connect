@@ -24,8 +24,8 @@ class LandingScreenView: UIView {
         return title
     }()
     
-    var schoolHouseImgView: SNCircleImage! = {
-        let imageView = SNCircleImage()
+    var schoolHouseImgView: SCCircleImage! = {
+        let imageView = SCCircleImage()
         imageView.image = UIImage.landingPageIcon()
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,8 +63,8 @@ class LandingScreenView: UIView {
         return label
     }()
     
-    lazy var continueButton: SNRoundedButton! = {
-        let button = SNRoundedButton()
+    lazy var continueButton: SCRoundedButton! = {
+        let button = SCRoundedButton()
         button.backgroundColor = UIColor.cfnGreen()
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)

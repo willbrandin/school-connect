@@ -163,8 +163,8 @@ class ContactView: UIView {
         return stackView
     }()
     
-    lazy var submitButton: SNRoundedSchoolButton! = {
-        let button = SNRoundedSchoolButton()
+    lazy var submitButton: SCRoundedSchoolButton! = {
+        let button = SCRoundedSchoolButton()
         button.setTitle("Submit", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setColor(true)
