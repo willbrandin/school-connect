@@ -163,11 +163,36 @@ extension ContactViewController: UITextFieldDelegate {
 }
 
 extension ContactViewController: UITextViewDelegate {
-//    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-//        //
-//    }
-//
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+        if textView == contactScreenView.messageTextView.textView {
+            let titleLbl = contactScreenView.messageTextTitle
+            if textView.text == "Message" {
+                textView.text = ""
+                textView.textColor = .black
+                titleLbl?.fadeTransition(0.4)
+
+                titleLbl?.text = "Message"
+            }
+        }
+        
+    }
+
+    func textViewDidEndEditing(_ textView: UITextView) {
+        let titleLbl = contactScreenView.messageTextTitle
+        if textView.text == "" {
+
+            textView.text = "Message"
+            textView.textColor = UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
+            titleLbl?.fadeTransition(0.4)
+
+            titleLbl?.text = ""
+        }
+    }
+    
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
         return true
     }
 

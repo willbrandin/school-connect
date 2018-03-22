@@ -19,7 +19,7 @@ class SNRoundedButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+
         updateCornerRadius()
         makeShadow()
     }
@@ -63,12 +63,18 @@ class SNRoundedSchoolButton: UIButton {
         updateCornerRadius()
         formatBoldButtonTitle()
      
-        
+
         if withShadow {
             makeShadow()
         }
         
     }
+//    
+//    override open var isHighlighted: Bool {
+//        didSet {
+//            backgroundColor = isHighlighted ? UIColor.black : UIColor.white
+//        }
+//    }
     
     func formatBoldButtonTitle(){
         self.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
@@ -103,7 +109,6 @@ class SNRoundedSchoolButton: UIButton {
             }
         } else {
             self.backgroundColor = secondaryColor
-            
             if secondaryColor.isLight {
                 setTitleColor(UIColor.black, for: .normal)
             } else {
@@ -231,8 +236,6 @@ class SCFloatingTextView: UIView {
 class SCTextView: UITextView {
     
     //MARK: - Init
-   
-    
     //MARK: - Methods
     
     func formatTextField(){

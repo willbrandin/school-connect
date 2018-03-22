@@ -125,7 +125,7 @@ class ContactView: UIView {
     lazy var messageTextTitle: UILabel! = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
-        label.text = "Message"
+        //label.text = "Message"
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -135,6 +135,8 @@ class ContactView: UIView {
     lazy var messageTextView: SCFloatingTextView! = {
         let textView = SCFloatingTextView()
         textView.initializeUI()
+        textView.textView.text = "Message"
+        textView.textView.textColor = .lightGray
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
@@ -244,7 +246,7 @@ class ContactView: UIView {
         
         messageTextView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
         messageTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        messageTextView.heightAnchor.constraint(equalToConstant: 130.0).isActive = true
+        messageTextView.heightAnchor.constraint(equalToConstant: 250.0).isActive = true
         setupInputTitleConstraints()
     }
     
