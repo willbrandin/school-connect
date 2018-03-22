@@ -179,6 +179,7 @@
 		0312E68220586E36009327F3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				03E0D7822063488C00BE00E6 /* Feature ViewControllers */,
 				0312E69020587A75009327F3 /* Contact */,
 				0312E688205872EE009327F3 /* Calendar */,
 				0312E68320586E5D009327F3 /* News */,
@@ -441,6 +442,13 @@
 				0312E67520583A6D009327F3 /* DatabaseManager.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		03E0D7822063488C00BE00E6 /* Feature ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Feature ViewControllers";
 			sourceTree = "<group>";
 		};
 		5CFB9665A1B6E9333E8D5493 /* Pods */ = {
