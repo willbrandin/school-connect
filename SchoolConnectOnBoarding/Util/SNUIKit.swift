@@ -188,7 +188,47 @@ class SCFloatingTextField: UITextField {
     
 }
 
-class SCFloatingTextView: UITextView {
+class SCFloatingTextView: UIView {
+
+    //MARK: - Properties
+    //MARK: - UIElements
+    lazy var textView: SCTextView! = {
+        let textView = SCTextView()
+        textView.formatTextField()
+        
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        return textView
+    }()
+    
+    //MARK: - Init
+    func initializeUI(){
+        setupTextView()
+        makeShadow()
+    }
+    //MARK: - Methods
+    func setupTextView(){
+        addSubview(textView)
+        textView.topAnchor.constraint(equalTo: self.topAnchor, constant: 3.0).isActive = true
+        textView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        textView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        textView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
+    func makeShadow(){
+        self.layer.masksToBounds = false
+        self.layer.shadowRadius = 5.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        self.layer.shadowOpacity = 0.1
+        
+    }
+    
+    
+    
+}
+
+
+class SCTextView: UITextView {
     
     //MARK: - Init
    
@@ -203,28 +243,18 @@ class SCFloatingTextView: UITextView {
         self.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
         self.textColor = UIColor.black
         self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-
         roundCorners()
-        makeShadow()
-
     }
-   
-    
-    func makeShadow(){
-        self.layer.masksToBounds = false
-        self.layer.shadowRadius = 5.0
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-        self.layer.shadowOpacity = 0.1
-
-    }
-    
     func roundCorners(){
         self.layer.borderWidth = self.frame.height/10
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.cornerRadius = 6.0
     }
+    
+    
 }
+
+
 
 
 

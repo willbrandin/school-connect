@@ -48,7 +48,8 @@ class ContactViewController: SNBaseViewController {
                 textField.delegate = self
             }
         }
-        contactScreenView.messageTextView.delegate = self
+        contactScreenView.messageTextView.textView.delegate = self
+        
     }
     
  

@@ -134,9 +134,7 @@ class ContactView: UIView {
     
     lazy var messageTextView: SCFloatingTextView! = {
         let textView = SCFloatingTextView()
-        textView.formatTextField()
-        textView.text = "Message"
-        
+        textView.initializeUI()
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
