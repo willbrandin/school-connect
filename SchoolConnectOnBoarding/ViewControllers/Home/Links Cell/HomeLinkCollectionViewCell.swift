@@ -59,10 +59,10 @@ class HomeLinkCollectionViewCell: UICollectionViewCell {
         addSubview(tableView)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: self.linkTitleLabel.bottomAnchor, constant: 5.0).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.linkTitleLabel.bottomAnchor, constant: 15.0).isActive = true
         tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5.0).isActive = true
         
         tableView.dataSource = self
         tableView.delegate = self

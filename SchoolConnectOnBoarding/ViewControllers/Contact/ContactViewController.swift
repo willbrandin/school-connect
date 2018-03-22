@@ -184,7 +184,7 @@ extension ContactViewController: UITextViewDelegate {
                 textView.text = ""
                 textView.textColor = .black
                 titleLbl?.fadeTransition(0.4)
-
+                titleLbl?.textColor = UIColor.scBlue()
                 titleLbl?.text = "Message"
             }
         }
@@ -198,9 +198,10 @@ extension ContactViewController: UITextViewDelegate {
             textView.text = "Message"
             textView.textColor = UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
             titleLbl?.fadeTransition(0.4)
-
+            //titleLbl?.textColor = UIColor.lightGray
             titleLbl?.text = ""
         }
+        titleLbl?.textColor = UIColor.lightGray
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
