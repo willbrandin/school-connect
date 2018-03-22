@@ -18,7 +18,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var informationTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
+        label.font = UIFont.heading()
         label.textColor = UIColor.scGrayText()
         label.text = CalendarEventTitles.information.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +27,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var informationLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -35,7 +35,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var dateAndTimeTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
+        label.font = UIFont.heading()
         label.textColor = UIColor.scGrayText()
         label.text = CalendarEventTitles.dateAndTime.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +44,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var startDateSubtitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        label.font = UIFont.subHeading()
         label.textColor = UIColor.scGrayText()
         label.text = CalendarEventTitles.startDate.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +53,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var endDateSubtitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .bold)
+        label.font = UIFont.subHeading()
         label.textColor = UIColor.scGrayText()
         label.text = CalendarEventTitles.endDate.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -62,21 +62,21 @@ class SelectedCalendarEventView: UIView {
     
     lazy var startDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var endDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var locationTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
+        label.font = UIFont.heading()
         label.textColor = UIColor.scGrayText()
         label.text = CalendarEventTitles.location.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +85,7 @@ class SelectedCalendarEventView: UIView {
     
     lazy var locationLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

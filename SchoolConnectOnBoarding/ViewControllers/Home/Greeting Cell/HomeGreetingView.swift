@@ -16,7 +16,7 @@ class HomeGreetingView: UIView {
     //MARK: - UI Elements
     lazy var welcomeTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 28.0, weight: .semibold)
+        label.font = UIFont.heroTitle()
         label.text = "Welcome to School Connect!"
         label.textColor = UIColor.black
         label.numberOfLines = 0
@@ -26,7 +26,7 @@ class HomeGreetingView: UIView {
     
     lazy var todaysDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12.0, weight: .bold)
+        label.font = UIFont.dateSubTitle()
         label.textColor = UIColor.scGrayText()
         label.text = "Today's Date: 12/25/2018"
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -22,7 +22,7 @@ class SearchBlankView: UIView {
         let label = UILabel()
         label.text = "Find your school"
         label.textAlignment = .center
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .semibold)
+        label.font = UIFont.bodyText()
         label.textColor = UIColor.scGrayText()
         label.alpha = 0.8
         label.numberOfLines = 1

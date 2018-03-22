@@ -17,7 +17,7 @@ class CalendarCardView: UIView {
     
     lazy var titleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26.0, weight: .semibold)
+        label.font = UIFont.title()
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -25,7 +25,7 @@ class CalendarCardView: UIView {
     
     lazy var eventDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13.0, weight: .bold)
+        label.font = UIFont.dateSubTitle()
         label.textColor = UIColor.scGrayText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

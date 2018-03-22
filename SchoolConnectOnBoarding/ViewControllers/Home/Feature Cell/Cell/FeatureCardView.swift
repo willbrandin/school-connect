@@ -25,7 +25,7 @@ class FeatureCardView: UIView {
     
     lazy var featureTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26.0, weight: .bold)
+        label.font = UIFont.boldTitle()
         label.text = "Feature Name"
         label.textColor = UIColor.white
         label.numberOfLines = 1
@@ -36,7 +36,7 @@ class FeatureCardView: UIView {
     
     lazy var featureSubtitleText: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false

@@ -18,7 +18,7 @@ class ContactView: UIView {
     
     lazy var contactTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26.0, weight: .semibold)
+        label.font = UIFont.title()
         label.text = "How may we help you?"
         label.textColor = UIColor.black
         label.numberOfLines = 1
@@ -29,7 +29,7 @@ class ContactView: UIView {
     //Name Field
     lazy var nameFieldTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        label.font = UIFont.textFieldTitle()
         label.text = ""
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
@@ -60,7 +60,7 @@ class ContactView: UIView {
     //Email Field
     lazy var emailFieldTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        label.font = UIFont.textFieldTitle()
         label.text = ""
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
@@ -93,7 +93,7 @@ class ContactView: UIView {
     //Phone number
     lazy var phoneNumberFieldTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        label.font = UIFont.textFieldTitle()
         label.text = ""
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
@@ -104,7 +104,7 @@ class ContactView: UIView {
     lazy var phoneNumberTextField: SCFloatingTextField! = {
         let textField = SCFloatingTextField()
         textField.placeholder = "Phone Number"
-        textField.keyboardType = .numbersAndPunctuation
+        textField.keyboardType = .numberPad
         textField.addSpacer()
         
         return textField
@@ -124,7 +124,7 @@ class ContactView: UIView {
     //Phone number
     lazy var messageTextTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14.0, weight: .semibold)
+        label.font = UIFont.textFieldTitle()
         //label.text = "Message"
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1

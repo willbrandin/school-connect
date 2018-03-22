@@ -26,7 +26,7 @@ class ConfirmationView: UIView {
     
     lazy var schoolNameLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 24.0, weight: .bold)
+        label.font = UIFont.heroTitle()
         label.textColor = UIColor.scGrayText()
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ class ConfirmationView: UIView {
     
     lazy var schoolCityStateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.textColor = UIColor.scGray()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false

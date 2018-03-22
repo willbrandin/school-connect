@@ -25,7 +25,7 @@ class NewsCardView: UIView {
     
     lazy var pubDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12.0, weight: .bold)
+        label.font = UIFont.dateSubTitle()
         label.textColor = UIColor.scGrayText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -33,7 +33,7 @@ class NewsCardView: UIView {
     
     lazy var titleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 26.0, weight: .semibold)
+        label.font = UIFont.title()
         label.numberOfLines = 2
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,7 +41,7 @@ class NewsCardView: UIView {
     
     lazy var subTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 13.0, weight: .regular)
+        label.font = UIFont.altBodyText()
         label.textColor = UIColor.scGrayText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -57,7 +57,7 @@ class NewsCardView: UIView {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subTitleLabel)
 
-        stackView.distribution = .fill
+        stackView.distribution = .fillProportionally
         stackView.alignment = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -92,9 +92,9 @@ class NewsCardView: UIView {
     func setupStackViewContraints(){
         addSubview(bodyTextStackView)
         
-        bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16.0).isActive = true
+        bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         bodyTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50.0).isActive = true
-        bodyTextStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20.0).isActive = true
+        bodyTextStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
         bodyTextStackView.heightAnchor.constraint(equalToConstant: 95.0).isActive = true
         
         setupImageConstraints()

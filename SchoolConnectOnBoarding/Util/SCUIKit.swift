@@ -25,7 +25,7 @@ class SCRoundedButton: UIButton {
     }
     
     func formatBoldButtonTitle(){
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        self.titleLabel?.font = UIFont.buttonTitle()
     }
     
     
@@ -77,7 +77,7 @@ class SCRoundedSchoolButton: UIButton {
 //    }
     
     func formatBoldButtonTitle(){
-        self.titleLabel?.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        self.titleLabel?.font = UIFont.buttonTitle()
     }
     
     
@@ -163,11 +163,13 @@ class SCFloatingTextField: UITextField {
         self.keyboardType = .default
         self.returnKeyType = .next
         self.contentVerticalAlignment = .center
-        self.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        self.font = UIFont.textFieldPlaceholder()
         self.textColor = UIColor.black
+        
         
         roundCorners()
         makeShadow()
+        
     }
     
     func addSpacer(){
@@ -243,7 +245,7 @@ class SCTextView: UITextView {
         self.backgroundColor = UIColor.white
         self.autocorrectionType = .no
         self.keyboardType = .default
-        self.font = UIFont.systemFont(ofSize: 18.0, weight: .bold)
+        self.font = UIFont.textFieldPlaceholder()
         self.textColor = UIColor.black
         self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         roundCorners()

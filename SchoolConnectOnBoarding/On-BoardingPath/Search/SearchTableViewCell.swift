@@ -19,7 +19,7 @@ class SearchTableViewCell: UITableViewCell {
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()
         
-        label.font = UIFont.systemFont(ofSize: 16.0, weight: .bold)
+        label.font = UIFont.boldText()
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

@@ -15,7 +15,7 @@ class LandingScreenView: UIView {
     
     lazy var schoolConnectTitle: UILabel! = {
         let title = UILabel()
-        title.font = UIFont.systemFont(ofSize: 28.0, weight: .bold)
+        title.font = UIFont.heroTitle()
         title.textColor = UIColor.scGrayText()
         title.textAlignment = .center
         title.text = "School Connect"
@@ -36,7 +36,7 @@ class LandingScreenView: UIView {
     lazy var subtitleLabel: UILabel! = {
         let label = UILabel()
         label.text = "School News with you"
-        label.font = UIFont.systemFont(ofSize: 22.0, weight: .bold)
+        label.font = UIFont.heading()
         label.textColor = UIColor.scGrayText()
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ class LandingScreenView: UIView {
     lazy var schoolConnectDescription: UILabel! = {
         let label = UILabel()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
-        label.font = UIFont.systemFont(ofSize: 18.0, weight: .regular)
+        label.font = UIFont.bodyText()
         label.textColor = UIColor.scGray()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
