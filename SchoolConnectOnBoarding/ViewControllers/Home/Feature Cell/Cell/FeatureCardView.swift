@@ -68,7 +68,7 @@ class FeatureCardView: UIView {
         setupBackgroundImageView()
         setupTextStackView()
         makeRoundCorners()
-        configureViewFor(feature)
+        feature.customizeUI(self)
     }
     
     
@@ -80,8 +80,10 @@ class FeatureCardView: UIView {
     }
     
     //Move to View Model? Or refactor out?
-    func configureViewFor(_ featureType: HomeFeature) {
-        featureType.customizeUI(self)
+    func configureCardView(_ title: String, _ subtitle: String, _ image: UIImage?) {
+        self.featureTitleLabel.text = title
+        self.featureSubtitleText.text = subtitle
+        self.backgroundImageView.image = image
     }
     
   

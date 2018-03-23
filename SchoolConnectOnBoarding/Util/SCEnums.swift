@@ -47,7 +47,6 @@ enum HomeFeature: String {
     case bullyReporting = "bully-report"
     case teacherContact = "teacher-contact"
     case mapOfSchool = "map-of-school"
-    case yourSchedule = "your-schedule"
     
     enum FeatureCellText: String {
         case bullyReportTitle = "Bully Reporting"
@@ -59,8 +58,6 @@ enum HomeFeature: String {
         case mapOfSchoolTitle = "School Map"
         case mapOfSchoolSubtitle = "Get an arial view of the school!"
         
-        case yourScheduleTitle = "Your Schedule"
-        case yourScheduleSubtitle = "Check out your student's schedule!"
     }
     
     
@@ -69,13 +66,13 @@ enum HomeFeature: String {
         
         switch self {
         case .bullyReporting:
+            //return specific view controller
             vc.title = PageTitles.bullyReporting.rawValue
         case .teacherContact:
             vc.title = PageTitles.teacherContact.rawValue
         case .mapOfSchool:
             vc.title = PageTitles.mapOfSchool.rawValue
-        case .yourSchedule:
-            vc.title = "Your sched"
+        
         }
         return vc
     }
@@ -83,21 +80,18 @@ enum HomeFeature: String {
     func customizeUI(_ view: FeatureCardView) {
         switch self {
         case .bullyReporting:
-            view.featureTitleLabel.text = FeatureCellText.bullyReportTitle.rawValue
-            view.featureSubtitleText.text = FeatureCellText.bullyReportSubtitle.rawValue
-            view.backgroundImageView.image = UIImage(named: "classroom")
+            view.configureCardView(FeatureCellText.bullyReportTitle.rawValue,
+                                   FeatureCellText.bullyReportSubtitle.rawValue,
+                                   UIImage(named: "classroom"))
         case .teacherContact:
-            view.featureTitleLabel.text = FeatureCellText.teacherContactTitle.rawValue
-            view.featureSubtitleText.text = FeatureCellText.teacherContactSubtitle.rawValue
-            view.backgroundImageView.image = UIImage(named: "landingPageIcon")
+            view.configureCardView(FeatureCellText.teacherContactTitle.rawValue,
+                                   FeatureCellText.teacherContactSubtitle.rawValue,
+                                   UIImage(named: "landingPageIcon"))
         case .mapOfSchool:
-            view.featureTitleLabel.text = FeatureCellText.mapOfSchoolTitle.rawValue
-            view.featureSubtitleText.text = FeatureCellText.mapOfSchoolSubtitle.rawValue
-            view.backgroundImageView.image = UIImage(named: "student-walk")
-        case .yourSchedule:
-            view.featureTitleLabel.text = FeatureCellText.yourScheduleTitle.rawValue
-            view.featureSubtitleText.text = FeatureCellText.yourScheduleSubtitle.rawValue
-            view.backgroundImageView.image = UIImage(named: "classroom")
+            view.configureCardView(FeatureCellText.mapOfSchoolTitle.rawValue,
+                                   FeatureCellText.mapOfSchoolSubtitle.rawValue,
+                                   UIImage(named: "student-walk"))
+        
         }
     }
     
@@ -114,7 +108,6 @@ enum PageTitles: String {
     case bullyReporting = "Report Bullying"
     case teacherContact = "Reach a Teacher"
     case mapOfSchool = "School Map"
-    case yourSchedule = ""
 }
 
 enum CalendarEventTitles: String {
