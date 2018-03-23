@@ -109,12 +109,12 @@
 		0382F67B2056FB1000284055 /* SearchBlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBlankView.swift; sourceTree = "<group>"; };
 		0382F67E205701E800284055 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		0382F680205701F800284055 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
-		03930CB82054AB4400128D72 /* SchoolConnectOnBoarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchoolConnectOnBoarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		03930CB82054AB4400128D72 /* school-connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "school-connect.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03930CBB2054AB4400128D72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03930CC62054AB4400128D72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		03930CC92054AB4400128D72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		03930CCB2054AB4400128D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/william.brandin/Library/Mobile Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/Helper/Info.plist"; sourceTree = "<absolute>"; };
-		03930CD02054AB4500128D72 /* SchoolConnectOnBoardingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SchoolConnectOnBoardingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		03930CD02054AB4500128D72 /* school-connectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "school-connectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03930CD42054AB4500128D72 /* SchoolConnectOnBoardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolConnectOnBoardingTests.swift; sourceTree = "<group>"; };
 		03930CD62054AB4500128D72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		03930CDF2054AB8C00128D72 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
@@ -348,7 +348,7 @@
 		03930CAF2054AB4400128D72 = {
 			isa = PBXGroup;
 			children = (
-				03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */,
+				03930CBA2054AB4400128D72 /* SchoolConnect */,
 				03930CD32054AB4500128D72 /* SchoolConnectOnBoardingTests */,
 				03930CB92054AB4400128D72 /* Products */,
 				5CFB9665A1B6E9333E8D5493 /* Pods */,
@@ -359,13 +359,13 @@
 		03930CB92054AB4400128D72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				03930CB82054AB4400128D72 /* SchoolConnectOnBoarding.app */,
-				03930CD02054AB4500128D72 /* SchoolConnectOnBoardingTests.xctest */,
+				03930CB82054AB4400128D72 /* school-connect.app */,
+				03930CD02054AB4500128D72 /* school-connectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */ = {
+		03930CBA2054AB4400128D72 /* SchoolConnect */ = {
 			isa = PBXGroup;
 			children = (
 				0312E681205861D5009327F3 /* On-BoardingPath */,
@@ -376,7 +376,7 @@
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
 				03930CC62054AB4400128D72 /* Assets.xcassets */,
 			);
-			path = SchoolConnectOnBoarding;
+			path = SchoolConnect;
 			sourceTree = "<group>";
 		};
 		03930CD32054AB4500128D72 /* SchoolConnectOnBoardingTests */ = {
@@ -482,9 +482,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		03930CB72054AB4400128D72 /* SchoolConnectOnBoarding */ = {
+		03930CB72054AB4400128D72 /* school-connect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03930CD92054AB4500128D72 /* Build configuration list for PBXNativeTarget "SchoolConnectOnBoarding" */;
+			buildConfigurationList = 03930CD92054AB4500128D72 /* Build configuration list for PBXNativeTarget "school-connect" */;
 			buildPhases = (
 				83804D413108FB4A12EE0C41 /* [CP] Check Pods Manifest.lock */,
 				03930CB42054AB4400128D72 /* Sources */,
@@ -497,14 +497,14 @@
 			);
 			dependencies = (
 			);
-			name = SchoolConnectOnBoarding;
+			name = "school-connect";
 			productName = SchoolConnectOnBoarding;
-			productReference = 03930CB82054AB4400128D72 /* SchoolConnectOnBoarding.app */;
+			productReference = 03930CB82054AB4400128D72 /* school-connect.app */;
 			productType = "com.apple.product-type.application";
 		};
-		03930CCF2054AB4500128D72 /* SchoolConnectOnBoardingTests */ = {
+		03930CCF2054AB4500128D72 /* school-connectTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 03930CDC2054AB4500128D72 /* Build configuration list for PBXNativeTarget "SchoolConnectOnBoardingTests" */;
+			buildConfigurationList = 03930CDC2054AB4500128D72 /* Build configuration list for PBXNativeTarget "school-connectTests" */;
 			buildPhases = (
 				4DB7F2E758C2BBB797990278 /* [CP] Check Pods Manifest.lock */,
 				03930CCC2054AB4500128D72 /* Sources */,
@@ -518,9 +518,9 @@
 			dependencies = (
 				03930CD22054AB4500128D72 /* PBXTargetDependency */,
 			);
-			name = SchoolConnectOnBoardingTests;
+			name = "school-connectTests";
 			productName = SchoolConnectOnBoardingTests;
-			productReference = 03930CD02054AB4500128D72 /* SchoolConnectOnBoardingTests.xctest */;
+			productReference = 03930CD02054AB4500128D72 /* school-connectTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -544,7 +544,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 03930CB32054AB4400128D72 /* Build configuration list for PBXProject "SchoolConnectOnBoarding" */;
+			buildConfigurationList = 03930CB32054AB4400128D72 /* Build configuration list for PBXProject "school-connect" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -557,8 +557,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				03930CB72054AB4400128D72 /* SchoolConnectOnBoarding */,
-				03930CCF2054AB4500128D72 /* SchoolConnectOnBoardingTests */,
+				03930CB72054AB4400128D72 /* school-connect */,
+				03930CCF2054AB4500128D72 /* school-connectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -763,7 +763,7 @@
 /* Begin PBXTargetDependency section */
 		03930CD22054AB4500128D72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 03930CB72054AB4400128D72 /* SchoolConnectOnBoarding */;
+			target = 03930CB72054AB4400128D72 /* school-connect */;
 			targetProxy = 03930CD12054AB4500128D72 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -935,7 +935,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolConnectOnBoarding.app/SchoolConnectOnBoarding";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/school-connect.app/school-connect";
 			};
 			name = Debug;
 		};
@@ -953,14 +953,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SchoolConnectOnBoarding.app/SchoolConnectOnBoarding";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/school-connect.app/school-connect";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		03930CB32054AB4400128D72 /* Build configuration list for PBXProject "SchoolConnectOnBoarding" */ = {
+		03930CB32054AB4400128D72 /* Build configuration list for PBXProject "school-connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03930CD72054AB4500128D72 /* Debug */,
@@ -969,7 +969,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03930CD92054AB4500128D72 /* Build configuration list for PBXNativeTarget "SchoolConnectOnBoarding" */ = {
+		03930CD92054AB4500128D72 /* Build configuration list for PBXNativeTarget "school-connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03930CDA2054AB4500128D72 /* Debug */,
@@ -978,7 +978,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		03930CDC2054AB4500128D72 /* Build configuration list for PBXNativeTarget "SchoolConnectOnBoardingTests" */ = {
+		03930CDC2054AB4500128D72 /* Build configuration list for PBXNativeTarget "school-connectTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				03930CDD2054AB4500128D72 /* Debug */,
