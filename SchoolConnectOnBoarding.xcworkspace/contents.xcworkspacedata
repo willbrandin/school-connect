@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/william.brandin/Library/Mobile Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/school-connect.xcodeproj">
+      location = "group:SchoolConnectOnBoarding.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
