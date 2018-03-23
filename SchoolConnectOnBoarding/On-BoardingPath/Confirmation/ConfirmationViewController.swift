@@ -92,10 +92,11 @@ extension ConfirmationViewController: ConfirmationDelegate {
     }
     
     func presentHomeView(){
+        
         let tabBarController = SNTabBarController()
-        self.navigationController?.setViewControllers([tabBarController], animated: true)
-        self.navigationController?.popToViewController(tabBarController, animated: true)
-        tabBarController.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.dismiss(animated: true, completion: nil)
+        present(tabBarController, animated: true, completion: nil)
+        
     }
     
 }

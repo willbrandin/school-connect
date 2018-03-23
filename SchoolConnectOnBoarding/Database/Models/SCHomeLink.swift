@@ -17,9 +17,9 @@ class SCHomeLink: Object {
     @objc dynamic var linkUrl: String?
     @objc dynamic var linkId: String?
     
-    func initWithResponse(_ dataDictionary: NSDictionary){
-        self.title = dataDictionary["title"] as? String
-        self.linkUrl = dataDictionary["url"] as? String
+    func initWithResponse(_ dataDictionary: NSDictionary?){
+        self.title = dataDictionary?["title"] as? String
+        self.linkUrl = dataDictionary?["url"] as? String
     }
     
     override open static func primaryKey() -> String? {
@@ -29,9 +29,9 @@ class SCHomeLink: Object {
     
     //MARK: - Methods
     static func getHomeLinksForSchool(update: Bool, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in } ) {
-        var linksArray = [SCHomeLink]()
         
-
+        var linksArray = [SCHomeLink]()
+    
         let ref: DatabaseReference!
         ref = Database.database().reference()
         guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else {
@@ -45,11 +45,17 @@ class SCHomeLink: Object {
            
             if let data = snapshot.value as? NSDictionary {
                 if let linksData = data[id] as? NSDictionary {
-                    let newLink = SCHomeLink()
-                    newLink.initWithResponse(linksData)
-                    newLink.linkId = snapshot.key
-                    linksArray.append(newLink)
                     
+                    
+                    for dic in linksData {
+                        let newLink = SCHomeLink()
+
+                        newLink.initWithResponse(dic.value as? NSDictionary)
+                        newLink.linkId = dic.key as? String
+                        linksArray.append(newLink)
+                    }
+                    
+    
                     DispatchQueue.main.async {
                         autoreleasepool {
                             if update {
