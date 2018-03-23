@@ -12,7 +12,7 @@ protocol ConfirmationDelegate: class {
     func didConfirmSchool()
 }
 
-class ConfirmationViewController: UIViewController {
+class ConfirmationViewController: SNBaseViewController {
 
     //MARK: - Properties
     
@@ -51,29 +51,51 @@ class ConfirmationViewController: UIViewController {
 extension ConfirmationViewController: ConfirmationDelegate {
     
     func didConfirmSchool() {
-        let defaults = UserDefaults.standard
-
-        defaults.set(selectedSchool.schoolId, forKey: UserDefaultKeys.selectedId.rawValue)
-        defaults.set(true, forKey: UserDefaultKeys.schoolChosen.rawValue)
-        School.getSchoolDetailsWithId(update: false) { (completed) in
-            
-            if completed {
-                
-                SCHomeLink.getHomeLinksForSchool(update: false, completion: { (didFinish) in
-                    if didFinish {
-                        
-                        let tabBarController = SNTabBarController()
-                        self.navigationController?.setViewControllers([tabBarController], animated: true)
-                        self.navigationController?.popToViewController(tabBarController, animated: true)
-                        tabBarController.navigationController?.navigationBar.isHidden = true
-                    }
-                })
-                
-            }
-        }
-        
+        setUserDefaults()
+        fetchSchoolData()
         
     }
     
+    func setUserDefaults(_ withoutError: Bool = true){
+        let defaults = UserDefaults.standard
+        
+        defaults.set(selectedSchool.schoolId, forKey: UserDefaultKeys.selectedId.rawValue)
+        defaults.set(withoutError, forKey: UserDefaultKeys.schoolChosen.rawValue)
+    }
+    
+    
+    func fetchSchoolData(){
+        School.getSchoolDetailsWithId(update: false) { (completed) in
+            if completed {
+                self.getLinksData()
+            }
+        }
+    }
+    
+    func getLinksData(){
+        SCHomeLink.getHomeLinksForSchool(update: false, completion: { (didFinish, err) in
+            
+            if err != nil && !didFinish {
+                //delete realm
+                DatabaseManager.removeSchools()
+                self.setUserDefaults(false)
+                //clear user default? should update on new selections
+                let alert = WBPopUp.confirmationError.initAlert()
+                self.present(alert, animated: true, completion: nil)
+                //present err
+               
+                
+            } else if didFinish {
+                self.presentHomeView()
+            }
+        })
+    }
+    
+    func presentHomeView(){
+        let tabBarController = SNTabBarController()
+        self.navigationController?.setViewControllers([tabBarController], animated: true)
+        self.navigationController?.popToViewController(tabBarController, animated: true)
+        tabBarController.navigationController?.navigationBar.isHidden = true
+    }
     
 }

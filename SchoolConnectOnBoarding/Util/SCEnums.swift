@@ -131,6 +131,29 @@ enum CellReuseIds: String {
 }
 
 
+enum SCErrors: Error {
+    case noSchoolLinks
+    case noSchoolId
+    
+}
+
+
+enum WBPopUp: String {
+    
+    case confirmationError = "Cannot Confirm"
+    
+    
+    func initAlert() -> UIAlertController {
+        
+        switch self {
+        case .confirmationError:
+            let alert = UIAlertController.defaultAlert("Error", "Sorry! Something isn't right! Check with your school or try again later.")
+            alert.addDefaultAction()
+            return alert
+        }
+        
+    }
+}
 
 
 

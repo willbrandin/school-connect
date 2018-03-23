@@ -88,6 +88,7 @@ class School: Object {
                         autoreleasepool {
                             if update {
                                 DatabaseManager.save(newStoredSchool)
+                                completion(true)
                             } else {
                                 let realm = try! Realm()
                                 try! realm.write {

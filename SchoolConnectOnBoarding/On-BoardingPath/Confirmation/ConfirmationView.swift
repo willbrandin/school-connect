@@ -47,7 +47,7 @@ class ConfirmationView: UIView {
     
     lazy var confirmButton: SCRoundedButton! = {
         let button = SCRoundedButton()
-        button.backgroundColor = UIColor.scEmerald()
+        button.backgroundColor = UIColor.scGreen()
         button.setTitle("Confirm", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()

@@ -28,40 +28,47 @@ class SCHomeLink: Object {
     }
     
     //MARK: - Methods
-    static func getHomeLinksForSchool(update: Bool, completion: @escaping (Bool) -> Void = {_ in } ) {
+    static func getHomeLinksForSchool(update: Bool, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in } ) {
         var linksArray = [SCHomeLink]()
         
-//        let realmList = List<SCHomeLink>()
-        
+
         let ref: DatabaseReference!
         ref = Database.database().reference()
-        guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else { return }
-        
-        let queryPath = ref.child(FirebasePathStrings.homeLinks.rawValue).child(id)
-        queryPath.observe(.childAdded) { (snapshot) in
-            if let data = snapshot.value as? NSDictionary {
-                let newLink = SCHomeLink()
-                newLink.initWithResponse(data)
-                newLink.linkId = snapshot.key
-                linksArray.append(newLink)
-                
-                DispatchQueue.main.async {
-                    autoreleasepool {
-                        if update {
-                            DatabaseManager.saveRealmArray(linksArray, update: true)
-
-                        } else {
-                            DatabaseManager.saveRealmArray(linksArray, update: false)
-                            completion(true)
-
-                        }
-                    }
-                }
-                
-            }
+        guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else {
+            completion(false, SCErrors.noSchoolId)
+            return
         }
         
-        
-    }
+        let queryPath = ref.child(FirebasePathStrings.homeLinks.rawValue)
     
+        queryPath.observe(.value) { (snapshot) in
+           
+            if let data = snapshot.value as? NSDictionary {
+                if let linksData = data[id] as? NSDictionary {
+                    let newLink = SCHomeLink()
+                    newLink.initWithResponse(linksData)
+                    newLink.linkId = snapshot.key
+                    linksArray.append(newLink)
+                    
+                    DispatchQueue.main.async {
+                        autoreleasepool {
+                            if update {
+                                DatabaseManager.saveRealmArray(linksArray, update: true)
+                                return
+                            } else {
+                                DatabaseManager.saveRealmArray(linksArray, update: false)
+                                
+                                completion(true, nil)
+                                return
+                            }
+                        }
+                    }
+                }else {
+                    completion(false, SCErrors.noSchoolLinks)
+                }
+            } else {
+                completion(false, SCErrors.noSchoolLinks)
+            }
+        }
+    }
 }

@@ -69,8 +69,8 @@ extension UIColor {
     }
     
     
-    class func scEmerald() -> UIColor {
-        return UIColor(hex: "2ecc71") // used
+    class func scGreen() -> UIColor {
+        return UIColor(hex: "1dd1a1") // used
     }
     
     class func scBlue() -> UIColor {

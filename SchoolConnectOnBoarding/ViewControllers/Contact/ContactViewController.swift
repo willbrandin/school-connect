@@ -128,7 +128,7 @@ extension ContactViewController: UITextFieldDelegate {
                     titleLbl?.text = "E-Mail"
                     //VALIDATE
                     if fieldText.isValidEmail() {
-                        titleLbl?.textColor = UIColor.scEmerald()
+                        titleLbl?.textColor = UIColor.scGreen()
                     } else {
                         titleLbl?.textColor = UIColor.scRed()
                     }

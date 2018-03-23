@@ -22,10 +22,22 @@ final class DatabaseManager {
     }
     
     class func saveRealmArray(_ objects: [Object], update: Bool) {
+        
+        try! SNDatabase.write {
+            SNDatabase.add(objects, update: update)
+        }
+    }
+    
+    ///Removes School Object in Realm. Takes Feature data as well
+    class func removeSchools(){
         let realm = try! Realm()
         try! realm.write {
-            realm.add(objects, update: update)
+            let results = realm.objects(School.self)
+            realm.delete(results)
         }
+    }
+    class func cancelTransaction(){
+        SNDatabase.cancelWrite()
     }
 }
 
@@ -70,6 +82,7 @@ final class SCDatabaseQueryManager {
         }
         return [nil]
     }
+    
     
     
 }
