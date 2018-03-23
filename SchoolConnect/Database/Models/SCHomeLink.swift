@@ -70,7 +70,7 @@ class SCHomeLink: Object {
                         }
                     }
                 }else {
-                    completion(true, nil)
+                    completion(false, SCErrors.noSchoolLinks)
                 }
             } else {
                 completion(false, SCErrors.noSchoolLinks)

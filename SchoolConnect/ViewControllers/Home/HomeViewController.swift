@@ -79,13 +79,6 @@ extension HomeViewController: HomeFeatureDelegate {
 extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.getSavedListOfFeatures().count == 0 {
-            return 1
-        } else if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.getSavedListOfFeatures().count > 0 {
-            return 2
-        } else if SCDatabaseQueryManager.getSavedLinks().count > 0 && SCDatabaseQueryManager.getSavedListOfFeatures().count == 0 {
-            return 2
-        }
         return 3
     }
     
