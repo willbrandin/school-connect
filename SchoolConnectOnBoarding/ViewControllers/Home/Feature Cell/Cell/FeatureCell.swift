@@ -14,6 +14,7 @@ class FeatureCell: SCHomeCollectionViewCell {
     var cardView: FeatureCardView!
     static var reuseID = CellReuseIds.featureCollectionCell.rawValue
     
+    
     //MARK: - UI Elements
     
     
@@ -32,15 +33,7 @@ class FeatureCell: SCHomeCollectionViewCell {
     func configureCell(_ feature: HomeFeature?){
         setupCardViewConstraints()
         guard let featureType = feature else { return }
-        switch featureType {
-        case .bullyReporting:
-            cardView.customizeUI(.bullyReporting)
-        case .teacherContact:
-            cardView.customizeUI(.teacherContact)
-        case .mapOfSchool:
-            cardView.customizeUI(.mapOfSchool)
-        
-        }
+        cardView.customizeUI(featureType)
         //cardView.customizeUI(HomeFeature.bullyReporting)
     }
     

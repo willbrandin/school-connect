@@ -65,7 +65,7 @@ class LandingScreenView: UIView {
     
     lazy var continueButton: SCRoundedButton! = {
         let button = SCRoundedButton()
-        button.backgroundColor = UIColor.cfnGreen()
+        button.backgroundColor = UIColor.scEmerald()
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()

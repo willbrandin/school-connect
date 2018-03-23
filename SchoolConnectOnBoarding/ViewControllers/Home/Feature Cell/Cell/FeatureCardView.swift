@@ -81,25 +81,7 @@ class FeatureCardView: UIView {
     
     //Move to View Model? Or refactor out?
     func configureViewFor(_ featureType: HomeFeature) {
-        switch featureType {
-        case .bullyReporting:
-            featureTitleLabel.text = "Bully Reporting"
-            featureSubtitleText.text = "Report instances of bullying directly to your principal."
-            
-            backgroundImageView.image = UIImage(named: "classroom")
-
-
-        case .teacherContact:
-            featureTitleLabel.text = "Contact your Teacher"
-            featureSubtitleText.text = "Reach your teacher from your mobile device."
-            backgroundImageView.image = UIImage(named: "landingPageIcon")
-
-        case .mapOfSchool:
-            featureTitleLabel.text = "School Map"
-            featureSubtitleText.text = "Get an arial view of the school!"
-            backgroundImageView.image = UIImage(named: "student-walk")
-
-        }
+        featureType.customizeUI(self)
     }
     
   

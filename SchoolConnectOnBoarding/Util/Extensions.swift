@@ -67,45 +67,30 @@ extension UIColor {
         )
     }
     
-    class func cfnBlue() -> UIColor {
-        return UIColor(hex: "2980b9")
-    }
-    
-    class func cfnGreen() -> UIColor {
-        return UIColor(hex: "3CB5A4")
-    }
-    
-    class func cfnGray() -> UIColor {
-        return UIColor(hex: "757575")
-    }
-    
     
     class func scEmerald() -> UIColor {
-        return UIColor(hex: "2ecc71")
+        return UIColor(hex: "2ecc71") // used
     }
     
     class func scBlue() -> UIColor {
-        return UIColor(hex: "3498db")
+        return UIColor(hex: "3498db") //used
     }
-    
-    class func scMidnightBlue() -> UIColor {
-        return UIColor(hex: "2c3e50")
-    }
-    
+  
     class func scGray() -> UIColor {
-        return UIColor(hex: "2d3436")
+        return UIColor(hex: "2d3436") // used
     }
     
     class func scGrayText() -> UIColor {
-        return UIColor(hex: "555555")
+        return UIColor(hex: "555555") //used
     }
     
     class func scRed() -> UIColor {
-        return UIColor(hex: "e55039")
+        return UIColor(hex: "e55039") // used
     }
-    
-    
-    
+ 
+    class func textFieldPlaceholder() -> UIColor {
+        return UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
+    }
     
 }
 

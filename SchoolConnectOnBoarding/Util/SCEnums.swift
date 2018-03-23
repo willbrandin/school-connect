@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 enum UserDefaultKeys: String {
     case schoolChosen = "schoolIsChosen"
@@ -43,9 +43,65 @@ enum HomeCellIndex: Int {
 }
 
 enum HomeFeature: String {
+    
     case bullyReporting = "bully-report"
     case teacherContact = "teacher-contact"
     case mapOfSchool = "map-of-school"
+    case yourSchedule = "your-schedule"
+    
+    enum FeatureCellText: String {
+        case bullyReportTitle = "Bully Reporting"
+        case bullyReportSubtitle = "Report instances of bullying directly to your principal."
+        
+        case teacherContactTitle = "Contact your Teacher"
+        case teacherContactSubtitle = "Reach your teacher from your mobile device."
+        
+        case mapOfSchoolTitle = "School Map"
+        case mapOfSchoolSubtitle = "Get an arial view of the school!"
+        
+        case yourScheduleTitle = "Your Schedule"
+        case yourScheduleSubtitle = "Check out your student's schedule!"
+    }
+    
+    
+    func setFeatureView() -> UIViewController {
+        let vc = UIViewController()
+        
+        switch self {
+        case .bullyReporting:
+            vc.title = PageTitles.bullyReporting.rawValue
+        case .teacherContact:
+            vc.title = PageTitles.teacherContact.rawValue
+        case .mapOfSchool:
+            vc.title = PageTitles.mapOfSchool.rawValue
+        case .yourSchedule:
+            vc.title = "Your sched"
+        }
+        return vc
+    }
+    
+    func customizeUI(_ view: FeatureCardView) {
+        switch self {
+        case .bullyReporting:
+            view.featureTitleLabel.text = FeatureCellText.bullyReportTitle.rawValue
+            view.featureSubtitleText.text = FeatureCellText.bullyReportSubtitle.rawValue
+            view.backgroundImageView.image = UIImage(named: "classroom")
+        case .teacherContact:
+            view.featureTitleLabel.text = FeatureCellText.teacherContactTitle.rawValue
+            view.featureSubtitleText.text = FeatureCellText.teacherContactSubtitle.rawValue
+            view.backgroundImageView.image = UIImage(named: "landingPageIcon")
+        case .mapOfSchool:
+            view.featureTitleLabel.text = FeatureCellText.mapOfSchoolTitle.rawValue
+            view.featureSubtitleText.text = FeatureCellText.mapOfSchoolSubtitle.rawValue
+            view.backgroundImageView.image = UIImage(named: "student-walk")
+        case .yourSchedule:
+            view.featureTitleLabel.text = FeatureCellText.yourScheduleTitle.rawValue
+            view.featureSubtitleText.text = FeatureCellText.yourScheduleSubtitle.rawValue
+            view.backgroundImageView.image = UIImage(named: "classroom")
+        }
+    }
+    
+    
 }
 
 enum PageTitles: String {
@@ -55,6 +111,10 @@ enum PageTitles: String {
     case schoolSearch = "School Search"
     case contact = "Contact"
     case calendar = "Calendar"
+    case bullyReporting = "Report Bullying"
+    case teacherContact = "Reach a Teacher"
+    case mapOfSchool = "School Map"
+    case yourSchedule = ""
 }
 
 enum CalendarEventTitles: String {

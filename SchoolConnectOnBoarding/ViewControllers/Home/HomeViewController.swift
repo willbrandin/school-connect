@@ -69,23 +69,9 @@ extension HomeViewController: HomeFeatureDelegate {
     
     func didTapFeature(_ feature: HomeFeature?) {
         guard let featureType = feature else { return }
-        switch featureType {
-        case .bullyReporting:
-            let vc = UIViewController()
-            vc.title = "Bully"
-            vc.view.backgroundColor = UIColor.blue
-            self.show(vc, sender: nil)
-        case .teacherContact:
-            let vc = UIViewController()
-            vc.title = "Teacher"
-            vc.view.backgroundColor = UIColor.green
-            self.show(vc, sender: nil)
-        case .mapOfSchool:
-            let vc = UIViewController()
-            vc.title = "School Map"
-            vc.view.backgroundColor = UIColor.red
-            self.show(vc, sender: nil)
-        }
+        let featureVC = featureType.setFeatureView()
+        featureVC.view.backgroundColor = UIColor.white
+        show(featureVC, sender: nil)
     }
 }
 
