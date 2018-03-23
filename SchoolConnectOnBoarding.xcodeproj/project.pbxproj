@@ -309,6 +309,20 @@
 			path = SelectedNewsArticle;
 			sourceTree = "<group>";
 		};
+		0365056C2064A8D600686132 /* BullyReporting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BullyReporting;
+			sourceTree = "<group>";
+		};
+		0365056D2064A8E600686132 /* Reach-A-Teacher */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Reach-A-Teacher";
+			sourceTree = "<group>";
+		};
 		037733F120605AD60046D276 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +464,8 @@
 		03E0D7822063488C00BE00E6 /* Feature ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				0365056D2064A8E600686132 /* Reach-A-Teacher */,
+				0365056C2064A8D600686132 /* BullyReporting */,
 			);
 			path = "Feature ViewControllers";
 			sourceTree = "<group>";

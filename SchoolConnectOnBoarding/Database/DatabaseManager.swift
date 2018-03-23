@@ -74,18 +74,3 @@ final class SCDatabaseQueryManager {
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
