@@ -376,7 +376,6 @@
 				03930CF32055FEF000128D72 /* Database */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
-				03930CE42054ACCF00128D72 /* Loading */,
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
 				03930CC62054AB4400128D72 /* Assets.xcassets */,
 			);
@@ -419,13 +418,6 @@
 				0382F680205701F800284055 /* ConfirmationViewController.swift */,
 			);
 			path = Confirmation;
-			sourceTree = "<group>";
-		};
-		03930CE42054ACCF00128D72 /* Loading */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Loading;
 			sourceTree = "<group>";
 		};
 		03930CE52054ACD300128D72 /* Home */ = {
