@@ -57,6 +57,7 @@
 		03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF42055FF0100128D72 /* SchoolSearch.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
+		03EA2B76206197B100FACBBA /* SCHomeFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B75206197B100FACBBA /* SCHomeFeature.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
 		5E5C635B9A1B21BCA74E5572 /* Pods_SchoolConnectOnBoarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04357D378694E8878B954186 /* Pods_SchoolConnectOnBoarding.framework */; };
 		85B0A6D1F125BFC07351B73E /* Pods_SchoolConnectOnBoardingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */; };
@@ -127,6 +128,7 @@
 		03930CF42055FF0100128D72 /* SchoolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearch.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
+		03EA2B75206197B100FACBBA /* SCHomeFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeFeature.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		04357D378694E8878B954186 /* Pods_SchoolConnectOnBoarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolConnectOnBoarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		943F91FC6B6ACEA061A07C59 /* Pods-SchoolConnectOnBoarding.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.release.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.release.xcconfig"; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				0312E68620586EF4009327F3 /* NewsArticle.swift */,
 				0312E68C20587525009327F3 /* CalendarEvent.swift */,
 				03EA2B7320615E4300FACBBA /* SCHomeLink.swift */,
+				03EA2B75206197B100FACBBA /* SCHomeFeature.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
 				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
+				03EA2B76206197B100FACBBA /* SCHomeFeature.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
 				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
 				0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */,
