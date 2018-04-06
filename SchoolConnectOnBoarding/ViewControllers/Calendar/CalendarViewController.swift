@@ -109,8 +109,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedEvent = calendarArray[indexPath.row]
-        let selectedEventVC = SelectedCalendarEventViewController()
-        selectedEventVC.selectedEvent = selectedEvent
+        let selectedEventVC = SelectedCalendarEventViewController(selectedEvent: selectedEvent)
         show(selectedEventVC, sender: nil)
     }
     

@@ -46,7 +46,6 @@ class SCHomeLink: Object {
             if let data = snapshot.value as? NSDictionary {
                 if let linksData = data[id] as? NSDictionary {
                     
-                    
                     for dic in linksData {
                         let newLink = SCHomeLink()
 
@@ -55,7 +54,6 @@ class SCHomeLink: Object {
                         linksArray.append(newLink)
                     }
                     
-    
                     DispatchQueue.main.async {
                         autoreleasepool {
                             if update {

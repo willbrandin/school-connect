@@ -29,7 +29,7 @@ struct SchoolSearch {
         ref = Database.database().reference()
         var schoolNames = [SchoolSearch]()
         
-        var query = ref.child("Schools").queryOrdered(byChild: "name").queryStarting(atValue: input).queryEnding(atValue: input + "\u{F8FF}")
+        let query = ref.child("Schools").queryOrdered(byChild: "name").queryStarting(atValue: input).queryEnding(atValue: input + "\u{F8FF}")
         
         query.observe(.childAdded) { (snapshot) in
         

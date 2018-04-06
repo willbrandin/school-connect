@@ -259,6 +259,9 @@ class ContactView: UIView {
     
     
     @objc func handleSubmitButtonTap(){
-        
+        self.formDelegate?.didTapSubmit()
     }
+    
+    
+    
 }

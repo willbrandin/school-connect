@@ -17,7 +17,7 @@ class SelectedCalendarEventViewController: SNBaseViewController {
     
     //MARK: - Properties
     var eventView: SelectedCalendarEventView!
-    var selectedEvent: CalendarEvent?
+    private let selectedEvent: CalendarEvent?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -27,6 +27,15 @@ class SelectedCalendarEventViewController: SNBaseViewController {
         setTitle()
     }
 
+    init(selectedEvent: CalendarEvent) {
+        self.selectedEvent = selectedEvent
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Methods
     func setupEventView(){
         eventView = SelectedCalendarEventView()

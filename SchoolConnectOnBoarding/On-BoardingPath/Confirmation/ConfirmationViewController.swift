@@ -17,13 +17,22 @@ class ConfirmationViewController: SNBaseViewController {
     //MARK: - Properties
     
     var confirmationView: ConfirmationView!
-    var selectedSchool: School!
+    private let selectedSchool: School!
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = PageTitles.confirmation.rawValue
         setupConfirmationView()
+    }
+    
+    init(selectedSchool: School) {
+        self.selectedSchool = selectedSchool
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {

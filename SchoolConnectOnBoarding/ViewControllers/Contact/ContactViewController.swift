@@ -172,6 +172,7 @@ extension ContactViewController: UITextFieldDelegate {
         return true
     }
     
+    
 }
 
 extension ContactViewController: UITextViewDelegate {
@@ -216,8 +217,40 @@ extension ContactViewController: UITextViewDelegate {
 
 extension ContactViewController: ContactFormDelegate {
     //text field validation delegate from cocoacasts?
+    
     func didTapSubmit() {
-        //
+        
+        if formDataIsValid() {
+            view.backgroundColor = UIColor.scGreen()
+        } else {
+            view.backgroundColor = UIColor.scRed()
+        }
+        
+    }
+    
+    func formDataIsValid() -> Bool {
+        guard let nameText = contactScreenView.nameTextField.text else { return false }
+        guard let emailText = contactScreenView.emailTextField.text else { return false }
+        guard let phoneText = contactScreenView.phoneNumberTextField.text else { return false }
+        guard let messageText = contactScreenView.messageTextView.textView.text else { return false }
+        
+        if nameText == "" {
+            return false
+        }
+        
+        if !emailText.isValidEmail() && contactScreenView.emailTextField.text == nil {
+            return false
+        }
+        
+        if phoneText.count != 10 {
+            return false
+        }
+        
+        if messageText == "" {
+            return false
+        }
+        
+        return true
     }
     
 }

@@ -125,11 +125,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let confirmationVC = ConfirmationViewController()
-        let selectedSchool = schoolList[indexPath.row]
-        
-        confirmationVC.selectedSchool = selectedSchool
-        
+        let confirmationVC = ConfirmationViewController(selectedSchool: schoolList[indexPath.row])
         self.show(confirmationVC, sender: nil)
     }
     
