@@ -8,13 +8,10 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
 
     
     //MARK: - Properties
-    
-    static var cellId = CellReuseIds.searchSchoolNameTableCell.rawValue
-
     
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()

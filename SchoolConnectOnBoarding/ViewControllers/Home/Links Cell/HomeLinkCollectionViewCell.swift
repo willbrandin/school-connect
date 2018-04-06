@@ -8,11 +8,11 @@
 
 import UIKit
 
-class HomeLinkCollectionViewCell: UICollectionViewCell {
+class HomeLinkCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView {
     
     
     //MARK: - Properties
-    static var reuseID = CellReuseIds.homeLinkCollectionCell.rawValue
+//    static var reuseID = CellReuseIds.homeLinkCollectionCell.rawValue
     var linksArray = [SCHomeLink]()
     
     //MARK: - UI Elements

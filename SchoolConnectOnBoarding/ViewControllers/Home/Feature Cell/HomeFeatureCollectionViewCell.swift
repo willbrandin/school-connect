@@ -8,10 +8,10 @@
 
 import UIKit
 
-class HomeFeatureCollectionViewCell: UICollectionViewCell {
+class HomeFeatureCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView {
     
     //MARK: - Properties
-    static var reuseID = CellReuseIds.homeFeatureCollectionCell.rawValue
+//    static var reuseID = CellReuseIds.homeFeatureCollectionCell.rawValue
     var collectionView: UICollectionView!
     var featureArray = [String]()
     weak var featureCellDelegate: HomeFeatureDelegate?

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class CalendarTableViewCell: UITableViewCell {
+class CalendarTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
 
     //MARK: - Properties
-    static var cellId = CellReuseIds.calendarCell.rawValue
+    //static var cellId = CellReuseIds.calendarCell.rawValue
     var cardView: CalendarCardView!
 
     //MARK: - UI Elements

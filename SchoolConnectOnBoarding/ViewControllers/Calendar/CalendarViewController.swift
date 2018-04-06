@@ -45,7 +45,7 @@ class CalendarViewController: SNBaseViewController {
     func setDelegates() {
         calendarView.tableView.delegate = self
         calendarView.tableView.dataSource = self
-        calendarView.tableView.register(CalendarTableViewCell.self, forCellReuseIdentifier: CalendarTableViewCell.cellId)
+        calendarView.tableView.register(CalendarTableViewCell.self)
         
     }
     
@@ -76,12 +76,13 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = calendarView.tableView.dequeueReusableCell(withIdentifier: CalendarTableViewCell.cellId, for: indexPath) as? CalendarTableViewCell
-        cell?.configureCell(calendarArray[indexPath.row])
-        cell?.selectionStyle = .none
 
-        return cell!
+        let cell: CalendarTableViewCell = tableView.deqeueReusableCell(for: indexPath)
+        
+        cell.configureCell(calendarArray[indexPath.row])
+        cell.selectionStyle = .none
+
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

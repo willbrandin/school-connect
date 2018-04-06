@@ -30,12 +30,9 @@ class HomeViewController: SNBaseViewController {
         homeView.collectionView.dataSource = self
         homeView.collectionView.delegate = self
         
-        homeView.collectionView.register(HomeGreetingCollectionViewCell.self, forCellWithReuseIdentifier: HomeGreetingCollectionViewCell.reuseID)
-        
-        homeView.collectionView.register(HomeFeatureCollectionViewCell.self, forCellWithReuseIdentifier: HomeFeatureCollectionViewCell.reuseID)
-        
-        homeView.collectionView.register(HomeLinkCollectionViewCell.self, forCellWithReuseIdentifier: HomeLinkCollectionViewCell.reuseID)
-        
+        homeView.collectionView.register(HomeGreetingCollectionViewCell.self)
+        homeView.collectionView.register(HomeFeatureCollectionViewCell.self)
+        homeView.collectionView.register(HomeLinkCollectionViewCell.self)
     }
     
     
@@ -92,20 +89,20 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == HomeCellIndex.greeting.rawValue {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeGreetingCollectionViewCell.reuseID, for: indexPath) as! HomeGreetingCollectionViewCell
+            let cell: HomeGreetingCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
             return cell
             
         } else if indexPath.row == HomeCellIndex.featureCell.rawValue {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeFeatureCollectionViewCell.reuseID, for: indexPath) as! HomeFeatureCollectionViewCell
+            let cell: HomeFeatureCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
             cell.featureCellDelegate = self
             return cell
             
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeLinkCollectionViewCell.reuseID, for: indexPath) as! HomeLinkCollectionViewCell
+            let cell: HomeLinkCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             
             cell.configureCell()
         

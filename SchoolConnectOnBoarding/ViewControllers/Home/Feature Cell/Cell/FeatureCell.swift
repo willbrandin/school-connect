@@ -8,7 +8,8 @@
 
 import UIKit
 
-class FeatureCell: SCHomeCollectionViewCell {
+class FeatureCell: SCHomeCollectionViewCell, ReusableView, CellLoadableView, Injectable {
+    
     
     //MARK: - Properties
     var cardView: FeatureCardView!
@@ -27,6 +28,10 @@ class FeatureCell: SCHomeCollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+    }
+    
+    func inject(_ cardView: FeatureCardView) {
+        self.cardView = cardView
     }
     
     //MARK: - Methods

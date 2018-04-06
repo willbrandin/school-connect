@@ -50,7 +50,7 @@ class SearchViewController: UIViewController {
         searchView.tableView.delegate = self
         searchView.tableView.dataSource = self
         searchView.searchBar.delegate = self
-        searchView.tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.cellId)
+        searchView.tableView.register(SearchTableViewCell.self)
 
     }
     
@@ -113,11 +113,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = searchView.tableView.dequeueReusableCell(withIdentifier: SearchTableViewCell.cellId, for: indexPath) as? SearchTableViewCell
+        let cell: SearchTableViewCell = tableView.deqeueReusableCell(for: indexPath)
+        
         if schoolList.count > 0 {
-            cell?.configureCell(schoolList[indexPath.row])
+            cell.configureCell(schoolList[indexPath.row])
         }
-        return cell!
+        return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

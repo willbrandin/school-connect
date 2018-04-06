@@ -26,7 +26,7 @@ class NewsViewController: SNBaseViewController {
         newsView.collectionView.dataSource = self
         newsView.collectionView.delegate = self
         
-        newsView.collectionView.register(NewsArticleCollectionViewCell.self, forCellWithReuseIdentifier: NewsArticleCollectionViewCell.reuseID)
+        newsView.collectionView.register(NewsArticleCollectionViewCell.self)
         
         
     }
@@ -80,7 +80,7 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewsArticleCollectionViewCell.reuseID, for: indexPath) as! NewsArticleCollectionViewCell
+        let cell: NewsArticleCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
         
         cell.configureCell(newsArray[indexPath.row])
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell {
+class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, ReusableView, CellLoadableView {
     
     //MARK: - Properties
     static var reuseID = CellReuseIds.homeGreetingCollectionCell.rawValue

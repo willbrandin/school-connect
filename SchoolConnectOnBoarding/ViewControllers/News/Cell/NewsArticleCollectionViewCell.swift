@@ -8,10 +8,9 @@
 
 import UIKit
 
-class NewsArticleCollectionViewCell: UICollectionViewCell {
+class NewsArticleCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView {
     
     //MARK: - Properties
-    static var reuseID = CellReuseIds.newsArticleCardCell.rawValue
     var cardView: NewsCardView!
     
     //MARK: - UI Elements

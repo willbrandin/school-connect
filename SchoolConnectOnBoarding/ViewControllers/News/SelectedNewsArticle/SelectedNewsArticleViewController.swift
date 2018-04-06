@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SelectedNewsArticleViewController: SNBaseViewController {
+class SelectedNewsArticleViewController: SNBaseViewController, Injectable {
 
+    
     //MARK: - Properties
     var articleView: SelectedNewsArticleView!
-    private let selectedArticle: NewsArticle?
+    private var selectedArticle: NewsArticle?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -29,6 +30,10 @@ class SelectedNewsArticleViewController: SNBaseViewController {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func inject(_ article: NewsArticle) {
+        self.selectedArticle = article
     }
     
     
