@@ -56,7 +56,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
                 try JSONParameterEncoder.encode(urlRequest: &request, with: bodyParameters)
             }
             if let urlParameters = urlParameters {
-                try JSONParameterEncoder.encode(urlRequest: &request, with: urlParameters)
+                try URLParameterEncoder.encode(urlRequest: &request, with: urlParameters)
             }
         } catch {
             throw error

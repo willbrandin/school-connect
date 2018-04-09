@@ -18,11 +18,22 @@ let SCHOOL_NAMES = [
     "Williams high school"
 ]
 
-struct SchoolSearch {
+class SchoolSearch: Decodable {
     
     var name: String?
     var id: String?
     
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        name = try values.decodeIfPresent(String.self, forKey: .name)!
+        id = try values.decodeIfPresent(String.self, forKey: .id)!
+    }
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case name, id
+    }
     
     static func fetchNames(input: String , completion: @escaping ([SchoolSearch])->Void) {
         var ref: DatabaseReference!

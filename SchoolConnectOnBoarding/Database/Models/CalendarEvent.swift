@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 
-class CalendarEvent {
+class CalendarEvent: Decodable {
     
     //MARK: Properties
     var title: String?
@@ -17,7 +17,25 @@ class CalendarEvent {
     var endDate: String?
     var description: String?
     var location: String?
+    var schoolId: String?
     
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        title = try values.decodeIfPresent(String.self, forKey: .title)!
+        startDate = try values.decodeIfPresent(String.self, forKey: .startDate)!
+        endDate = try values.decodeIfPresent(String.self, forKey: .endDate)!
+        description = try values.decodeIfPresent(String.self, forKey: .description)!
+        location = try values.decodeIfPresent(String.self, forKey: .location)!
+        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
+    }
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case title, startDate, endDate, description, location
+        
+        case schoolId = "school"
+    }
     
     //MARK: Inits
     func initWithResponse(_ dataDictionary: NSDictionary){

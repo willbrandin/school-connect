@@ -28,9 +28,9 @@ class NewsArticle: Decodable {
         subtitle = try values.decodeIfPresent(String.self, forKey: .subtitle)!
         //source = try values.decodeIfPresent(String.self, forKey: .source)!
         pubDate = try values.decodeIfPresent(String.self, forKey: .pubDate)!
-        imgUrl = try values.decodeIfPresent(String.self, forKey: .schoolId)!
-        fullStory = try values.decodeIfPresent(String.self, forKey: .schoolId)!
-
+        imgUrl = try values.decodeIfPresent(String.self, forKey: .imgUrl)!
+        fullStory = try values.decodeIfPresent(String.self, forKey: .fullStory)!
+        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
     }
     
     enum CodingKeys: String, CodingKey

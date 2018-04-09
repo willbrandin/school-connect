@@ -10,12 +10,33 @@ import Foundation
 import Firebase
 import RealmSwift
 
-class SCHomeLink: Object {
+class SCHomeLink: Object, Decodable {
     
     //MARK: - Properties
     @objc dynamic var title: String?
     @objc dynamic var linkUrl: String?
     @objc dynamic var linkId: String?
+    @objc dynamic var schoolId: String?
+    
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        title = try values.decodeIfPresent(String.self, forKey: .title)!
+        linkUrl = try values.decodeIfPresent(String.self, forKey: .linkUrl)!
+        linkId = try values.decodeIfPresent(String.self, forKey: .linkId)!
+        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
+        
+    }
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case title, linkUrl
+        
+        case linkId = "_id"
+        
+        case schoolId = "school"
+    }
+    
     
     func initWithResponse(_ dataDictionary: NSDictionary?){
         self.title = dataDictionary?["title"] as? String

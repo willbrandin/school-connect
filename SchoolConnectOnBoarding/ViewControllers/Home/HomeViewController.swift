@@ -55,16 +55,27 @@ class HomeViewController: SNBaseViewController {
 
         
         let networkManager = NetworkManager()
-        let id = "5ab9473ac69dc53472dd3c8b"
-        let endpoint = SchoolConnectAPI.news(id: id)
-        networkManager.getList(for: endpoint, [NewsArticle].self) { (result) in
+        //let id = "5ab9473ac69dc53472dd3c8b"
+        let query = "smi"
+        let endpoint = SchoolConnectAPI.schoolSearch(search: query)
+        
+        networkManager.get(for: endpoint, SchoolSearch.self) { (result) in
             switch result {
-            case .success(let news):
-                let newsArticles = news as! [NewsArticle]
-                print(newsArticles)
+            case .success(let schools):
+                let schoolsSearched = schools as! SchoolSearch
+                print(schoolsSearched)
             case .error(let error): print(error)
             }
         }
+//
+//        networkManager.getList(for: endpoint, [NewsArticle].self) { (result) in
+//            switch result {
+//            case .success(let news):
+//                let newsArticles = news as! [NewsArticle]
+//                print(newsArticles)
+//            case .error(let error): print(error)
+//            }
+//        }
         
     }
   
