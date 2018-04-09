@@ -48,7 +48,6 @@
 		0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */; };
 		0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */; };
 		035EBD6A2077B96800FBA250 /* SCViewProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EBD692077B96800FBA250 /* SCViewProtocols.swift */; };
-		035EBD6D2077C37600FBA250 /* SCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EBD6C2077C37600FBA250 /* SCNetworkManager.swift */; };
 		037733F320605AEC0046D276 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F220605AEC0046D276 /* FeatureCell.swift */; };
 		037733F6206144BD0046D276 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F5206144BD0046D276 /* LinkCell.swift */; };
 		0382F6792056F6D800284055 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382F6782056F6D800284055 /* School.swift */; };
@@ -126,7 +125,6 @@
 		0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleView.swift; sourceTree = "<group>"; };
 		0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleViewController.swift; sourceTree = "<group>"; };
 		035EBD692077B96800FBA250 /* SCViewProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCViewProtocols.swift; sourceTree = "<group>"; };
-		035EBD6C2077C37600FBA250 /* SCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNetworkManager.swift; sourceTree = "<group>"; };
 		037733F220605AEC0046D276 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		037733F5206144BD0046D276 /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
 		0382F6782056F6D800284055 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
@@ -374,7 +372,6 @@
 				0335DBCD207BEB2300354815 /* Service */,
 				0335DBCC207BEB1D00354815 /* Manager */,
 				0335DBCB207BEB1600354815 /* Endpoint */,
-				035EBD6C2077C37600FBA250 /* SCNetworkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -788,7 +785,6 @@
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
 				0335DBD2207BEB9A00354815 /* HTTPMethod.swift in Sources */,
 				0335DBD6207BEC7500354815 /* ParameterEncoding.swift in Sources */,
-				035EBD6D2077C37600FBA250 /* SCNetworkManager.swift in Sources */,
 				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
