@@ -10,23 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolConnectOnBoarding/ViewControllers/Home/HomeViewController.swift"
-            timestampString = "544999768.270772"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "getData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SchoolConnectOnBoarding/ViewControllers/Home/HomeViewController.swift"
-            timestampString = "544999768.271578"
+            timestampString = "545002899.3263969"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -42,61 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SchoolConnectOnBoarding/ViewControllers/Home/HomeViewController.swift"
-            timestampString = "544999768.271805"
+            timestampString = "545002899.327489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
             endingLineNumber = "64"
             landmarkName = "getData()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SchoolConnectOnBoarding/ViewControllers/Home/HomeViewController.swift"
-            timestampString = "544999768.2720129"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "getData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SchoolConnectOnBoarding.Result&lt;Swift.Optional&lt;Swift.Decodable&gt;, SchoolConnectOnBoarding.APIError&gt;) -&gt; () in SchoolConnectOnBoarding.HomeViewController.getData() -&gt; ()"
-                  moduleName = "SchoolConnectOnBoarding"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/william.brandin/Library/Mobile%20Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/ViewControllers/Home/HomeViewController.swift"
-                  timestampString = "544999768.488948"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "32">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SchoolConnectOnBoarding.Result&lt;Swift.Optional&lt;Swift.Decodable&gt;, SchoolConnectOnBoarding.APIError&gt;) -&gt; () in SchoolConnectOnBoarding.HomeViewController.getData() -&gt; ()"
-                  moduleName = "SchoolConnectOnBoarding"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/william.brandin/Library/Mobile%20Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/ViewControllers/Home/HomeViewController.swift"
-                  timestampString = "544999768.491982"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

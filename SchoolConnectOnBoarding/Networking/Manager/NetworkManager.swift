@@ -68,6 +68,39 @@ struct NetworkManager {
             
         }
     }
+    
+    func getList<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping(Result<[Decodable]?, APIError>) ->()){
+        //gets data based on url...
+        router.request(apiEndpoint) { data, response, error in
+            if error != nil {
+                completion(.error(.requestFailed))
+            }
+            
+            if let response = response as? HTTPURLResponse {
+                let result = self.handleNetworkResponse(response)
+                switch result {
+                case .success:
+                    guard let responseData = data else {
+                        completion(.error(.invalidData))
+                        return
+                    }
+                    do {
+                        //Decodes the data
+                        let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
+                        completion(.success(apiResonse))
+                    } catch {
+                        completion(.error(.jsonParsingFailure))
+                    }
+                    
+                case .failure:
+                    completion(.error(.responseUnsuccessful))
+                }
+            }
+            
+        }
+    }
+    
+    private func decodeFor(){}
 }
 
 

@@ -55,13 +55,13 @@ class HomeViewController: SNBaseViewController {
 
         
         let networkManager = NetworkManager()
-        let id = "5aba8fcd98f79969638c0dc7"
-        let endpoint = SchoolConnectAPI.configSettings(id: id)
-        networkManager.get(for: endpoint, SNAppSettings.self) { (result) in
+        let id = "5ab9473ac69dc53472dd3c8b"
+        let endpoint = SchoolConnectAPI.news(id: id)
+        networkManager.getList(for: endpoint, [NewsArticle].self) { (result) in
             switch result {
-            case .success(let settings):
-                let newAppSettings = settings as! SNAppSettings
-                print(newAppSettings.primaryColor)
+            case .success(let news):
+                let newsArticles = news as! [NewsArticle]
+                print(newsArticles)
             case .error(let error): print(error)
             }
         }
