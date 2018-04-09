@@ -9,13 +9,30 @@
 import Foundation
 import RealmSwift
 
-class SNAppSettings: Object {
+class SNAppSettings: Object, Decodable {
     
     //MARK: - Properties
     @objc dynamic var primaryColor: String?
     @objc dynamic var secondaryColor: String?
     @objc dynamic var defaultImgUrl: String?
+    @objc dynamic var schoolId: String?
     var features = List<String>()
+    
+    
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        primaryColor = try values.decodeIfPresent(String.self, forKey: .primaryColor)!
+        secondaryColor = try values.decodeIfPresent(String.self, forKey: .secondaryColor)!
+        defaultImgUrl = try values.decodeIfPresent(String.self, forKey: .defaultImgUrl)!
+        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
+    }
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case primaryColor, secondaryColor, defaultImgUrl
+        case schoolId = "school"
+    }
     
     //MARK: - Init
     
@@ -29,6 +46,8 @@ class SNAppSettings: Object {
                 self.features.append(feature)
             }
         }
+       
+        
     }
     
     //MARK: - Methods

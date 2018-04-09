@@ -33,6 +33,8 @@ class HomeViewController: SNBaseViewController {
         homeView.collectionView.register(HomeGreetingCollectionViewCell.self)
         homeView.collectionView.register(HomeFeatureCollectionViewCell.self)
         homeView.collectionView.register(HomeLinkCollectionViewCell.self)
+        
+        getData()
     }
     
     
@@ -49,13 +51,32 @@ class HomeViewController: SNBaseViewController {
         homeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
-   
+    func getData(){
+
+        
+        let networkManager = NetworkManager()
+        let id = "5aba8fcd98f79969638c0dc7"
+        let endpoint = SchoolConnectAPI.configSettings(id: id)
+        networkManager.get(for: endpoint, SNAppSettings.self) { (result) in
+            switch result {
+            case .success(let settings):
+                let newAppSettings = settings as! SNAppSettings
+                print(newAppSettings.primaryColor)
+            case .error(let error): print(error)
+            }
+        }
+        
+    }
+  
     
 }
 
 //MARK: - Network calls
 extension HomeViewController {
     //update Links DB
+    
+    
+    
     func fetchLinksData(){
         SCHomeLink.getHomeLinksForSchool(update: true)
     }

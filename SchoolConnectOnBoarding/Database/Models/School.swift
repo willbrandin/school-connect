@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import RealmSwift
 
-class School: Object {
+class School: RealmSwift.Object, Decodable {
     
     //MARK: - Properties
     @objc dynamic var schoolName: String?
@@ -20,7 +20,25 @@ class School: Object {
     @objc dynamic var appSettings: SNAppSettings?
     
     
+    
+    required convenience init(from decoder: Decoder) throws {
+        self.init()
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName)!
+        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
+        schoolCity = try values.decodeIfPresent(String.self, forKey: .schoolCity)!
+        schoolState = try values.decodeIfPresent(String.self, forKey: .schoolState)!
+        appSettings = try values.decodeIfPresent(SNAppSettings.self, forKey: .appSettings)!
+    }
+    
+    enum CodingKeys: String, CodingKey
+    {
+        case schoolName, schoolId, schoolCity, schoolState, appSettings
+    }
+    
+    
     //MARK: - Init
+
     func initSchoolDetails(_ dataDictionary: NSDictionary){
         self.schoolName = dataDictionary["schoolName"] as? String
         self.schoolCity = dataDictionary["schoolCity"] as? String
@@ -31,13 +49,16 @@ class School: Object {
         let newSettings = SNAppSettings()
         newSettings.initWithResponse(data)
         appSettings = newSettings
+        
     }
+    
+
     
     
     //MARK: - Methods
     
     override open static func primaryKey() -> String? {
-        
+        //TODO: Replace with enum raw value.
         return "schoolId"
     }
     
