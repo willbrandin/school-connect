@@ -15,7 +15,13 @@ class SearchViewController: UIViewController {
     
     
     //Search Properties
-    var schoolList = [School]()
+    var schoolList = [SchoolSearch]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.searchView.tableView.reloadData()
+            }
+        }
+    }
     var shouldShowSearchResults = false
     
     
@@ -74,7 +80,6 @@ extension SearchViewController: UISearchBarDelegate {
         if str.count == 0 {
             shouldShowSearchResults = false
             self.schoolList.removeAll()
-            self.searchView.tableView.reloadData()
             let newView = SearchBlankView()
             newView.customizeUI()
             self.searchView.tableView.separatorStyle  = .none
@@ -86,18 +91,39 @@ extension SearchViewController: UISearchBarDelegate {
             self.searchView.tableView.backgroundView = nil
             self.searchView.tableView.separatorStyle = .singleLine
 
-            School.fetchNames(input: strResult, completion: { (schools) in
+            fetchWithSearch(query: strResult)
+            
+        }
+
+    }
+    
+    private func fetchWithSearch(query: String) {
+        SchoolSearch.fetchList(with: query, completion: { result in
+            switch result {
+            case .success(let schools):
                 if schools.count == 0 {
                     self.schoolList.removeAll()
-                    self.searchView.tableView.reloadData()
                 } else {
                     self.schoolList.removeAll()
                     self.schoolList = schools
-                    self.searchView.tableView.reloadData()
                 }
-            })
+            case .error:
+                let alert = WBPopUp.fetchError.initAlert()
+                self.present(alert, animated: true, completion: nil)
+            }
+        })
+    }
+    
+    private func fetchSelectedSchool(with schoolId: String?, completion: @escaping (School?) -> Void){
+        School.fetchDetails(with: schoolId) { result in
+            switch result {
+            case .success(let school):
+                completion(school)
+            case .error:
+                let alert = WBPopUp.fetchError.initAlert()
+                self.present(alert, animated: true, completion: nil)
+            }
         }
-
     }
     
 }
@@ -124,10 +150,20 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let confirmationVC = ConfirmationViewController(selectedSchool: schoolList[indexPath.row])
-        self.show(confirmationVC, sender: nil)
+        
+        let selectedSchool = schoolList[indexPath.row]
+        
+        fetchSelectedSchool(with: selectedSchool.id) { (selectedSchoolData) in
+            guard let school = selectedSchoolData else { return }
+            DispatchQueue.main.async {
+                let confirmationVC = ConfirmationViewController(selectedSchool: school)
+                self.show(confirmationVC, sender: nil)
+            }
+        }
+        
     }
     
 }

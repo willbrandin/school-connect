@@ -51,7 +51,7 @@ class NewsArticle: Decodable {
         if let imageUrl = dataDictionary["imgUrl"] as? String {
             self.imgUrl = imageUrl
         } else {
-            self.imgUrl = SCDatabaseQueryManager.savedSchool()?.appSettings?.defaultImgUrl
+            //self.imgUrl = SCDatabaseQueryManager.savedSchool()?.appSettings?.defaultImgUrl
         }
     }
     

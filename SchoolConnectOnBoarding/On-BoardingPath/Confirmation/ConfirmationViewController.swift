@@ -81,6 +81,10 @@ extension ConfirmationViewController: ConfirmationDelegate {
         }
     }
     
+    func fetchSchoolAppConfig(){
+        
+    }
+    
     func getLinksData(){
         SCHomeLink.getHomeLinksForSchool(update: false, completion: { (didFinish, err) in
             

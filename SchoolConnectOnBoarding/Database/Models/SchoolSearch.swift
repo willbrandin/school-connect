@@ -11,9 +11,11 @@ import Firebase
 
 class SchoolSearch: Decodable {
     
+    //MARK: - Properties
     var name: String?
     var id: String?
     
+    //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -24,6 +26,29 @@ class SchoolSearch: Decodable {
     enum CodingKeys: String, CodingKey {
         case name
         case id = "_id"
+    }
+    
+    
+    
+    //MARK: - Methods
+    static func fetchList(with searchQuery: String?, completion: @escaping (Result<[SchoolSearch], Error?>)->Void){
+        guard let query = searchQuery else {
+            completion(Result.error(SCErrors.noSchoolId))
+            return
+        }
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.schoolSearch(search: query)
+        
+        
+        networkManager.getList(for: endpoint, [SchoolSearch].self) { result in
+            switch result {
+            case .success(let schools):
+                let returnedSchools = schools as! [SchoolSearch]
+                completion(Result.success(returnedSchools))
+            case .error(let err):
+                completion(Result.error(err))
+            }
+        }
     }
     
     static func fetchNames(input: String , completion: @escaping ([SchoolSearch])->Void) {

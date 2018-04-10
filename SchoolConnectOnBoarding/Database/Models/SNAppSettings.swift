@@ -16,9 +16,10 @@ class SNAppSettings: Object, Decodable {
     @objc dynamic var secondaryColor: String?
     @objc dynamic var defaultImgUrl: String?
     @objc dynamic var schoolId: String?
+    @objc dynamic var settingsId: String?
     var features = List<String>()
     
-    
+    //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -26,30 +27,22 @@ class SNAppSettings: Object, Decodable {
         secondaryColor = try values.decodeIfPresent(String.self, forKey: .secondaryColor)!
         defaultImgUrl = try values.decodeIfPresent(String.self, forKey: .defaultImgUrl)!
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
+        //features = try values.decodeIfPresent(List<String>.self, forKey: .features)!
     }
     
     enum CodingKeys: String, CodingKey
     {
-        case primaryColor, secondaryColor, defaultImgUrl
-        case schoolId = "school"
-    }
-    
-    //MARK: - Init
-    
-    func initWithResponse(_ dataDictionary: NSDictionary){
-        //Check for updated settings
-        self.primaryColor = dataDictionary["primaryColor"] as? String
-        self.secondaryColor = dataDictionary["secondaryColor"] as? String
-        self.defaultImgUrl = dataDictionary["defaultImg"] as? String
-        if let features = dataDictionary["features"] as? [String] {
-            for feature in features {
-                self.features.append(feature)
-            }
-        }
-       
+        case primaryColor, secondaryColor, defaultImgUrl //, features
         
+        case schoolId = "school"
+        
+        case settingsId = "_id"
     }
     
+    override open static func primaryKey() -> String? {
+        
+        return "settingsId"
+    }
     //MARK: - Methods
     
 }

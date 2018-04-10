@@ -18,6 +18,8 @@ class SCHomeLink: Object, Decodable {
     @objc dynamic var linkId: String?
     @objc dynamic var schoolId: String?
     
+    
+    //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)

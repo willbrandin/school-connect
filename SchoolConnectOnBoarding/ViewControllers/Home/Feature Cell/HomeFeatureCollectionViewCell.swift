@@ -100,7 +100,7 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCell.reuseID, for: indexPath) as! FeatureCell
+        let cell: FeatureCell = collectionView.deqeueReusableCell(for: indexPath)
         
         let enumCase = HomeFeature(rawValue: featureArray[indexPath.row])
         

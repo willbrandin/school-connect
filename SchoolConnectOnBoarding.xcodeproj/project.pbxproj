@@ -319,10 +319,10 @@
 			isa = PBXGroup;
 			children = (
 				03930CF42055FF0100128D72 /* SchoolSearch.swift */,
-				0382F6782056F6D800284055 /* School.swift */,
-				0312E671205831A1009327F3 /* SNAppSettings.swift */,
 				0312E68620586EF4009327F3 /* NewsArticle.swift */,
 				0312E68C20587525009327F3 /* CalendarEvent.swift */,
+				0382F6782056F6D800284055 /* School.swift */,
+				0312E671205831A1009327F3 /* SNAppSettings.swift */,
 				03EA2B7320615E4300FACBBA /* SCHomeLink.swift */,
 			);
 			path = Models;

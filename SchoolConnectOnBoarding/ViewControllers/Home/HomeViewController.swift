@@ -54,7 +54,7 @@ class HomeViewController: SNBaseViewController {
     func getData(){
 
         
-        let networkManager = NetworkManager()
+        let networkManager = NetworkManager.sharedInstance
         //let id = "5ab9473ac69dc53472dd3c8b"
         let query = "Smi"
         let endpoint = SchoolConnectAPI.schoolSearch(search: query)

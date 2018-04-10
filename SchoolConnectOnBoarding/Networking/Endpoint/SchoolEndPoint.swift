@@ -73,7 +73,7 @@ extension SchoolConnectAPI: EndPointType {
         case .homeLinks(let id):
             return "/homelinks/\(id)" // []
         case .schoolDetails(let id):
-            return "/school/\(id)" //single GET
+            return "/school/info/\(id)" //single GET
         case .schoolSearch:
             return "/school/list/" // []
         }

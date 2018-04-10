@@ -17,49 +17,52 @@ class School: RealmSwift.Object, Decodable {
     @objc dynamic var schoolId: String?
     @objc dynamic var schoolCity: String?
     @objc dynamic var schoolState: String?
-    @objc dynamic var appSettings: SNAppSettings?
     
     
-    
+    //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName)!
-        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
-        schoolCity = try values.decodeIfPresent(String.self, forKey: .schoolCity)!
-        schoolState = try values.decodeIfPresent(String.self, forKey: .schoolState)!
-        appSettings = try values.decodeIfPresent(SNAppSettings.self, forKey: .appSettings)!
+        schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName)
+        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)
+        schoolCity = try values.decodeIfPresent(String.self, forKey: .schoolCity)
+        schoolState = try values.decodeIfPresent(String.self, forKey: .schoolState)
     }
     
     enum CodingKeys: String, CodingKey
     {
-        case schoolName, schoolId, schoolCity, schoolState, appSettings
+        case schoolCity = "city"
+        case schoolState = "state"
+        case schoolName = "name"
+        case schoolId = "school"
     }
-    
-    
-    //MARK: - Init
-
-    func initSchoolDetails(_ dataDictionary: NSDictionary){
-        self.schoolName = dataDictionary["schoolName"] as? String
-        self.schoolCity = dataDictionary["schoolCity"] as? String
-        self.schoolState = dataDictionary["schoolState"] as? String
-    }
-    
-    func initAppSettings(_ data: NSDictionary){
-        let newSettings = SNAppSettings()
-        newSettings.initWithResponse(data)
-        appSettings = newSettings
-        
-    }
-    
-
-    
-    
-    //MARK: - Methods
     
     override open static func primaryKey() -> String? {
         //TODO: Replace with enum raw value.
         return "schoolId"
+    }
+
+    
+    //MARK: - Methods
+
+    static func fetchDetails(with schoolId: String?, completion: @escaping (Result<School, Error>)->Void) {
+        guard let id = schoolId else {
+            completion(Result.error(SCErrors.noSchoolId))
+            return
+        }
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.schoolDetails(id: id)
+        
+        networkManager.get(for: endpoint, School.self, completion: {result in
+            switch result {
+            case .success(let school):
+                let returnedSchool = school as! School
+                completion(Result.success(returnedSchool))
+            case .error(let error):
+                completion(Result.error(error))
+            }
+        })
+        
     }
     
     ///Fetches list of schools for onboarding.
@@ -74,7 +77,7 @@ class School: RealmSwift.Object, Decodable {
             
             if let data = snapshot.value as? NSDictionary {
                 let newSchool = School()
-                newSchool.initSchoolDetails(data)
+                //newSchool.initSchoolDetails(data)
                 newSchool.schoolId = snapshot.key
                 schoolNames.append(newSchool)
                 completion(schoolNames)
@@ -82,6 +85,8 @@ class School: RealmSwift.Object, Decodable {
         }
     }
     
+    
+
     static func getSchoolDetailsWithId(update: Bool = false, completion: @escaping (Bool)-> Void = {_ in } ) {
         //get school with id.
         let ref: DatabaseReference!
@@ -98,12 +103,12 @@ class School: RealmSwift.Object, Decodable {
             if snapshot.key == FirebaseSchoolInfoPath.infoPath.rawValue {
                 //Init info
                 if let infoData = snapshot.value as? NSDictionary {
-                    newStoredSchool.initSchoolDetails(infoData)
+                    //newStoredSchool.initSchoolDetails(infoData)
                 }
             }
             if snapshot.key == FirebaseSchoolInfoPath.appConfig.rawValue {
                 if let appSettingsData = snapshot.value as? NSDictionary {
-                    newStoredSchool.initAppSettings(appSettingsData)
+                    //newStoredSchool.initAppSettings(appSettingsData)
                     
                     DispatchQueue.main.async {
                         autoreleasepool {

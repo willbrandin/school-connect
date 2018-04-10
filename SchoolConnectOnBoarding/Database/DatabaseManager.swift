@@ -57,7 +57,8 @@ final class SCDatabaseQueryManager {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return nil }
         let schoolQuery = SNDatabase.object(ofType: School.self, forPrimaryKey: id)
-        guard let primaryColor = schoolQuery?.appSettings?.primaryColor else { return nil }
+        let primaryColor = "000000"
+            //schoolQuery?.appSettings?.primaryColor else { return nil }
         
         return UIColor(hex: primaryColor)
     }
@@ -66,9 +67,10 @@ final class SCDatabaseQueryManager {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return nil }
         let schoolQuery = SNDatabase.object(ofType: School.self, forPrimaryKey: id)
-        guard let secondaryColor = schoolQuery?.appSettings?.secondaryColor else { return nil }
+        let primaryColor = "000000"
+        //guard let secondaryColor = schoolQuery?.appSettings?.secondaryColor else { return nil }
         
-        return UIColor(hex: secondaryColor)
+        return UIColor(hex: primaryColor)
     }
     
     class func getSavedLinks() -> [SCHomeLink] {
@@ -77,9 +79,9 @@ final class SCDatabaseQueryManager {
     }
     
     class func getSavedListOfFeatures() -> [String?] {
-        if let featureQuery = savedSchool()?.appSettings?.features {
-            return Array(featureQuery)
-        }
+//        if let featureQuery = savedSchool()?.appSettings?.features {
+//            return Array(featureQuery)
+//        }
         return [nil]
     }
     
