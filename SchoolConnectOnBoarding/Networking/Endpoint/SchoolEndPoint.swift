@@ -13,7 +13,7 @@ public enum Result<T,U>{
     case error(U)
 }
 
-enum APIError: Error {
+public enum APIError: Error {
     case requestFailed
     case jsonConversionFailure
     case invalidData
@@ -29,7 +29,6 @@ enum APIError: Error {
         }
     }
 }
-
 
 enum NetworkEnvironment {
     case qa

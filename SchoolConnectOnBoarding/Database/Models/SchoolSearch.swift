@@ -9,15 +9,6 @@
 import Foundation
 import Firebase
 
-let SCHOOL_NAMES = [
-    "Rogers High School",
-    "Smith High School",
-    "Davis High School",
-    "Rogers Middle School",
-    "Smith Elementry School",
-    "Williams high school"
-]
-
 class SchoolSearch: Decodable {
     
     var name: String?
@@ -30,9 +21,9 @@ class SchoolSearch: Decodable {
         id = try values.decodeIfPresent(String.self, forKey: .id)!
     }
     
-    enum CodingKeys: String, CodingKey
-    {
-        case name, id
+    enum CodingKeys: String, CodingKey {
+        case name
+        case id = "_id"
     }
     
     static func fetchNames(input: String , completion: @escaping ([SchoolSearch])->Void) {
