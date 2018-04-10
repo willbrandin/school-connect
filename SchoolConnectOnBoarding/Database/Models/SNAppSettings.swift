@@ -45,4 +45,42 @@ class SNAppSettings: Object, Decodable {
     }
     //MARK: - Methods
     
+    static func fetchAppConfigSettings(with schoolId: String?, update: Bool = true, completion: @escaping (Bool)->Void = {_ in } ) {
+        guard let id = schoolId else {
+            completion(false)
+            return
+        }
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.configSettings(id: id)
+        
+        networkManager.get(for: endpoint, SNAppSettings.self, completion: {result in
+            switch result {
+            case .success(let settings):
+                let returnedSettings = settings as! SNAppSettings
+                returnedSettings.saveConfigSettings(update: update, completion: completion)
+            case .error:
+                completion(false)
+            }
+        })
+        
+    }
+    
+    private func saveConfigSettings(update: Bool, completion: @escaping (Bool) -> Void){
+        DispatchQueue.main.async {
+            autoreleasepool {
+                if update {
+                    DatabaseManager.save(self)
+                    completion(true)
+                } else {
+                    let realm = try! Realm()
+                    try! realm.write {
+                        realm.add(self)
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }

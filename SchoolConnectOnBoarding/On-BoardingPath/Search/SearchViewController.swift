@@ -108,8 +108,10 @@ extension SearchViewController: UISearchBarDelegate {
                     self.schoolList = schools
                 }
             case .error:
-                let alert = WBPopUp.fetchError.initAlert()
-                self.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    let alert = WBPopUp.fetchError.initAlert()
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         })
     }
@@ -158,10 +160,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         fetchSelectedSchool(with: selectedSchool.id) { (selectedSchoolData) in
             guard let school = selectedSchoolData else { return }
+            
             DispatchQueue.main.async {
                 let confirmationVC = ConfirmationViewController(selectedSchool: school)
                 self.show(confirmationVC, sender: nil)
             }
+            
         }
         
     }

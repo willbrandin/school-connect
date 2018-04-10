@@ -65,28 +65,26 @@ class School: RealmSwift.Object, Decodable {
         
     }
     
-    ///Fetches list of schools for onboarding.
-    static func fetchNames(input: String , completion: @escaping ([School])->Void) {
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        var schoolNames = [School]()
-        
-        let query = ref.child("Schools").queryOrdered(byChild: "schoolName").queryStarting(atValue: input).queryEnding(atValue: input + "\u{F8FF}")
-        
-        query.observe(.childAdded) { (snapshot) in
-            
-            if let data = snapshot.value as? NSDictionary {
-                let newSchool = School()
-                //newSchool.initSchoolDetails(data)
-                newSchool.schoolId = snapshot.key
-                schoolNames.append(newSchool)
-                completion(schoolNames)
+    func saveSchoolDetails(update: Bool, completion: @escaping (Bool) -> Void){
+        DispatchQueue.main.async {
+            autoreleasepool {
+                if update {
+                    DatabaseManager.save(self)
+                    completion(true)
+                } else {
+                    let realm = try! Realm()
+                    try! realm.write {
+                        realm.add(self)
+                        completion(true)
+                    }
+                }
             }
         }
     }
     
+    ///Fetches list of schools for onboarding.
     
-
+    @available(*, deprecated)
     static func getSchoolDetailsWithId(update: Bool = false, completion: @escaping (Bool)-> Void = {_ in } ) {
         //get school with id.
         let ref: DatabaseReference!

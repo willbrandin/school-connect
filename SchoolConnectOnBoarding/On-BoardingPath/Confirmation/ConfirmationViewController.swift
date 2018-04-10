@@ -74,15 +74,20 @@ extension ConfirmationViewController: ConfirmationDelegate {
     
     
     func fetchSchoolData(){
-        School.getSchoolDetailsWithId(update: false) { (completed) in
+        selectedSchool.saveSchoolDetails(update: false) { (completed) in
             if completed {
-                self.getLinksData()
+                self.fetchSchoolAppConfig()
             }
         }
+        
     }
     
     func fetchSchoolAppConfig(){
-        
+        SNAppSettings.fetchAppConfigSettings(with: selectedSchool.schoolId, update: false) { (isComplete) in
+            if isComplete {
+                self.getLinksData()
+            }
+        }
     }
     
     func getLinksData(){

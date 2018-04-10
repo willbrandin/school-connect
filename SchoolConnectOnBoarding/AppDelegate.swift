@@ -37,10 +37,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         
         if schoolIsChosen && schoolId != nil {
-            if let _ = schoolId {
+            if let id = schoolId {
                 let tabBarController = SNTabBarController()
-                School.getSchoolDetailsWithId(update: true)
-                self.window?.rootViewController = tabBarController
+                var schoolToUpdate = School()
+                School.fetchDetails(with: id) { (result) in
+                    switch result {
+                    case .success(let school):
+                        schoolToUpdate = school
+                    default:
+                        break
+                    }
+                }
+                SNAppSettings.fetchAppConfigSettings(with: id)
+                schoolToUpdate.saveSchoolDetails(update: true, completion: { (complete) in
+                    if complete {
+                        DispatchQueue.main.async {
+                            self.window?.rootViewController = tabBarController
+                        }
+                    }
+                })
             }
         } else {
             let landingVC = LandingViewController()

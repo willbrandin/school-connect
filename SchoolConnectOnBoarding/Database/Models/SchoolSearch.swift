@@ -51,25 +51,6 @@ class SchoolSearch: Decodable {
         }
     }
     
-    static func fetchNames(input: String , completion: @escaping ([SchoolSearch])->Void) {
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        var schoolNames = [SchoolSearch]()
-        
-        let query = ref.child("Schools").queryOrdered(byChild: "name").queryStarting(atValue: input).queryEnding(atValue: input + "\u{F8FF}")
-        
-        query.observe(.childAdded) { (snapshot) in
-        
-            if let data = snapshot.value as? NSDictionary {
-                var newSchool = SchoolSearch()
-                newSchool.name = data["name"] as? String
-                newSchool.id = snapshot.key
-                schoolNames.append(newSchool)
-                completion(schoolNames)
-            }
-        }
-    }
-    
 }
 
 
