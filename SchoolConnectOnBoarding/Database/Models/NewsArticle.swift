@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 
 class NewsArticle: Decodable {
     

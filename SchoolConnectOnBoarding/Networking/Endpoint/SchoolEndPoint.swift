@@ -35,6 +35,7 @@ enum NetworkEnvironment {
     case production
     case staging
     case development
+    case localDev
 }
 
 public enum SchoolConnectAPI {
@@ -55,6 +56,7 @@ extension SchoolConnectAPI: EndPointType {
         case .qa: return ""
         case .staging: return ""
         case .development: return "http://10.157.67.4:3000/api"
+        case .localDev: return "http://localhost:3000/api"
         }
     }
     
