@@ -40,6 +40,7 @@ enum HomeCellIndex: Int {
     case greeting = 0
     case featureCell = 1
     case linksCell = 2
+    
 }
 
 enum HomeFeature: String {

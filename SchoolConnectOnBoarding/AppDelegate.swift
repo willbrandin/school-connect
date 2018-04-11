@@ -49,13 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
                 SNAppSettings.fetchAppConfigSettings(with: id)
-                schoolToUpdate.saveSchoolDetails(update: true, completion: { (complete) in
-                    if complete {
-                        DispatchQueue.main.async {
-                            self.window?.rootViewController = tabBarController
-                        }
-                    }
-                })
+                schoolToUpdate.saveSchoolDetails(update: true)
+                self.window?.rootViewController = tabBarController
             }
         } else {
             let landingVC = LandingViewController()

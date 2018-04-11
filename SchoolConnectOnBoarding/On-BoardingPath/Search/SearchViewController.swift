@@ -122,8 +122,10 @@ extension SearchViewController: UISearchBarDelegate {
             case .success(let school):
                 completion(school)
             case .error:
-                let alert = WBPopUp.fetchError.initAlert()
-                self.present(alert, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    let alert = WBPopUp.fetchError.initAlert()
+                    self.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }

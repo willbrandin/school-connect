@@ -8,6 +8,15 @@
 
 import UIKit
 
+
+enum HomeState {
+    case premium
+    case linksOnly
+    case featuresOnly
+    case basic
+}
+
+
 protocol HomeFeatureDelegate: class {
     func didTapFeature(_ feature: HomeFeature?)
 }
@@ -17,7 +26,7 @@ class HomeViewController: SNBaseViewController {
 
     //MARK: - Properties
     var homeView: HomeView!
-    
+    var homeState: HomeState?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -25,6 +34,7 @@ class HomeViewController: SNBaseViewController {
         self.title = PageTitles.home.rawValue
         
         fetchLinksData()
+        configureHomeState()
         setupHomeView()
         
         homeView.collectionView.dataSource = self
@@ -34,7 +44,6 @@ class HomeViewController: SNBaseViewController {
         homeView.collectionView.register(HomeFeatureCollectionViewCell.self)
         homeView.collectionView.register(HomeLinkCollectionViewCell.self)
         
-        getData()
     }
     
     
@@ -51,33 +60,24 @@ class HomeViewController: SNBaseViewController {
         homeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
-    func getData(){
-
-        
-        let networkManager = NetworkManager.sharedInstance
-        //let id = "5ab9473ac69dc53472dd3c8b"
-        let query = "Smi"
-        let endpoint = SchoolConnectAPI.schoolSearch(search: query)
-        
-        networkManager.getList(for: endpoint, [SchoolSearch].self) { (result) in
-            switch result {
-            case .success(let schools):
-                let schoolsSearched = schools as! [SchoolSearch]
-                print(schoolsSearched)
-            case .error(let error): print(error)
-            }
-        }
-        
-    }
   
+    func configureHomeState(){
+        if SCDatabaseQueryManager.savedFeatures().count != 0 && SCDatabaseQueryManager.getSavedLinks().count != 0 {
+            self.homeState = HomeState.premium
+        } else if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.savedFeatures().count > 0 {
+            self.homeState = HomeState.featuresOnly
+        } else if SCDatabaseQueryManager.getSavedLinks().count > 0 && SCDatabaseQueryManager.savedFeatures().count == 0 {
+            self.homeState = HomeState.linksOnly
+        } else {
+            self.homeState = HomeState.basic
+        }
+    }
     
 }
 
 //MARK: - Network calls
 extension HomeViewController {
     //update Links DB
-    
-    
     
     func fetchLinksData(){
         SCHomeLink.getHomeLinksForSchool(update: true)
@@ -99,31 +99,33 @@ extension HomeViewController: HomeFeatureDelegate {
 extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.getSavedListOfFeatures().count == 0 {
+        guard let state = homeState else { return 1 }
+        switch state {
+        case .premium:
+            return 3
+        case .featuresOnly, .linksOnly:
+            return 2
+        case .basic:
             return 1
-        } else if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.getSavedListOfFeatures().count > 0 {
-            return 2
-        } else if SCDatabaseQueryManager.getSavedLinks().count > 0 && SCDatabaseQueryManager.getSavedListOfFeatures().count == 0 {
-            return 2
         }
-        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if indexPath.row == HomeCellIndex.greeting.rawValue {
             
             let cell: HomeGreetingCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
             return cell
             
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue {
+        } else if indexPath.row == HomeCellIndex.featureCell.rawValue && SCDatabaseQueryManager.savedFeatures().count != 0 {
             
             let cell: HomeFeatureCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
             cell.featureCellDelegate = self
             return cell
             
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
+        } else if indexPath.row == HomeCellIndex.linksCell.rawValue || SCDatabaseQueryManager.getSavedLinks().count != 0 {
             
             let cell: HomeLinkCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             
@@ -141,10 +143,11 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         if indexPath.row == HomeCellIndex.greeting.rawValue {
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.6)
 
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue {
+        } else if indexPath.row == HomeCellIndex.featureCell.rawValue && SCDatabaseQueryManager.savedFeatures().count != 0 {
+            
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
 
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue {
+        } else if indexPath.row == HomeCellIndex.linksCell.rawValue || SCDatabaseQueryManager.getSavedLinks().count != 0 {
             
             if SCDatabaseQueryManager.getSavedLinks().count > 3 {
                 return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.44)
@@ -180,5 +183,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     }
     
 }
+
+
 
 

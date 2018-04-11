@@ -17,7 +17,8 @@ class SNAppSettings: Object, Decodable {
     @objc dynamic var defaultImgUrl: String?
     @objc dynamic var schoolId: String?
     @objc dynamic var settingsId: String?
-    var features = List<String>()
+    var features: [String]?
+    var featuresList: List<String> = List<String>()
     
     //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
@@ -27,21 +28,29 @@ class SNAppSettings: Object, Decodable {
         secondaryColor = try values.decodeIfPresent(String.self, forKey: .secondaryColor)!
         defaultImgUrl = try values.decodeIfPresent(String.self, forKey: .defaultImgUrl)!
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
-        //features = try values.decodeIfPresent(List<String>.self, forKey: .features)!
+        settingsId = try values.decodeIfPresent(String.self, forKey: .settingsId)!
+        features = try values.decodeIfPresent([String].self, forKey: .features)!
+        
+        if let array = features {
+            array.forEach { (feature) in
+                featuresList.append(feature)
+            }
+        }
     }
     
     enum CodingKeys: String, CodingKey
     {
-        case primaryColor, secondaryColor, defaultImgUrl //, features
+        case primaryColor, secondaryColor, defaultImgUrl, features
         
         case schoolId = "school"
         
         case settingsId = "_id"
+        
     }
     
     override open static func primaryKey() -> String? {
         
-        return "settingsId"
+        return "schoolId"
     }
     //MARK: - Methods
     
@@ -57,6 +66,7 @@ class SNAppSettings: Object, Decodable {
             switch result {
             case .success(let settings):
                 let returnedSettings = settings as! SNAppSettings
+                
                 returnedSettings.saveConfigSettings(update: update, completion: completion)
             case .error:
                 completion(false)
@@ -66,6 +76,7 @@ class SNAppSettings: Object, Decodable {
     }
     
     private func saveConfigSettings(update: Bool, completion: @escaping (Bool) -> Void){
+        
         DispatchQueue.main.async {
             autoreleasepool {
                 if update {

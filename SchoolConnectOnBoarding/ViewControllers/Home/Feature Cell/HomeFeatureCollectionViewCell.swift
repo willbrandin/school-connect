@@ -52,7 +52,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, ReusableView, CellLoa
     }
     
     func setArrayValue(){
-        featureArray = SCDatabaseQueryManager.getSavedListOfFeatures() as! [String]
+        featureArray = SCDatabaseQueryManager.savedFeatures() as! [String]
     }
     
     func setupCollectionViewConstraints(){

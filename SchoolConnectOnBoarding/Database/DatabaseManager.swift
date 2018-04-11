@@ -53,12 +53,22 @@ final class SCDatabaseQueryManager {
         return schoolQuery
     }
     
+    class func savedFeatures() -> [String?]{
+        let defaults = UserDefaults.standard
+        guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return [nil] }
+        let settingsQuery = SNDatabase.object(ofType: SNAppSettings.self, forPrimaryKey: id)
+        guard let features = settingsQuery?.featuresList else {
+            return [nil]
+        }
+        let arr = Array(features)
+        return arr
+    }
+    
     class func getSavedPrimaryColor() -> UIColor? {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return nil }
-        let schoolQuery = SNDatabase.object(ofType: School.self, forPrimaryKey: id)
-        let primaryColor = "000000"
-            //schoolQuery?.appSettings?.primaryColor else { return nil }
+        let schoolQuery = SNDatabase.object(ofType: SNAppSettings.self, forPrimaryKey: id)
+        guard let primaryColor = schoolQuery?.primaryColor else { return nil }
         
         return UIColor(hex: primaryColor)
     }
@@ -66,25 +76,17 @@ final class SCDatabaseQueryManager {
     class func getSavedSecondaryColor() -> UIColor? {
         let defaults = UserDefaults.standard
         guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return nil }
-        let schoolQuery = SNDatabase.object(ofType: School.self, forPrimaryKey: id)
-        let primaryColor = "000000"
-        //guard let secondaryColor = schoolQuery?.appSettings?.secondaryColor else { return nil }
+        let schoolQuery = SNDatabase.object(ofType: SNAppSettings.self, forPrimaryKey: id)
+        guard let secondaryColor = schoolQuery?.secondaryColor else { return nil }
+
         
-        return UIColor(hex: primaryColor)
+        return UIColor(hex: secondaryColor)
     }
     
     class func getSavedLinks() -> [SCHomeLink] {
         let linksQuery = SNDatabase.objects(SCHomeLink.self)
         return Array(linksQuery)
     }
-    
-    class func getSavedListOfFeatures() -> [String?] {
-//        if let featureQuery = savedSchool()?.appSettings?.features {
-//            return Array(featureQuery)
-//        }
-        return [nil]
-    }
-    
     
     
 }

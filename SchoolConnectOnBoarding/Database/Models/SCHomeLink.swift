@@ -51,6 +51,48 @@ class SCHomeLink: Object, Decodable {
     }
     
     //MARK: - Methods
+    
+    static func fetchHomeLinks(with schoolId: String?, update: Bool = true, completion: @escaping (Bool, SCErrors?) -> Void){
+        guard let id = schoolId else {
+            completion(false, SCErrors.noSchoolId)
+            return
+        }
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.homeLinks(id: id)
+        
+        networkManager.getList(for: endpoint, [SCHomeLink].self, completion: {result in
+            switch result {
+            case .success(let links):
+                let returnedLinks = links as! [SCHomeLink]
+                saveLinksData(links: returnedLinks, update: false, completion: { (isComplete) in
+                    if isComplete {
+                        completion(true, nil)
+                    }
+                })
+            case .error:
+                completion(false, SCErrors.noSchoolLinks)
+                
+            }
+        })
+    }
+    
+    private static func saveLinksData(links: [SCHomeLink],update: Bool, completion: @escaping (Bool) -> Void = {_ in } ) {
+        DispatchQueue.main.async {
+            autoreleasepool {
+                if update {
+                    DatabaseManager.saveRealmArray(links, update: true)
+                    return
+                } else {
+                    DatabaseManager.saveRealmArray(links, update: false)
+                    
+                    completion(true)
+                    return
+                }
+            }
+        }
+    }
+    
+    
     static func getHomeLinksForSchool(update: Bool, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in } ) {
         
         var linksArray = [SCHomeLink]()

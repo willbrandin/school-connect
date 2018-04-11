@@ -65,7 +65,7 @@ class School: RealmSwift.Object, Decodable {
         
     }
     
-    func saveSchoolDetails(update: Bool, completion: @escaping (Bool) -> Void){
+    func saveSchoolDetails(update: Bool, completion: @escaping (Bool) -> Void = {_ in } ){
         DispatchQueue.main.async {
             autoreleasepool {
                 if update {
