@@ -111,7 +111,8 @@ extension String {
     func stringToDate() -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = WBDateFormat.serverDateFormat.rawValue
-        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
         let date = dateFormatter.date(from: self)!
         return date
     }

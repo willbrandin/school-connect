@@ -51,14 +51,21 @@ class NewsViewController: SNBaseViewController {
 extension NewsViewController {
     
     func fetchNewsArticles(){
-        NewsArticle.downloadNewsData { (newsArticles) in
-            self.newsArray = newsArticles
+        NewsArticle.fetchNewsData { (news, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    let alert = WBPopUp.fetchError.initAlert()
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            self.newsArray = news
             //Sorts based on most recent pub date
             self.newsArray.sort(by: { $0.pubDate!.stringToDate().timeIntervalSinceNow > $1.pubDate!.stringToDate().timeIntervalSinceNow })
             DispatchQueue.main.async {
                 self.newsView.collectionView.reloadData()
             }
         }
+        
     }
     
     //TODO: protocol for end of list

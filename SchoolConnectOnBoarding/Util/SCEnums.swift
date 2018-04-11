@@ -33,7 +33,7 @@ enum WBDateFormat: String {
     case simpleDate = "MM/dd/yyyy"
     case dateAndTime = "MMMM d, h:mm a"
     case weekDayAndTime = "EEEE, MMMM d, h:mm a"
-    case serverDateFormat = "E, d MMM yyyy HH:mm:ss Z"
+    case serverDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 }
 
 enum HomeCellIndex: Int {
@@ -135,7 +135,8 @@ enum CellReuseIds: String {
 enum SCErrors: Error {
     case noSchoolLinks
     case noSchoolId
-    
+    case noFetchedNews
+    case noFetchedEvents
 }
 
 

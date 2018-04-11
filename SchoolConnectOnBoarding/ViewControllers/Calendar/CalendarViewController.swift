@@ -55,9 +55,17 @@ class CalendarViewController: SNBaseViewController {
 extension CalendarViewController {
     
     func fetchCalendarEvents(){
-        CalendarEvent.downloadEventData { (calendars) in
-            self.calendarArray = calendars
-            //Sorts based on most recent  date
+        
+        
+        CalendarEvent.fetchEvents { (events, error) in
+            if error != nil {
+                DispatchQueue.main.async {
+                    let alert = WBPopUp.fetchError.initAlert()
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+            self.calendarArray = events
+            //Sorts based on most recent pub date
             self.calendarArray.sort(by: { $0.startDate!.stringToDate().timeIntervalSinceNow > $1.startDate!.stringToDate().timeIntervalSinceNow })
             DispatchQueue.main.async {
                 self.calendarView.tableView.reloadData()

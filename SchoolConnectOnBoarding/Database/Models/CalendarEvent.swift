@@ -14,17 +14,18 @@ class CalendarEvent: Decodable {
     //MARK: Properties
     var title: String?
     var startDate: String?
-    var endDate: String?
+    var endDate: String? = "2018-04-22T13:20:55.302Z"
     var description: String?
     var location: String?
     var schoolId: String?
     
+    
+    //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title = try values.decodeIfPresent(String.self, forKey: .title)!
         startDate = try values.decodeIfPresent(String.self, forKey: .startDate)!
-        endDate = try values.decodeIfPresent(String.self, forKey: .endDate)!
         description = try values.decodeIfPresent(String.self, forKey: .description)!
         location = try values.decodeIfPresent(String.self, forKey: .location)!
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
@@ -32,45 +33,33 @@ class CalendarEvent: Decodable {
     
     enum CodingKeys: String, CodingKey
     {
-        case title, startDate, endDate, description, location
+        case title, startDate, description, location
         
         case schoolId = "school"
     }
     
-    //MARK: Inits
-    func initWithResponse(_ dataDictionary: NSDictionary){
-        self.title = dataDictionary["title"] as? String
-        self.startDate = dataDictionary["startDate"] as? String
-        self.endDate = dataDictionary["endDate"] as? String
-        self.description = dataDictionary["description"] as? String
-        self.location = dataDictionary["location"] as? String
-    }
     
     
     //MARK: Methods
-    static func downloadEventData(completion: @escaping ([CalendarEvent]) -> Void) {
-        var eventsArray = [CalendarEvent]()
-        //Firebase Reference
-        let ref = Database.database().reference()
+    
+    static func fetchEvents(completion: @escaping ([CalendarEvent], Error?) -> Void) {
         
-        guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else { return }
+        let userDefaults = UserDefaults.standard
+        guard let id = userDefaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return }
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.calendar(id: id)
         
-        let calendarEventRef = ref.child(FirebasePathStrings.calendarPath.rawValue).child(id)
-        
-        calendarEventRef.observe(.childAdded) { (snapshot) in
-            if let data = snapshot.value as? NSDictionary {
-                let newEvent = CalendarEvent()
-                newEvent.initWithResponse(data)
-                eventsArray.append(newEvent)
-                completion(eventsArray)
+        networkManager.getList(for: endpoint, [CalendarEvent].self) { (result) in
+            switch result {
+            case .success(let events):
+                let returnedEvents = events as! [CalendarEvent]
+                completion(returnedEvents, nil)
+            case .error:
+                completion([], SCErrors.noFetchedEvents)
             }
         }
         
-        
     }
-    
-    
-    
     
     
 }

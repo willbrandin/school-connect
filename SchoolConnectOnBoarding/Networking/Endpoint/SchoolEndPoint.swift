@@ -44,6 +44,7 @@ public enum SchoolConnectAPI {
     case homeLinks(id: String)
     case schoolDetails(id: String)
     case schoolSearch(search: String)
+    case sendMessage(data: String)
 }
 
 extension SchoolConnectAPI: EndPointType {
@@ -76,17 +77,26 @@ extension SchoolConnectAPI: EndPointType {
             return "/school/info/\(id)" //single GET
         case .schoolSearch:
             return "/school/list/" // []
+        case .sendMessage:
+            return ""
         }
     }
     
     var httpMethod: HTTPMethod {
-        return .get
+        switch self {
+        case .calendar, .configSettings, .homeLinks, .news, .schoolDetails, .schoolSearch:
+            return .get
+        case .sendMessage:
+            return .post
+        }
     }
     
     var task: HTTPTask {
         switch self {
         case .schoolSearch(let search):
             return .requestParameters(bodyParameters: nil, urlParameters: ["name": search])
+        case .sendMessage:
+            return .requestParameters(bodyParameters: nil, urlParameters: nil)
         default:
             return .request
         }
