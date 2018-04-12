@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalendarCardView: UIView {
+class CalendarCardView: UIView, CornerRoundable {
 
     //MARK: - Properties
     var calendarEvent: CalendarEvent?
@@ -76,7 +76,7 @@ class CalendarCardView: UIView {
             
         }
         
-        updateCornerRadius()
+        roundCorners()
     }
     
     override func layoutSubviews() {
@@ -99,12 +99,13 @@ class CalendarCardView: UIView {
         arrowImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         arrowImageView.widthAnchor.constraint(equalTo: arrowImageView.heightAnchor).isActive = true
     }
-    
-    func updateCornerRadius() {
-        self.layer.cornerRadius = 15.0
-        self.layer.masksToBounds = false
-    }
 
+
+    
+}
+
+extension CalendarCardView: Shadowable {
+    
     func makeShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 5)

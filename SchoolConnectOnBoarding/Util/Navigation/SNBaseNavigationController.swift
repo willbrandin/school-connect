@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SNBaseNavigationController: UINavigationController {
+class SNBaseNavigationController: UINavigationController, SchoolColorable {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if (self.navigationBar.barTintColor?.isLight)! {
@@ -19,8 +19,7 @@ class SNBaseNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         setupNavigationAttributes()
         // Do any additional setup after loading the view.
     }
@@ -31,8 +30,8 @@ class SNBaseNavigationController: UINavigationController {
     func setupNavigationAttributes() {
         self.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .always
-//        guard let barColor = SNDatabaseQueryManager.getSavedPrimaryColor() else { return }
-        self.navigationBar.barTintColor = SCDatabaseQueryManager.getSavedPrimaryColor()
+        self.navigationBar.barTintColor = schoolPrimaryColor
+        
         if (navigationBar.barTintColor?.isLight)! {
             let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
             self.navigationBar.titleTextAttributes = textAttributes
@@ -43,7 +42,7 @@ class SNBaseNavigationController: UINavigationController {
             self.navigationBar.largeTitleTextAttributes = textAttributes
         }
         
-        self.navigationBar.tintColor = SCDatabaseQueryManager.getSavedSecondaryColor()
+        self.navigationBar.tintColor = schoolSecondaryColor
     }
 
 

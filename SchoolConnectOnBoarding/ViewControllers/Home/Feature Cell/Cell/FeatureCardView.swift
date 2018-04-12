@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeatureCardView: UIView {
+class FeatureCardView: UIView, CornerRoundable {
 
     
     //MARK: - Properties
@@ -67,17 +67,14 @@ class FeatureCardView: UIView {
         backgroundColor = UIColor.white
         setupBackgroundImageView()
         setupTextStackView()
-        makeRoundCorners()
+        roundCorners()
         feature.customizeUI(self)
     }
     
     
     
     //MARK: - Methods
-    func makeRoundCorners(){
-        self.layer.cornerRadius = 20.0
-        self.layer.masksToBounds = true
-    }
+    
     
     //Move to View Model? Or refactor out?
     func configureCardView(_ title: String, _ subtitle: String, _ image: UIImage?) {

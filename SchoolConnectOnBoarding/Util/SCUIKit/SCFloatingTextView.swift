@@ -27,7 +27,7 @@ extension Validatable where Self: SCTextView {
     }
 }
 
-class SCFloatingTextView: UIView {
+class SCFloatingTextView: UIView, Shadowable {
     
     //MARK: - Properties
     var validationType: WBTextValidationType
@@ -60,21 +60,12 @@ class SCFloatingTextView: UIView {
         textView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
     }
     
-    func makeShadow(){
-        self.layer.masksToBounds = false
-        self.layer.shadowRadius = 5.0
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-        self.layer.shadowOpacity = 0.1
-        
-    }
-    
     
     
 }
 
 
-class SCTextView: UITextView, Validatable {
+class SCTextView: UITextView, Validatable, CornerRoundable {
     
     
     //MARK: - Properties
@@ -103,11 +94,7 @@ class SCTextView: UITextView, Validatable {
         self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         roundCorners()
     }
-    func roundCorners(){
-        self.layer.borderWidth = self.frame.height/10
-        self.layer.borderColor = UIColor.lightGray.cgColor
-        self.layer.cornerRadius = 6.0
-    }
+    
     
     
 }

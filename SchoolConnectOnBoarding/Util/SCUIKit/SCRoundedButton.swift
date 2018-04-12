@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SCRoundedButton: UIButton {
+class SCRoundedButton: UIButton, Shadowable, CornerRoundable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        updateCornerRadius()
+        roundCorners()
         makeShadow()
     }
     
@@ -22,15 +22,5 @@ class SCRoundedButton: UIButton {
     }
     
     
-    func updateCornerRadius() {
-        self.layer.cornerRadius = frame.size.height/10
-    }
     
-    func makeShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowRadius = 4.0
-        self.layer.masksToBounds = false
-    }
 }

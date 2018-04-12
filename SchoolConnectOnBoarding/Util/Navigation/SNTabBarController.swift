@@ -34,9 +34,20 @@ class SNTabBarController: UITabBarController {
     
     func mapViewControllersAndAddNavigation(){
         viewControllers = addViewControllers().map({ SNBaseNavigationController(rootViewController: $0) })
-        self.tabBar.barTintColor = SCDatabaseQueryManager.getSavedPrimaryColor()
+        
+        setColors()
+    }
+    
+
+}
+
+
+extension SNTabBarController: SchoolColorable {
+    
+    func setColors(){
+        self.tabBar.barTintColor = schoolPrimaryColor
         //Active tab
-        tabBar.tintColor = SCDatabaseQueryManager.getSavedSecondaryColor()
+        tabBar.tintColor = schoolSecondaryColor
         
         if (tabBar.barTintColor?.isLight)! {
             tabBar.unselectedItemTintColor = UIColor.gray
@@ -45,5 +56,4 @@ class SNTabBarController: UITabBarController {
         }
     }
     
-
 }

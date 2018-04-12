@@ -50,9 +50,5 @@ class CalendarTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
         cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0).isActive = true
     }
 
-    func updateCornerRadius() {
-        self.layer.cornerRadius = 20.0
-        self.layer.masksToBounds = true
-    }
     
 }

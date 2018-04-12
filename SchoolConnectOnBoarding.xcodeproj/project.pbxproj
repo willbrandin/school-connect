@@ -78,6 +78,10 @@
 		03C4A490207FF7E000A0A2FF /* HomeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */; };
 		03C4A492207FF80F00A0A2FF /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */; };
 		03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A493207FF84200A0A2FF /* UIEnums.swift */; };
+		03C4A497207FF9D900A0A2FF /* Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A496207FF9D900A0A2FF /* Shadow.swift */; };
+		03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A498207FFD5F00A0A2FF /* CellReusable.swift */; };
+		03C4A49B207FFE0500A0A2FF /* CornerRoundable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A49A207FFE0500A0A2FF /* CornerRoundable.swift */; };
+		03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A49C2080008600A0A2FF /* SchoolColorable.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -171,6 +175,10 @@
 		03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEnums.swift; sourceTree = "<group>"; };
 		03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEnums.swift; sourceTree = "<group>"; };
 		03C4A493207FF84200A0A2FF /* UIEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEnums.swift; sourceTree = "<group>"; };
+		03C4A496207FF9D900A0A2FF /* Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shadow.swift; sourceTree = "<group>"; };
+		03C4A498207FFD5F00A0A2FF /* CellReusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellReusable.swift; sourceTree = "<group>"; };
+		03C4A49A207FFE0500A0A2FF /* CornerRoundable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRoundable.swift; sourceTree = "<group>"; };
+		03C4A49C2080008600A0A2FF /* SchoolColorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolColorable.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -514,6 +522,7 @@
 		03930CE82054B1B800128D72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				03C4A495207FF9AD00A0A2FF /* Protocols */,
 				03C4A48E207FF7BF00A0A2FF /* Enums */,
 				03C4A487207FF6A800A0A2FF /* Extensions */,
 				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
@@ -566,6 +575,17 @@
 				03C4A493207FF84200A0A2FF /* UIEnums.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		03C4A495207FF9AD00A0A2FF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				03C4A496207FF9D900A0A2FF /* Shadow.swift */,
+				03C4A498207FFD5F00A0A2FF /* CellReusable.swift */,
+				03C4A49A207FFE0500A0A2FF /* CornerRoundable.swift */,
+				03C4A49C2080008600A0A2FF /* SchoolColorable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		5CFB9665A1B6E9333E8D5493 /* Pods */ = {
@@ -846,6 +866,7 @@
 				0335DBD0207BEB4600354815 /* Endpoint.swift in Sources */,
 				0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */,
 				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
+				03C4A49B207FFE0500A0A2FF /* CornerRoundable.swift in Sources */,
 				0335DBE0207BF22E00354815 /* SchoolEndPoint.swift in Sources */,
 				0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */,
 				03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */,
@@ -853,9 +874,11 @@
 				0335DBD2207BEB9A00354815 /* HTTPMethod.swift in Sources */,
 				0335DBD6207BEC7500354815 /* ParameterEncoding.swift in Sources */,
 				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
+				03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
+				03C4A497207FF9D900A0A2FF /* Shadow.swift in Sources */,
 				0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */,
 				0312E68F20587959009327F3 /* SideButton.swift in Sources */,
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
@@ -869,6 +892,7 @@
 				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */,
 				03C4A48D207FF78E00A0A2FF /* ImageExtensions.swift in Sources */,
+				03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,

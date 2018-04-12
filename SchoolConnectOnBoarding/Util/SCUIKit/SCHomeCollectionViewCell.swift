@@ -8,16 +8,10 @@
 
 import UIKit
 
-class SCHomeCollectionViewCell: UICollectionViewCell {
+class SCHomeCollectionViewCell: UICollectionViewCell, Shadowable {
     
     override func layoutSubviews() {
         makeShadow()
     }
     
-    func makeShadow(){
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 7)
-        self.layer.shadowOpacity = 0.15
-        self.layer.shadowRadius = 10.0
-    }
 }

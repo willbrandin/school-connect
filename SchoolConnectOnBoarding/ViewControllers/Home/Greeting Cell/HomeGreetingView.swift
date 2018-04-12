@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeGreetingView: UIView {
+class HomeGreetingView: UIView, CornerRoundable {
     
     //MARK: - Properties
     
@@ -70,7 +70,7 @@ class HomeGreetingView: UIView {
     }
     
     override func layoutSubviews() {
-        makeRoundCorners()
+        roundCorners()
 
     }
     
@@ -108,13 +108,6 @@ class HomeGreetingView: UIView {
         
         
     }
-   
-    func makeRoundCorners(){
-        self.layer.cornerRadius = 20.0
-        self.layer.masksToBounds = true
-    }
-    
-    
     
 }
 

@@ -9,28 +9,6 @@
 import Foundation
 import UIKit
 
-protocol Injectable {
-    associatedtype T
-    func inject(_: T)
-}
-
-protocol ReusableView {}
-
-extension ReusableView where Self: UIView {
-    static var defaultReuseIdentifier: String {
-        return String(describing: self)
-    }
-}
-
-protocol CellLoadableView: class {
-    static var cellName: String { get }
-}
-
-extension CellLoadableView where Self: UIView {
-    static var cellName: String {
-        return String(describing: self)
-    }
-}
 
 extension UITableView {
     

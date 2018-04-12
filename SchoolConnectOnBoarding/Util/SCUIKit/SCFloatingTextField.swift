@@ -42,7 +42,7 @@ extension Validatable where Self: SCFloatingTextField {
 }
 
 
-class SCFloatingTextField: UITextField, Validatable {
+class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable {
     
     //MARK: - Properties
     var validationType: WBTextValidationType
@@ -82,21 +82,6 @@ class SCFloatingTextField: UITextField, Validatable {
         self.leftViewMode = .always
         self.leftView = spacerView
     }
-    
-    func makeShadow(){
-        self.layer.masksToBounds = false
-        self.layer.shadowRadius = 5.0
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-        self.layer.shadowOpacity = 0.1
-    }
-    
-    func roundCorners(){
-        self.layer.borderWidth = self.frame.height/10
-        self.layer.borderColor = UIColor.lightGray.cgColor
-        self.layer.cornerRadius = 6.0
-    }
-    
     
 }
 

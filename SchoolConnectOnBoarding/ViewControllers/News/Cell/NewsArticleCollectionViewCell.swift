@@ -8,16 +8,14 @@
 
 import UIKit
 
-class NewsArticleCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView {
+class NewsArticleCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView, Shadowable {
     
     //MARK: - Properties
     var cardView: NewsCardView!
     
     //MARK: - UI Elements
     
-    
     //MARK: - Init
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -51,12 +49,7 @@ class NewsArticleCollectionViewCell: UICollectionViewCell, ReusableView, CellLoa
 
     }
     
-    func makeShadow(){
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 10)
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowRadius = 20.0
-    }
+    
     
     
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsCardView: UIView {
+class NewsCardView: UIView, CornerRoundable {
 
     //MARK: - Properties
     var newsArticle: NewsArticle?
@@ -77,7 +77,7 @@ class NewsCardView: UIView {
         
     }
     override func layoutSubviews() {
-        makeRoundCorners()
+        roundCorners()
     }
     
     //MARK: - Methods
@@ -105,11 +105,6 @@ class NewsCardView: UIView {
         titleLabel.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
     }
     
-    func makeRoundCorners(){
-        self.layer.cornerRadius = 20.0
-        self.layer.masksToBounds = true
-    }
-    
-    
+   
 
 }
