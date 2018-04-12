@@ -1,43 +1,12 @@
 //
-//  Extensions.swift
+//  ColorExtensions.swift
 //  SchoolConnectOnBoarding
 //
-//  Created by William Brandin on 3/10/18.
+//  Created by William Brandin on 4/12/18.
 //  Copyright © 2018 William Brandin. All rights reserved.
 //
 
 import UIKit
-
-extension UIImage {
-    
-    
-    static func landingPageIcon() -> UIImage {
-        return UIImage(named: "landingPageIcon")!
-    }
-    
-    static func searchIcon() -> UIImage {
-        return UIImage(named: "searchIcon")!
-    }
-    
-    static func homeTabBarIcon() -> UIImage {
-        return UIImage(named: "diamond_round")!
-    }
-    
-    static func newsTabBarIcon() -> UIImage {
-        return UIImage(named: "news_grid")!
-    }
-    
-    static func calendarTabBarIcon() -> UIImage {
-        return UIImage(named: "calendar")!
-    }
-    
-    static func contactTabBarIcon() -> UIImage {
-        return UIImage(named: "email")!
-    }
-    
-    //default image set.
-    
-}
 
 extension UIColor {
     
@@ -76,7 +45,7 @@ extension UIColor {
     class func scBlue() -> UIColor {
         return UIColor(hex: "3498db") //used
     }
-  
+    
     class func scGray() -> UIColor {
         return UIColor(hex: "2d3436") // used
     }
@@ -88,25 +57,10 @@ extension UIColor {
     class func scRed() -> UIColor {
         return UIColor(hex: "e55039") // used
     }
- 
+    
     class func textFieldPlaceholder() -> UIColor {
         
         return UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
     }
     
 }
-
-
-extension UIView {
-    
-    func fadeTransition(_ duration:CFTimeInterval) {
-        let animation = CATransition()
-        animation.timingFunction = CAMediaTimingFunction(name:
-            kCAMediaTimingFunctionEaseInEaseOut)
-        animation.type = kCATransitionFade
-        animation.duration = duration
-        layer.add(animation, forKey: kCATransitionFade)
-    }
-    
-}
-
