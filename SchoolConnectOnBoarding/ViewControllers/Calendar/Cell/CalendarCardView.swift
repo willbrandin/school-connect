@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalendarCardView: UIView, CornerRoundable {
+class CalendarCardView: UIView, CornerRoundable, Shadowable {
 
     //MARK: - Properties
     var calendarEvent: CalendarEvent?
@@ -104,12 +104,3 @@ class CalendarCardView: UIView, CornerRoundable {
     
 }
 
-extension CalendarCardView: Shadowable {
-    
-    func makeShadow() {
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 0, height: 5)
-        self.layer.shadowOpacity = 0.1
-        self.layer.shadowRadius = 5.0
-    }
-}

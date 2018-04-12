@@ -52,7 +52,7 @@ extension CornerRoundable where Self: CalendarCardView {
     
     func roundCorners(){
         self.layer.cornerRadius = 15.0
-        self.layer.masksToBounds = true
+        self.layer.masksToBounds = false
     }
 }
 

@@ -36,7 +36,6 @@ class CalendarTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
             cardView.calendarEvent = event
             cardView.customizeUI()
         }
-       
     }
     
     func setupCardViewConstraints(){
