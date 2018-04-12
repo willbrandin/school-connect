@@ -33,5 +33,12 @@ class CalendarCellSideButtonView: UIView {
         
     }
     
+}
+
+
+extension Int {
     
+    fileprivate func adjustForSize(size: CGFloat) -> Int {
+        return self * Int(size) / 100
+    }
 }
