@@ -9,18 +9,9 @@
 import UIKit
 
 
-enum HomeState {
-    case premium
-    case linksOnly
-    case featuresOnly
-    case basic
-}
-
-
 protocol HomeFeatureDelegate: class {
     func didTapFeature(_ feature: HomeFeature?)
 }
-
 
 class HomeViewController: SNBaseViewController {
 

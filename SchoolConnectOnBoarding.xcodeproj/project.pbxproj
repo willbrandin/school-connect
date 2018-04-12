@@ -518,7 +518,6 @@
 				03C4A487207FF6A800A0A2FF /* Extensions */,
 				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
 				0312E677205854C0009327F3 /* Navigation */,
-				0312E673205833B5009327F3 /* SCEnums.swift */,
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
 			);
 			path = Util;
@@ -561,6 +560,7 @@
 		03C4A48E207FF7BF00A0A2FF /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				0312E673205833B5009327F3 /* SCEnums.swift */,
 				03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */,
 				03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */,
 				03C4A493207FF84200A0A2FF /* UIEnums.swift */,
