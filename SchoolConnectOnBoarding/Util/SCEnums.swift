@@ -36,6 +36,13 @@ enum WBDateFormat: String {
     case serverDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 }
 
+enum WBTextValidationType {
+    case name
+    case email
+    case phoneNumber
+    case message
+}
+
 enum HomeCellIndex: Int {
     case greeting = 0
     case featureCell = 1

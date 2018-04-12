@@ -164,7 +164,7 @@ extension ContactViewController: UITextFieldDelegate {
             contactScreenView.phoneNumberTextField.becomeFirstResponder()
         } else if textField == contactScreenView.phoneNumberTextField {
             contactScreenView.phoneNumberTextField.resignFirstResponder()
-            contactScreenView.messageTextView.becomeFirstResponder()
+            contactScreenView.messageTextView.textView.becomeFirstResponder()
             return false
         } else {
             textField.resignFirstResponder()

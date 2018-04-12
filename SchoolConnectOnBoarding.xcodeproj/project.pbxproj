@@ -66,6 +66,7 @@
 		03930CF02055D83A00128D72 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CEF2055D83A00128D72 /* SearchView.swift */; };
 		03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF12055FA1300128D72 /* SearchTableViewCell.swift */; };
 		03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF42055FF0100128D72 /* SchoolSearch.swift */; };
+		03C4A47B207FC87E00A0A2FF /* SCValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -147,6 +148,7 @@
 		03930CEF2055D83A00128D72 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		03930CF12055FA1300128D72 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		03930CF42055FF0100128D72 /* SchoolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearch.swift; sourceTree = "<group>"; };
+		03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCValidationTests.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 			children = (
 				03930CD42054AB4500128D72 /* SchoolConnectOnBoardingTests.swift */,
 				03930CD62054AB4500128D72 /* Info.plist */,
+				03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */,
 			);
 			path = SchoolConnectOnBoardingTests;
 			sourceTree = "<group>";
@@ -814,6 +817,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03C4A47B207FC87E00A0A2FF /* SCValidationTests.swift in Sources */,
 				03930CD52054AB4500128D72 /* SchoolConnectOnBoardingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -149,6 +149,41 @@ extension String {
     
 }
 
+extension String: Evaluatable {
+    func evaluate(with condition: String) -> Bool {
+        guard let range = range(of: condition, options: .regularExpression, range: nil, locale: nil) else {
+            return false
+        }
+        
+        return range.lowerBound == startIndex && range.upperBound == endIndex
+    }
+    
+    
+    static func isPhoneNumberValid(text: String) -> Bool {
+        let regexp = "^[0-9]{10}$"
+        return text.evaluate(with: regexp)
+    }
+    
+    static func isValidName(text: String) -> Bool {
+        if text == nil || text.isEmpty {
+            return false
+        }
+        let regexp = ".*[0-9]+.*"
+        return !text.evaluate(with: regexp)
+    }
+    
+    static func isMessageValid(text: String?) -> Bool {
+        if text == nil || (text?.isEmpty)! {
+            return false
+        }
+        return true
+    }
+    static func isEmailValid(text: String) -> Bool {
+        let regexp = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return text.evaluate(with: regexp)
+    }
+}
+
 extension UIView {
     
     func fadeTransition(_ duration:CFTimeInterval) {

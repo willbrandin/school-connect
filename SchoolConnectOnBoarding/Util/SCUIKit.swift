@@ -124,11 +124,8 @@ class SCRoundedSchoolButton: UIButton {
 
 class SCHomeCollectionViewCell: UICollectionViewCell {
     
-    
     override func layoutSubviews() {
-        
         makeShadow()
-       
     }
     
     func makeShadow(){
@@ -137,19 +134,56 @@ class SCHomeCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOpacity = 0.15
         self.layer.shadowRadius = 10.0
     }
-    
 }
 
 
-class SCFloatingTextField: UITextField {
+
+protocol Validatable {
+    associatedtype T
+    
+    func validate(_ functions: [T]) -> Bool
+    func isValid()->Bool
+}
+
+protocol Evaluatable {
+    associatedtype T
+    
+    func evaluate(with condition: T) -> Bool
+}
+
+extension Validatable where Self: SCFloatingTextField {
+    
+    func validate(_ functions: [(String) -> Bool]) -> Bool {
+        return functions.map { f in f(self.text ?? "") }.reduce(true) { $0 && $1 }
+    }
+    
+    func isValid() -> Bool {
+        
+        switch self.validationType {
+        case .email: return self.validate([String.isEmailValid])
+        case .phoneNumber: return self.validate([String.isPhoneNumberValid])
+        case .name: return self.validate([String.isValidName])
+        default:
+            break
+        }
+        return false
+    }
+}
+
+
+class SCFloatingTextField: UITextField, Validatable {
+    
+    //MARK: - Properties
+    var validationType: WBTextValidationType
     
     //MARK: - Init
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        formatTextField()
+        fatalError("init(coder:) has not been implemented")
     }
-    required override init(frame: CGRect) {
-        super.init(frame: frame)
+    required init(type: WBTextValidationType) {
+        
+        self.validationType = type
+        super.init(frame: .zero)
         formatTextField()
     }
 
@@ -195,23 +229,49 @@ class SCFloatingTextField: UITextField {
     
 }
 
+
+extension Validatable where Self: SCTextView {
+    
+    func validate(_ functions: [(String) -> Bool]) -> Bool {
+        return functions.map { f in f(self.text ?? "") }.reduce(true) { $0 && $1 }
+    }
+    
+    func isValid() -> Bool {
+        
+        switch self.validationType {
+        
+        case .message: return self.validate([String.isMessageValid]) //TODO: - come up with some sort of eval method.
+        default:
+            break
+        }
+        return false
+    }
+}
+
 class SCFloatingTextView: UIView {
 
     //MARK: - Properties
+    var validationType: WBTextValidationType
+    
     //MARK: - UIElements
     lazy var textView: SCTextView! = {
-        let textView = SCTextView()
-        textView.formatTextField()
-        
+        let textView = SCTextView(type: self.validationType)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
     //MARK: - Init
-    func initializeUI(){
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    required init(type: WBTextValidationType) {
+        
+        self.validationType = type
+        super.init(frame: .zero)
         setupTextView()
         makeShadow()
     }
+    
     //MARK: - Methods
     func setupTextView(){
         addSubview(textView)
@@ -235,9 +295,23 @@ class SCFloatingTextView: UIView {
 }
 
 
-class SCTextView: UITextView {
+class SCTextView: UITextView, Validatable {
+    
+    
+    //MARK: - Properties
+    var validationType: WBTextValidationType
+    
     
     //MARK: - Init
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    required init(type: WBTextValidationType) {
+        
+        self.validationType = type
+        super.init(frame: .zero, textContainer: nil)
+        formatTextField()
+    }
     //MARK: - Methods
     
     func formatTextField(){

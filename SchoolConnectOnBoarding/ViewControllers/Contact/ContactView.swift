@@ -38,7 +38,7 @@ class ContactView: UIView {
     }()
     
     lazy var nameTextField: SCFloatingTextField! = {
-        let textField = SCFloatingTextField()
+        let textField = SCFloatingTextField(type: .name)
         textField.placeholder = "Name"
     
         textField.addSpacer()
@@ -69,7 +69,7 @@ class ContactView: UIView {
     }()
     
     lazy var emailTextField: SCFloatingTextField! = {
-        let textField = SCFloatingTextField()
+        let textField = SCFloatingTextField(type: .email)
         textField.placeholder = "E Mail"
         textField.keyboardType = .emailAddress
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -102,7 +102,7 @@ class ContactView: UIView {
     }()
     
     lazy var phoneNumberTextField: SCFloatingTextField! = {
-        let textField = SCFloatingTextField()
+        let textField = SCFloatingTextField(type: .phoneNumber)
         textField.placeholder = "Phone Number"
         textField.keyboardType = .numberPad
         textField.addSpacer()
@@ -133,8 +133,7 @@ class ContactView: UIView {
     }()
     
     lazy var messageTextView: SCFloatingTextView! = {
-        let textView = SCFloatingTextView()
-        textView.initializeUI()
+        let textView = SCFloatingTextView(type: .message)
         textView.textView.text = "Message"
         textView.textView.textColor = .lightGray
         textView.translatesAutoresizingMaskIntoConstraints = false
