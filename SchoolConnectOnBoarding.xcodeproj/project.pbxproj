@@ -61,12 +61,17 @@
 		03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CDF2054AB8C00128D72 /* LandingViewController.swift */; };
 		03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CE62054ACF500128D72 /* LandingScreenView.swift */; };
 		03930CEA2054B1C700128D72 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CE92054B1C700128D72 /* Extensions.swift */; };
-		03930CEC2054B23700128D72 /* SCUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CEB2054B23700128D72 /* SCUIKit.swift */; };
+		03930CEC2054B23700128D72 /* SCCircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CEB2054B23700128D72 /* SCCircleImage.swift */; };
 		03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CED2055D71000128D72 /* SearchViewController.swift */; };
 		03930CF02055D83A00128D72 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CEF2055D83A00128D72 /* SearchView.swift */; };
 		03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF12055FA1300128D72 /* SearchTableViewCell.swift */; };
 		03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF42055FF0100128D72 /* SchoolSearch.swift */; };
 		03C4A47B207FC87E00A0A2FF /* SCValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */; };
+		03C4A47E207FF55400A0A2FF /* SCFloatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */; };
+		03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */; };
+		03C4A482207FF59F00A0A2FF /* SCRoundedSchoolButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */; };
+		03C4A484207FF5D500A0A2FF /* SCRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */; };
+		03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -143,12 +148,17 @@
 		03930CDF2054AB8C00128D72 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		03930CE62054ACF500128D72 /* LandingScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenView.swift; sourceTree = "<group>"; };
 		03930CE92054B1C700128D72 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		03930CEB2054B23700128D72 /* SCUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCUIKit.swift; sourceTree = "<group>"; };
+		03930CEB2054B23700128D72 /* SCCircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCCircleImage.swift; sourceTree = "<group>"; };
 		03930CED2055D71000128D72 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		03930CEF2055D83A00128D72 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		03930CF12055FA1300128D72 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		03930CF42055FF0100128D72 /* SchoolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearch.swift; sourceTree = "<group>"; };
 		03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCValidationTests.swift; sourceTree = "<group>"; };
+		03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFloatingTextView.swift; sourceTree = "<group>"; };
+		03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFloatingTextField.swift; sourceTree = "<group>"; };
+		03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCRoundedSchoolButton.swift; sourceTree = "<group>"; };
+		03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCRoundedButton.swift; sourceTree = "<group>"; };
+		03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -492,9 +502,9 @@
 		03930CE82054B1B800128D72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
 				0312E677205854C0009327F3 /* Navigation */,
 				03930CE92054B1C700128D72 /* Extensions.swift */,
-				03930CEB2054B23700128D72 /* SCUIKit.swift */,
 				0312E673205833B5009327F3 /* SCEnums.swift */,
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
 				035EBD692077B96800FBA250 /* SCViewProtocols.swift */,
@@ -509,6 +519,19 @@
 				0312E67520583A6D009327F3 /* DatabaseManager.swift */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		03C4A47C207FF4FF00A0A2FF /* SCUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				03930CEB2054B23700128D72 /* SCCircleImage.swift */,
+				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
+				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
+				03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */,
+				03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */,
+				03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */,
+			);
+			path = SCUIKit;
 			sourceTree = "<group>";
 		};
 		5CFB9665A1B6E9333E8D5493 /* Pods */ = {
@@ -756,6 +779,7 @@
 				0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */,
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
+				03C4A47E207FF55400A0A2FF /* SCFloatingTextView.swift in Sources */,
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
 				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
@@ -763,6 +787,7 @@
 				0335DBE2207BF43E00354815 /* NetworkManager.swift in Sources */,
 				0335DBD8207BECE400354815 /* URLParameterEncoder.swift in Sources */,
 				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
+				03C4A482207FF59F00A0A2FF /* SCRoundedSchoolButton.swift in Sources */,
 				0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */,
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
@@ -785,6 +810,7 @@
 				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
 				0335DBE0207BF22E00354815 /* SchoolEndPoint.swift in Sources */,
 				0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */,
+				03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */,
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
 				0335DBD2207BEB9A00354815 /* HTTPMethod.swift in Sources */,
 				0335DBD6207BEC7500354815 /* ParameterEncoding.swift in Sources */,
@@ -802,14 +828,16 @@
 				03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */,
 				03930CEA2054B1C700128D72 /* Extensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
+				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
+				03C4A484207FF5D500A0A2FF /* SCRoundedButton.swift in Sources */,
 				032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */,
 				0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
-				03930CEC2054B23700128D72 /* SCUIKit.swift in Sources */,
+				03930CEC2054B23700128D72 /* SCCircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
