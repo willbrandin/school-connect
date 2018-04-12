@@ -51,13 +51,6 @@ enum WBTextValidationType {
 }
 
 
-enum SCErrors: Error {
-    case noSchoolLinks
-    case noSchoolId
-    case noFetchedNews
-    case noFetchedEvents
-}
-
 
 
 

@@ -109,7 +109,7 @@ extension SearchViewController: UISearchBarDelegate {
                 }
             case .error:
                 DispatchQueue.main.async {
-                    let alert = WBPopUp.fetchError.initAlert()
+                    let alert = SCErrors.fetchError.initAlert()
                     self.present(alert, animated: true, completion: nil)
                 }
             }
@@ -123,7 +123,7 @@ extension SearchViewController: UISearchBarDelegate {
                 completion(school)
             case .error:
                 DispatchQueue.main.async {
-                    let alert = WBPopUp.fetchError.initAlert()
+                    let alert = SCErrors.fetchError.initAlert()
                     self.present(alert, animated: true, completion: nil)
                 }
             }

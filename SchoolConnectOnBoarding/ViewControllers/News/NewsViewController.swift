@@ -54,7 +54,7 @@ extension NewsViewController {
         NewsArticle.fetchNewsData { (news, error) in
             if error != nil {
                 DispatchQueue.main.async {
-                    let alert = WBPopUp.fetchError.initAlert()
+                    let alert = SCErrors.noFetchedNews.initAlert()
                     self.present(alert, animated: true, completion: nil)
                 }
             }

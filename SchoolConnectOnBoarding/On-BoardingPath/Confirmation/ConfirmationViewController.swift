@@ -99,7 +99,7 @@ extension ConfirmationViewController: ConfirmationDelegate {
                 self.setUserDefaults(false)
                 
                 DispatchQueue.main.async {
-                    let alert = WBPopUp.confirmationError.initAlert()
+                    let alert = SCErrors.confirmationError.initAlert()
                     self.present(alert, animated: true, completion: nil)
                 }
                 
@@ -108,22 +108,6 @@ extension ConfirmationViewController: ConfirmationDelegate {
             }
         }
         
-//        SCHomeLink.getHomeLinksForSchool(update: false, completion: { (didFinish, err) in
-//
-//            if err != nil && !didFinish {
-//                //delete realm
-//                DatabaseManager.removeSchools()
-//                self.setUserDefaults(false)
-//                //clear user default? should update on new selections
-//                let alert = WBPopUp.confirmationError.initAlert()
-//                self.present(alert, animated: true, completion: nil)
-//                //present err
-//
-//
-//            } else if didFinish {
-//                self.presentHomeView()
-//            }
-//        })
     }
     
     func presentHomeView(){

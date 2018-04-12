@@ -17,27 +17,6 @@ enum HomeState {
 }
 
 
-enum WBPopUp: String {
-    
-    case confirmationError = "Cannot Confirm"
-    case fetchError
-    
-    func initAlert() -> UIAlertController {
-        
-        switch self {
-        case .confirmationError:
-            let alert = UIAlertController.defaultAlert("Error", "Sorry! Something isn't right! Check with your school or try again later.")
-            alert.addDefaultAction()
-            return alert
-        case .fetchError:
-            let alert = UIAlertController.defaultAlert("Hmm", "Something isn't right. Try again later.")
-            alert.addDefaultAction()
-            return alert
-        }
-        
-    }
-}
-
 enum PageTitles: String {
     case home = "Home"
     case news = "News"
