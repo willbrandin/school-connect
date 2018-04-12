@@ -8,10 +8,6 @@
 
 import Foundation
 
-public enum Result<T,U>{
-    case success(T)
-    case error(U)
-}
 
 public enum APIError: Error {
     case requestFailed

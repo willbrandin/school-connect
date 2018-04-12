@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+
+public enum Result<T,U>{
+    case success(T)
+    case error(U)
+}
+
+
 enum UserDefaultKeys: String {
     case schoolChosen = "schoolIsChosen"
     case selectedId = "selectedSchoolId"
@@ -43,101 +50,6 @@ enum WBTextValidationType {
     case message
 }
 
-enum HomeCellIndex: Int {
-    case greeting = 0
-    case featureCell = 1
-    case linksCell = 2
-    
-}
-
-enum HomeFeature: String {
-    
-    case bullyReporting = "bully-report"
-    case teacherContact = "teacher-contact"
-    case mapOfSchool = "map-of-school"
-    
-    enum FeatureCellText: String {
-        case bullyReportTitle = "Bully Reporting"
-        case bullyReportSubtitle = "Report instances of bullying directly to your principal."
-        
-        case teacherContactTitle = "Contact your Teacher"
-        case teacherContactSubtitle = "Reach your teacher from your mobile device."
-        
-        case mapOfSchoolTitle = "School Map"
-        case mapOfSchoolSubtitle = "Get an arial view of the school!"
-        
-    }
-    
-    
-    func setFeatureView() -> UIViewController {
-        let vc = UIViewController()
-        
-        switch self {
-        case .bullyReporting:
-            //return specific view controller
-            vc.title = PageTitles.bullyReporting.rawValue
-        case .teacherContact:
-            vc.title = PageTitles.teacherContact.rawValue
-        case .mapOfSchool:
-            vc.title = PageTitles.mapOfSchool.rawValue
-        
-        }
-        return vc
-    }
-    
-    func customizeUI(_ view: FeatureCardView) {
-        switch self {
-        case .bullyReporting:
-            view.configureCardView(FeatureCellText.bullyReportTitle.rawValue,
-                                   FeatureCellText.bullyReportSubtitle.rawValue,
-                                   UIImage(named: "classroom"))
-        case .teacherContact:
-            view.configureCardView(FeatureCellText.teacherContactTitle.rawValue,
-                                   FeatureCellText.teacherContactSubtitle.rawValue,
-                                   UIImage(named: "landingPageIcon"))
-        case .mapOfSchool:
-            view.configureCardView(FeatureCellText.mapOfSchoolTitle.rawValue,
-                                   FeatureCellText.mapOfSchoolSubtitle.rawValue,
-                                   UIImage(named: "student-walk"))
-        
-        }
-    }
-    
-    
-}
-
-enum PageTitles: String {
-    case home = "Home"
-    case news = "News"
-    case confirmation = "Confirm"
-    case schoolSearch = "School Search"
-    case contact = "Contact"
-    case calendar = "Calendar"
-    case bullyReporting = "Report Bullying"
-    case teacherContact = "Reach a Teacher"
-    case mapOfSchool = "School Map"
-}
-
-enum CalendarEventTitles: String {
-    case information = "Information"
-    case dateAndTime = "Date and Time"
-    case startDate = "Start Date"
-    case endDate = "End Date"
-    case location = "Location"
-    case saveToCalendar = "Save to Calendar"
-}
-
-enum CellReuseIds: String {
-    case calendarCell = "CalendarCell"
-    case newsArticleCardCell = "NewsArticleCell"
-    case homeGreetingCollectionCell = "HomeGreetingCell"
-    case featureCollectionCell = "FeatureCell"
-    case homeFeatureCollectionCell = "HomeFeatureCell"
-    case homeLinkCollectionCell = "HomeLinkCell"
-    case linkTableCell = "LinkTableCell"
-    case searchSchoolNameTableCell = "SchoolNameCell"
-}
-
 
 enum SCErrors: Error {
     case noSchoolLinks
@@ -147,26 +59,7 @@ enum SCErrors: Error {
 }
 
 
-enum WBPopUp: String {
-    
-    case confirmationError = "Cannot Confirm"
-    case fetchError
-    
-    func initAlert() -> UIAlertController {
-        
-        switch self {
-        case .confirmationError:
-            let alert = UIAlertController.defaultAlert("Error", "Sorry! Something isn't right! Check with your school or try again later.")
-            alert.addDefaultAction()
-            return alert
-        case .fetchError:
-            let alert = UIAlertController.defaultAlert("Hmm", "Something isn't right. Try again later.")
-            alert.addDefaultAction()
-            return alert
-        }
-        
-    }
-}
+
 
 
 

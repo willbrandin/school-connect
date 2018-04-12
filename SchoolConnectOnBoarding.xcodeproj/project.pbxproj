@@ -75,6 +75,9 @@
 		03C4A489207FF6B900A0A2FF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A488207FF6B900A0A2FF /* StringExtensions.swift */; };
 		03C4A48B207FF76F00A0A2FF /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48A207FF76F00A0A2FF /* ColorExtensions.swift */; };
 		03C4A48D207FF78E00A0A2FF /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48C207FF78E00A0A2FF /* ImageExtensions.swift */; };
+		03C4A490207FF7E000A0A2FF /* HomeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */; };
+		03C4A492207FF80F00A0A2FF /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */; };
+		03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A493207FF84200A0A2FF /* UIEnums.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -165,6 +168,9 @@
 		03C4A488207FF6B900A0A2FF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		03C4A48A207FF76F00A0A2FF /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		03C4A48C207FF78E00A0A2FF /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEnums.swift; sourceTree = "<group>"; };
+		03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEnums.swift; sourceTree = "<group>"; };
+		03C4A493207FF84200A0A2FF /* UIEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEnums.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -508,6 +514,7 @@
 		03930CE82054B1B800128D72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				03C4A48E207FF7BF00A0A2FF /* Enums */,
 				03C4A487207FF6A800A0A2FF /* Extensions */,
 				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
 				0312E677205854C0009327F3 /* Navigation */,
@@ -549,6 +556,16 @@
 				03C4A48C207FF78E00A0A2FF /* ImageExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		03C4A48E207FF7BF00A0A2FF /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */,
+				03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */,
+				03C4A493207FF84200A0A2FF /* UIEnums.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		5CFB9665A1B6E9333E8D5493 /* Pods */ = {
@@ -812,6 +829,7 @@
 				0312E674205833B5009327F3 /* SCEnums.swift in Sources */,
 				037733F320605AEC0046D276 /* FeatureCell.swift in Sources */,
 				0335DBDA207BEE1400354815 /* JSONParameterEncoder.swift in Sources */,
+				03C4A492207FF80F00A0A2FF /* CalendarEnums.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
 				0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */,
@@ -820,6 +838,7 @@
 				03C4A489207FF6B900A0A2FF /* StringExtensions.swift in Sources */,
 				03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */,
 				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
+				03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */,
 				032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */,
 				035EBD6A2077B96800FBA250 /* TableAndCollectionViewExtensions.swift in Sources */,
 				0335DBDE207BEF0E00354815 /* Router.swift in Sources */,
@@ -858,6 +877,7 @@
 				0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
 				03930CEC2054B23700128D72 /* SCCircleImage.swift in Sources */,
+				03C4A490207FF7E000A0A2FF /* HomeEnums.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
