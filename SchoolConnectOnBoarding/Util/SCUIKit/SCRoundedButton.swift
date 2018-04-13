@@ -21,6 +21,4 @@ class SCRoundedButton: UIButton, Shadowable, CornerRoundable {
         self.titleLabel?.font = UIFont.buttonTitle()
     }
     
-    
-    
 }

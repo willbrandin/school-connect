@@ -95,14 +95,14 @@ class NewsCardView: UIView, CornerRoundable {
         bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         bodyTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -50.0).isActive = true
         bodyTextStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
-        bodyTextStackView.heightAnchor.constraint(equalToConstant: 95.0).isActive = true
+        bodyTextStackView.heightAnchor.constraint(equalToConstant: 115.0).isActive = true
         
         setupImageConstraints()
         setupTitleLabelConstraints()
     }
     
     func setupTitleLabelConstraints(){
-        titleLabel.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
+        //titleLabel.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
     }
     
    
