@@ -8,6 +8,10 @@
 
 import Foundation
 
+public enum Result<T,U> {
+    case success(T)
+    case error(U)
+}
 
 protocol EndPointType {
     var baseURL: URL { get }

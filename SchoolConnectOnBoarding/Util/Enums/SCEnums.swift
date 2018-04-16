@@ -10,12 +10,6 @@ import Foundation
 import UIKit
 
 
-public enum Result<T,U>{
-    case success(T)
-    case error(U)
-}
-
-
 enum UserDefaultKeys: String {
     case schoolChosen = "schoolIsChosen"
     case selectedId = "selectedSchoolId"
