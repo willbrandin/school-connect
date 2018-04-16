@@ -32,15 +32,4 @@ class SNBaseViewController: UIViewController {
     
 }
 
-extension UIAlertController {
-    
-    class func defaultAlert(_ title: String, _ message: String) -> UIAlertController {
-        return UIAlertController(title: title, message: message, preferredStyle: .alert)
-    }
-    
-    func addDefaultAction(){
-        let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
-        self.addAction(action)
-    }
-}
 
