@@ -52,7 +52,7 @@ class SCHomeLink: Object, Decodable {
     
     //MARK: - Methods
     
-    static func fetchHomeLinks(with schoolId: String?, update: Bool = true, completion: @escaping (Bool, SCErrors?) -> Void){
+    static func fetchHomeLinks(with schoolId: String?, update: Bool = true, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in }){
         guard let id = schoolId else {
             completion(false, SCErrors.noSchoolId)
             return

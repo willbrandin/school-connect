@@ -100,7 +100,7 @@ extension String: Evaluatable {
     }
     
     static func isValidName(text: String) -> Bool {
-        if text == nil || text.isEmpty {
+        if text.isEmpty {
             return false
         }
         let regexp = ".*[0-9]+.*"

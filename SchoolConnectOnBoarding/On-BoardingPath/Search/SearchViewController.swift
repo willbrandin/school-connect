@@ -76,7 +76,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let str = searchBar.text as! String
+        let str = searchBar.text!
         if str.count == 0 {
             shouldShowSearchResults = false
             self.schoolList.removeAll()

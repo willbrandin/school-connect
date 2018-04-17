@@ -71,7 +71,9 @@ extension HomeViewController {
     //update Links DB
     
     func fetchLinksData(){
-        SCHomeLink.getHomeLinksForSchool(update: true)
+        let defaults = UserDefaults.standard
+        let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue)
+        SCHomeLink.fetchHomeLinks(with: id)
     }
 }
 
