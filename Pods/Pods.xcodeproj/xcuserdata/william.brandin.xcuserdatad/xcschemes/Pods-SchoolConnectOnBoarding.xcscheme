@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B7363A90427F44EB36B78D33B87764D8"
+               BlueprintIdentifier = "2EF374C858B300D2314153E533A74E97"
                BuildableName = "Pods_SchoolConnectOnBoarding.framework"
                BlueprintName = "Pods-SchoolConnectOnBoarding"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B7363A90427F44EB36B78D33B87764D8"
+            BlueprintIdentifier = "2EF374C858B300D2314153E533A74E97"
             BuildableName = "Pods_SchoolConnectOnBoarding.framework"
             BlueprintName = "Pods-SchoolConnectOnBoarding"
             ReferencedContainer = "container:Pods.xcodeproj">

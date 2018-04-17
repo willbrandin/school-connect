@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 protocol SelectedNewsDelegate: class {
     func didCloseArticle()

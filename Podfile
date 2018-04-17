@@ -11,6 +11,7 @@ target 'SchoolConnectOnBoarding' do
   pod 'Firebase/Core'
   pod 'RealmSwift'
   pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher', '~> 4.0'
 
   target 'SchoolConnectOnBoardingTests' do
     inherit! :search_paths
