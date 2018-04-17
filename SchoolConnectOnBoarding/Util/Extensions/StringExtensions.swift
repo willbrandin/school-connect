@@ -58,6 +58,8 @@ extension String {
 }
 
 extension String: Evaluatable {
+    
+    
     func evaluate(with condition: String) -> Bool {
         guard let range = range(of: condition, options: .regularExpression, range: nil, locale: nil) else {
             return false
@@ -65,7 +67,6 @@ extension String: Evaluatable {
         
         return range.lowerBound == startIndex && range.upperBound == endIndex
     }
-    
     
     static func isPhoneNumberValid(text: String) -> Bool {
         let regexp = "^[0-9]{10}$"
