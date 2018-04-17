@@ -9,23 +9,6 @@
 import UIKit
 
 
-extension Validatable where Self: SCTextView {
-    
-    func validate(_ functions: [(String) -> Bool]) -> Bool {
-        return functions.map { f in f(self.text ?? "") }.reduce(true) { $0 && $1 }
-    }
-    
-    func isValid() -> Bool {
-        
-        switch self.validationType {
-            
-        case .message: return self.validate([String.isMessageValid]) //TODO: - come up with some sort of eval method.
-        default:
-            break
-        }
-        return false
-    }
-}
 
 class SCFloatingTextView: UIView, Shadowable {
     

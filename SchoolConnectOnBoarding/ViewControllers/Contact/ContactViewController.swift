@@ -229,24 +229,20 @@ extension ContactViewController: ContactFormDelegate {
     }
     
     func formDataIsValid() -> Bool {
-        guard let nameText = contactScreenView.nameTextField.text else { return false }
-        guard let emailText = contactScreenView.emailTextField.text else { return false }
-        guard let phoneText = contactScreenView.phoneNumberTextField.text else { return false }
-        guard let messageText = contactScreenView.messageTextView.textView.text else { return false }
         
-        if nameText == "" {
+        if !contactScreenView.nameTextField.isValid {
             return false
         }
         
-        if !emailText.isValidEmail() && contactScreenView.emailTextField.text == nil {
+        if !contactScreenView.emailTextField.isValid {
             return false
         }
         
-        if phoneText.count != 10 {
+        if !contactScreenView.phoneNumberTextField.isValid {
             return false
         }
         
-        if messageText == "" {
+        if !contactScreenView.messageTextView.textView.isValid {
             return false
         }
         
