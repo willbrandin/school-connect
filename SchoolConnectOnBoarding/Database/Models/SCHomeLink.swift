@@ -64,7 +64,7 @@ class SCHomeLink: Object, Decodable {
             switch result {
             case .success(let links):
                 let returnedLinks = links as! [SCHomeLink]
-                saveLinksData(links: returnedLinks, update: false, completion: { (isComplete) in
+                saveLinksData(links: returnedLinks, update: update, completion: { (isComplete) in
                     if isComplete {
                         completion(true, nil)
                     }

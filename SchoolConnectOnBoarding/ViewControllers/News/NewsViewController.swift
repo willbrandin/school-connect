@@ -121,7 +121,9 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedArticle = newsArray[indexPath.row]
         let selectedArticleVC = SelectedNewsArticleViewController(selectedArticle: selectedArticle)
-        show(selectedArticleVC, sender: nil)
+        self.present(selectedArticleVC, animated: true, completion: nil)
+        
+//        show(selectedArticleVC, sender: nil)
     }
     
 }

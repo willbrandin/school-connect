@@ -10,6 +10,16 @@ import UIKit
 
 
 public struct SCImages {
+    
+    
+    static var dismissWhite: UIImage {
+        return UIImage(named: "closewhite")!
+    }
+    
+    static var dismissBlack: UIImage {
+        return UIImage(named: "closeblack")!
+    }
+    
     public struct OnBoardingImages {
         
         static var landingPageIcon: UIImage {
@@ -53,4 +63,5 @@ public struct SCImages {
         }
         
     }
+
 }

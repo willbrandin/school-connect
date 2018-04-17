@@ -41,10 +41,11 @@ class SelectedNewsArticleViewController: SNBaseViewController, Injectable {
     func setupEventView(){
         articleView = SelectedNewsArticleView()
         articleView.customizeUI(selectedArticle)
+        articleView.delegate = self
         self.view.addSubview(articleView)
         
         articleView.translatesAutoresizingMaskIntoConstraints = false
-        articleView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+        articleView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         articleView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         articleView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         articleView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -57,3 +58,12 @@ class SelectedNewsArticleViewController: SNBaseViewController, Injectable {
     }
     
 }
+
+extension SelectedNewsArticleViewController: SelectedNewsDelegate {
+    
+    func didCloseArticle() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
+

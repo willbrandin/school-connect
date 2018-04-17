@@ -15,7 +15,7 @@ class NewsArticle: Decodable {
     var subtitle: String?
     //var source: String?
     var pubDate: String?
-    //var imgUrl: String?
+    var imgUrl: String?
     var fullStory: String?
     var schoolId: String?
     
@@ -28,14 +28,14 @@ class NewsArticle: Decodable {
         subtitle = try values.decodeIfPresent(String.self, forKey: .subtitle)!
         //source = try values.decodeIfPresent(String.self, forKey: .source)!
         pubDate = try values.decodeIfPresent(String.self, forKey: .pubDate)!
-        //imgUrl = try values.decodeIfPresent(String.self, forKey: .imgUrl)!
+        imgUrl = try values.decodeIfPresent(String.self, forKey: .imgUrl)!
         fullStory = try values.decodeIfPresent(String.self, forKey: .fullStory)!
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
     }
     
     enum CodingKeys: String, CodingKey
     {
-        case title, subtitle, pubDate //imgUrl
+        case title, subtitle, pubDate, imgUrl
         case fullStory = "story"
         case schoolId = "school"
     }
