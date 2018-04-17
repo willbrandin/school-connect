@@ -127,7 +127,7 @@ extension ContactViewController: UITextFieldDelegate {
 
                     titleLbl?.text = "E-Mail"
                     //VALIDATE
-                    if fieldText.isValidEmail() {
+                    if contactScreenView.emailTextField.isValid {
                         titleLbl?.textColor = UIColor.scGreen()
                     } else {
                         titleLbl?.textColor = UIColor.scRed()
@@ -146,7 +146,12 @@ extension ContactViewController: UITextFieldDelegate {
                 } else {
                     titleLbl?.fadeTransition(0.4)
                     titleLbl?.text = "Phone Number"
-                    titleLbl?.textColor = UIColor.lightGray
+                    //VALIDATE
+                    if contactScreenView.phoneNumberTextField.isValid {
+                        titleLbl?.textColor = UIColor.scGreen()
+                    } else {
+                        titleLbl?.textColor = UIColor.scRed()
+                    }
                     contactScreenView.phoneNumberTextField.placeholder = ""
                 }
             }
@@ -172,6 +177,13 @@ extension ContactViewController: UITextFieldDelegate {
         return true
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField == contactScreenView.phoneNumberTextField {
+            return textField.canFormatAsPhoneNumber(range: range, inputString: string)
+        }
+        return true
+    }
     
 }
 
@@ -216,8 +228,8 @@ extension ContactViewController: UITextViewDelegate {
 
 
 extension ContactViewController: ContactFormDelegate {
-    //text field validation delegate from cocoacasts?
-    
+
+    //Web services to POST the message.
     func didTapSubmit() {
         
         if formDataIsValid() {

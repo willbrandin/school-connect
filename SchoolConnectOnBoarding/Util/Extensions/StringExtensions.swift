@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension String {
     func removeSpecialCharactersFromText() -> String {
         
@@ -49,6 +48,38 @@ extension String {
     }
     
     
+    static func formatStringAsPhoneNumber(_ length: Int, _ decimalString: NSString) -> String {
+        
+        var index = 0 as Int
+        let formattedString = NSMutableString()
+        
+        if length - index > 3 {
+            let areaCode = decimalString.substring(with: NSMakeRange(index, 3))
+            formattedString.appendFormat("%@-", areaCode)
+            index += 3
+        }
+        
+        if length - index > 3 {
+            let prefix = decimalString.substring(with: NSMakeRange(index, 3))
+            formattedString.appendFormat("%@-", prefix)
+            index += 3
+        }
+        
+        let remainder = decimalString.substring(from: index)
+        formattedString.append(remainder)
+        
+        return formattedString as String
+    }
+    
+    func isValidNumberCountForPhoneNumber(_ inputLength: Int) -> Bool {
+        let newLength = inputLength //+ self.count //- rangeLength as Int
+        if newLength > 10 {
+            return false
+        } else {
+            return true
+        }
+    }
+    
 }
 
 extension String: Evaluatable {
@@ -63,8 +94,9 @@ extension String: Evaluatable {
     }
     
     static func isPhoneNumberValid(text: String) -> Bool {
+        let newText = text.replacingOccurrences(of: "-", with: "")
         let regexp = "^[0-9]{10}$"
-        return text.evaluate(with: regexp)
+        return newText.evaluate(with: regexp)
     }
     
     static func isValidName(text: String) -> Bool {

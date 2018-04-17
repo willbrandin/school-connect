@@ -84,6 +84,8 @@
 		03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A49C2080008600A0A2FF /* SchoolColorable.swift */; };
 		03C4A49F208006D700A0A2FF /* SCErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A49E208006D700A0A2FF /* SCErrors.swift */; };
 		03D4BB3D2086400F00213A24 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB3C2086400F00213A24 /* Validatable.swift */; };
+		03D4BB3F20866C1C00213A24 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */; };
+		03D4BB4120866F8700213A24 /* PhoneNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -183,6 +185,8 @@
 		03C4A49C2080008600A0A2FF /* SchoolColorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolColorable.swift; sourceTree = "<group>"; };
 		03C4A49E208006D700A0A2FF /* SCErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCErrors.swift; sourceTree = "<group>"; };
 		03D4BB3C2086400F00213A24 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
+		03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTests.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -478,6 +482,7 @@
 				03930CD42054AB4500128D72 /* SchoolConnectOnBoardingTests.swift */,
 				03930CD62054AB4500128D72 /* Info.plist */,
 				03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */,
+				03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */,
 			);
 			path = SchoolConnectOnBoardingTests;
 			sourceTree = "<group>";
@@ -566,6 +571,7 @@
 				035EBD692077B96800FBA250 /* TableAndCollectionViewExtensions.swift */,
 				03C4A488207FF6B900A0A2FF /* StringExtensions.swift */,
 				03C4A48A207FF76F00A0A2FF /* ColorExtensions.swift */,
+				03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -848,6 +854,7 @@
 				0335DBE2207BF43E00354815 /* NetworkManager.swift in Sources */,
 				0335DBD8207BECE400354815 /* URLParameterEncoder.swift in Sources */,
 				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
+				03D4BB3F20866C1C00213A24 /* TextFieldExtensions.swift in Sources */,
 				03C4A482207FF59F00A0A2FF /* SCRoundedSchoolButton.swift in Sources */,
 				0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */,
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
@@ -917,6 +924,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03D4BB4120866F8700213A24 /* PhoneNumberTests.swift in Sources */,
 				03C4A47B207FC87E00A0A2FF /* SCValidationTests.swift in Sources */,
 				03930CD52054AB4500128D72 /* SchoolConnectOnBoardingTests.swift in Sources */,
 			);
