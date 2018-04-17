@@ -44,7 +44,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     lazy var newsImageView: UIImageView! = {
         let imageView = UIImageView()
         imageView.backgroundColor = UIColor.white
-        imageView.image = SCImages.OnBoardingImages.searchIcon // TEMP image
+        //imageView.image = SCImages.OnBoardingImages.searchIcon // TEMP image
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +101,8 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         if let news = newsArticle {
             self.newsArticle = news
             self.backgroundColor = .white
+            let url = URL(string: news.imgUrl!)
+            self.newsImageView.kf.setImage(with: url)
         }
         setupImageConstraints()
         setupTitleLabelConstraints()
@@ -111,10 +113,6 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     }
     
     //MARK: - Methods
-    
-    func fetchAndCacheImage(){
-        
-    }
     
     func setupImageConstraints(){
         addSubview(newsImageView)
@@ -131,7 +129,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         newsTitle.topAnchor.constraint(equalTo: newsImageView.bottomAnchor).isActive = true
         newsTitle.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 8.0).isActive = true
         newsTitle.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -8.0).isActive = true
-//        newsTitle.heightAnchor.constraint(equalTo: newsImageView.heightAnchor, multiplier: 0.30).isActive = true
+        
     }
     
     func setupDismissView(){

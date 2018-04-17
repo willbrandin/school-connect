@@ -16,7 +16,7 @@ class NewsCardView: UIView, CornerRoundable {
     //MARK: - UI Elements
     var newsImgView: UIImageView! = {
         let imageView = UIImageView()
-        imageView.image = SCImages.OnBoardingImages.landingPageIcon
+        //imageView.image = SCImages.OnBoardingImages.landingPageIcon
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +72,8 @@ class NewsCardView: UIView, CornerRoundable {
             pubDateLabel.text = news.pubDate?.stringWithDateFormat(.simpleDate)
             titleLabel.text = news.title
             subTitleLabel.text = news.subtitle
-
+            let url = URL(string: news.imgUrl!)
+            self.newsImgView.kf.setImage(with: url)
         }
         
     }

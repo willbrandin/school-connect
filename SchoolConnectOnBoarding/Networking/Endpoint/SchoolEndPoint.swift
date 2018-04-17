@@ -51,7 +51,7 @@ extension SchoolConnectAPI: EndPointType {
         case .production: return "http://localhost:3000/api"
         case .qa: return ""
         case .staging: return ""
-        case .development: return "http://10.157.67.4:3000/api"
+        case .development: return "http://10.157.67.44:3000/api"
         case .localDev: return "http://localhost:3000/api"
         }
     }
