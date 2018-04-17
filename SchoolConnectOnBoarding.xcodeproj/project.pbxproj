@@ -74,7 +74,7 @@
 		03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */; };
 		03C4A489207FF6B900A0A2FF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A488207FF6B900A0A2FF /* StringExtensions.swift */; };
 		03C4A48B207FF76F00A0A2FF /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48A207FF76F00A0A2FF /* ColorExtensions.swift */; };
-		03C4A48D207FF78E00A0A2FF /* ImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48C207FF78E00A0A2FF /* ImageExtensions.swift */; };
+		03C4A48D207FF78E00A0A2FF /* SCImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48C207FF78E00A0A2FF /* SCImages.swift */; };
 		03C4A490207FF7E000A0A2FF /* HomeEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */; };
 		03C4A492207FF80F00A0A2FF /* CalendarEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */; };
 		03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A493207FF84200A0A2FF /* UIEnums.swift */; };
@@ -173,7 +173,7 @@
 		03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		03C4A488207FF6B900A0A2FF /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		03C4A48A207FF76F00A0A2FF /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
-		03C4A48C207FF78E00A0A2FF /* ImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtensions.swift; sourceTree = "<group>"; };
+		03C4A48C207FF78E00A0A2FF /* SCImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCImages.swift; sourceTree = "<group>"; };
 		03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEnums.swift; sourceTree = "<group>"; };
 		03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEnums.swift; sourceTree = "<group>"; };
 		03C4A493207FF84200A0A2FF /* UIEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEnums.swift; sourceTree = "<group>"; };
@@ -531,6 +531,7 @@
 				03C4A487207FF6A800A0A2FF /* Extensions */,
 				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
 				0312E677205854C0009327F3 /* Navigation */,
+				03C4A48C207FF78E00A0A2FF /* SCImages.swift */,
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
 			);
 			path = Util;
@@ -565,7 +566,6 @@
 				035EBD692077B96800FBA250 /* TableAndCollectionViewExtensions.swift */,
 				03C4A488207FF6B900A0A2FF /* StringExtensions.swift */,
 				03C4A48A207FF76F00A0A2FF /* ColorExtensions.swift */,
-				03C4A48C207FF78E00A0A2FF /* ImageExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -899,7 +899,7 @@
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
 				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */,
-				03C4A48D207FF78E00A0A2FF /* ImageExtensions.swift in Sources */,
+				03C4A48D207FF78E00A0A2FF /* SCImages.swift in Sources */,
 				03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,

@@ -18,16 +18,25 @@ class SNTabBarController: UITabBarController {
 
     func addViewControllers() -> [UIViewController]{
         let homeViewController = HomeViewController()
-        homeViewController.tabBarItem = UITabBarItem(title: PageTitles.home.rawValue, image: UIImage.homeTabBarIcon(), tag: 0)
+        homeViewController.tabBarItem = UITabBarItem(title: PageTitles.home.rawValue,
+                                                     image: SCImages.TabBarImages.homeIcon,
+                                                     tag: 0)
         
         let newsViewController = NewsViewController()
-        newsViewController.tabBarItem = UITabBarItem(title: PageTitles.news.rawValue, image: UIImage.newsTabBarIcon(), tag: 1)
+        newsViewController.tabBarItem = UITabBarItem(title: PageTitles.news.rawValue,
+                                                     image: SCImages.TabBarImages.newsIcon,
+                                                     tag: 1)
         
         let calendarViewController = CalendarViewController()
-        calendarViewController.tabBarItem = UITabBarItem(title: PageTitles.calendar.rawValue, image: UIImage.calendarTabBarIcon(), tag: 2)
+        calendarViewController.tabBarItem = UITabBarItem(title: PageTitles.calendar.rawValue,
+                                                         image: SCImages.TabBarImages.calendarIcon,
+                                                         tag: 2)
         
         let contactViewController = ContactViewController()
-        contactViewController.tabBarItem = UITabBarItem(title: PageTitles.contact.rawValue, image: UIImage.contactTabBarIcon(), tag: 3)
+        contactViewController.tabBarItem = UITabBarItem(title: PageTitles.contact.rawValue,
+                                                        image: SCImages.TabBarImages.contactIcon
+            ,
+                                                        tag: 3)
         
         return [homeViewController, newsViewController, calendarViewController, contactViewController]
     }

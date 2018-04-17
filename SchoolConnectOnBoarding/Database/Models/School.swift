@@ -82,8 +82,9 @@ class School: RealmSwift.Object, Decodable {
         }
     }
     
-    ///Fetches list of schools for onboarding.
     
+    //******Deprecated******//
+    ///Fetches list of schools for onboarding.
     @available(*, deprecated)
     static func getSchoolDetailsWithId(update: Bool = false, completion: @escaping (Bool)-> Void = {_ in } ) {
         //get school with id.
@@ -100,12 +101,12 @@ class School: RealmSwift.Object, Decodable {
         queryPath.observe(.childAdded) { (snapshot) in
             if snapshot.key == FirebaseSchoolInfoPath.infoPath.rawValue {
                 //Init info
-                if let infoData = snapshot.value as? NSDictionary {
+                if let _ = snapshot.value as? NSDictionary {
                     //newStoredSchool.initSchoolDetails(infoData)
                 }
             }
             if snapshot.key == FirebaseSchoolInfoPath.appConfig.rawValue {
-                if let appSettingsData = snapshot.value as? NSDictionary {
+                if let _ = snapshot.value as? NSDictionary {
                     //newStoredSchool.initAppSettings(appSettingsData)
                     
                     DispatchQueue.main.async {

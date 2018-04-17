@@ -17,7 +17,7 @@ class ConfirmationView: UIView {
     
     var logoImgView: SCCircleImage! = {
         let imageView = SCCircleImage()
-        imageView.image = UIImage.landingPageIcon()
+        imageView.image = SCImages.OnBoardingImages.landingPageIcon
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         

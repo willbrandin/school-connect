@@ -12,7 +12,7 @@ class SearchBlankView: UIView {
 
     var searchImgView: SCCircleImage! = {
         let imageView = SCCircleImage()
-        imageView.image = UIImage.searchIcon()
+        imageView.image = SCImages.OnBoardingImages.searchIcon
         imageView.alpha = 0.3
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView

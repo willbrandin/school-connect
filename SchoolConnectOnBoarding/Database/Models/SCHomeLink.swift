@@ -92,7 +92,8 @@ class SCHomeLink: Object, Decodable {
         }
     }
     
-    
+    //******Deprecated******//
+    @available(*, deprecated)
     static func getHomeLinksForSchool(update: Bool, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in } ) {
         
         var linksArray = [SCHomeLink]()

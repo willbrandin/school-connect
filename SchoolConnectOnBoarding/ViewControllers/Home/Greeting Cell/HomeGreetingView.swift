@@ -35,7 +35,7 @@ class HomeGreetingView: UIView, CornerRoundable {
     
     var homeHeroImg: UIImageView! = {
         let imageView = UIImageView()
-        imageView.image = UIImage.landingPageIcon()
+        imageView.image = SCImages.OnBoardingImages.landingPageIcon
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false

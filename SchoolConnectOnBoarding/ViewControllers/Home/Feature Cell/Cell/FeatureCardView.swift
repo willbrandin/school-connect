@@ -68,7 +68,7 @@ class FeatureCardView: UIView, CornerRoundable {
         setupBackgroundImageView()
         setupTextStackView()
         roundCorners()
-        feature.customizeUI(self)
+        feature.customizeHomeFeatureUI(self)
     }
     
     

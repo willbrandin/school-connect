@@ -15,6 +15,7 @@ enum UserDefaultKeys: String {
     case selectedId = "selectedSchoolId"
 }
 
+@available(*, deprecated)
 enum FirebasePathStrings: String {
     case schoolInfo = "SchoolInfo"
     case schools = "Schools"
@@ -25,6 +26,7 @@ enum FirebasePathStrings: String {
     case homeLinks = "Links"
 }
 
+@available(*, deprecated)
 enum FirebaseSchoolInfoPath: String {
     case appConfig = "appConfig"
     case infoPath = "Info"

@@ -40,7 +40,6 @@ enum HomeFeature: String {
         
         switch self {
         case .bullyReporting:
-            //return specific view controller
             vc.title = PageTitles.bullyReporting.rawValue
         case .teacherContact:
             vc.title = PageTitles.teacherContact.rawValue
@@ -51,20 +50,20 @@ enum HomeFeature: String {
         return vc
     }
     
-    func customizeUI(_ view: FeatureCardView) {
+    func customizeHomeFeatureUI(_ view: FeatureCardView) {
         switch self {
         case .bullyReporting:
             view.configureCardView(FeatureCellText.bullyReportTitle.rawValue,
                                    FeatureCellText.bullyReportSubtitle.rawValue,
-                                   UIImage(named: "classroom"))
+                                   SCImages.FeatureImages.bullyReportImage)
         case .teacherContact:
             view.configureCardView(FeatureCellText.teacherContactTitle.rawValue,
                                    FeatureCellText.teacherContactSubtitle.rawValue,
-                                   UIImage(named: "landingPageIcon"))
+                                   SCImages.FeatureImages.bullyReportImage)
         case .mapOfSchool:
             view.configureCardView(FeatureCellText.mapOfSchoolTitle.rawValue,
                                    FeatureCellText.mapOfSchoolSubtitle.rawValue,
-                                   UIImage(named: "student-walk"))
+                                   SCImages.FeatureImages.bullyReportImage)
             
         }
     }
