@@ -22,56 +22,49 @@ enum FontBook: String {
     }
 }
 
-extension UIFont {
-    
-    static func heroTitle() -> UIFont {
+struct SCFont {
+    static var heroTitle: UIFont {
         return FontBook.semiBold.of(size: 28.0)
     }
     
-    static func title() -> UIFont {
+    static var title: UIFont {
         return FontBook.semiBold.of(size: 26.0)
     }
     
-    static func boldTitle() -> UIFont {
+    static var boldTitle: UIFont {
         return FontBook.bold.of(size: 26.0)
     }
     
-    static func textFieldPlaceholder() -> UIFont {
+    static var textFieldPlaceholder: UIFont {
         return FontBook.bold.of(size: 18.0)
     }
     
-    static func textFieldTitle() -> UIFont {
-        return FontBook.semiBold.of(size: 14.0)
-    }
-    
-    static func buttonTitle() -> UIFont {
+    static var buttonTitle: UIFont {
         return FontBook.bold.of(size: 18.0)
     }
     
-    static func heading() -> UIFont {
+    static var heading: UIFont {
         return FontBook.bold.of(size: 22.0)
     }
     
-    static func subHeading() -> UIFont {
+    static var subHeading: UIFont {
         return FontBook.bold.of(size: 14.0)
     }
     
-    static func bodyText() -> UIFont {
+    static var bodyText: UIFont {
         return FontBook.regular.of(size: 18.0)
     }
     
-    static func altBodyText() -> UIFont {
+    static var altBodyText: UIFont {
         return FontBook.regular.of(size: 14.0)
     }
     
-    static func dateSubTitle() -> UIFont {
+    static var dateSubTitle: UIFont {
         return FontBook.bold.of(size: 13.0)
     }
     
-    static func boldText() -> UIFont {
+    static var boldText: UIFont {
         return FontBook.semiBold.of(size: 16.0)
     }
-    
-    
-    
 }
+

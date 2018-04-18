@@ -35,7 +35,7 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         self.keyboardType = .default
         self.returnKeyType = .next
         self.contentVerticalAlignment = .center
-        self.font = UIFont.textFieldPlaceholder()
+        self.font = SCFont.textFieldPlaceholder
         self.textColor = UIColor.black
         
         

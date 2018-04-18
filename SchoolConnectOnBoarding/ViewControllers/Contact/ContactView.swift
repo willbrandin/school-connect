@@ -18,7 +18,7 @@ class ContactView: UIView {
     
     lazy var contactTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.heroTitle()
+        label.font = SCFont.heroTitle
         label.text = "How may we help you?"
         label.textColor = UIColor.black
         label.numberOfLines = 1
@@ -29,7 +29,7 @@ class ContactView: UIView {
     //Name Field
     lazy var nameFieldTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.textFieldTitle()
+        label.font = SCFont.textFieldTitle
         label.text = ""
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
@@ -60,7 +60,7 @@ class ContactView: UIView {
     //Email Field
     lazy var emailFieldTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.textFieldTitle()
+        label.font = SCFont.textFieldTitle
         label.text = ""
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
@@ -93,7 +93,7 @@ class ContactView: UIView {
     //Phone number
     lazy var phoneNumberFieldTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.textFieldTitle()
+        label.font = SCFont.textFieldTitle
         label.text = ""
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1
@@ -124,7 +124,7 @@ class ContactView: UIView {
     //Phone number
     lazy var messageTextTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.textFieldTitle()
+        label.font = SCFont.textFieldTitle
         //label.text = "Message"
         label.textColor = UIColor.lightGray
         label.numberOfLines = 1

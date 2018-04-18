@@ -18,7 +18,7 @@ class SCRoundedButton: UIButton, Shadowable, CornerRoundable {
     }
     
     func formatBoldButtonTitle(){
-        self.titleLabel?.font = UIFont.buttonTitle()
+        self.titleLabel?.font = SCFont.buttonTitle
     }
     
 }

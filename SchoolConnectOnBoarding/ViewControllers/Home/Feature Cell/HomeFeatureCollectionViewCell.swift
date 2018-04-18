@@ -21,7 +21,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, ReusableView, CellLoa
 
     lazy var featureTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.heroTitle()
+        label.font = SCFont.heroTitle
         label.text = "Features"
         label.textColor = UIColor.black
         label.numberOfLines = 1

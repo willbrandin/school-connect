@@ -19,7 +19,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadab
     
     lazy var linkTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.heroTitle()
+        label.font = SCFont.heroTitle
         label.text = "Useful Links"
         label.textColor = UIColor.black
         label.numberOfLines = 1

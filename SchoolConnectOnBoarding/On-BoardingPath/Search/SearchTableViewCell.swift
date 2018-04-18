@@ -16,7 +16,7 @@ class SearchTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()
         
-        label.font = UIFont.boldText()
+        label.font = SCFont.boldText
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

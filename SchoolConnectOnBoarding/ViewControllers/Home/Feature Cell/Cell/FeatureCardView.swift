@@ -25,7 +25,7 @@ class FeatureCardView: UIView, CornerRoundable {
     
     lazy var featureTitleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.boldTitle()
+        label.font = SCFont.boldTitle
         label.text = "Feature Name"
         label.textColor = UIColor.white
         label.numberOfLines = 1
@@ -36,7 +36,7 @@ class FeatureCardView: UIView, CornerRoundable {
     
     lazy var featureSubtitleText: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.bodyText()
+        label.font = SCFont.bodyText
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         label.textColor = UIColor.white
         label.translatesAutoresizingMaskIntoConstraints = false

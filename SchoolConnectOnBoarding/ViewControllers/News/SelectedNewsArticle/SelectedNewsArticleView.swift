@@ -59,7 +59,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     
     lazy var newsTitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.heroTitle()
+        label.font = SCFont.heroTitle
         label.text = newsArticle?.title
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,7 +68,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     
     lazy var newsSubtitle: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.subHeading()
+        label.font = SCFont.subHeading
         label.text = newsArticle?.subtitle
         label.textColor = UIColor.darkText
         label.numberOfLines = 0
@@ -78,7 +78,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     
     lazy var pubDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.dateSubTitle()
+        label.font = SCFont.dateSubTitle
         
         label.textColor = UIColor.scGrayText()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -92,7 +92,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     
     lazy var fullStoryLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.bodyText()
+        label.font = SCFont.bodyText
         label.text = newsArticle?.fullStory
         label.textColor = UIColor.black
         label.numberOfLines = 0

@@ -17,7 +17,7 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
     
     lazy var titleLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.title()
+        label.font = SCFont.title
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -25,7 +25,7 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
     
     lazy var eventDateLabel: UILabel! = {
         let label = UILabel()
-        label.font = UIFont.dateSubTitle()
+        label.font = SCFont.dateSubTitle
         label.textColor = UIColor.scGrayText()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

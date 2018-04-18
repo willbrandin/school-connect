@@ -72,7 +72,7 @@ class SCTextView: UITextView, Validatable, CornerRoundable {
         self.backgroundColor = UIColor.white
         self.autocorrectionType = .no
         self.keyboardType = .default
-        self.font = UIFont.textFieldPlaceholder()
+        self.font = SCFont.textFieldPlaceholder
         self.textColor = UIColor.black
         self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         roundCorners()

@@ -18,7 +18,7 @@ class LinkCell: UITableViewCell {
     lazy var linkTitleLabel: UILabel! = {
         let label = UILabel()
         label.textColor = UIColor.scGrayText()
-        label.font = UIFont.boldText()
+        label.font = SCFont.boldText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
