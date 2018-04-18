@@ -86,6 +86,7 @@
 		03D4BB3D2086400F00213A24 /* Validatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB3C2086400F00213A24 /* Validatable.swift */; };
 		03D4BB3F20866C1C00213A24 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */; };
 		03D4BB4120866F8700213A24 /* PhoneNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */; };
+		03D4BB4520877D7D00213A24 /* SCColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB4420877D7D00213A24 /* SCColors.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -187,6 +188,7 @@
 		03D4BB3C2086400F00213A24 /* Validatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validatable.swift; sourceTree = "<group>"; };
 		03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTests.swift; sourceTree = "<group>"; };
+		03D4BB4420877D7D00213A24 /* SCColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCColors.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -538,6 +540,7 @@
 				0312E677205854C0009327F3 /* Navigation */,
 				03C4A48C207FF78E00A0A2FF /* SCImages.swift */,
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
+				03D4BB4420877D7D00213A24 /* SCColors.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
 				03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */,
 				032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */,
+				03D4BB4520877D7D00213A24 /* SCColors.swift in Sources */,
 				035EBD6A2077B96800FBA250 /* TableAndCollectionViewExtensions.swift in Sources */,
 				0335DBDE207BEF0E00354815 /* Router.swift in Sources */,
 				03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */,

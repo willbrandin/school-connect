@@ -18,7 +18,7 @@ class HomeView: UIView {
     //MARK: - Init
     
     func customizeUI(){
-        backgroundColor = UIColor.scBlue()
+        backgroundColor = SCColors.scBlue
         
         setupCollectionViewConstraints()
     }

@@ -61,10 +61,10 @@ class SearchViewController: UIViewController {
     }
     
     func setupNavBar(){
-        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.scGray()]
+        let attributes = [NSAttributedStringKey.foregroundColor: SCColors.scGray]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController?.navigationBar.largeTitleTextAttributes = attributes
-        self.navigationController?.navigationBar.tintColor = UIColor.scGrayText()
+        self.navigationController?.navigationBar.tintColor = SCColors.scGrayText
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
         

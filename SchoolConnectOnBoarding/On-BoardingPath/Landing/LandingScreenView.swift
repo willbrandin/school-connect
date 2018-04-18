@@ -16,7 +16,7 @@ class LandingScreenView: UIView {
     lazy var schoolConnectTitle: UILabel! = {
         let title = UILabel()
         title.font = SCFont.heroTitle
-        title.textColor = UIColor.scGrayText()
+        title.textColor = SCColors.scGrayText
         title.textAlignment = .center
         title.text = "School Connect"
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -37,7 +37,7 @@ class LandingScreenView: UIView {
         let label = UILabel()
         label.text = "School News with you"
         label.font = SCFont.heading
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -48,7 +48,7 @@ class LandingScreenView: UIView {
         let label = UILabel()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
         label.font = SCFont.bodyText
-        label.textColor = UIColor.scGray()
+        label.textColor = SCColors.scGray
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,7 +65,7 @@ class LandingScreenView: UIView {
     
     lazy var continueButton: SCRoundedButton! = {
         let button = SCRoundedButton()
-        button.backgroundColor = UIColor.scGreen()
+        button.backgroundColor = SCColors.scGreen
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()

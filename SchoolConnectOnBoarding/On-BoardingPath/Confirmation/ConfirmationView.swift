@@ -27,7 +27,7 @@ class ConfirmationView: UIView {
     lazy var schoolNameLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.heroTitle
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -37,7 +37,7 @@ class ConfirmationView: UIView {
     lazy var schoolCityStateLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.bodyText
-        label.textColor = UIColor.scGray()
+        label.textColor = SCColors.scGray
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -47,7 +47,7 @@ class ConfirmationView: UIView {
     
     lazy var confirmButton: SCRoundedButton! = {
         let button = SCRoundedButton()
-        button.backgroundColor = UIColor.scGreen()
+        button.backgroundColor = SCColors.scGreen
         button.setTitle("Confirm", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()

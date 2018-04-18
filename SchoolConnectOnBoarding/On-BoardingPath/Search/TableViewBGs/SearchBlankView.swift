@@ -23,7 +23,7 @@ class SearchBlankView: UIView {
         label.text = "Find your school"
         label.textAlignment = .center
         label.font = SCFont.bodyText
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.alpha = 0.8
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false

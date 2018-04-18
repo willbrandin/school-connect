@@ -67,7 +67,7 @@ extension ContactViewController: UITextFieldDelegate {
                     titleLbl?.fadeTransition(0.4)
 
                     titleLbl?.text = "Name"
-                    titleLbl?.textColor = UIColor.scBlue()
+                    titleLbl?.textColor = SCColors.scBlue
                     contactScreenView.nameTextField.placeholder = ""
                 }
             }
@@ -78,7 +78,7 @@ extension ContactViewController: UITextFieldDelegate {
                     titleLbl?.fadeTransition(0.4)
 
                     titleLbl?.text = "E-Mail"
-                    titleLbl?.textColor = UIColor.scBlue()
+                    titleLbl?.textColor = SCColors.scBlue
                     contactScreenView.emailTextField.placeholder = ""
                 }
             }
@@ -88,7 +88,7 @@ extension ContactViewController: UITextFieldDelegate {
                 if fieldText.count == 0 {
                     titleLbl?.fadeTransition(0.4)
                     titleLbl?.text = "Phone Number"
-                    titleLbl?.textColor = UIColor.scBlue()
+                    titleLbl?.textColor = SCColors.scBlue
                     contactScreenView.phoneNumberTextField.placeholder = ""
                 }
             }
@@ -128,9 +128,9 @@ extension ContactViewController: UITextFieldDelegate {
                     titleLbl?.text = "E-Mail"
                     //VALIDATE
                     if contactScreenView.emailTextField.isValid {
-                        titleLbl?.textColor = UIColor.scGreen()
+                        titleLbl?.textColor = SCColors.scGreen
                     } else {
-                        titleLbl?.textColor = UIColor.scRed()
+                        titleLbl?.textColor = SCColors.scRed
                     }
                     contactScreenView.emailTextField.placeholder = ""
                 }
@@ -148,9 +148,9 @@ extension ContactViewController: UITextFieldDelegate {
                     titleLbl?.text = "Phone Number"
                     //VALIDATE
                     if contactScreenView.phoneNumberTextField.isValid {
-                        titleLbl?.textColor = UIColor.scGreen()
+                        titleLbl?.textColor = SCColors.scGreen
                     } else {
-                        titleLbl?.textColor = UIColor.scRed()
+                        titleLbl?.textColor = SCColors.scRed
                     }
                     contactScreenView.phoneNumberTextField.placeholder = ""
                 }
@@ -197,7 +197,7 @@ extension ContactViewController: UITextViewDelegate {
                 textView.text = ""
                 textView.textColor = .black
                 titleLbl?.fadeTransition(0.4)
-                titleLbl?.textColor = UIColor.scBlue()
+                titleLbl?.textColor = SCColors.scBlue
                 titleLbl?.text = "Message"
             }
         }
@@ -233,9 +233,9 @@ extension ContactViewController: ContactFormDelegate {
     func didTapSubmit() {
         
         if formDataIsValid() {
-            view.backgroundColor = UIColor.scGreen()
+            view.backgroundColor = SCColors.scGreen
         } else {
-            view.backgroundColor = UIColor.scRed()
+            view.backgroundColor = SCColors.scRed
         }
         
     }
