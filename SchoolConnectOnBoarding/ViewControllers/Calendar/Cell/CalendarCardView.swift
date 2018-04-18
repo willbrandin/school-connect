@@ -26,7 +26,7 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
     lazy var eventDateLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.dateSubTitle
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

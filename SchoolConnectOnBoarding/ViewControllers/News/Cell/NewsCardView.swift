@@ -26,7 +26,7 @@ class NewsCardView: UIView, CornerRoundable {
     lazy var pubDateLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.dateSubTitle
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,7 +42,7 @@ class NewsCardView: UIView, CornerRoundable {
     lazy var subTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.altBodyText
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -80,7 +80,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         let label = UILabel()
         label.font = SCFont.dateSubTitle
         
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.translatesAutoresizingMaskIntoConstraints = false
         
         if let date = newsArticle?.pubDate {

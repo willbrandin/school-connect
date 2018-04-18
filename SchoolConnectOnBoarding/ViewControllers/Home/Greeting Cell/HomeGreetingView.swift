@@ -27,7 +27,7 @@ class HomeGreetingView: UIView, CornerRoundable {
     lazy var todaysDateLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.dateSubTitle
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.text = "Today's Date: 12/25/2018"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

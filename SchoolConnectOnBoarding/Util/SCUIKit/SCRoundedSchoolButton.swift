@@ -52,7 +52,7 @@ extension SCRoundedSchoolButton: SchoolColorable {
             self.backgroundColor = UIColor.white
             
             if primaryColor.isLight && secondaryColor.isLight {
-                self.setTitleColor(UIColor.scGray(), for: .normal)
+                self.setTitleColor(SCColors.scGray, for: .normal)
             }else if primaryColor.isLight {
                 self.setTitleColor(secondaryColor, for: .normal)
             } else {

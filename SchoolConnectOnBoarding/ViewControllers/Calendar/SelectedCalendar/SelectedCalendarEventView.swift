@@ -19,7 +19,7 @@ class SelectedCalendarEventView: UIView {
     lazy var informationTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.heading
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.text = CalendarEventTitles.information.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -36,7 +36,7 @@ class SelectedCalendarEventView: UIView {
     lazy var dateAndTimeTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.heading
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.text = CalendarEventTitles.dateAndTime.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,7 +45,7 @@ class SelectedCalendarEventView: UIView {
     lazy var startDateSubtitle: UILabel! = {
         let label = UILabel()
         label.font = SCFont.subHeading
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.text = CalendarEventTitles.startDate.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -54,7 +54,7 @@ class SelectedCalendarEventView: UIView {
     lazy var endDateSubtitle: UILabel! = {
         let label = UILabel()
         label.font = SCFont.subHeading
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.text = CalendarEventTitles.endDate.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -77,7 +77,7 @@ class SelectedCalendarEventView: UIView {
     lazy var locationTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.heading
-        label.textColor = UIColor.scGrayText()
+        label.textColor = SCColors.scGrayText
         label.text = CalendarEventTitles.location.rawValue
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
