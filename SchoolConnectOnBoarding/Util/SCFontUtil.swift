@@ -39,6 +39,10 @@ struct SCFont {
         return FontBook.bold.of(size: 18.0)
     }
     
+    static var textFieldTitle: UIFont {
+        return FontBook.semiBold.of(size: 14.0)
+    }
+    
     static var buttonTitle: UIFont {
         return FontBook.bold.of(size: 18.0)
     }
