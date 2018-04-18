@@ -231,8 +231,19 @@ extension ContactViewController: ContactFormDelegate {
 
     //Web services to POST the message.
     func didTapSubmit() {
+        //construct contact form
+        //POST contact form
         
         if formDataIsValid() {
+            
+            guard let name = contactScreenView.nameTextField.text, let email = contactScreenView.emailTextField.text, let phoneNumber = contactScreenView.emailTextField.text, let message = contactScreenView.messageTextView.textView.text else {
+                
+                
+                return
+            }
+            
+            let contactForm = ContactForm(name: name, email: email, phoneNumber: phoneNumber, message: message)
+            contactForm.postContactForm()
             view.backgroundColor = SCColors.scGreen
         } else {
             view.backgroundColor = SCColors.scRed

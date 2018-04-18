@@ -87,6 +87,7 @@
 		03D4BB3F20866C1C00213A24 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */; };
 		03D4BB4120866F8700213A24 /* PhoneNumberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */; };
 		03D4BB4520877D7D00213A24 /* SCColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB4420877D7D00213A24 /* SCColors.swift */; };
+		03D4BB472087CFA200213A24 /* ContactForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D4BB462087CFA200213A24 /* ContactForm.swift */; };
 		03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E0D7832063E28500BE00E6 /* SCFontUtil.swift */; };
 		03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B7320615E4300FACBBA /* SCHomeLink.swift */; };
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
@@ -189,6 +190,7 @@
 		03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
 		03D4BB4020866F8700213A24 /* PhoneNumberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTests.swift; sourceTree = "<group>"; };
 		03D4BB4420877D7D00213A24 /* SCColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCColors.swift; sourceTree = "<group>"; };
+		03D4BB462087CFA200213A24 /* ContactForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactForm.swift; sourceTree = "<group>"; };
 		03E0D7832063E28500BE00E6 /* SCFontUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFontUtil.swift; sourceTree = "<group>"; };
 		03EA2B7320615E4300FACBBA /* SCHomeLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCHomeLink.swift; sourceTree = "<group>"; };
 		03EA2B772062BC4300FACBBA /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 				0382F6782056F6D800284055 /* School.swift */,
 				0312E671205831A1009327F3 /* SNAppSettings.swift */,
 				03EA2B7320615E4300FACBBA /* SCHomeLink.swift */,
+				03D4BB462087CFA200213A24 /* ContactForm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -918,6 +921,7 @@
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
 				03C4A484207FF5D500A0A2FF /* SCRoundedButton.swift in Sources */,
+				03D4BB472087CFA200213A24 /* ContactForm.swift in Sources */,
 				032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */,
 				0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
