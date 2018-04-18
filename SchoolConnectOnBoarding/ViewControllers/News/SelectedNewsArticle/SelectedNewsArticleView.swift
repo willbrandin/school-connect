@@ -28,15 +28,20 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         let view = UIView()
         
         view.backgroundColor = schoolSecondaryColor?.withAlphaComponent(0.7)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissBtnTap))
+        view.addGestureRecognizer(gesture)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     lazy var dismissButton: UIButton! = {
         let button = UIButton()
-        button.setBackgroundImage(SCImages.dismissWhite, for: .normal)
+        if (schoolSecondaryColor?.isLight)! {
+            button.setBackgroundImage(SCImages.dismissBlack, for: .normal)
+        } else {
+            button.setBackgroundImage(SCImages.dismissWhite, for: .normal)
+        }
         button.contentMode = .scaleAspectFit
-        button.addTarget(self, action: #selector(handleDismissBtnTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -126,7 +131,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     func setupTitleLabelConstraints(){
         addSubview(newsTitle)
         
-        newsTitle.topAnchor.constraint(equalTo: newsImageView.bottomAnchor).isActive = true
+        newsTitle.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 10.0).isActive = true
         newsTitle.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 8.0).isActive = true
         newsTitle.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -8.0).isActive = true
         
@@ -135,7 +140,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     func setupDismissView(){
         addSubview(dismissView)
         
-        dismissView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor).isActive = true
+        dismissView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 8.0).isActive = true
         dismissView.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -12.0).isActive = true
         dismissView.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
         dismissView.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
