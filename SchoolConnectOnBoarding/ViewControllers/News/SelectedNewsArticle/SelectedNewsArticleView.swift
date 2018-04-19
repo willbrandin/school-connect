@@ -106,8 +106,13 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         if let news = newsArticle {
             self.newsArticle = news
             self.backgroundColor = .white
-            let url = URL(string: news.imgUrl!)
-            self.newsImageView.kf.setImage(with: url)
+            if let imgUrl = news.imgUrl {
+                let url = URL(string: imgUrl)
+                self.newsImageView.kf.setImage(with: url)
+            } else {
+                //default url
+            }
+            
         }
         setupImageConstraints()
         setupTitleLabelConstraints()

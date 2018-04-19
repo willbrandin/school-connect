@@ -48,10 +48,10 @@ extension SchoolConnectAPI: EndPointType {
     
     var environmentBaseURL: String {
         switch NetworkManager.environment {
-        case .production: return "http://localhost:3000/api"
+        case .production: return "http://www.schoolconnected.net/api"
         case .qa: return ""
-        case .staging: return ""
-        case .development: return "http://10.157.67.44:3000/api"
+        case .staging: return "http://stg.schoolconnected.net/api"
+        case .development: return "http://dev.schoolconnected.net/api"
         case .localDev: return "http://localhost:3000/api"
         }
     }
