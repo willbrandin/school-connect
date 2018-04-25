@@ -58,7 +58,7 @@ struct NetworkManager {
                     do {
                         //Decodes the data
                         let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
-                        print("***********  \(apiResonse)")
+                        print("********************************************\n\(apiResonse)\n********************************************")
                         completion(.success(apiResonse))
                     } catch {
                         completion(.error(.jsonParsingFailure))
@@ -90,6 +90,7 @@ struct NetworkManager {
                     do {
                         //Decodes the data
                         let apiResonse = try JSONDecoder().decode(decodingType, from: responseData)
+                        print("********************************************\n\(apiResonse)\n********************************************")
                         completion(.success(apiResonse))
                     } catch {
                         completion(.error(.jsonParsingFailure))
