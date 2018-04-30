@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectedNewsArticleViewController: SNBaseViewController, Injectable {
+class SelectedNewsArticleViewController: SNBaseViewController {
 
     
     //MARK: - Properties
@@ -31,10 +31,7 @@ class SelectedNewsArticleViewController: SNBaseViewController, Injectable {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func inject(_ article: NewsArticle) {
-        self.selectedArticle = article
-    }
+
     
     
     //MARK: - Methods

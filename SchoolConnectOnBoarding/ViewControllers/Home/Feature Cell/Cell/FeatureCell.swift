@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeatureCell: SCHomeCollectionViewCell, ReusableView, CellLoadableView, Injectable {
+class FeatureCell: SCHomeCollectionViewCell, ReusableView, CellLoadableView {
     
     
     //MARK: - Properties
@@ -30,9 +30,6 @@ class FeatureCell: SCHomeCollectionViewCell, ReusableView, CellLoadableView, Inj
         
     }
     
-    func inject(_ cardView: FeatureCardView) {
-        self.cardView = cardView
-    }
     
     //MARK: - Methods
     func configureCell(_ feature: HomeFeature?){
