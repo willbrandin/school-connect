@@ -20,7 +20,7 @@ extension String {
         dateFormatter.dateFormat = WBDateFormat.serverDateFormat.rawValue
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
-        let date = dateFormatter.date(from: self)!
+        guard let date = dateFormatter.date(from: self) else { return Date()}
         return date
     }
     

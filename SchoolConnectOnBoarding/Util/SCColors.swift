@@ -16,7 +16,7 @@ struct SCColors {
     }
     
     static var scBlue: UIColor {
-        return UIColor(hex: "3498db") //used
+        return UIColor(hex: "3498db") //Used for floating text fields
     }
     
     static var scGray: UIColor {
