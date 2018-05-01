@@ -26,6 +26,8 @@ class SCFloatingTextView: UIView, Shadowable {
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     required init(type: WBTextValidationType) {
         
         self.validationType = type

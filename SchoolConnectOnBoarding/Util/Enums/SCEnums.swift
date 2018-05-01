@@ -39,6 +39,8 @@ enum WBDateFormat: String {
     case serverDateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 }
 
+///TextField and TextView validation types.
+///Could be expanded to have other inputs like dates.
 enum WBTextValidationType {
     case name
     case email

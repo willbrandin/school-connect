@@ -238,13 +238,13 @@ extension ContactViewController: ContactFormDelegate {
             
             guard let name = contactScreenView.nameTextField.text, let email = contactScreenView.emailTextField.text, let phoneNumber = contactScreenView.emailTextField.text, let message = contactScreenView.messageTextView.textView.text else {
                 
-                
                 return
             }
             
             let contactForm = ContactForm(name: name, email: email, phoneNumber: phoneNumber, message: message)
             contactForm.postContactForm()
             view.backgroundColor = SCColors.scGreen
+            
         } else {
             view.backgroundColor = SCColors.scRed
         }

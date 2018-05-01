@@ -10,6 +10,12 @@ import UIKit
 
 protocol Validatable {
     associatedtype T
+    
+    var validationType: WBTextValidationType { get set }
+    /**
+     Boolean describing if the textfield/view is valid. Dependant on ValidationType.
+     */
+    var isValid: Bool { get }
     func validate(_ functions: [T]) -> Bool
 }
 
@@ -23,7 +29,7 @@ extension Validatable where Self: SCFloatingTextField {
     func validate(_ functions: [(String) -> Bool]) -> Bool {
         return functions.map { f in f(self.text ?? "") }.reduce(true) { $0 && $1 }
     }
-    
+
     var isValid: Bool {
         switch self.validationType {
         case .email: return self.validate([String.isEmailValid])
@@ -48,7 +54,7 @@ extension Validatable where Self: SCTextView {
     var isValid: Bool {
        
         switch self.validationType {
-        case .message: return self.validate([String.isMessageValid]) //TODO: - come up with some sort of eval method.
+        case .message: return self.validate([String.isMessageValid])
         default:
             break
         }
