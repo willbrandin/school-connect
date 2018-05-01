@@ -28,7 +28,7 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     //MARK: - Methods
     
     func formatTextField(){
-        
+        self.placeholder = self.validationType.rawValue
         self.borderStyle = .none
         self.backgroundColor = UIColor.white
         self.autocorrectionType = .no
@@ -51,4 +51,23 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     }
     
 }
+
+/**
+ 1. Init
+    - provide a title to match with Validation Type.
+    - have the title formatted.
+ 2. Easy implementation in TextField and TextView?
+    - Thinking a protocol. TextInputTitleable
+ */
+
+
+
+
+
+
+
+
+
+
+
 

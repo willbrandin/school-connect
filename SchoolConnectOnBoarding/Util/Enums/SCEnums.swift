@@ -41,11 +41,12 @@ enum WBDateFormat: String {
 
 ///TextField and TextView validation types.
 ///Could be expanded to have other inputs like dates.
-enum WBTextValidationType {
-    case name
-    case email
-    case phoneNumber
-    case message
+///Raw value is used for the title of the text field/text view Title
+enum WBTextValidationType: String {
+    case name = "Name"
+    case email = "Email"
+    case phoneNumber = "Phone Number"
+    case message = "Message"
 }
 
 

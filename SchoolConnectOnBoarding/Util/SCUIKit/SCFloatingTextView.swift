@@ -67,10 +67,10 @@ class SCTextView: UITextView, Validatable, CornerRoundable {
         super.init(frame: .zero, textContainer: nil)
         formatTextField()
     }
-    //MARK: - Methods
     
+    //MARK: - Methods
     func formatTextField(){
-        
+        self.text = self.validationType.rawValue
         self.backgroundColor = UIColor.white
         self.autocorrectionType = .no
         self.keyboardType = .default
