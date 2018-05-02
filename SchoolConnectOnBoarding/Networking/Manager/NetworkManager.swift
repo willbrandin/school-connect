@@ -40,6 +40,17 @@ struct NetworkManager {
         }
     }
     
+    /**
+     Submits a GET request for the specified endpoint provided.
+     Request should send back a JSON object which can be decoded to the decodingType provided.
+     - important:
+     DecodingType must conform to Decodable
+     
+     - parameters:
+        - apiEndpoint: Endpoint of the request.
+        - decodingType: The type to decode. ie. School or SCHomeLink
+        - completion: The Result enum allows for a switch statement to be used when the method is called.
+     */
     func get<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping(Result<Decodable?, APIError>) ->()){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
@@ -71,7 +82,17 @@ struct NetworkManager {
             
         }
     }
-    
+    /**
+     Submits a GET request for the specified endpoint provided.
+     Request should send back a list of JSON objects which can be decoded to the decodingType provided.
+     - important:
+     DecodingType must be [Decodable]
+     
+     - parameters:
+        - apiEndpoint: Endpoint of the request.
+        - decodingType: The type to decode. ie. School or SCHomeLink
+        - completion: The Result enum allows for a switch statement to be used when the method is called.
+    */
     func getList<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping(Result<[Decodable]?, APIError>) ->()){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in

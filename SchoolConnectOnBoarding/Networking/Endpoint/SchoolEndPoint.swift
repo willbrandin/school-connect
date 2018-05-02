@@ -93,8 +93,8 @@ extension SchoolConnectAPI: EndPointType {
         switch self {
         case .schoolSearch(let search):
             return .requestParameters(bodyParameters: nil, urlParameters: ["name": search])
-        case .sendMessage:
-            return .requestParameters(bodyParameters: nil, urlParameters: nil)
+        case .sendMessage(let data):
+            return .requestParameters(bodyParameters: ["message" : data], urlParameters: nil)
         default:
             return .request
         }

@@ -58,6 +58,8 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     - have the title formatted.
  2. Easy implementation in TextField and TextView?
     - Thinking a protocol. TextInputTitleable
+ 3. 2 Different Subclasses.
+    - TextView is already in a UIView container.
  */
 
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-public typealias Parameters = [String:Any]
+public typealias Parameters = [String : Any]
 
 
 public protocol ParameterEncoder {
