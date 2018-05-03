@@ -48,7 +48,7 @@ class ContactViewController: SNBaseViewController {
                 textField.delegate = self
             }
         }
-        contactScreenView.messageTextTitleView.textView.textView.delegate = self
+        contactScreenView.messageTextTitleView.textView.delegate = self
         
     }
     
@@ -91,7 +91,7 @@ extension ContactViewController: UITextFieldDelegate {
             contactScreenView.phoneTextTitleView.textField.becomeFirstResponder()
         } else if textField == contactScreenView.phoneTextTitleView.textField {
             contactScreenView.phoneTextTitleView.textField.resignFirstResponder()
-            contactScreenView.messageTextTitleView.textView.textView.becomeFirstResponder()
+            contactScreenView.messageTextTitleView.textView.becomeFirstResponder()
             return false
         } else {
             textField.resignFirstResponder()
@@ -112,7 +112,7 @@ extension ContactViewController: UITextFieldDelegate {
 extension ContactViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView == contactScreenView.messageTextTitleView.textView.textView {
+        if textView == contactScreenView.messageTextTitleView.textView {
             contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: true)
         }
 //        if textView == contactScreenView.messageTextView.textView {
@@ -130,7 +130,7 @@ extension ContactViewController: UITextViewDelegate {
 
     func textViewDidEndEditing(_ textView: UITextView) {
         
-        if textView == contactScreenView.messageTextTitleView.textView.textView {
+        if textView == contactScreenView.messageTextTitleView.textView {
             contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: false)
         }
 //        let titleLbl = contactScreenView.messageTextTitle
@@ -167,7 +167,7 @@ extension ContactViewController: ContactFormDelegate {
             guard let name = contactScreenView.nameTextTitleView.textField.text,
                 let email = contactScreenView.emailTextTitleView.textField.text,
                 let phoneNumber = contactScreenView.phoneTextTitleView.textField.text,
-                let message = contactScreenView.messageTextTitleView.textView.textView.text else {
+                let message = contactScreenView.messageTextTitleView.textView.text else {
                 
                 return
             }
@@ -196,7 +196,7 @@ extension ContactViewController: ContactFormDelegate {
             return false
         }
         
-        if !contactScreenView.messageTextTitleView.textView.textView.isValid {
+        if !contactScreenView.messageTextTitleView.textView.isValid {
             return false
         }
         

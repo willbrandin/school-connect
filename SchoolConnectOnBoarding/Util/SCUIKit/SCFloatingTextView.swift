@@ -1,5 +1,5 @@
 //
-//  SCFloatingTextView.swift
+//  SCTextView.swift
 //  SchoolConnectOnBoarding
 //
 //  Created by William Brandin on 4/12/18.
@@ -9,48 +9,7 @@
 import UIKit
 
 
-
-class SCFloatingTextView: UIView, Shadowable {
-    
-    //MARK: - Properties
-    private var validationType: WBTextValidationType
-    
-    //MARK: - UIElements
-    lazy var textView: SCTextView! = {
-        let textView = SCTextView(type: self.validationType)
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        return textView
-    }()
-    
-    //MARK: - Init
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    required init(type: WBTextValidationType) {
-        
-        self.validationType = type
-        super.init(frame: .zero)
-        setupTextView()
-        makeShadow()
-    }
-    
-    //MARK: - Methods
-    func setupTextView(){
-        addSubview(textView)
-        textView.topAnchor.constraint(equalTo: self.topAnchor, constant: 3.0).isActive = true
-        textView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        textView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        textView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-    }
-    
-    
-    
-}
-
-
-class SCTextView: UITextView, Validatable, CornerRoundable {
+class SCTextView: UITextView, Validatable, CornerRoundable, Shadowable {
     
     
     //MARK: - Properties
@@ -66,6 +25,7 @@ class SCTextView: UITextView, Validatable, CornerRoundable {
         self.validationType = type
         super.init(frame: .zero, textContainer: nil)
         formatTextField()
+        makeShadow()
     }
     
     //MARK: - Methods

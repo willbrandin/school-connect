@@ -89,23 +89,23 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
      */
     func updateTitleForEditingText(isEditing: Bool){
         if isEditing {
-            let inputView = textView.textView
+            let inputView = textView
             let titleLbl = textInputTitle
             
-            if inputView?.text == textView.textView.validationType.rawValue {
+            if inputView?.text == inputView?.validationType.rawValue {
                 inputView?.text = ""
                 inputView?.textColor = .black
                 titleLbl?.fadeTransition(0.4)
                 titleLbl?.textColor = SCColors.scBlue
-                titleLbl?.text = textView.textView.validationType.rawValue
+                titleLbl?.text = inputView?.validationType.rawValue
             }
             
         } else {
-            let inputView = textView.textView
+            let inputView = textView
             let titleLbl = textInputTitle
             if inputView?.text == "" {
     
-                inputView?.text = textView.textView.validationType.rawValue
+                inputView?.text = inputView?.validationType.rawValue
                 inputView?.textColor = SCColors.textFieldPlaceholder
                 titleLbl?.fadeTransition(0.4)
                 //titleLbl?.textColor = UIColor.lightGray
@@ -128,7 +128,7 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
      */
     private func updateTitleColorsForValidation(){
         //Contains
-        if textView.textView.isValid {
+        if textView.isValid {
             textInputTitle.textColor = SCColors.scGreen
         } else {
             textInputTitle.textColor = SCColors.scRed

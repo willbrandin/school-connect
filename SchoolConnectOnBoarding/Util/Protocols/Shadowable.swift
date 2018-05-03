@@ -13,7 +13,8 @@ protocol Shadowable {
     func makeShadow()
 }
 
-extension Shadowable where Self: SCFloatingTextView {
+
+extension Shadowable where Self: SCTextView {
     
     func makeShadow(){
         self.layer.masksToBounds = false
