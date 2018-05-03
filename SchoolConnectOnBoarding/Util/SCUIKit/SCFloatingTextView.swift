@@ -40,7 +40,7 @@ class SCFloatingTextView: UITextView, Validatable, CornerRoundable, Shadowable {
     private func formatTextField(){
         self.text = self.validationType.rawValue
         self.backgroundColor = UIColor.white
-        self.autocorrectionType = .no
+        self.autocorrectionType = .yes
         self.keyboardType = .default
         self.font = SCFont.textFieldPlaceholder
         self.textColor = SCColors.textFieldPlaceholder

@@ -8,6 +8,11 @@
 
 import UIKit
 
+/**
+ A UIView with a title and TextView embedded in a stack view.
+ During init, a validation type is provided.
+ TextView placeholder text is provided by the validation RawValue.
+ */
 class WBFloatingTitledTextView: UIView, TextInputTitleable {
     
     

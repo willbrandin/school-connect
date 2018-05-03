@@ -7,7 +7,11 @@
 //
 
 import UIKit
-
+/**
+ Allows classes with a textField/TextView to have an animatable and colorable title.
+ Protocol methods can be called from a ViewController and change the attributes of the title.
+ ie. An invalid entry on an email text field will change the title to red.
+ */
 protocol TextInputTitleable {
     var textInputTitle: UILabel! { get set }
 }

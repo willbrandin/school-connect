@@ -29,7 +29,7 @@ class ContactView: UIView {
     //Name Field
     lazy var nameTextTitleView: WBFloatingTitledTextField! = {
         let field = WBFloatingTitledTextField(type: .name)
-
+        field.textField.returnKeyType = .next
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -38,6 +38,8 @@ class ContactView: UIView {
     lazy var emailTextTitleView: WBFloatingTitledTextField! = {
         let field = WBFloatingTitledTextField(type: .email)
         field.textField.keyboardType = .emailAddress
+        field.textField.returnKeyType = .next
+
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -47,6 +49,8 @@ class ContactView: UIView {
     lazy var phoneTextTitleView: WBFloatingTitledTextField! = {
         let field = WBFloatingTitledTextField(type: .phoneNumber)
         field.textField.keyboardType = .numberPad
+        field.textField.returnKeyType = .next
+
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -56,6 +60,7 @@ class ContactView: UIView {
     //Phone number
     lazy var messageTextTitleView: WBFloatingTitledTextView! = {
         let textView = WBFloatingTitledTextView(type: .message)
+        textView.textView.returnKeyType = .done
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()

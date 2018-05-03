@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable {
     
     //MARK: - Properties
@@ -47,7 +45,6 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         self.backgroundColor = UIColor.white
         self.autocorrectionType = .no
         self.keyboardType = .default
-        self.returnKeyType = .next
         self.contentVerticalAlignment = .center
         self.font = SCFont.textFieldPlaceholder
         self.textColor = UIColor.black

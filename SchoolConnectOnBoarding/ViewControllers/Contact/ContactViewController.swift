@@ -60,24 +60,15 @@ extension ContactViewController: UITextFieldDelegate {
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == contactScreenView.emailTextTitleView.textField {
-            contactScreenView.emailTextTitleView.updateTitleForEditingText()
-        } else if textField == contactScreenView.nameTextTitleView.textField {
-            contactScreenView.nameTextTitleView.updateTitleForEditingText()
-        } else if textField == contactScreenView.phoneTextTitleView.textField {
-            contactScreenView.phoneTextTitleView.updateTitleForEditingText()
+        for input in contactScreenView.inputs {
+            input?.updateTitleForEditingText()
         }
-        
         
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField == contactScreenView.emailTextTitleView.textField {
-            contactScreenView.emailTextTitleView.updateTitleForEditingText()
-        } else if textField == contactScreenView.nameTextTitleView.textField {
-            contactScreenView.nameTextTitleView.updateTitleForEditingText()
-        } else if textField == contactScreenView.phoneTextTitleView.textField {
-            contactScreenView.phoneTextTitleView.updateTitleForEditingText()
+        for input in contactScreenView.inputs {
+            input?.updateTitleForEditingText()
         }
     }
 
@@ -115,16 +106,7 @@ extension ContactViewController: UITextViewDelegate {
         if textView == contactScreenView.messageTextTitleView.textView {
             contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: true)
         }
-//        if textView == contactScreenView.messageTextView.textView {
-//            let titleLbl = contactScreenView.messageTextTitle
-//            if textView.text == "Message" {
-//                textView.text = ""
-//                textView.textColor = .black
-//                titleLbl?.fadeTransition(0.4)
-//                titleLbl?.textColor = SCColors.scBlue
-//                titleLbl?.text = "Message"
-//            }
-//        }
+
         
     }
 
@@ -133,16 +115,7 @@ extension ContactViewController: UITextViewDelegate {
         if textView == contactScreenView.messageTextTitleView.textView {
             contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: false)
         }
-//        let titleLbl = contactScreenView.messageTextTitle
-//        if textView.text == "" {
-//
-//            textView.text = "Message"
-//            textView.textColor = UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
-//            titleLbl?.fadeTransition(0.4)
-//            //titleLbl?.textColor = UIColor.lightGray
-//            titleLbl?.text = ""
-//        }
-//        titleLbl?.textColor = UIColor.lightGray
+
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
