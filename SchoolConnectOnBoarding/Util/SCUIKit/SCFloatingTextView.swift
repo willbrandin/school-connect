@@ -13,7 +13,7 @@ import UIKit
 class SCFloatingTextView: UIView, Shadowable {
     
     //MARK: - Properties
-    var validationType: WBTextValidationType
+    private var validationType: WBTextValidationType
     
     //MARK: - UIElements
     lazy var textView: SCTextView! = {
@@ -75,7 +75,7 @@ class SCTextView: UITextView, Validatable, CornerRoundable {
         self.autocorrectionType = .no
         self.keyboardType = .default
         self.font = SCFont.textFieldPlaceholder
-        self.textColor = UIColor.black
+        self.textColor = SCColors.textFieldPlaceholder
         self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         roundCorners()
     }

@@ -35,4 +35,5 @@ struct SCColors {
         
         return UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
     }
+    
 }

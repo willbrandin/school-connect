@@ -20,6 +20,9 @@
 		0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68C20587525009327F3 /* CalendarEvent.swift */; };
 		0312E68F20587959009327F3 /* SideButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68E20587959009327F3 /* SideButton.swift */; };
 		0312E69220587A86009327F3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E69120587A86009327F3 /* ContactViewController.swift */; };
+		03139DA9209B7B03009F5B77 /* WBFloatingTitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */; };
+		03139DAB209B8576009F5B77 /* TextInputTitleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DAA209B8576009F5B77 /* TextInputTitleable.swift */; };
+		03139DAD209B85C3009F5B77 /* WBFloatingTitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DAC209B85C3009F5B77 /* WBFloatingTitleTextView.swift */; };
 		032685BA205C94E700905EB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685B9205C94E700905EB3 /* HomeView.swift */; };
 		032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */; };
 		032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */; };
@@ -119,6 +122,9 @@
 		0312E68C20587525009327F3 /* CalendarEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEvent.swift; sourceTree = "<group>"; };
 		0312E68E20587959009327F3 /* SideButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideButton.swift; sourceTree = "<group>"; };
 		0312E69120587A86009327F3 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
+		03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBFloatingTitledTextField.swift; sourceTree = "<group>"; };
+		03139DAA209B8576009F5B77 /* TextInputTitleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputTitleable.swift; sourceTree = "<group>"; };
+		03139DAC209B85C3009F5B77 /* WBFloatingTitleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBFloatingTitleTextView.swift; sourceTree = "<group>"; };
 		032685B9205C94E700905EB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingCollectionViewCell.swift; sourceTree = "<group>"; };
 		032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingView.swift; sourceTree = "<group>"; };
@@ -561,11 +567,13 @@
 			isa = PBXGroup;
 			children = (
 				03930CEB2054B23700128D72 /* SCCircleImage.swift */,
-				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
-				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
 				03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */,
 				03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */,
 				03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */,
+				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
+				03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */,
+				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
+				03139DAC209B85C3009F5B77 /* WBFloatingTitleTextView.swift */,
 			);
 			path = SCUIKit;
 			sourceTree = "<group>";
@@ -602,6 +610,7 @@
 				03C4A49A207FFE0500A0A2FF /* CornerRoundable.swift */,
 				03C4A49C2080008600A0A2FF /* SchoolColorable.swift */,
 				03D4BB3C2086400F00213A24 /* Validatable.swift */,
+				03139DAA209B8576009F5B77 /* TextInputTitleable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -910,12 +919,15 @@
 				03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */,
 				0349BF6520595E350031CDE9 /* NewsView.swift in Sources */,
 				03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */,
+				03139DA9209B7B03009F5B77 /* WBFloatingTitledTextField.swift in Sources */,
+				03139DAB209B8576009F5B77 /* TextInputTitleable.swift in Sources */,
 				03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */,
 				03930CEA2054B1C700128D72 /* ViewExtensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
 				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */,
 				03C4A48D207FF78E00A0A2FF /* SCImages.swift in Sources */,
+				03139DAD209B85C3009F5B77 /* WBFloatingTitleTextView.swift in Sources */,
 				03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,

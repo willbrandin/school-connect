@@ -12,7 +12,7 @@ class ContactView: UIView {
 
     //MARK: - Properties
     weak var formDelegate: ContactFormDelegate?
-    var inputs = [SCFloatingTextField?]()
+    var inputs = [WBFloatingTitledTextField?]()
     
     //MARK: - UI Elements
     
@@ -27,127 +27,41 @@ class ContactView: UIView {
     }()
     
     //Name Field
-    lazy var nameFieldTitle: UILabel! = {
-        let label = UILabel()
-        label.font = SCFont.textFieldTitle
-        label.text = ""
-        label.textColor = UIColor.lightGray
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var nameTextTitleView: WBFloatingTitledTextField! = {
+        let field = WBFloatingTitledTextField()
+        field.initSearchBar(type: .name)
+
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
     }()
-    
-    lazy var nameTextField: SCFloatingTextField! = {
-        let textField = SCFloatingTextField(type: .name)
-        //textField.placeholder = "Name"
-    
-        textField.addSpacer()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    lazy var nameStackView: UIStackView! = {
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(nameFieldTitle)
-        stackView.addArrangedSubview(nameTextField)
-        stackView.axis = .vertical
-        stackView.spacing = 8.0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
     
     //Email Field
-    lazy var emailFieldTitle: UILabel! = {
-        let label = UILabel()
-        label.font = SCFont.textFieldTitle
-        label.text = ""
-        label.textColor = UIColor.lightGray
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var emailTextField: SCFloatingTextField! = {
-        let textField = SCFloatingTextField(type: .email)
-        //textField.placeholder = "E Mail"
-        textField.keyboardType = .emailAddress
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        
-        textField.addSpacer()
-        
-        return textField
-    }()
-    
-    lazy var emailStackView: UIStackView! = {
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(emailFieldTitle)
-        stackView.addArrangedSubview(emailTextField)
-        stackView.axis = .vertical
-        stackView.spacing = 8.0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
+    lazy var emailTextTitleView: WBFloatingTitledTextField! = {
+        let field = WBFloatingTitledTextField()
+        field.initSearchBar(type: .email)
+        field.textField.keyboardType = .emailAddress
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
     }()
     
     
     //Phone number
-    lazy var phoneNumberFieldTitle: UILabel! = {
-        let label = UILabel()
-        label.font = SCFont.textFieldTitle
-        label.text = ""
-        label.textColor = UIColor.lightGray
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var phoneTextTitleView: WBFloatingTitledTextField! = {
+        let field = WBFloatingTitledTextField()
+        field.initSearchBar(type: .phoneNumber)
+        field.textField.keyboardType = .numberPad
+        field.translatesAutoresizingMaskIntoConstraints = false
+        return field
     }()
     
-    lazy var phoneNumberTextField: SCFloatingTextField! = {
-        let textField = SCFloatingTextField(type: .phoneNumber)
-        //textField.placeholder = "Phone Number"
-        textField.keyboardType = .numberPad
-        textField.addSpacer()
-        
-        return textField
-    }()
-    
-    lazy var phoneStackView: UIStackView! = {
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(phoneNumberFieldTitle)
-        stackView.addArrangedSubview(phoneNumberTextField)
-        stackView.axis = .vertical
-        stackView.spacing = 8.0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
     
     
     //Phone number
-    lazy var messageTextTitle: UILabel! = {
-        let label = UILabel()
-        label.font = SCFont.textFieldTitle
-        //label.text = "Message"
-        label.textColor = UIColor.lightGray
-        label.numberOfLines = 1
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    lazy var messageTextView: SCFloatingTextView! = {
-        let textView = SCFloatingTextView(type: .message)
-        //textView.textView.text = "Message"
-        textView.textView.textColor = .lightGray
+    lazy var messageTextTitleView: WBFloatingTitledTextView! = {
+        let textView = WBFloatingTitledTextView()
+        textView.initSearchBar(type: .message)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
-    }()
-    
-    lazy var messageStackView: UIStackView! = {
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(messageTextTitle)
-        stackView.addArrangedSubview(messageTextView)
-        stackView.axis = .vertical
-        stackView.spacing = 8.0
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
     }()
     
     
@@ -176,13 +90,13 @@ class ContactView: UIView {
     lazy var mainStackView: UIStackView! = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(contactTitleLabel)
-        stackView.addArrangedSubview(nameStackView)
-        stackView.addArrangedSubview(emailStackView)
-        stackView.addArrangedSubview(phoneStackView)
-        stackView.addArrangedSubview(messageStackView)
+        stackView.addArrangedSubview(nameTextTitleView)
+        stackView.addArrangedSubview(emailTextTitleView)
+        stackView.addArrangedSubview(phoneTextTitleView)
+        stackView.addArrangedSubview(messageTextTitleView)
         stackView.addArrangedSubview(buttonContainerStackView)
         stackView.axis = .vertical
-        stackView.spacing = 30.0
+        stackView.spacing = 20.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -234,27 +148,26 @@ class ContactView: UIView {
     }
     
     func setupInputConstraints() {
-        let inputArray = [nameTextField, emailTextField, phoneNumberTextField]
+        let inputArray = [nameTextTitleView, emailTextTitleView, phoneTextTitleView]
         inputs = inputArray
         for input in inputArray {
             
             input?.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
             input?.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-            input?.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
+            input?.heightAnchor.constraint(equalToConstant: 88.0).isActive = true
         }
-        
-        messageTextView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
-        messageTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        messageTextView.heightAnchor.constraint(equalToConstant: 250.0).isActive = true
-        setupInputTitleConstraints()
+        //emailTextTitleView.heightAnchor.constraint(equalToConstant: 88.0).isActive = true
+        messageTextTitleView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
+        messageTextTitleView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        messageTextTitleView.heightAnchor.constraint(equalToConstant: 258.0).isActive = true
     }
     
-    func setupInputTitleConstraints(){
-        let titles = [nameFieldTitle, emailFieldTitle, phoneNumberFieldTitle, messageTextTitle]
-        for title in titles {
-            title?.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-        }
-    }
+//    func setupInputTitleConstraints(){
+//        let titles = [nameFieldTitle, phoneNumberFieldTitle, messageTextTitle]
+//        for title in titles {
+//            title?.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+//        }
+//    }
     
     
     @objc func handleSubmitButtonTap(){

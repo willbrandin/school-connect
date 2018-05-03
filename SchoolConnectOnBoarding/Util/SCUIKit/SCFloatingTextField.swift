@@ -9,6 +9,7 @@
 import UIKit
 
 
+
 class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable {
     
     //MARK: - Properties
@@ -41,10 +42,10 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         
         roundCorners()
         makeShadow()
-        
+        addSpacer()
     }
     
-    func addSpacer(){
+    private func addSpacer(){
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
         self.leftViewMode = .always
         self.leftView = spacerView
@@ -52,15 +53,6 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     
 }
 
-/**
- 1. Init
-    - provide a title to match with Validation Type.
-    - have the title formatted.
- 2. Easy implementation in TextField and TextView?
-    - Thinking a protocol. TextInputTitleable
- 3. 2 Different Subclasses.
-    - TextView is already in a UIView container.
- */
 
 
 

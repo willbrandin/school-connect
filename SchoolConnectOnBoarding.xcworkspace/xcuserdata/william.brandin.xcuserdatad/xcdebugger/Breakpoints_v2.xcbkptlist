@@ -26,12 +26,12 @@
                   moduleName = "SchoolConnectOnBoarding"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/william.brandin/Library/Mobile%20Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-                  timestampString = "546984801.075554"
+                  timestampString = "547064901.274627"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "141"
                   endingLineNumber = "141"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "57">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -41,12 +41,12 @@
                   moduleName = "SchoolConnectOnBoarding"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/william.brandin/Library/Mobile%20Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-                  timestampString = "546984801.07806"
+                  timestampString = "547064901.277635"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "142"
                   endingLineNumber = "142"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "50">
                </Location>
             </Locations>
          </BreakpointContent>

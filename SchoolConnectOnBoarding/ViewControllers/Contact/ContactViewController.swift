@@ -44,11 +44,11 @@ class ContactViewController: SNBaseViewController {
     
     func setDelegates(){
         for input in contactScreenView.inputs {
-            if let textField = input {
+            if let textField = input?.textField {
                 textField.delegate = self
             }
         }
-        contactScreenView.messageTextView.textView.delegate = self
+        contactScreenView.messageTextTitleView.textView.textView.delegate = self
         
     }
     
@@ -60,116 +60,38 @@ extension ContactViewController: UITextFieldDelegate {
     
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == contactScreenView.nameTextField {
-            let titleLbl = contactScreenView.nameFieldTitle
-            if let fieldText = textField.text {
-                if fieldText.count == 0 {
-                    titleLbl?.fadeTransition(0.4)
-
-                    titleLbl?.text = "Name"
-                    titleLbl?.textColor = SCColors.scBlue
-                    contactScreenView.nameTextField.placeholder = ""
-                }
-            }
-        } else if textField == contactScreenView.emailTextField {
-            let titleLbl = contactScreenView.emailFieldTitle
-            if let fieldText = textField.text {
-                if fieldText.count == 0 {
-                    titleLbl?.fadeTransition(0.4)
-
-                    titleLbl?.text = "E-Mail"
-                    titleLbl?.textColor = SCColors.scBlue
-                    contactScreenView.emailTextField.placeholder = ""
-                }
-            }
-        } else if textField == contactScreenView.phoneNumberTextField {
-            let titleLbl = contactScreenView.phoneNumberFieldTitle
-            if let fieldText = textField.text {
-                if fieldText.count == 0 {
-                    titleLbl?.fadeTransition(0.4)
-                    titleLbl?.text = "Phone Number"
-                    titleLbl?.textColor = SCColors.scBlue
-                    contactScreenView.phoneNumberTextField.placeholder = ""
-                }
-            }
+        if textField == contactScreenView.emailTextTitleView.textField {
+            contactScreenView.emailTextTitleView.updateTitleForEditingText()
+        } else if textField == contactScreenView.nameTextTitleView.textField {
+            contactScreenView.nameTextTitleView.updateTitleForEditingText()
+        } else if textField == contactScreenView.phoneTextTitleView.textField {
+            contactScreenView.phoneTextTitleView.updateTitleForEditingText()
         }
+        
+        
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if textField == contactScreenView.nameTextField {
-            let titleLbl = contactScreenView.nameFieldTitle
-            if let fieldText = textField.text {
-                if fieldText.count == 0 {
-                    titleLbl?.fadeTransition(0.4)
-
-                    titleLbl?.text = ""
-                    contactScreenView.nameTextField.placeholder = "Name"
-                } else {
-                    titleLbl?.fadeTransition(0.4)
-
-                    titleLbl?.text = "Name"
-                    titleLbl?.textColor = UIColor.lightGray
-
-                    contactScreenView.nameTextField.placeholder = ""
-                }
-            }
-        } else if textField == contactScreenView.emailTextField {
-            let titleLbl = contactScreenView.emailFieldTitle
-            if let fieldText = textField.text {
-                if fieldText.count == 0 {
-                    titleLbl?.fadeTransition(0.4)
-
-                    titleLbl?.text = ""
-                    contactScreenView.emailTextField.placeholder = "E-Mail"
-                } else {
-                    titleLbl?.fadeTransition(0.4)
-
-                    titleLbl?.text = "E-Mail"
-                    //VALIDATE
-                    if contactScreenView.emailTextField.isValid {
-                        titleLbl?.textColor = SCColors.scGreen
-                    } else {
-                        titleLbl?.textColor = SCColors.scRed
-                    }
-                    contactScreenView.emailTextField.placeholder = ""
-                }
-            }
+        if textField == contactScreenView.emailTextTitleView.textField {
+            contactScreenView.emailTextTitleView.updateTitleForEditingText()
+        } else if textField == contactScreenView.nameTextTitleView.textField {
+            contactScreenView.nameTextTitleView.updateTitleForEditingText()
+        } else if textField == contactScreenView.phoneTextTitleView.textField {
+            contactScreenView.phoneTextTitleView.updateTitleForEditingText()
         }
-        if textField == contactScreenView.phoneNumberTextField {
-            let titleLbl = contactScreenView.phoneNumberFieldTitle
-            if let fieldText = textField.text {
-                if fieldText.count == 0 {
-                    titleLbl?.fadeTransition(0.4)
-                    titleLbl?.text = ""
-                    contactScreenView.phoneNumberTextField.placeholder = "Phone Number"
-                } else {
-                    titleLbl?.fadeTransition(0.4)
-                    titleLbl?.text = "Phone Number"
-                    //VALIDATE
-                    if contactScreenView.phoneNumberTextField.isValid {
-                        titleLbl?.textColor = SCColors.scGreen
-                    } else {
-                        titleLbl?.textColor = SCColors.scRed
-                    }
-                    contactScreenView.phoneNumberTextField.placeholder = ""
-                }
-            }
-        }
-        
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField == contactScreenView.nameTextField {
-            contactScreenView.nameTextField.resignFirstResponder()
-            contactScreenView.emailTextField.becomeFirstResponder()
-        } else if textField == contactScreenView.emailTextField {
-            contactScreenView.emailTextField.resignFirstResponder()
-            contactScreenView.phoneNumberTextField.becomeFirstResponder()
-        } else if textField == contactScreenView.phoneNumberTextField {
-            contactScreenView.phoneNumberTextField.resignFirstResponder()
-            contactScreenView.messageTextView.textView.becomeFirstResponder()
+        if textField == contactScreenView.nameTextTitleView.textField {
+            contactScreenView.nameTextTitleView.textField.resignFirstResponder()
+            contactScreenView.emailTextTitleView.textField.becomeFirstResponder()
+        } else if textField == contactScreenView.emailTextTitleView.textField {
+            contactScreenView.emailTextTitleView.textField.resignFirstResponder()
+            contactScreenView.phoneTextTitleView.textField.becomeFirstResponder()
+        } else if textField == contactScreenView.phoneTextTitleView.textField {
+            contactScreenView.phoneTextTitleView.textField.resignFirstResponder()
+            contactScreenView.messageTextTitleView.textView.textView.becomeFirstResponder()
             return false
         } else {
             textField.resignFirstResponder()
@@ -179,7 +101,7 @@ extension ContactViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if textField == contactScreenView.phoneNumberTextField {
+        if textField == contactScreenView.phoneTextTitleView.textField {
             return textField.canFormatAsPhoneNumber(range: range, inputString: string)
         }
         return true
@@ -190,31 +112,37 @@ extension ContactViewController: UITextFieldDelegate {
 extension ContactViewController: UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if textView == contactScreenView.messageTextView.textView {
-            let titleLbl = contactScreenView.messageTextTitle
-            if textView.text == "Message" {
-                textView.text = ""
-                textView.textColor = .black
-                titleLbl?.fadeTransition(0.4)
-                titleLbl?.textColor = SCColors.scBlue
-                titleLbl?.text = "Message"
-            }
+        if textView == contactScreenView.messageTextTitleView.textView.textView {
+            contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: true)
         }
+//        if textView == contactScreenView.messageTextView.textView {
+//            let titleLbl = contactScreenView.messageTextTitle
+//            if textView.text == "Message" {
+//                textView.text = ""
+//                textView.textColor = .black
+//                titleLbl?.fadeTransition(0.4)
+//                titleLbl?.textColor = SCColors.scBlue
+//                titleLbl?.text = "Message"
+//            }
+//        }
         
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        let titleLbl = contactScreenView.messageTextTitle
-        if textView.text == "" {
-
-            textView.text = "Message"
-            textView.textColor = UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
-            titleLbl?.fadeTransition(0.4)
-            //titleLbl?.textColor = UIColor.lightGray
-            titleLbl?.text = ""
+        
+        if textView == contactScreenView.messageTextTitleView.textView.textView {
+            contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: false)
         }
-        titleLbl?.textColor = UIColor.lightGray
+//        let titleLbl = contactScreenView.messageTextTitle
+//        if textView.text == "" {
+//
+//            textView.text = "Message"
+//            textView.textColor = UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
+//            titleLbl?.fadeTransition(0.4)
+//            //titleLbl?.textColor = UIColor.lightGray
+//            titleLbl?.text = ""
+//        }
+//        titleLbl?.textColor = UIColor.lightGray
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -236,7 +164,10 @@ extension ContactViewController: ContactFormDelegate {
         
         if formDataIsValid() {
             
-            guard let name = contactScreenView.nameTextField.text, let email = contactScreenView.emailTextField.text, let phoneNumber = contactScreenView.emailTextField.text, let message = contactScreenView.messageTextView.textView.text else {
+            guard let name = contactScreenView.nameTextTitleView.textField.text,
+                let email = contactScreenView.emailTextTitleView.textField.text,
+                let phoneNumber = contactScreenView.phoneTextTitleView.textField.text,
+                let message = contactScreenView.messageTextTitleView.textView.textView.text else {
                 
                 return
             }
@@ -253,19 +184,19 @@ extension ContactViewController: ContactFormDelegate {
     
     func formDataIsValid() -> Bool {
         
-        if !contactScreenView.nameTextField.isValid {
+        if !contactScreenView.nameTextTitleView.textField.isValid {
             return false
         }
         
-        if !contactScreenView.emailTextField.isValid {
+        if !contactScreenView.emailTextTitleView.textField.isValid {
             return false
         }
         
-        if !contactScreenView.phoneNumberTextField.isValid {
+        if !contactScreenView.nameTextTitleView.textField.isValid {
             return false
         }
         
-        if !contactScreenView.messageTextView.textView.isValid {
+        if !contactScreenView.messageTextTitleView.textView.textView.isValid {
             return false
         }
         
