@@ -119,7 +119,9 @@ extension ContactViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
+//        if textView.text.count >= 200 && range.location < 199 {
+//            return false
+//        }
         return true
     }
 

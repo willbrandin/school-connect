@@ -157,18 +157,12 @@ class ContactView: UIView {
             input?.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
             input?.heightAnchor.constraint(equalToConstant: 90.0).isActive = true
         }
-        //emailTextTitleView.heightAnchor.constraint(equalToConstant: 88.0).isActive = true
+        
         messageTextTitleView.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
         messageTextTitleView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         messageTextTitleView.heightAnchor.constraint(equalToConstant: 260.0).isActive = true
     }
-    
-//    func setupInputTitleConstraints(){
-//        let titles = [nameFieldTitle, phoneNumberFieldTitle, messageTextTitle]
-//        for title in titles {
-//            title?.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-//        }
-//    }
+ 
     
     
     @objc func handleSubmitButtonTap(){
