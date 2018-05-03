@@ -62,10 +62,10 @@ class SCValidationTests: XCTestCase {
         textField?.text = "1234567890"
         XCTAssert((textField?.isValid)!, "Text field should be valid")
     }
-    func testPhoneValidationFail(){
+    func testPhoneWithDashesValidationPass(){
         textField = SCFloatingTextField(type: .phoneNumber)
-        textField?.text = "123-456-7890"//should fail?
-        XCTAssertFalse((textField?.isValid)!, "Text field should not be valid")
+        textField?.text = "123-456-7890"
+        XCTAssert((textField?.isValid)!, "Text field should be valid")
     }
     
     func testPhoneValidationRegexPass(){
@@ -81,18 +81,18 @@ class SCValidationTests: XCTestCase {
     //MARK: - Message
     func testMessageValidationPass(){
         textView = SCFloatingTextView(type: .message)
-        textView?.textView.text = "Hello my name is a persons name"
-        XCTAssert((textView?.textView.isValid)!, "Text View should be valid")
+        textView?.text = "Hello my name is a persons name"
+        XCTAssert((textView?.isValid)!, "Text View should be valid")
     }
     func testMessageValidationFail(){
         textView = SCFloatingTextView(type: .message)
-        textView?.textView.text = ""
-        XCTAssertFalse((textView?.textView.isValid)!, "Text view should not be valid")
+        textView?.text = ""
+        XCTAssertFalse((textView?.isValid)!, "Text view should not be valid")
     }
     func testMessageNilValidationFail(){
         textView = SCFloatingTextView(type: .message)
-        textView?.textView.text = nil
-        XCTAssertFalse((textView?.textView.isValid)!, "Text view should not be valid")
+        textView?.text = nil
+        XCTAssertFalse((textView?.isValid)!, "Text view should not be valid")
     }
     
     func testMessageValidationRegexPass(){
