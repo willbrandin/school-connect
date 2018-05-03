@@ -9,7 +9,7 @@
 import UIKit
 
 
-class SCTextView: UITextView, Validatable, CornerRoundable, Shadowable {
+class SCFloatingTextView: UITextView, Validatable, CornerRoundable, Shadowable {
     
     
     //MARK: - Properties

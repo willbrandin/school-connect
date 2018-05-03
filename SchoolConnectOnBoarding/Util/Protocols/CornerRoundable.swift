@@ -14,7 +14,7 @@ protocol CornerRoundable {
     func roundCorners()
 }
 
-extension CornerRoundable where Self: SCTextView {
+extension CornerRoundable where Self: SCFloatingTextView {
     
     func roundCorners(){
         self.layer.borderWidth = self.frame.height/10

@@ -22,8 +22,8 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
         return label
     }()
     
-    lazy var textView: SCTextView! = {
-        let textField = SCTextView(type: validationType)
+    lazy var textView: SCFloatingTextView! = {
+        let textField = SCFloatingTextView(type: validationType)
         return textField
     }()
     
