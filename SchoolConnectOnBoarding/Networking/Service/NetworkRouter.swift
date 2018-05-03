@@ -8,7 +8,9 @@
 
 import Foundation
 
-
+/**
+ Completion handler for the network router.
+ */
 public typealias NetworkRouterCompletion = (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> ()
 
 protocol NetworkRouter: class {

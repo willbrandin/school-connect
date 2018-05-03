@@ -41,7 +41,7 @@ public enum SchoolConnectAPI {
     case homeLinks(id: String)
     case schoolDetails(id: String)
     case schoolSearch(search: String)
-    case sendMessage(data: String)
+    case sendMessage(data: [String : String])
 }
 
 extension SchoolConnectAPI: EndPointType {
@@ -76,7 +76,7 @@ extension SchoolConnectAPI: EndPointType {
         case .schoolSearch:
             return "/school/list/" // []
         case .sendMessage:
-            return ""
+            return "/message/"
         }
     }
     
@@ -94,13 +94,14 @@ extension SchoolConnectAPI: EndPointType {
         case .schoolSearch(let search):
             return .requestParameters(bodyParameters: nil, urlParameters: ["name": search])
         case .sendMessage(let data):
-            return .requestParameters(bodyParameters: ["message" : data], urlParameters: nil)
+            return .requestParameters(bodyParameters: data, urlParameters: nil)
         default:
             return .request
         }
     }
     
     var headers: HTTPHeaders? {
+        
         return nil
     }
     
