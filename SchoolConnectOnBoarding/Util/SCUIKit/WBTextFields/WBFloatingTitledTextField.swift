@@ -38,7 +38,7 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable {
         stackView.addArrangedSubview(textInputTitle)
         stackView.addArrangedSubview(textField)
         stackView.axis = .vertical
-        stackView.spacing = 8.0
+        stackView.spacing = 10.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
