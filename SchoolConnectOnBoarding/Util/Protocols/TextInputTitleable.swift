@@ -105,6 +105,7 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
                 inputView?.textColor = SCColors.textFieldPlaceholder
                 titleLbl?.fadeTransition(0.4)
                 //titleLbl?.textColor = UIColor.lightGray
+                updateTitleColorsForValidation()
                 titleLbl?.text = ""
             }
             titleLbl?.textColor = UIColor.lightGray

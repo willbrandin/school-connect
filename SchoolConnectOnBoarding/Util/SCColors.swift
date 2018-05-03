@@ -33,7 +33,7 @@ struct SCColors {
     
     static var textFieldPlaceholder: UIColor {
         
-        return UIColor(hex: "C7C7CD").withAlphaComponent(0.7)
+        return UIColor(hex: "C7C7CD").withAlphaComponent(0.8)
     }
     
 }

@@ -7,9 +7,14 @@
 //
 
 import UIKit
-
+/**
+ A UIView with a title and textField embedded in a stack view.
+ During init, a validation type is provided.
+ The textField placeholder text is provided by the validation RawValue.
+ */
 class WBFloatingTitledTextField: UIView, TextInputTitleable {
     
+    //MARK: - Properties
     private var validationType: WBTextValidationType!
     
     //MARK: - UI Elements
@@ -28,7 +33,7 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable {
         return textField
     }()
     
-    lazy var nameStackView: UIStackView! = {
+    lazy var inputStackView: UIStackView! = {
         let stackView = UIStackView()
         stackView.addArrangedSubview(textInputTitle)
         stackView.addArrangedSubview(textField)
@@ -39,33 +44,26 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable {
     }()
     
     //MARK: - Init
-    func initSearchBar(type: WBTextValidationType){
-        self.validationType = type
-        setupStackViewConstraints()
-        formatTextField()
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
+    required init(type: WBTextValidationType) {
+        
+        self.validationType = type
+        super.init(frame: .zero)
+        setupStackViewConstraints()
+    }
     
     //MARK: - Methods
     private func setupStackViewConstraints(){
-        addSubview(nameStackView)
-        nameStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        nameStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        nameStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        nameStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        addSubview(inputStackView)
+        inputStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        inputStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        inputStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        inputStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         textInputTitle.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-    }
-    
-    
-    private func formatTextField(){
-        textField.borderStyle = .none
-        textField.backgroundColor = UIColor.white
-        textField.autocorrectionType = .yes
-        textField.keyboardType = .default
-        textField.returnKeyType = .search
-        textField.contentVerticalAlignment = .center
-        textField.textColor = UIColor.black
     }
     
     
