@@ -46,7 +46,7 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     }
     
     private func addSpacer(){
-        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        let spacerView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         self.leftViewMode = .always
         self.leftView = spacerView
     }

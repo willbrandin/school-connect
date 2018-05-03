@@ -10,7 +10,6 @@ import UIKit
 
 protocol TextInputTitleable {
     var textInputTitle: UILabel! { get set }
-    //func updateTitleColorsForValidation()
 }
 
 
@@ -21,9 +20,9 @@ extension TextInputTitleable where Self: WBFloatingTitledTextField {
      
      Cases:
      * isEmpty
-     * Title should be "" and placeholder will the "Title".
+        * Title should be "" and placeholder will the "Title".
      * isEditing:
-     * Title is "Title" and placeholder is gone cause editing. Title is blue.
+        * Title is "Title" and placeholder is gone cause editing. Title is blue.
      */
     func updateTitleForEditingText(){
         if textField.isEditing {
@@ -58,13 +57,8 @@ extension TextInputTitleable where Self: WBFloatingTitledTextField {
     }
     
     /**
-     Called after textFieldDidEndEditing.
-     
-     Cases:
-     * isValid
-     * Title will be shade of green.
-     * isInValid
-     * Title will be red.
+     When the text view is finished editing, the title can change color to indicate valid/invalid state.
+
      */
     private func updateTitleColorsForValidation(){
         //Contains
@@ -78,14 +72,16 @@ extension TextInputTitleable where Self: WBFloatingTitledTextField {
 
 extension TextInputTitleable where Self: WBFloatingTitledTextView {
     /**
-     Configures the title appearence for the text field.
+     Configures the title appearence for the text view.
      *To be called on textDid(Begin/End)Editing methods*
-     
      Cases:
      * isEmpty
-     * Title should be "" and placeholder will the "Title".
+        * Title should be "" and placeholder will the "Title".
      * isEditing:
-     * Title is "Title" and placeholder is gone cause editing. Title is blue.
+        * Title is "Title" and placeholder is gone cause editing. Title is blue.
+     
+     - parameters:
+        - isEditing: Boolean determines whether the textView should update for begining to edit or editting has completed.
      */
     func updateTitleForEditingText(isEditing: Bool){
         if isEditing {
@@ -118,13 +114,8 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
     }
     
     /**
-     Called after textFieldDidEndEditing.
-     
-     Cases:
-     * isValid
-     * Title will be shade of green.
-     * isInValid
-     * Title will be red.
+     When the text view is finished editing, the title can change color to indicate valid/invalid state.
+
      */
     private func updateTitleColorsForValidation(){
         //Contains
