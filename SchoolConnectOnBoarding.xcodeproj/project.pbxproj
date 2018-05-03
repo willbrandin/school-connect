@@ -22,7 +22,7 @@
 		0312E69220587A86009327F3 /* ContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E69120587A86009327F3 /* ContactViewController.swift */; };
 		03139DA9209B7B03009F5B77 /* WBFloatingTitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */; };
 		03139DAB209B8576009F5B77 /* TextInputTitleable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DAA209B8576009F5B77 /* TextInputTitleable.swift */; };
-		03139DAD209B85C3009F5B77 /* WBFloatingTitleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DAC209B85C3009F5B77 /* WBFloatingTitleTextView.swift */; };
+		03139DAD209B85C3009F5B77 /* WBFloatingTitledTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */; };
 		032685BA205C94E700905EB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685B9205C94E700905EB3 /* HomeView.swift */; };
 		032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */; };
 		032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */; };
@@ -124,7 +124,7 @@
 		0312E69120587A86009327F3 /* ContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewController.swift; sourceTree = "<group>"; };
 		03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBFloatingTitledTextField.swift; sourceTree = "<group>"; };
 		03139DAA209B8576009F5B77 /* TextInputTitleable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputTitleable.swift; sourceTree = "<group>"; };
-		03139DAC209B85C3009F5B77 /* WBFloatingTitleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBFloatingTitleTextView.swift; sourceTree = "<group>"; };
+		03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBFloatingTitledTextView.swift; sourceTree = "<group>"; };
 		032685B9205C94E700905EB3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		032685BE205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingCollectionViewCell.swift; sourceTree = "<group>"; };
 		032685C0205DAE6A00905EB3 /* HomeGreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeGreetingView.swift; sourceTree = "<group>"; };
@@ -573,7 +573,7 @@
 				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
 				03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */,
 				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
-				03139DAC209B85C3009F5B77 /* WBFloatingTitleTextView.swift */,
+				03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */,
 			);
 			path = SCUIKit;
 			sourceTree = "<group>";
@@ -927,7 +927,7 @@
 				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */,
 				03C4A48D207FF78E00A0A2FF /* SCImages.swift in Sources */,
-				03139DAD209B85C3009F5B77 /* WBFloatingTitleTextView.swift in Sources */,
+				03139DAD209B85C3009F5B77 /* WBFloatingTitledTextView.swift in Sources */,
 				03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */,
 				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
 				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
