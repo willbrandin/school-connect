@@ -16,7 +16,7 @@ protocol TextInputTitleable {
 extension TextInputTitleable where Self: WBFloatingTitledTextField {
     /**
      Configures the title appearence for the text field.
-     *To be called on textDid(Begin/End)Editing methods*
+     *To be called on textDid(Begin/End)Editing methods.*
      
      Cases:
      * isEmpty
@@ -73,7 +73,7 @@ extension TextInputTitleable where Self: WBFloatingTitledTextField {
 extension TextInputTitleable where Self: WBFloatingTitledTextView {
     /**
      Configures the title appearence for the text view.
-     *To be called on textDid(Begin/End)Editing methods*
+     *To be called on textDid(Begin/End)Editing methods.*
      Cases:
      * isEmpty
         * Title should be "" and placeholder will the "Title".
