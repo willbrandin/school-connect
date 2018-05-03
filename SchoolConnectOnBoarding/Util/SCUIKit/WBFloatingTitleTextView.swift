@@ -39,7 +39,6 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
     
     //MARK: - Init
     func initSearchBar(type: WBTextValidationType){
-        self.backgroundColor = UIColor.white
         self.validationType = type
         setupStackViewConstraints()
     }
