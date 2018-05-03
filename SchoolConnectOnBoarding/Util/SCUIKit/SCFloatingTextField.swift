@@ -20,16 +20,28 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         fatalError("init(coder:) has not been implemented")
     }
     
-    required init(type: WBTextValidationType) {
+    required init(type: WBTextValidationType, withShadow: Bool = true) {
         
         self.validationType = type
         super.init(frame: .zero)
         formatTextField()
+        customizeUI(withShadow)
     }
     
-    
     //MARK: - Methods
+    
+    private func customizeUI(_ withShadow: Bool) {
+        roundCorners()
+        addSpacer()
+        
+        if withShadow {
+            makeShadow()
+            
+        }
+    }
+    
     private func formatTextField(){
+        
         self.placeholder = self.validationType.rawValue
         self.borderStyle = .none
         self.backgroundColor = UIColor.white
@@ -39,11 +51,7 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         self.contentVerticalAlignment = .center
         self.font = SCFont.textFieldPlaceholder
         self.textColor = UIColor.black
-        
-        
-        roundCorners()
-        makeShadow()
-        addSpacer()
+
     }
     
     private func addSpacer(){
