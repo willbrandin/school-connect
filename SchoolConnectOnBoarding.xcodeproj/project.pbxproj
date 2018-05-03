@@ -290,6 +290,17 @@
 			path = Contact;
 			sourceTree = "<group>";
 		};
+		03139DAE209BA901009F5B77 /* WBTextFields */ = {
+			isa = PBXGroup;
+			children = (
+				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
+				03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */,
+				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
+				03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */,
+			);
+			path = WBTextFields;
+			sourceTree = "<group>";
+		};
 		032685BB205DAD9100905EB3 /* Greeting Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,14 +577,11 @@
 		03C4A47C207FF4FF00A0A2FF /* SCUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				03139DAE209BA901009F5B77 /* WBTextFields */,
 				03930CEB2054B23700128D72 /* SCCircleImage.swift */,
 				03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */,
 				03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */,
 				03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */,
-				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
-				03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */,
-				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
-				03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */,
 			);
 			path = SCUIKit;
 			sourceTree = "<group>";
