@@ -108,7 +108,7 @@ extension String: Evaluatable {
     }
     
     static func isMessageValid(text: String?) -> Bool {
-        if text == nil || (text?.isEmpty)! {
+        if text == nil || (text?.isEmpty)! || text == WBTextValidationType.message.rawValue {
             return false
         }
         return true
