@@ -18,6 +18,8 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
     
     //MARK: - Properties
     private var validationType: WBTextValidationType!
+    var floatingTextView: SCTextView?
+    
     
     //MARK: - UI Elements
     lazy var textInputTitle: UILabel! = {
@@ -54,6 +56,7 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
         self.validationType = type
         super.init(frame: .zero)
         setupStackViewConstraints()
+        self.floatingTextView = textView.floatingTextView
     }
     
     //MARK: - Methods

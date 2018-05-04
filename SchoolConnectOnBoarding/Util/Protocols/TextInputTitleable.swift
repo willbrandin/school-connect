@@ -89,7 +89,7 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
      */
     func updateTitleForEditingText(isEditing: Bool){
         if isEditing {
-            let inputView = textView
+            let inputView = floatingTextView
             let titleLbl = textInputTitle
             
             if inputView?.text == inputView?.validationType.rawValue {
@@ -101,7 +101,7 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
             }
             
         } else {
-            let inputView = textView
+            let inputView = floatingTextView
             let titleLbl = textInputTitle
             if inputView?.text == "" {
     
@@ -124,7 +124,11 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
      */
     private func updateTitleColorsForValidation(){
         //Contains
-        if textView.isValid {
+        guard let isValid = floatingTextView?.isValid else {
+            textInputTitle.textColor = SCColors.scRed
+            return
+        }
+        if isValid {
             textInputTitle.textColor = SCColors.scGreen
         } else {
             textInputTitle.textColor = SCColors.scRed

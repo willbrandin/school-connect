@@ -60,7 +60,7 @@ class ContactView: UIView {
     //Phone number
     lazy var messageTextTitleView: WBFloatingTitledTextView! = {
         let textView = WBFloatingTitledTextView(type: .message)
-        textView.textView.returnKeyType = .done
+        //textView.textView.floatingTextView.returnKeyType = .done
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()

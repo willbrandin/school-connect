@@ -45,7 +45,7 @@ extension Validatable where Self: SCFloatingTextField {
 
 
 
-extension Validatable where Self: SCFloatingTextView {
+extension Validatable where Self: SCTextView {
     
     func validate(_ functions: [(String) -> Bool]) -> Bool {
         return functions.map { f in f(self.text ?? "") }.reduce(true) { $0 && $1 }
