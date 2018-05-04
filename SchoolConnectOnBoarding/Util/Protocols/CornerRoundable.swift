@@ -9,12 +9,15 @@
 import Foundation
 import UIKit
 
-
+/**
+ Simple protocol to provide default round corners.
+ Avoids repetitive code and allows conformants to call a single method.
+ */
 protocol CornerRoundable {
     func roundCorners()
 }
 
-extension CornerRoundable where Self: SCFloatingTextView {
+extension CornerRoundable where Self: WBFloatingTextView {
     
     func roundCorners(){
         self.layer.borderWidth = self.frame.height/10

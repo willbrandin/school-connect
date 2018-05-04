@@ -13,7 +13,7 @@ import XCTest
 class SCValidationTests: XCTestCase {
     
     var textField: SCFloatingTextField?
-    var textView: SCFloatingTextView?
+    var textView: WBFloatingTextView?
     
     override func setUp() {
         super.setUp()
@@ -80,17 +80,17 @@ class SCValidationTests: XCTestCase {
     
     //MARK: - Message
     func testMessageValidationPass(){
-        textView = SCFloatingTextView(type: .message)
+        textView = WBFloatingTextView(type: .message)
         textView?.text = "Hello my name is a persons name"
         XCTAssert((textView?.isValid)!, "Text View should be valid")
     }
     func testMessageValidationFail(){
-        textView = SCFloatingTextView(type: .message)
+        textView = WBFloatingTextView(type: .message)
         textView?.text = ""
         XCTAssertFalse((textView?.isValid)!, "Text view should not be valid")
     }
     func testMessageNilValidationFail(){
-        textView = SCFloatingTextView(type: .message)
+        textView = WBFloatingTextView(type: .message)
         textView?.text = nil
         XCTAssertFalse((textView?.isValid)!, "Text view should not be valid")
     }

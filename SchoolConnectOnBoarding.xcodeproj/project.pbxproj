@@ -70,7 +70,7 @@
 		03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF12055FA1300128D72 /* SearchTableViewCell.swift */; };
 		03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03930CF42055FF0100128D72 /* SchoolSearch.swift */; };
 		03C4A47B207FC87E00A0A2FF /* SCValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */; };
-		03C4A47E207FF55400A0A2FF /* SCFloatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */; };
+		03C4A47E207FF55400A0A2FF /* WBFloatingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47D207FF55400A0A2FF /* WBFloatingTextView.swift */; };
 		03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */; };
 		03C4A482207FF59F00A0A2FF /* SCRoundedSchoolButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */; };
 		03C4A484207FF5D500A0A2FF /* SCRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */; };
@@ -176,7 +176,7 @@
 		03930CF12055FA1300128D72 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		03930CF42055FF0100128D72 /* SchoolSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearch.swift; sourceTree = "<group>"; };
 		03C4A47A207FC87E00A0A2FF /* SCValidationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCValidationTests.swift; sourceTree = "<group>"; };
-		03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFloatingTextView.swift; sourceTree = "<group>"; };
+		03C4A47D207FF55400A0A2FF /* WBFloatingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBFloatingTextView.swift; sourceTree = "<group>"; };
 		03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCFloatingTextField.swift; sourceTree = "<group>"; };
 		03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCRoundedSchoolButton.swift; sourceTree = "<group>"; };
 		03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCRoundedButton.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 			children = (
 				03C4A47F207FF57900A0A2FF /* SCFloatingTextField.swift */,
 				03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */,
-				03C4A47D207FF55400A0A2FF /* SCFloatingTextView.swift */,
+				03C4A47D207FF55400A0A2FF /* WBFloatingTextView.swift */,
 				03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */,
 			);
 			path = WBTextFields;
@@ -871,7 +871,7 @@
 				0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */,
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
-				03C4A47E207FF55400A0A2FF /* SCFloatingTextView.swift in Sources */,
+				03C4A47E207FF55400A0A2FF /* WBFloatingTextView.swift in Sources */,
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
 				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,

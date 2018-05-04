@@ -18,7 +18,9 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
     
     //MARK: - Properties
     private var validationType: WBTextValidationType!
-    var floatingTextView: SCTextView?
+    ///For convenience. A reference to the text view inside of the WBFloatingTextView
+    ///Prevents *.textView.textView* over and over again
+    var floatingTextView: WBTextView?
     
     
     //MARK: - UI Elements
@@ -31,8 +33,8 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
         return label
     }()
     
-    lazy var textView: SCFloatingTextView! = {
-        let textField = SCFloatingTextView(type: validationType)
+    lazy var textView: WBFloatingTextView! = {
+        let textField = WBFloatingTextView(type: validationType)
         return textField
     }()
     
@@ -51,6 +53,10 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
         fatalError("init(coder:) has not been implemented")
     }
     
+    /**
+     - parameters:
+        - type: Validation type to init the WBFloatingTextView
+     */
     required init(type: WBTextValidationType) {
         
         self.validationType = type

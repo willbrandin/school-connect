@@ -14,7 +14,7 @@ protocol Shadowable {
 }
 
 
-extension Shadowable where Self: SCFloatingTextView {
+extension Shadowable where Self: WBFloatingTextView {
     
     func makeShadow(){
         self.layer.masksToBounds = false
