@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
+class CalendarTableViewCell: UITableViewCell, CellLoadableView {
 
     //MARK: - Properties
     //static var cellId = CellReuseIds.calendarCell.rawValue

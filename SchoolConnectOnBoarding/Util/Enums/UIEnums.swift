@@ -27,6 +27,7 @@ enum PageTitles: String {
     case bullyReporting = "Report Bullying"
     case teacherContact = "Reach a Teacher"
     case mapOfSchool = "School Map"
+    case contactSubtitle = "How may we help you?"
 }
 
 enum CellReuseIds: String {

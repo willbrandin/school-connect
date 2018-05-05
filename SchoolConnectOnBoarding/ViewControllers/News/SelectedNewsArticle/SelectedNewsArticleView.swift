@@ -42,6 +42,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
             button.setBackgroundImage(SCImages.dismissWhite, for: .normal)
         }
         button.contentMode = .scaleAspectFit
+        button.isUserInteractionEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()

@@ -15,15 +15,21 @@ protocol Injectable {
 }
 
 
-protocol ReusableView {}
+//protocol ReusableView {}
+//
+//extension ReusableView where Self: UIView {
+//    static var defaultReuseIdentifier: String {
+//        return String(describing: self)
+//    }
+//}
 
-extension ReusableView where Self: UIView {
-    static var defaultReuseIdentifier: String {
-        return String(describing: self)
-    }
-}
-
+/**
+ CellLoadableView is a protocol for Reusable components such as Table View Cells or Collection View Cells.
+ Overarching premise is that a default ReuseId is created with the class name.
+ ie. MyCollectionCell will use "MyCollectionCell" as a reuseId.
+ */
 protocol CellLoadableView: class {
+    ///Cell name will be the default id used.
     static var cellName: String { get }
 }
 

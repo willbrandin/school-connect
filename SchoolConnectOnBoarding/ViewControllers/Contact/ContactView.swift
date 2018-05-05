@@ -19,9 +19,9 @@ class ContactView: UIView {
     lazy var contactTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.heroTitle
-        label.text = "How may we help you?"
+        label.text = PageTitles.contactSubtitle.rawValue
         label.textColor = UIColor.black
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

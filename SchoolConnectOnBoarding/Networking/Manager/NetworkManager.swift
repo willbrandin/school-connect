@@ -12,7 +12,7 @@ struct NetworkManager {
     
     static let sharedInstance = NetworkManager()
     
-    static let environment: NetworkEnvironment = .development
+    static let environment: NetworkEnvironment = .staging
     private let router = Router<SchoolConnectAPI>()
     
     

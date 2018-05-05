@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeFeatureCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView {
+class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
     //MARK: - Properties
 //    static var reuseID = CellReuseIds.homeFeatureCollectionCell.rawValue

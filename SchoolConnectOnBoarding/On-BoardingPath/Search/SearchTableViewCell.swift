@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchTableViewCell: UITableViewCell, ReusableView, CellLoadableView {
+class SearchTableViewCell: UITableViewCell, CellLoadableView {
 
     
     //MARK: - Properties

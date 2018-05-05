@@ -140,11 +140,8 @@ class SelectedCalendarEventView: UIView {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.addArrangedSubview(infoStackView)
-        
         stackView.addArrangedSubview(dateAndTimeStackView)
-        
         stackView.addArrangedSubview(locationStackView)
-
 
         stackView.distribution = .fill
         stackView.alignment = .fill

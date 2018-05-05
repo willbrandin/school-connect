@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewsArticleCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView, Shadowable {
+class NewsArticleCollectionViewCell: UICollectionViewCell, CellLoadableView, Shadowable {
     
     //MARK: - Properties
     var cardView: NewsCardView!

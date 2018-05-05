@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeLinkCollectionViewCell: UICollectionViewCell, ReusableView, CellLoadableView {
+class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
     
     //MARK: - Properties

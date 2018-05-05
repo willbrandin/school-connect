@@ -9,78 +9,94 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-            timestampString = "546984800.854165"
+            filePath = "SchoolConnectOnBoarding/Database/Models/CalendarEvent.swift"
+            timestampString = "547224339.1851881"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "post(for:_:completion:)"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "fetchEvents(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolConnectOnBoarding/Database/Models/CalendarEvent.swift"
+            timestampString = "547224339.185617"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "fetchEvents(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
+            timestampString = "547225386.828113"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "getList(for:_:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
+            timestampString = "547225386.828343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "getList(for:_:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SchoolConnectOnBoarding.NetworkManager.post&lt;A where A: Swift.Encodable&gt;(for: SchoolConnectOnBoarding.SchoolConnectAPI, A.Type, completion: (SchoolConnectOnBoarding.Result&lt;Swift.Optional&lt;Swift.String&gt;, SchoolConnectOnBoarding.APIError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "SchoolConnectOnBoarding.NetworkManager.getList&lt;A where A: Swift.Decodable&gt;(for: SchoolConnectOnBoarding.SchoolConnectAPI, Swift.Array&lt;A&gt;.Type, completion: (SchoolConnectOnBoarding.Result&lt;Swift.Optional&lt;Swift.Array&lt;Swift.Decodable&gt;&gt;, SchoolConnectOnBoarding.APIError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "SchoolConnectOnBoarding"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/william.brandin/Library/Mobile%20Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-                  timestampString = "547073849.5804861"
+                  timestampString = "547224700.2306139"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "141"
-                  endingLineNumber = "141"
-                  offsetFromSymbolStart = "57">
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "53">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in SchoolConnectOnBoarding.NetworkManager.post&lt;A where A: Swift.Encodable&gt;(for: SchoolConnectOnBoarding.SchoolConnectAPI, A.Type, completion: (SchoolConnectOnBoarding.Result&lt;Swift.Optional&lt;Swift.String&gt;, SchoolConnectOnBoarding.APIError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in SchoolConnectOnBoarding.NetworkManager.getList&lt;A where A: Swift.Decodable&gt;(for: SchoolConnectOnBoarding.SchoolConnectAPI, Swift.Array&lt;A&gt;.Type, completion: (SchoolConnectOnBoarding.Result&lt;Swift.Optional&lt;Swift.Array&lt;Swift.Decodable&gt;&gt;, SchoolConnectOnBoarding.APIError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "SchoolConnectOnBoarding"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/william.brandin/Library/Mobile%20Documents/com~apple~CloudDocs/iOS/SchoolConnectOnBoarding/SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-                  timestampString = "547073849.5842021"
+                  timestampString = "547224700.233946"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "50">
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "70">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-            timestampString = "546984800.8549581"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "post(for:_:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SchoolConnectOnBoarding/Networking/Manager/NetworkManager.swift"
-            timestampString = "546984800.855561"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
-            landmarkName = "post(for:_:completion:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

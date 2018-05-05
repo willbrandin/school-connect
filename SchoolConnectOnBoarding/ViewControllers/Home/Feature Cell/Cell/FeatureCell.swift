@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeatureCell: SCHomeCollectionViewCell, ReusableView, CellLoadableView {
+class FeatureCell: SCHomeCollectionViewCell, CellLoadableView {
     
     
     //MARK: - Properties
