@@ -114,7 +114,6 @@ class ContactView: UIView {
     
     //MARK: - Init View
     
-    
     //MARK: - Methods
     
     func customizeUI(){

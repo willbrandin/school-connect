@@ -150,6 +150,14 @@ class SelectedCalendarEventView: UIView {
         return stackView
     }()
     
+    lazy var mainScrollView: UIScrollView! = {
+        let scrollView = UIScrollView()
+        scrollView.addSubview(bodyTextStackView)
+        scrollView.addSubview(saveToCalendarButton)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     lazy var saveToCalendarButton: SCRoundedSchoolButton! = {
         let button = SCRoundedSchoolButton()
         button.setTitle(CalendarEventTitles.saveToCalendar.rawValue, for: .normal)
@@ -161,6 +169,7 @@ class SelectedCalendarEventView: UIView {
     
     //MARK: - Init
     func customizeUI(_ calendarEvent: CalendarEvent?){
+        setupScrollViewConstraints()
         setupStackViewConstraints()
         setupButtonConstraints()
         if let event = calendarEvent {
@@ -174,19 +183,27 @@ class SelectedCalendarEventView: UIView {
     }
     
     //MARK: - Methods
+    func setupScrollViewConstraints(){
+        addSubview(mainScrollView)
+        mainScrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        mainScrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        mainScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        mainScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
     func setupStackViewConstraints(){
         addSubview(bodyTextStackView)
-        bodyTextStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10.0).isActive = true
-        
-        bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
-        bodyTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
+        bodyTextStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: 10.0).isActive = true
+        bodyTextStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -30.0).isActive = true
+        bodyTextStackView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 15.0).isActive = true
+        bodyTextStackView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -15.0).isActive = true
     }
     
     func setupButtonConstraints(){
         addSubview(saveToCalendarButton)
-        saveToCalendarButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0).isActive = true
-        saveToCalendarButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        saveToCalendarButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.6).isActive = true
+        saveToCalendarButton.topAnchor.constraint(equalTo: bodyTextStackView.bottomAnchor, constant: 40.0).isActive = true
+        saveToCalendarButton.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
+        saveToCalendarButton.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, multiplier: 0.6).isActive = true
         saveToCalendarButton.heightAnchor.constraint(equalToConstant: 55.0).isActive = true
         
 
