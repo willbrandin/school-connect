@@ -6,9 +6,7 @@ target 'SchoolConnectOnBoarding' do
   use_frameworks!
 
   # Pods for SchoolConnectOnBoarding
-    pod 'Firebase/Core'
-  pod 'Firebase/Database'
-  pod 'Firebase/Core'
+   
   pod 'RealmSwift'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher', '~> 4.0'

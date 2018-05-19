@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 import RealmSwift
 
 class SCHomeLink: Object, Decodable {
@@ -92,53 +91,4 @@ class SCHomeLink: Object, Decodable {
         }
     }
     
-    //******Deprecated******//
-    @available(*, deprecated)
-    static func getHomeLinksForSchool(update: Bool, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in } ) {
-        
-        var linksArray = [SCHomeLink]()
-    
-        let ref: DatabaseReference!
-        ref = Database.database().reference()
-        guard let id = SCDatabaseQueryManager.savedSchool()?.schoolId else {
-            completion(false, SCErrors.noSchoolId)
-            return
-        }
-        
-        let queryPath = ref.child(FirebasePathStrings.homeLinks.rawValue)
-    
-        queryPath.observe(.value) { (snapshot) in
-           
-            if let data = snapshot.value as? NSDictionary {
-                if let linksData = data[id] as? NSDictionary {
-                    
-                    for dic in linksData {
-                        let newLink = SCHomeLink()
-
-                        newLink.initWithResponse(dic.value as? NSDictionary)
-                        newLink.linkId = dic.key as? String
-                        linksArray.append(newLink)
-                    }
-                    
-                    DispatchQueue.main.async {
-                        autoreleasepool {
-                            if update {
-                                DatabaseManager.saveRealmArray(linksArray, update: true)
-                                return
-                            } else {
-                                DatabaseManager.saveRealmArray(linksArray, update: false)
-                                
-                                completion(true, nil)
-                                return
-                            }
-                        }
-                    }
-                }else {
-                    completion(true, nil)
-                }
-            } else {
-                completion(false, SCErrors.noSchoolLinks)
-            }
-        }
-    }
 }

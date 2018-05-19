@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Firebase
 import RealmSwift
 
 class School: RealmSwift.Object, Decodable {
@@ -82,51 +81,5 @@ class School: RealmSwift.Object, Decodable {
         }
     }
     
-    
-    //******Deprecated******//
-    ///Fetches list of schools for onboarding.
-    @available(*, deprecated)
-    static func getSchoolDetailsWithId(update: Bool = false, completion: @escaping (Bool)-> Void = {_ in } ) {
-        //get school with id.
-        let ref: DatabaseReference!
-        ref = Database.database().reference()
-        
-        let defaults = UserDefaults.standard
-        guard let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return }
-        
-        let newStoredSchool = School()
-        newStoredSchool.schoolId = id
-        
-        let queryPath = ref.child(FirebasePathStrings.schoolInfo.rawValue).child(id)
-        queryPath.observe(.childAdded) { (snapshot) in
-            if snapshot.key == FirebaseSchoolInfoPath.infoPath.rawValue {
-                //Init info
-                if let _ = snapshot.value as? NSDictionary {
-                    //newStoredSchool.initSchoolDetails(infoData)
-                }
-            }
-            if snapshot.key == FirebaseSchoolInfoPath.appConfig.rawValue {
-                if let _ = snapshot.value as? NSDictionary {
-                    //newStoredSchool.initAppSettings(appSettingsData)
-                    
-                    DispatchQueue.main.async {
-                        autoreleasepool {
-                            if update {
-                                DatabaseManager.save(newStoredSchool)
-                                completion(true)
-                            } else {
-                                let realm = try! Realm()
-                                try! realm.write {
-                                    realm.add(newStoredSchool)
-                                    completion(true)
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-    }
     
 }
