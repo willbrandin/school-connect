@@ -1,11 +1,11 @@
 PODS:
-  - IQKeyboardManagerSwift (5.0.8)
-  - Kingfisher (4.6.3)
-  - Realm (3.1.1):
-    - Realm/Headers (= 3.1.1)
-  - Realm/Headers (3.1.1)
-  - RealmSwift (3.1.1):
-    - Realm (= 3.1.1)
+  - IQKeyboardManagerSwift (6.2.0)
+  - Kingfisher (4.10.1)
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
 
 DEPENDENCIES:
   - IQKeyboardManagerSwift
@@ -20,10 +20,10 @@ SPEC REPOS:
     - RealmSwift
 
 SPEC CHECKSUMS:
-  IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
-  Kingfisher: 98e6d5b5e807645743e8ed5ececd25d688d38452
-  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
-  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
 
 PODFILE CHECKSUM: 3ea06fb64a3733e88b6f38686454295ad8b3eacf
 
