@@ -47,7 +47,7 @@ class CalendarEvent: Decodable {
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.calendar(id: id)
         
-        networkManager.getList(for: endpoint, [CalendarEvent].self) { (result) in
+        networkManager.requestWithListResponse(for: endpoint, [CalendarEvent].self) { (result) in
             switch result {
             case .success(let events):
                 let returnedEvents = events as! [CalendarEvent]

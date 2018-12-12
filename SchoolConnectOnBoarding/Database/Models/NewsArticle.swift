@@ -49,7 +49,7 @@ class NewsArticle: Decodable {
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.news(id: id)
         
-        networkManager.getList(for: endpoint, [NewsArticle].self) { (result) in
+        networkManager.requestWithListResponse(for: endpoint, [NewsArticle].self) { (result) in
             switch result {
             case .success(let news):
                 let returnedNews = news as! [NewsArticle]

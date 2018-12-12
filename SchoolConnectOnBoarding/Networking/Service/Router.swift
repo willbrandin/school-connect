@@ -37,9 +37,10 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
             switch route.task {
             case .request:
                 request.setValue("application/json", forHTTPHeaderField: "Content-type")
+                
             case .requestParameters(let bodyParams, let urlParams):
                 try self.configureParameters(bodyParameters: bodyParams, urlParameters: urlParams, request: &request)
-            
+                
             case .requestParametersAndHeaders(let bodyParams, let urlParams, let additionalHeaders):
                 self.additionalHeaders(additionalHeaders, request: &request)
                 try self.configureParameters(bodyParameters: bodyParams, urlParameters: urlParams, request: &request)
@@ -50,10 +51,11 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    fileprivate func configureParameters(bodyParameters: Parameters?, urlParameters: Parameters?, request: inout URLRequest) throws {
+    fileprivate func configureParameters(bodyParameters: Loopable?, urlParameters: Parameters?, request: inout URLRequest) throws {
         do {
             if let bodyParameters = bodyParameters {
-                try JSONParameterEncoder.encode(urlRequest: &request, with: bodyParameters)
+                let parameters = try bodyParameters.allProperties()
+                try JSONParameterEncoder.encode(urlRequest: &request, with: parameters)
             }
             if let urlParameters = urlParameters {
                 try URLParameterEncoder.encode(urlRequest: &request, with: urlParameters)

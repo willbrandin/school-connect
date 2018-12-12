@@ -37,7 +37,7 @@ class SchoolSearch: Decodable {
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.schoolSearch(search: query)
         
-        networkManager.getList(for: endpoint, [SchoolSearch].self) { result in
+        networkManager.requestWithListResponse(for: endpoint, [SchoolSearch].self) { result in
             switch result {
             case .success(let schools):
                 let returnedSchools = schools as! [SchoolSearch]

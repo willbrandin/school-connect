@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class SNAppSettings: Object, Decodable {
+class SNAppSettings: Object, Codable {
     
     //MARK: - Properties
     @objc dynamic var primaryColor: String?
@@ -57,7 +57,7 @@ class SNAppSettings: Object, Decodable {
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.configSettings(id: id)
         
-        networkManager.get(for: endpoint, SNAppSettings.self, completion: {result in
+        networkManager.request(for: endpoint, SNAppSettings.self, completion: {result in
             switch result {
             case .success(let settings):
                 let returnedSettings = settings as! SNAppSettings

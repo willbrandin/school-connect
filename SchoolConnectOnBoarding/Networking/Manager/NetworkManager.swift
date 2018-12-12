@@ -11,7 +11,7 @@ import Foundation
 struct NetworkManager {
     
     static let sharedInstance = NetworkManager()
-    static let environment: NetworkEnvironment = .staging
+    static let environment: NetworkEnvironment = .development
     
     private let router = Router<SchoolConnectAPI>()
     
@@ -48,7 +48,7 @@ struct NetworkManager {
         - decodingType: The type to decode. ie. School or SCHomeLink
         - completion: The Result enum allows for a switch statement to be used when the method is called.
      */
-    func get<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping(Result<Decodable?, APIError>) ->()){
+    func request<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping(Result<Codable?, APIError>) ->()){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
             if error != nil {
@@ -90,7 +90,7 @@ struct NetworkManager {
         - decodingType: The type to decode. ie. School or SCHomeLink
         - completion: The Result enum allows for a switch statement to be used when the method is called.
     */
-    func getList<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping(Result<[Decodable]?, APIError>) ->()){
+    func requestWithListResponse<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping(Result<[Decodable]?, APIError>) ->()){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
             if error != nil {
@@ -119,43 +119,6 @@ struct NetworkManager {
                 }
             }
             
-        }
-    }
-    
-    /**
-     Submits a POST request for the specified endpoint provided.
-     
-     - important:
-     DecodingType must be [Decodable]
-     
-     - parameters:
-     - apiEndpoint: Endpoint of the request.
-     - decodingType: The type to decode. ie. School or SCHomeLink
-     - completion: The Result enum allows for a switch statement to be used when the method is called.
-     */
-    func post<T:Encodable>(for apiEndpoint: SchoolConnectAPI, _ encoding: T.Type, completion: @escaping(Result<String?, APIError>) ->()){
-        
-        router.request(apiEndpoint) { data, response, error in
-            if error != nil {
-                completion(.error(.requestFailed))
-            }
-            
-            if let response = response as? HTTPURLResponse {
-                
-                let result = self.handleNetworkResponse(response)
-                switch result {
-                case .success:
-                    if let respData = data, let utf8Representation = String(data: respData, encoding: .utf8) {
-                        print("********************************************\n\(utf8Representation)\n********************************************")
-                        completion(.success(utf8Representation))
-                    } else {
-                        print("no readable data received in response")
-                        completion(.error(.jsonParsingFailure))
-                    }
-                case .failure:
-                    completion(.error(.responseUnsuccessful))
-                }
-            }
         }
     }
     

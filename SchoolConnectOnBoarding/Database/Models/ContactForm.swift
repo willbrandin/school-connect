@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ContactForm: Encodable {
+struct ContactForm: Loopable {
     
     //MARK: - Properties
     var name: String?
@@ -33,9 +33,9 @@ struct ContactForm: Encodable {
     //MARK: - Methods
     func postContactForm(){
         let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.sendMessage(data: ["name":"William"])
+        let endpoint = SchoolConnectAPI.sendMessage(data: self)
         
-        networkManager.post(for: endpoint, ContactForm.self) { (result) in
+        networkManager.request(for: endpoint, ContactForm.self) { (result) in
             switch result {
             case .success:
                 print("success")

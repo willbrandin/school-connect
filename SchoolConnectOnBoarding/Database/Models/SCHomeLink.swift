@@ -53,7 +53,7 @@ class SCHomeLink: Object, Decodable {
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.homeLinks(id: id)
         
-        networkManager.getList(for: endpoint, [SCHomeLink].self, completion: {result in
+        networkManager.requestWithListResponse(for: endpoint, [SCHomeLink].self, completion: {result in
             switch result {
             case .success(let links):
                 let returnedLinks = links as! [SCHomeLink]

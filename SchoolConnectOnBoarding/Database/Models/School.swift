@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class School: RealmSwift.Object, Decodable {
+class School: RealmSwift.Object, Codable {
     
     //MARK: - Properties
     @objc dynamic var schoolName: String?
@@ -51,7 +51,7 @@ class School: RealmSwift.Object, Decodable {
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.schoolDetails(id: id)
         
-        networkManager.get(for: endpoint, School.self, completion: {result in
+        networkManager.request(for: endpoint, School.self, completion: {result in
             switch result {
             case .success(let school):
                 let returnedSchool = school as! School
