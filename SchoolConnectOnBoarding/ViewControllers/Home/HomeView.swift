@@ -32,7 +32,6 @@ class HomeView: UIView {
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        
         collectionView.backgroundColor = UIColor.white
         
         addSubview(collectionView)
