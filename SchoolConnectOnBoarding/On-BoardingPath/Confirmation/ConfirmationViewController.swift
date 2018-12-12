@@ -20,6 +20,7 @@ class ConfirmationViewController: SNBaseViewController {
     private let selectedSchool: School!
     
     //MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = PageTitles.confirmation.rawValue
@@ -39,7 +40,6 @@ class ConfirmationViewController: SNBaseViewController {
         print("deinit")
     }
     
-    
     //MARK: - Methods
     
     func setupConfirmationView(){
@@ -54,7 +54,6 @@ class ConfirmationViewController: SNBaseViewController {
         confirmationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         confirmationView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-
 }
 
 extension ConfirmationViewController: ConfirmationDelegate {
@@ -62,7 +61,6 @@ extension ConfirmationViewController: ConfirmationDelegate {
     func didConfirmSchool() {
         setUserDefaults()
         fetchSchoolData()
-        
     }
     
     func setUserDefaults(_ withoutError: Bool = true){
@@ -79,7 +77,6 @@ extension ConfirmationViewController: ConfirmationDelegate {
                 self.fetchSchoolAppConfig()
             }
         }
-        
     }
     
     func fetchSchoolAppConfig(){
@@ -107,7 +104,6 @@ extension ConfirmationViewController: ConfirmationDelegate {
                 self.presentHomeView()
             }
         }
-        
     }
     
     func presentHomeView(){
@@ -115,7 +111,6 @@ extension ConfirmationViewController: ConfirmationDelegate {
         let tabBarController = SNTabBarController()
         self.navigationController?.dismiss(animated: true, completion: nil)
         present(tabBarController, animated: true, completion: nil)
-        
     }
     
 }

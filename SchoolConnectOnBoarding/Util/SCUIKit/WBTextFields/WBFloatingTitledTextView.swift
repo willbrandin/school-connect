@@ -15,13 +15,11 @@ import UIKit
  */
 class WBFloatingTitledTextView: UIView, TextInputTitleable {
     
-    
     //MARK: - Properties
     private var validationType: WBTextValidationType!
     ///For convenience. A reference to the text view inside of the WBFloatingTextView
     ///Prevents *.textView.textView* over and over again
     var floatingTextView: WBTextView?
-    
     
     //MARK: - UI Elements
     lazy var textInputTitle: UILabel! = {
@@ -76,6 +74,4 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
         textView.heightAnchor.constraint(equalToConstant: 250.0).isActive = true
         textInputTitle.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
-    
-    
 }

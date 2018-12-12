@@ -33,16 +33,13 @@ class SCRoundedSchoolButton: UIButton, Shadowable, CornerRoundable {
             makeShadow()
         }
     }
- 
     
     func formatBoldButtonTitle(){
         self.titleLabel?.font = SCFont.buttonTitle
     }
 }
 
-
 extension SCRoundedSchoolButton: SchoolColorable {
-    
     
     func setColor(_ withSchoolColor: Bool = false){
         guard let primaryColor = schoolPrimaryColor else { return }
@@ -66,10 +63,6 @@ extension SCRoundedSchoolButton: SchoolColorable {
                 setTitleColor(UIColor.white, for: .normal)
             }
         }
-        
-        
     }
+    
 }
-
-
-

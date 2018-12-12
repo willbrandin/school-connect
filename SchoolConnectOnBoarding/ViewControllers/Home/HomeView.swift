@@ -13,16 +13,12 @@ class HomeView: UIView {
     //MARK: - Properties
     var collectionView: UICollectionView!
   
-    //MARK: - UI Elements
-
     //MARK: - Init
     
     func customizeUI(){
         backgroundColor = SCColors.scBlue
-        
         setupCollectionViewConstraints()
     }
-    
     
     //MARK: - Methods
     func setupCollectionViewConstraints(){
@@ -33,7 +29,6 @@ class HomeView: UIView {
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
 
-        
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -47,6 +42,5 @@ class HomeView: UIView {
         collectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
-    
     
 }

@@ -17,7 +17,6 @@ class SearchView: UIView {
         searchBar.placeholder = "Search"
         searchBar.barStyle = .default
         searchBar.isTranslucent = false
-        
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         return searchBar
     }()
@@ -28,8 +27,6 @@ class SearchView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
-    
     
     //MARK: - Methods
     func customizeUI(_ showingCells: Bool) {

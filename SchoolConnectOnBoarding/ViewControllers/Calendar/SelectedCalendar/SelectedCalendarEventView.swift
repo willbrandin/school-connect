@@ -13,7 +13,6 @@ class SelectedCalendarEventView: UIView {
     //MARK: - Properties
     weak var saveToCalendarDelegate: SaveToCalendarEventDelegate?
     
-    
     //MARK: - UI Elements
     
     lazy var informationTitleLabel: UILabel! = {
@@ -205,8 +204,6 @@ class SelectedCalendarEventView: UIView {
         saveToCalendarButton.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
         saveToCalendarButton.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, multiplier: 0.6).isActive = true
         saveToCalendarButton.heightAnchor.constraint(equalToConstant: 55.0).isActive = true
-        
-
     }
     
     func formatForStartAndEndDate(_ event: CalendarEvent){
@@ -229,5 +226,4 @@ class SelectedCalendarEventView: UIView {
     @objc func handleAddToCalendar(){
         self.saveToCalendarDelegate?.didTapSaveToCalendar()
     }
-
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol HomeFeatureDelegate: class {
     func didTapFeature(_ feature: HomeFeature?)
 }
@@ -34,9 +33,7 @@ class HomeViewController: SNBaseViewController {
         homeView.collectionView.register(HomeGreetingCollectionViewCell.self)
         homeView.collectionView.register(HomeFeatureCollectionViewCell.self)
         homeView.collectionView.register(HomeLinkCollectionViewCell.self)
-        
     }
-    
     
     //MARK: - Methods
     func setupHomeView(){
@@ -51,7 +48,6 @@ class HomeViewController: SNBaseViewController {
         homeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
-  
     func configureHomeState(){
         if SCDatabaseQueryManager.savedFeatures().count != 0 && SCDatabaseQueryManager.getSavedLinks().count != 0 {
             self.homeState = HomeState.premium
@@ -66,15 +62,15 @@ class HomeViewController: SNBaseViewController {
     
 }
 
-//MARK: - Network calls
+//MARK: - Networking
 extension HomeViewController {
-    //update Links DB
     
     func fetchLinksData(){
         let defaults = UserDefaults.standard
         let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue)
         SCHomeLink.fetchHomeLinks(with: id)
     }
+    
 }
 
 //MARK: - Feature Cell Selection Delegate
@@ -94,12 +90,9 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let state = homeState else { return 1 }
         switch state {
-        case .premium:
-            return 3
-        case .featuresOnly, .linksOnly:
-            return 2
-        case .basic:
-            return 1
+        case .premium: return 3
+        case .featuresOnly, .linksOnly: return 2
+        case .basic: return 1
         }
     }
     
@@ -141,13 +134,11 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
 
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue || SCDatabaseQueryManager.getSavedLinks().count != 0 {
-            
             if SCDatabaseQueryManager.getSavedLinks().count > 3 {
                 return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.44)
             }
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
         }
-        
         return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
     }
     
@@ -160,7 +151,6 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
                     
                 }
             }
-            
         }
     }
     
@@ -176,7 +166,3 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     }
     
 }
-
-
-
-

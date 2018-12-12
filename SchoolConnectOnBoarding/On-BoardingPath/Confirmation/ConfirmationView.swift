@@ -11,6 +11,7 @@ import UIKit
 class ConfirmationView: UIView {
 
     //MARK: - Properties
+    
     weak var confirmationDelegate: ConfirmationDelegate?
     
     //MARK: - UI Elements
@@ -20,7 +21,6 @@ class ConfirmationView: UIView {
         imageView.image = SCImages.OnBoardingImages.landingPageIcon
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         return imageView
     }()
     
@@ -30,7 +30,6 @@ class ConfirmationView: UIView {
         label.textColor = SCColors.scGrayText
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }()
     
@@ -40,8 +39,6 @@ class ConfirmationView: UIView {
         label.textColor = SCColors.scGray
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         return label
     }()
     
@@ -54,7 +51,6 @@ class ConfirmationView: UIView {
         button.addTarget(self, action: #selector(handleConfirmationTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
-        
     }()
     
     lazy var bodyTextStackView: UIStackView! = {
@@ -69,8 +65,8 @@ class ConfirmationView: UIView {
         return stackView
     }()
     
-
     //MARK: - Methods
+    
     func customizeUI(_ school: School){
         backgroundColor = UIColor.white
         setupButtonConstraints()
@@ -81,7 +77,6 @@ class ConfirmationView: UIView {
             schoolNameLabel.text = name
             schoolCityStateLabel.text = "\(city), \(state)"
         }
-        
     }
     
     func setupImageConstraints() {
@@ -112,5 +107,4 @@ class ConfirmationView: UIView {
     @objc func handleConfirmationTap(){
         self.confirmationDelegate?.didConfirmSchool()
     }
-    
 }

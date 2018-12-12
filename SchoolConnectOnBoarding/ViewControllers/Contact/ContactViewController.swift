@@ -17,7 +17,6 @@ class ContactViewController: SNBaseViewController {
     //MARK: - Properties
     var contactScreenView: ContactView!
     
-
     //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,13 +50,9 @@ class ContactViewController: SNBaseViewController {
         contactScreenView.messageTextTitleView.floatingTextView?.delegate = self
         
     }
-    
- 
-
 }
 
 extension ContactViewController: UITextFieldDelegate {
-    
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         for input in contactScreenView.inputs {
@@ -91,7 +86,6 @@ extension ContactViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         if textField == contactScreenView.phoneTextTitleView.textField {
             return textField.canFormatAsPhoneNumber(range: range, inputString: string)
         }
@@ -106,8 +100,6 @@ extension ContactViewController: UITextViewDelegate {
         if textView == contactScreenView.messageTextTitleView.floatingTextView {
             contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: true)
         }
-
-        
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -124,18 +116,13 @@ extension ContactViewController: UITextViewDelegate {
 //        }
         return true
     }
-
-    
     
 }
-
 
 extension ContactViewController: ContactFormDelegate {
 
     //Web services to POST the message.
     func didTapSubmit() {
-        //construct contact form
-        //POST contact form
         
         if formDataIsValid() {
             
@@ -181,5 +168,3 @@ extension ContactViewController: ContactFormDelegate {
     }
     
 }
-
-

@@ -10,12 +10,10 @@ import UIKit
 
 extension UITextField {
     
-    
     func canFormatAsPhoneNumber(range: NSRange, inputString: String) -> Bool {
         //Cursor Management
         let positionOriginal = self.beginningOfDocument
         let cursorLocation = self.position(from: positionOriginal, offset: (range.location + NSString(string: inputString).length))
-        
         
         let newString = (self.text! as NSString).replacingCharacters(in: range, with: inputString)
         let components = newString.components(separatedBy: NSCharacterSet.decimalDigits.inverted)
@@ -36,6 +34,5 @@ extension UITextField {
         
         return false
     }
-    
-    
+
 }

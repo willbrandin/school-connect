@@ -65,6 +65,3 @@ extension CornerRoundable where Self: SCCircleImage {
         self.clipsToBounds = true
     }
 }
-
-
-

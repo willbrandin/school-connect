@@ -27,8 +27,6 @@ class NewsViewController: SNBaseViewController {
         newsView.collectionView.delegate = self
         
         newsView.collectionView.register(NewsArticleCollectionViewCell.self)
-        
-        
     }
     
     //MARK: - Methods
@@ -43,8 +41,6 @@ class NewsViewController: SNBaseViewController {
         newsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         newsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
-
 }
 
 //MARK: - Networking
@@ -72,7 +68,6 @@ extension NewsViewController {
     //func didReachBottomOfList
 }
 
-
 //MARK: - Delegate
 extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
@@ -88,11 +83,8 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: NewsArticleCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
-        
         cell.configureCell(newsArray[indexPath.row])
-        
         return cell
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

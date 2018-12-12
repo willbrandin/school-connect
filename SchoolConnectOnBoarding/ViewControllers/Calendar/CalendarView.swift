@@ -10,8 +10,6 @@ import UIKit
 
 class CalendarView: UIView {
     
-    //MARK: - Properties
-    
     //MARK: - UI Elements
     lazy var tableView: UITableView! = {
         let tableView = UITableView()
@@ -31,7 +29,6 @@ class CalendarView: UIView {
     
     //MARK: - Init
     func customizeUI(){
-        //
         backgroundColor = UIColor.white
         setupTableViewConstraints()
     }
@@ -54,6 +51,4 @@ class CalendarView: UIView {
     @objc func handleRefresh(){
         self.refreshControl.beginRefreshing()
     }
-    
-    
 }

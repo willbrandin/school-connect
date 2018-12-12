@@ -88,6 +88,4 @@ final class SCDatabaseQueryManager {
         return Array(linksQuery)
     }
     
-    
 }
-

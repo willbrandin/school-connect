@@ -44,7 +44,6 @@ class ContactView: UIView {
         return field
     }()
     
-    
     //Phone number
     lazy var phoneTextTitleView: WBFloatingTitledTextField! = {
         let field = WBFloatingTitledTextField(type: .phoneNumber)
@@ -55,8 +54,6 @@ class ContactView: UIView {
         return field
     }()
     
-    
-    
     //Phone number
     lazy var messageTextTitleView: WBFloatingTitledTextView! = {
         let textView = WBFloatingTitledTextView(type: .message)
@@ -64,9 +61,6 @@ class ContactView: UIView {
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
-    
-    
-    //Submit Button
     
     lazy var buttonContainerStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -110,17 +104,12 @@ class ContactView: UIView {
         return scrollView
     }()
     
-    
-    
-    //MARK: - Init View
-    
     //MARK: - Methods
     
     func customizeUI(){
         setupScrollViewConstraints()
         setupInputConstraints()
         setupButtonContainerConstraints()
-
     }
     
     func setupScrollViewConstraints(){
@@ -167,7 +156,5 @@ class ContactView: UIView {
     @objc func handleSubmitButtonTap(){
         self.formDelegate?.didTapSubmit()
     }
-    
-    
     
 }

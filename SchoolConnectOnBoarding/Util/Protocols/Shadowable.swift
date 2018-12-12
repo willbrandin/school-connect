@@ -13,7 +13,6 @@ protocol Shadowable {
     func makeShadow()
 }
 
-
 extension Shadowable where Self: WBFloatingTextView {
     
     func makeShadow(){
@@ -67,7 +66,3 @@ extension Shadowable where Self: CalendarCardView {
         self.layer.shadowRadius = 5.0
     }
 }
-
-
-
-

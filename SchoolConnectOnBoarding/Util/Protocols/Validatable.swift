@@ -35,15 +35,12 @@ extension Validatable where Self: SCFloatingTextField {
         case .email: return self.validate([String.isEmailValid])
         case .phoneNumber: return self.validate([String.isPhoneNumberValid])
         case .name: return self.validate([String.isValidName])
-        default:
-            break
+        default: break
         }
         return false
     }
     
 }
-
-
 
 extension Validatable where Self: WBTextView {
     

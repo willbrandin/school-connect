@@ -23,7 +23,6 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
     
     //MARK: - UI Elements
     
-    
     lazy var dismissView: UIView! = {
         let view = UIView()
         
@@ -56,7 +55,6 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    
     
     lazy var newsTitle: UILabel! = {
         let label = UILabel()

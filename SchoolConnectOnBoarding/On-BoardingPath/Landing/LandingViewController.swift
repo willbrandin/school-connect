@@ -20,15 +20,14 @@ class LandingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupLandingView()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         self.navigationController?.navigationBar.isHidden = true
-
     }
 
     //MARK: - Methods
@@ -44,7 +43,6 @@ class LandingViewController: UIViewController {
         landingView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
         landingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
     }
-    
 }
 
 extension LandingViewController: LandingPageDelegate {

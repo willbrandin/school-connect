@@ -16,7 +16,6 @@ class SNBaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     //MARK: - Methods
@@ -28,8 +27,5 @@ class SNBaseViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-
     
 }
-
-

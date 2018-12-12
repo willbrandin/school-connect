@@ -18,7 +18,6 @@ extension UIView {
         animation.duration = duration
         layer.add(animation, forKey: kCATransitionFade)
     }
-    
 }
 
 extension UIAlertController {

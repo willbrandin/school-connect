@@ -10,9 +10,7 @@ import UIKit
 
 class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
-    
     //MARK: - Properties
-//    static var reuseID = CellReuseIds.homeLinkCollectionCell.rawValue
     var linksArray = [SCHomeLink]()
     
     //MARK: - UI Elements
@@ -45,7 +43,6 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
         super.init(coder: aDecoder)
         
     }
-    
     
     //MARK: - Methods
     func configureCell(){
@@ -93,8 +90,6 @@ extension HomeLinkCollectionViewCell {
     
 }
 
-
-
 extension HomeLinkCollectionViewCell: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -114,6 +109,7 @@ extension HomeLinkCollectionViewCell: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         openInBrowser(linksArray[indexPath.row])
         self.tableView.deselectRow(at: indexPath, animated: true)
@@ -127,8 +123,3 @@ extension HomeLinkCollectionViewCell: UITableViewDelegate, UITableViewDataSource
     }
 
 }
-
-
-
-
-

@@ -40,7 +40,7 @@ struct ContactForm: Encodable {
             case .success:
                 print("success")
             case .error:
-                print("erro")
+                print("error")
             }
         }
     }

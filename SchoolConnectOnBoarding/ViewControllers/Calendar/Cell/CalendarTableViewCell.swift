@@ -13,9 +13,6 @@ class CalendarTableViewCell: UITableViewCell, CellLoadableView {
     //MARK: - Properties
     //static var cellId = CellReuseIds.calendarCell.rawValue
     var cardView: CalendarCardView!
-
-    //MARK: - UI Elements
-    
     
     //MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -25,7 +22,6 @@ class CalendarTableViewCell: UITableViewCell, CellLoadableView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
     
     //MARK: - Methods
     
@@ -48,6 +44,4 @@ class CalendarTableViewCell: UITableViewCell, CellLoadableView {
         cardView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20.0).isActive = true
         cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20.0).isActive = true
     }
-
-    
 }

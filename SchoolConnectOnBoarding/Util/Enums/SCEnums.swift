@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 enum UserDefaultKeys: String {
     case schoolChosen = "schoolIsChosen"
     case selectedId = "selectedSchoolId"
@@ -48,13 +47,3 @@ enum WBTextValidationType: String {
     case phoneNumber = "Phone Number"
     case message = "Message"
 }
-
-
-
-
-
-
-
-
-
-

@@ -32,8 +32,6 @@ class SelectedNewsArticleViewController: SNBaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
-    
     //MARK: - Methods
     func setupEventView(){
         articleView = SelectedNewsArticleView()
@@ -61,6 +59,4 @@ extension SelectedNewsArticleViewController: SelectedNewsDelegate {
     func didCloseArticle() {
         dismiss(animated: true, completion: nil)
     }
-    
 }
-

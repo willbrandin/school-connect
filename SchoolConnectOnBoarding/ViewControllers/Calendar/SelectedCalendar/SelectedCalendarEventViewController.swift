@@ -88,10 +88,7 @@ extension SelectedCalendarEventViewController: SaveToCalendarEventDelegate {
             }
         }
     }
-    
-    
-    
-    
+  
     ///Adds the ability to add event to the user calendar as an event.
     func addEventToCalendar(completion: ((_ success: Bool, _ error: NSError?) -> Void)? = nil) {
         
@@ -130,11 +127,7 @@ extension SelectedCalendarEventViewController: SaveToCalendarEventDelegate {
                 }
             })
         }
-        
        
     }
     
 }
-
-
-

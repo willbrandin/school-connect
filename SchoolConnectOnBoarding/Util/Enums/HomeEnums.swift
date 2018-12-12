@@ -13,7 +13,6 @@ enum HomeCellIndex: Int {
     case greeting = 0
     case featureCell = 1
     case linksCell = 2
-    
 }
 
 enum HomeFeature: String {
@@ -34,10 +33,8 @@ enum HomeFeature: String {
         
     }
     
-    
     func setFeatureView() -> UIViewController {
         let vc = UIViewController()
-        
         switch self {
         case .bullyReporting:
             vc.title = PageTitles.bullyReporting.rawValue
@@ -45,7 +42,6 @@ enum HomeFeature: String {
             vc.title = PageTitles.teacherContact.rawValue
         case .mapOfSchool:
             vc.title = PageTitles.mapOfSchool.rawValue
-            
         }
         return vc
     }
@@ -66,7 +62,5 @@ enum HomeFeature: String {
                                    SCImages.FeatureImages.bullyReportImage)
             
         }
-    }
-    
-    
+    }    
 }

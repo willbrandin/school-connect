@@ -47,7 +47,6 @@ class NewsCardView: UIView, CornerRoundable {
         return label
     }()
     
-    
     //MARK: - StackView
     
     lazy var bodyTextStackView: UIStackView! = {
@@ -75,8 +74,8 @@ class NewsCardView: UIView, CornerRoundable {
             let url = URL(string: news.imgUrl!)
             self.newsImgView.kf.setImage(with: url)
         }
-        
     }
+    
     override func layoutSubviews() {
         roundCorners()
     }
@@ -105,7 +104,5 @@ class NewsCardView: UIView, CornerRoundable {
     func setupTitleLabelConstraints(){
         //titleLabel.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
     }
-    
-   
 
 }

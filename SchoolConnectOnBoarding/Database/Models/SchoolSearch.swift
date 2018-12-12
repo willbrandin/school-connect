@@ -27,17 +27,15 @@ class SchoolSearch: Decodable {
         case id = "_id"
     }
     
-    
-    
     //MARK: - Methods
     static func fetchList(with searchQuery: String?, completion: @escaping (Result<[SchoolSearch], Error?>)->Void){
         guard let query = searchQuery else {
             completion(Result.error(SCErrors.noSchoolId))
             return
         }
+        
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.schoolSearch(search: query)
-        
         
         networkManager.getList(for: endpoint, [SchoolSearch].self) { result in
             switch result {
@@ -51,10 +49,3 @@ class SchoolSearch: Decodable {
     }
     
 }
-
-
-
-
-
-
-

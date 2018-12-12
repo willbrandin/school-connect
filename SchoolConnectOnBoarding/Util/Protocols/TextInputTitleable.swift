@@ -56,13 +56,10 @@ extension TextInputTitleable where Self: WBFloatingTitledTextField {
                 }
             }
         }
-        
-        
     }
     
     /**
      When the text view is finished editing, the title can change color to indicate valid/invalid state.
-
      */
     private func updateTitleColorsForValidation(){
         //Contains
@@ -77,7 +74,7 @@ extension TextInputTitleable where Self: WBFloatingTitledTextField {
 extension TextInputTitleable where Self: WBFloatingTitledTextView {
     /**
      Configures the title appearence for the text view.
-     *To be called on textDid(Begin/End)Editing methods.*
+     *To be called on `textDid(Begin/End)Editing` methods.*
      Cases:
      * isEmpty
         * Title should be "" and placeholder will the "Title".
@@ -114,13 +111,10 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
             }
             titleLbl?.textColor = UIColor.lightGray
         }
-        
-        
     }
     
     /**
      When the text view is finished editing, the title can change color to indicate valid/invalid state.
-
      */
     private func updateTitleColorsForValidation(){
         //Contains
@@ -135,4 +129,3 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
         }
     }
 }
-

@@ -28,20 +28,18 @@ class School: RealmSwift.Object, Decodable {
         schoolState = try values.decodeIfPresent(String.self, forKey: .schoolState)
     }
     
-    enum CodingKeys: String, CodingKey
-    {
+    enum CodingKeys: String, CodingKey {
         case schoolCity = "city"
         case schoolState = "state"
         case schoolName = "name"
         case schoolId = "school"
     }
     
-    override open static func primaryKey() -> String? {
+    override public static func primaryKey() -> String? {
         //TODO: Replace with enum raw value.
         return "schoolId"
     }
 
-    
     //MARK: - Methods
 
     static func fetchDetails(with schoolId: String?, completion: @escaping (Result<School, Error>)->Void) {
@@ -49,6 +47,7 @@ class School: RealmSwift.Object, Decodable {
             completion(Result.error(SCErrors.noSchoolId))
             return
         }
+        
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.schoolDetails(id: id)
         
@@ -61,7 +60,6 @@ class School: RealmSwift.Object, Decodable {
                 completion(Result.error(error))
             }
         })
-        
     }
     
     func saveSchoolDetails(update: Bool, completion: @escaping (Bool) -> Void = {_ in } ){
@@ -80,6 +78,4 @@ class School: RealmSwift.Object, Decodable {
             }
         }
     }
-    
-    
 }

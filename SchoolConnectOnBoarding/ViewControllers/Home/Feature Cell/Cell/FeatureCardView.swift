@@ -10,10 +10,6 @@ import UIKit
 
 class FeatureCardView: UIView, CornerRoundable {
 
-    
-    //MARK: - Properties
-    
-    
     //MARK: - UI Elements
     
     var backgroundImageView: UIImageView! = {
@@ -44,8 +40,6 @@ class FeatureCardView: UIView, CornerRoundable {
         return label
     }()
     
-    
-    
     //MARK: - StackView
     lazy var bodyTextStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -71,10 +65,7 @@ class FeatureCardView: UIView, CornerRoundable {
         feature.customizeHomeFeatureUI(self)
     }
     
-    
-    
     //MARK: - Methods
-    
     
     //Move to View Model? Or refactor out?
     func configureCardView(_ title: String, _ subtitle: String, _ image: UIImage?) {
@@ -83,7 +74,6 @@ class FeatureCardView: UIView, CornerRoundable {
         self.backgroundImageView.image = image
     }
     
-  
     func setupBackgroundImageView(){
         addSubview(backgroundImageView)
         backgroundImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -91,7 +81,6 @@ class FeatureCardView: UIView, CornerRoundable {
         backgroundImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
-    
     
     func setupTextStackView(){
         addSubview(bodyTextStackView)

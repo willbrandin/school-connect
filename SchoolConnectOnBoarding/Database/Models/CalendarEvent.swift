@@ -18,7 +18,6 @@ class CalendarEvent: Decodable {
     var location: String?
     var schoolId: String?
     
-    
     //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()

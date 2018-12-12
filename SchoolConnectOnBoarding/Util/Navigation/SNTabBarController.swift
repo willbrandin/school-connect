@@ -10,7 +10,6 @@ import UIKit
 
 class SNTabBarController: UITabBarController {
 
-   
     override func viewDidLoad() {
         super.viewDidLoad()
         mapViewControllersAndAddNavigation()
@@ -46,16 +45,13 @@ class SNTabBarController: UITabBarController {
         
         setColors()
     }
-    
 
 }
-
 
 extension SNTabBarController: SchoolColorable {
     
     func setColors(){
         self.tabBar.barTintColor = schoolPrimaryColor
-        //Active tab
         tabBar.tintColor = schoolSecondaryColor
         
         if (tabBar.barTintColor?.isLight)! {

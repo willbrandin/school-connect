@@ -15,7 +15,6 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
     
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()
-        
         label.font = SCFont.boldText
         label.textColor = UIColor.black
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -32,8 +31,6 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
         super.init(coder: aDecoder)
     }
     
-    
-    
     //MARK: - Methods
     func setupLabelConstraints(){
         self.contentView.addSubview(schoolLabel)
@@ -46,5 +43,4 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
     func configureCell(_ school: SchoolSearch){
         schoolLabel.text = school.name
     }
-
 }

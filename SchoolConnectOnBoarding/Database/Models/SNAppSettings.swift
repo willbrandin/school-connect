@@ -38,18 +38,13 @@ class SNAppSettings: Object, Decodable {
         }
     }
     
-    enum CodingKeys: String, CodingKey
-    {
+    enum CodingKeys: String, CodingKey {
         case primaryColor, secondaryColor, defaultImgUrl, features
-        
         case schoolId = "school"
-        
         case settingsId = "_id"
-        
     }
     
     override open static func primaryKey() -> String? {
-        
         return "schoolId"
     }
     //MARK: - Methods
@@ -72,11 +67,9 @@ class SNAppSettings: Object, Decodable {
                 completion(false)
             }
         })
-        
     }
     
     private func saveConfigSettings(update: Bool, completion: @escaping (Bool) -> Void){
-        
         DispatchQueue.main.async {
             autoreleasepool {
                 if update {
@@ -92,6 +85,5 @@ class SNAppSettings: Object, Decodable {
             }
         }
     }
-    
     
 }

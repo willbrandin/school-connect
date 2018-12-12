@@ -42,7 +42,5 @@ enum SCErrors: Error {
             alert.addDefaultAction()
             return alert
         }
-        
     }
 }
-

@@ -11,11 +11,9 @@ import UIKit
 class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
     //MARK: - Properties
-//    static var reuseID = CellReuseIds.homeFeatureCollectionCell.rawValue
     var collectionView: UICollectionView!
     var featureArray = [String]()
     weak var featureCellDelegate: HomeFeatureDelegate?
-    
     
     //MARK: - UI Elements
 
@@ -40,8 +38,6 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
         
     }
     
-    
-    
     //MARK: - Methods
     func configureCell(){
         setArrayValue()
@@ -62,7 +58,6 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        
         
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +84,6 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
         featureTitleLabel.heightAnchor.constraint(equalToConstant: 25.0).isActive = true
     }
     
-    
 }
 
 extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
@@ -101,18 +95,13 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: FeatureCell = collectionView.deqeueReusableCell(for: indexPath)
-        
         let enumCase = HomeFeature(rawValue: featureArray[indexPath.row])
-        
         cell.configureCell(enumCase)
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: collectionView.bounds.width * 0.90, height: self.frame.height * 0.75)
-
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -125,7 +114,6 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
         UIView.animate(withDuration: 0.3) {
             if let cell = collectionView.cellForItem(at: indexPath) {
                 cell.transform = .init(scaleX: 0.97, y: 0.97)
-                
             }
         }
     }
@@ -134,10 +122,8 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
         UIView.animate(withDuration: 0.3) {
             if let cell = collectionView.cellForItem(at: indexPath) {
                 cell.transform = .identity
-                
             }
         }
     }
-    
     
 }

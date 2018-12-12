@@ -10,15 +10,10 @@ import UIKit
 
 class FeatureCell: SCHomeCollectionViewCell, CellLoadableView {
     
-    
     //MARK: - Properties
     var cardView: FeatureCardView!
     static var reuseID = CellReuseIds.featureCollectionCell.rawValue
-    
-    
-    //MARK: - UI Elements
-    
-    
+
     //MARK: - Init
     
     override init(frame: CGRect) {
@@ -29,7 +24,6 @@ class FeatureCell: SCHomeCollectionViewCell, CellLoadableView {
         super.init(coder: aDecoder)
         
     }
-    
     
     //MARK: - Methods
     func configureCell(_ feature: HomeFeature?){
@@ -49,8 +43,5 @@ class FeatureCell: SCHomeCollectionViewCell, CellLoadableView {
         cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         cardView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15.0).isActive = true
     }
-    
-   
-    
-    
+
 }

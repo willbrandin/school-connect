@@ -15,7 +15,6 @@ protocol SchoolColorable {
     var schoolSecondaryColor: UIColor? { get }
 }
 
-
 extension SchoolColorable {
     
     var schoolPrimaryColor: UIColor? {
@@ -25,6 +24,4 @@ extension SchoolColorable {
     var schoolSecondaryColor: UIColor? {
         return SCDatabaseQueryManager.getSavedSecondaryColor()
     }
-    
 }
-

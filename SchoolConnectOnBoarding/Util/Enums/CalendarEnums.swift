@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 enum CalendarEventTitles: String {
     case information = "Information"
     case dateAndTime = "Date and Time"

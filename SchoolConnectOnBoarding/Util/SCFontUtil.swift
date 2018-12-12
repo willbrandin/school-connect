@@ -20,9 +20,11 @@ enum FontBook: String {
     func of(size: CGFloat) -> UIFont {
         return UIFont(name: self.rawValue, size: size)!
     }
+    
 }
 
 struct SCFont {
+    
     static var heroTitle: UIFont {
         return FontBook.semiBold.of(size: 28.0)
     }
@@ -71,4 +73,3 @@ struct SCFont {
         return FontBook.semiBold.of(size: 16.0)
     }
 }
-

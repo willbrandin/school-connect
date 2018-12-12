@@ -11,10 +11,10 @@ import UIKit
 class SearchViewController: UIViewController {
 
     //MARK - Properties
+    
     var searchView: SearchView!
     
-    
-    //Search Properties
+    //MARK: - Search Properties
     var schoolList = [SchoolSearch]() {
         didSet {
             DispatchQueue.main.async {
@@ -22,8 +22,8 @@ class SearchViewController: UIViewController {
             }
         }
     }
-    var shouldShowSearchResults = false
     
+    var shouldShowSearchResults = false
     
     //MARK: - Life Cycle
     
@@ -57,7 +57,6 @@ class SearchViewController: UIViewController {
         searchView.tableView.dataSource = self
         searchView.searchBar.delegate = self
         searchView.tableView.register(SearchTableViewCell.self)
-
     }
     
     func setupNavBar(){
@@ -67,9 +66,7 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = SCColors.scGrayText
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
-    
 }
 
 //MARK: - Search Delegate
@@ -92,9 +89,7 @@ extension SearchViewController: UISearchBarDelegate {
             self.searchView.tableView.separatorStyle = .singleLine
 
             fetchWithSearch(query: strResult)
-            
         }
-
     }
     
     private func fetchWithSearch(query: String) {
@@ -157,7 +152,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
         let selectedSchool = schoolList[indexPath.row]
         
         fetchSelectedSchool(with: selectedSchool.id) { (selectedSchoolData) in
@@ -167,9 +161,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
                 let confirmationVC = ConfirmationViewController(selectedSchool: school)
                 self.show(confirmationVC, sender: nil)
             }
-            
         }
-        
     }
     
 }

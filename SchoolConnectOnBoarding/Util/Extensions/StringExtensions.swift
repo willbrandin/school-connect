@@ -9,6 +9,7 @@
 import Foundation
 
 extension String {
+    
     func removeSpecialCharactersFromText() -> String {
         
         let notAllowedChars: CharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ").inverted
@@ -47,7 +48,6 @@ extension String {
         return passwordTest.evaluate(with: self)
     }
     
-    
     static func formatStringAsPhoneNumber(_ length: Int, _ decimalString: NSString) -> String {
         
         var index = 0 as Int
@@ -79,11 +79,9 @@ extension String {
             return true
         }
     }
-    
 }
 
 extension String: Evaluatable {
-    
     
     func evaluate(with condition: String) -> Bool {
         guard let range = range(of: condition, options: .regularExpression, range: nil, locale: nil) else {
@@ -113,6 +111,7 @@ extension String: Evaluatable {
         }
         return true
     }
+    
     static func isEmailValid(text: String) -> Bool {
         let regexp = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         return text.evaluate(with: regexp)

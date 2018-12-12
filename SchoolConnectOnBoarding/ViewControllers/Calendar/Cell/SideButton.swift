@@ -18,7 +18,6 @@ class CalendarCellSideButtonView: UIView, SchoolColorable {
         schoolSecondaryColor?.setFill()
         ovalPath.fill()
         
-        
         /// Group 2
         /// Bezier Drawing
         let bezierPath = UIBezierPath()
@@ -37,7 +36,6 @@ class CalendarCellSideButtonView: UIView, SchoolColorable {
 
 
 extension Int {
-    
     fileprivate func adjustForSize(size: CGFloat) -> Int {
         return self * Int(size) / 100
     }

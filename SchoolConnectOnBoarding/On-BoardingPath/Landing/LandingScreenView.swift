@@ -11,6 +11,7 @@ import UIKit
 class LandingScreenView: UIView {
 
     //MARK: - Properties
+    
     weak var delegate: LandingPageDelegate?
     
     lazy var schoolConnectTitle: UILabel! = {
@@ -20,7 +21,6 @@ class LandingScreenView: UIView {
         title.textAlignment = .center
         title.text = "School Connect"
         title.translatesAutoresizingMaskIntoConstraints = false
-
         return title
     }()
     
@@ -29,7 +29,6 @@ class LandingScreenView: UIView {
         imageView.image = SCImages.OnBoardingImages.landingPageIcon
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-
         return imageView
     }()
     
@@ -40,7 +39,6 @@ class LandingScreenView: UIView {
         label.textColor = SCColors.scGrayText
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
-
         return label
     }()
     
@@ -51,15 +49,6 @@ class LandingScreenView: UIView {
         label.textColor = SCColors.scGray
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
-        
-//        let paragraphStyle = NSMutableParagraphStyle()
-//        paragraphStyle.lineSpacing = 20
-//
-//        let attrString = NSMutableAttributedString(string: descriptionText)
-//        attrString.addAttribute(.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
-//
-//        label.attributedText = attrString
-
         return label
     }()
     
@@ -100,7 +89,6 @@ class LandingScreenView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
     
     //MARK: - Methods
     

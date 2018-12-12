@@ -11,6 +11,7 @@ import Foundation
 class NewsArticle: Decodable {
     
     //MARK: Properties
+    
     var title: String?
     var subtitle: String?
     //var source: String?
@@ -33,8 +34,7 @@ class NewsArticle: Decodable {
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)
     }
     
-    enum CodingKeys: String, CodingKey
-    {
+    enum CodingKeys: String, CodingKey {
         case title, subtitle, pubDate, imgUrl
         case fullStory = "story"
         case schoolId = "school"
@@ -45,6 +45,7 @@ class NewsArticle: Decodable {
         
         let userDefaults = UserDefaults.standard
         guard let id = userDefaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return }
+        
         let networkManager = NetworkManager.sharedInstance
         let endpoint = SchoolConnectAPI.news(id: id)
         
@@ -57,9 +58,5 @@ class NewsArticle: Decodable {
                 completion([], SCErrors.noFetchedNews)
             }
         }
-        
     }
-    
-    
-    
 }

@@ -14,9 +14,6 @@ class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, CellLoadableView
     static var reuseID = CellReuseIds.homeGreetingCollectionCell.rawValue
     var greetingView: HomeGreetingView!
     
-    //MARK: - UI Elements
-    
-    
     //MARK: - Init
     
     override init(frame: CGRect) {
@@ -28,14 +25,11 @@ class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, CellLoadableView
         
     }
     
-   
-    
     //MARK: - Methods
     func configureCell(){
         setupCardViewConstraints()
         
         greetingView.customizeUI()
-        
     }
     
     func setupCardViewConstraints(){
@@ -49,13 +43,4 @@ class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, CellLoadableView
         
     }
    
-    
 }
-
-
-
-
-
-
-
-

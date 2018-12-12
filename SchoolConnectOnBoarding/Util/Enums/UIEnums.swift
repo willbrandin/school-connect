@@ -16,7 +16,6 @@ enum HomeState {
     case basic
 }
 
-
 enum PageTitles: String {
     case home = "Home"
     case news = "News"

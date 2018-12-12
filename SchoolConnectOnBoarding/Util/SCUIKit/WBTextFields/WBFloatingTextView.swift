@@ -72,7 +72,6 @@ class WBTextView: UITextView, Validatable, CornerRoundable {
     //MARK: - Properties
     var validationType: WBTextValidationType
 
-    
     //MARK: - Init
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -102,7 +101,4 @@ class WBTextView: UITextView, Validatable, CornerRoundable {
         self.textContainerInset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         roundCorners()
     }
-    
-    
-    
 }

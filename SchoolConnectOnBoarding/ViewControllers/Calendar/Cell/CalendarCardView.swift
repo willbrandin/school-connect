@@ -12,7 +12,6 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
     //MARK: - Properties
     var calendarEvent: CalendarEvent?
     
-    
     //MARK: - UI Elements
     
     lazy var titleLabel: UILabel! = {
@@ -64,7 +63,6 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
         return stackView
     }()
     
-    
     //MARK: - Init
     
     func customizeUI(){
@@ -75,14 +73,12 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
             eventDateLabel.text = event.startDate?.stringWithDateFormat(.simpleDate)
             
         }
-        
         roundCorners()
     }
     
     override func layoutSubviews() {
         makeShadow()
     }
-    
     
     //MARK: - Methods
 
@@ -99,8 +95,4 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
         arrowImageView.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         arrowImageView.widthAnchor.constraint(equalTo: arrowImageView.heightAnchor).isActive = true
     }
-
-
-    
 }
-

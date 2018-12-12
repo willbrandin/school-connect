@@ -10,9 +10,6 @@ import UIKit
 
 class HomeGreetingView: UIView, CornerRoundable {
     
-    //MARK: - Properties
-    
-    
     //MARK: - UI Elements
     lazy var welcomeTitleLabel: UILabel! = {
         let label = UILabel()
@@ -42,7 +39,6 @@ class HomeGreetingView: UIView, CornerRoundable {
         return imageView
     }()
     
-    
     //MARK: - StackView
     
     lazy var titleTextStackView: UIStackView! = {
@@ -59,7 +55,6 @@ class HomeGreetingView: UIView, CornerRoundable {
         return stackView
     }()
     
-    
     //MARK: - Init
     //TODO: - Need School Obj.
     func customizeUI(){
@@ -71,10 +66,7 @@ class HomeGreetingView: UIView, CornerRoundable {
     
     override func layoutSubviews() {
         roundCorners()
-
     }
-    
-    
     
     //MARK: - Methods
     
@@ -93,7 +85,6 @@ class HomeGreetingView: UIView, CornerRoundable {
         addSubview(homeHeroImg)
         //1/4th of the calculated height above
         if let cellSuperView = superview {
-            
             let calculatedHeight = cellSuperView.frame.height * 0.25 * 0.25
             homeHeroImg.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
             homeHeroImg.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -105,9 +96,6 @@ class HomeGreetingView: UIView, CornerRoundable {
             homeHeroImg.topAnchor.constraint(equalTo: titleTextStackView.bottomAnchor, constant: 15.0).isActive = true
             homeHeroImg.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         }
-        
-        
     }
     
 }
-

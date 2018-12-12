@@ -53,5 +53,4 @@ class SearchBlankView: UIView {
         searchLabel.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
     }
     
-
 }

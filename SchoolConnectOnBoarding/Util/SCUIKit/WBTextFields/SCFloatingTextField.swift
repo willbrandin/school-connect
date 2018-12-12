@@ -34,7 +34,6 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         
         if withShadow {
             makeShadow()
-            
         }
     }
     
@@ -58,16 +57,3 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

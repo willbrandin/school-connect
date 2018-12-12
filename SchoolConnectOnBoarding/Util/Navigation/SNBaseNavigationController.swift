@@ -21,9 +21,7 @@ class SNBaseNavigationController: UINavigationController, SchoolColorable {
         super.viewDidLoad()
 
         setupNavigationAttributes()
-        // Do any additional setup after loading the view.
     }
-    
     
     //MARK: - Methods
     
@@ -45,6 +43,4 @@ class SNBaseNavigationController: UINavigationController, SchoolColorable {
         self.navigationBar.tintColor = schoolSecondaryColor
     }
 
-
 }
-

@@ -22,9 +22,7 @@ extension UITableView {
         }
         return cell
     }
-    
 }
-
 
 extension UICollectionView {
     

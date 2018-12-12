@@ -17,7 +17,6 @@ class SCHomeLink: Object, Decodable {
     @objc dynamic var linkId: String?
     @objc dynamic var schoolId: String?
     
-    
     //MARK: - Init
     required convenience init(from decoder: Decoder) throws {
         self.init()
@@ -26,15 +25,11 @@ class SCHomeLink: Object, Decodable {
         linkUrl = try values.decodeIfPresent(String.self, forKey: .linkUrl)!
         linkId = try values.decodeIfPresent(String.self, forKey: .linkId)!
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)!
-        
     }
     
-    enum CodingKeys: String, CodingKey
-    {
+    enum CodingKeys: String, CodingKey {
         case title, linkUrl
-        
         case linkId = "_id"
-        
         case schoolId = "school"
     }
     
@@ -45,7 +40,6 @@ class SCHomeLink: Object, Decodable {
     }
     
     override open static func primaryKey() -> String? {
-        
         return "linkId"
     }
     
@@ -70,7 +64,6 @@ class SCHomeLink: Object, Decodable {
                 })
             case .error:
                 completion(false, SCErrors.noSchoolLinks)
-                
             }
         })
     }
@@ -83,7 +76,6 @@ class SCHomeLink: Object, Decodable {
                     return
                 } else {
                     DatabaseManager.saveRealmArray(links, update: false)
-                    
                     completion(true)
                     return
                 }

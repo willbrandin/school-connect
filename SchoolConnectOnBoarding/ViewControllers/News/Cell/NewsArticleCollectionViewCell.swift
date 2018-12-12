@@ -22,7 +22,6 @@ class NewsArticleCollectionViewCell: UICollectionViewCell, CellLoadableView, Sha
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
     
     override func layoutSubviews() {
@@ -49,14 +48,4 @@ class NewsArticleCollectionViewCell: UICollectionViewCell, CellLoadableView, Sha
 
     }
     
-    
-    
-    
 }
-
-
-
-
-
-
-

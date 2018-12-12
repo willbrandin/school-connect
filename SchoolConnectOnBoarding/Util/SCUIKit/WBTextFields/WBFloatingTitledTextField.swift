@@ -66,5 +66,4 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable {
         textInputTitle.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
     
-    
 }

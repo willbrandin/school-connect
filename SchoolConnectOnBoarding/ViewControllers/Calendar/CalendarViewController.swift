@@ -28,7 +28,6 @@ class CalendarViewController: SNBaseViewController {
         // Do any additional setup after loading the view.
     }
 
-    
     //MARK: - Methods
     func setupCalendarView(){
         calendarView = CalendarView()
@@ -55,8 +54,6 @@ class CalendarViewController: SNBaseViewController {
 extension CalendarViewController {
     
     func fetchCalendarEvents(){
-        
-        
         CalendarEvent.fetchEvents { (events, error) in
             if error != nil {
                 DispatchQueue.main.async {
@@ -123,11 +120,3 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-
-
-
-
-
-
-

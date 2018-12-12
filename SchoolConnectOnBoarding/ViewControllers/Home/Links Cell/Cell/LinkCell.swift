@@ -23,19 +23,13 @@ class LinkCell: UITableViewCell {
         return label
     }()
     
-    
-    
     //MARK: - Inits
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     func configureCell(_ homeLink: SCHomeLink?){
@@ -53,5 +47,4 @@ class LinkCell: UITableViewCell {
         linkTitleLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         linkTitleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
-    
 }

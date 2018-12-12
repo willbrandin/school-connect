@@ -10,13 +10,9 @@ import UIKit
 
 class NewsView: UIView {
 
-    
     //MARK: - Properties
     var collectionView: UICollectionView!
 
-    //MARK: - UI Elements
-    
-    
     //MARK: - Init
     func customizeUI() {
         
@@ -35,7 +31,6 @@ class NewsView: UIView {
         
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
         
         collectionView.backgroundColor = UIColor.white
         
