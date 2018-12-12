@@ -11,10 +11,9 @@ import Foundation
 struct NetworkManager {
     
     static let sharedInstance = NetworkManager()
-    
     static let environment: NetworkEnvironment = .staging
-    private let router = Router<SchoolConnectAPI>()
     
+    private let router = Router<SchoolConnectAPI>()
     
     enum NetworkResponse: String {
         case success
@@ -26,12 +25,10 @@ struct NetworkManager {
         case unableToDecode
     }
     
-    
     enum NetworkResponseResult<String> {
         case success
         case failure
     }
-    
     
     fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> NetworkResponseResult<String>{
         switch response.statusCode {
@@ -163,15 +160,3 @@ struct NetworkManager {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
-

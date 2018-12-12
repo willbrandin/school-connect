@@ -8,13 +8,13 @@
 
 import Foundation
 
-
 public enum APIError: Error {
     case requestFailed
     case jsonConversionFailure
     case invalidData
     case responseUnsuccessful
     case jsonParsingFailure
+    
     var localizedDescription: String {
         switch self {
         case .requestFailed: return "Request Failed"
@@ -24,6 +24,7 @@ public enum APIError: Error {
         case .jsonConversionFailure: return "JSON Conversion Failure"
         }
     }
+    
 }
 
 enum NetworkEnvironment {
@@ -57,7 +58,7 @@ extension SchoolConnectAPI: EndPointType {
     }
     
     var baseURL: URL {
-        guard let url = URL(string: environmentBaseURL) else { fatalError("base url could not be config")}
+        guard let url = URL(string: environmentBaseURL) else { fatalError("base url could not be config") }
         return url
     }
     
@@ -101,18 +102,7 @@ extension SchoolConnectAPI: EndPointType {
     }
     
     var headers: HTTPHeaders? {
-        
         return nil
     }
     
-    
 }
-
-
-
-
-
-
-
-
-
