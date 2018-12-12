@@ -51,7 +51,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    fileprivate func configureParameters(bodyParameters: Loopable?, urlParameters: Parameters?, request: inout URLRequest) throws {
+    fileprivate func configureParameters(bodyParameters: PropertyLoopable?, urlParameters: Parameters?, request: inout URLRequest) throws {
         do {
             if let bodyParameters = bodyParameters {
                 let parameters = try bodyParameters.allProperties()

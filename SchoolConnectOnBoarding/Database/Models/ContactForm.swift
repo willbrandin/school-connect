@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ContactForm: Loopable {
+public struct ContactForm: PropertyLoopable {
     
     //MARK: - Properties
     var name: String?
@@ -16,13 +16,12 @@ struct ContactForm: Loopable {
     var phoneNumber: String?
     var message: String?
     
-    
     enum CodingKeys: String, CodingKey {
         case name, email, phoneNumber, message
     }
     
     //MARK: - Init
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var values = encoder.container(keyedBy: CodingKeys.self)
         try values.encode(name, forKey: .name)
         try values.encode(email, forKey: .email)

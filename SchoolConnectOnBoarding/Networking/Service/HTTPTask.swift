@@ -12,8 +12,8 @@ public typealias HTTPHeaders = [String:String]
 
 public enum HTTPTask {
     case request
-    case requestParameters(bodyParameters: Loopable?, urlParameters: Parameters?)
-    case requestParametersAndHeaders(bodyParameters: Loopable?,
+    case requestParameters(bodyParameters: PropertyLoopable?, urlParameters: Parameters?)
+    case requestParametersAndHeaders(bodyParameters: PropertyLoopable?,
         urlParameters: Parameters?,
         additionalHeaders: HTTPHeaders?)
 }

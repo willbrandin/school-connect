@@ -95,6 +95,7 @@
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
 		5E5C635B9A1B21BCA74E5572 /* Pods_SchoolConnectOnBoarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04357D378694E8878B954186 /* Pods_SchoolConnectOnBoarding.framework */; };
 		85B0A6D1F125BFC07351B73E /* Pods_SchoolConnectOnBoardingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */; };
+		D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,7 @@
 		A85DE3813FDEBD6EA3129232 /* Pods-SchoolConnectOnBoardingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoardingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoardingTests/Pods-SchoolConnectOnBoardingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B37DFBC900746CCB19D9EB16 /* Pods-SchoolConnectOnBoardingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoardingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoardingTests/Pods-SchoolConnectOnBoardingTests.release.xcconfig"; sourceTree = "<group>"; };
 		CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolConnectOnBoardingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -369,6 +371,7 @@
 				0335DBD5207BEC7500354815 /* ParameterEncoding.swift */,
 				0335DBD7207BECE400354815 /* URLParameterEncoder.swift */,
 				0335DBD9207BEE1400354815 /* JSONParameterEncoder.swift */,
+				D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */,
 			);
 			path = Encoding;
 			sourceTree = "<group>";
@@ -856,6 +859,7 @@
 				0335DBD6207BEC7500354815 /* ParameterEncoding.swift in Sources */,
 				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
 				03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */,
+				D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
