@@ -9,9 +9,14 @@
 import UIKit
 
 final class ApplicationCoordinator: NavigationFlowCoordinator {
-    
-    deinit {
-        print("Application Coordinator Deinit")
+
+    override func handle(flowEvent: FlowEvent) -> Bool {
+        guard let event = flowEvent as? FlowEventType else { return false }
+        switch event {
+        case .didSelectSchool:
+            createHomeViewController()
+            return true
+        }
     }
     
     override func createMainViewController() -> UIViewController? {

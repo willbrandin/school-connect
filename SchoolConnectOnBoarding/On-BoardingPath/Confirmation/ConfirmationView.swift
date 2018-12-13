@@ -8,11 +8,16 @@
 
 import UIKit
 
+struct ConfirmationUIModel {
+    let name: String?
+    let city: String?
+    let state: String?
+}
+
 class ConfirmationView: UIView {
 
     //MARK: - Properties
-    
-    weak var confirmationDelegate: ConfirmationDelegate?
+    var didTapToConfirmSchool: (() -> Void)?
     
     //MARK: - UI Elements
     
@@ -48,7 +53,9 @@ class ConfirmationView: UIView {
         button.setTitle("Confirm", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()
-        button.addTarget(self, action: #selector(handleConfirmationTap), for: .touchUpInside)
+        button.action {
+            self.didTapToConfirmSchool?()
+        }
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -67,13 +74,13 @@ class ConfirmationView: UIView {
     
     //MARK: - Methods
     
-    func customizeUI(_ school: School){
+    func customizeUI(_ school: ConfirmationUIModel){
         backgroundColor = UIColor.white
         setupButtonConstraints()
         setupImageConstraints()
         setupSchoolInfoStackViewConstraints()
 
-        if let name = school.schoolName, let city = school.schoolCity, let state = school.schoolState {
+        if let name = school.name, let city = school.city, let state = school.state {
             schoolNameLabel.text = name
             schoolCityStateLabel.text = "\(city), \(state)"
         }
@@ -104,7 +111,4 @@ class ConfirmationView: UIView {
         
     }
     
-    @objc func handleConfirmationTap(){
-        self.confirmationDelegate?.didConfirmSchool()
-    }
 }

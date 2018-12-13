@@ -13,3 +13,7 @@ import Foundation
 public protocol FlowEvent {
 
 }
+
+public enum FlowEventType: FlowEvent {
+    case didSelectSchool
+}

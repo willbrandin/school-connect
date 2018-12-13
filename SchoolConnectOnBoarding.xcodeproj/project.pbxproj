@@ -523,8 +523,8 @@
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
-				03930CC62054AB4400128D72 /* Assets.xcassets */,
 				D206980621C2F8A5001545BC /* ApplicationCoordinator.swift */,
+				03930CC62054AB4400128D72 /* Assets.xcassets */,
 			);
 			path = SchoolConnectOnBoarding;
 			sourceTree = "<group>";

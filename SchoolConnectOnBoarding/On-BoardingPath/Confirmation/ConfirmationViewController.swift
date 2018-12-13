@@ -8,16 +8,18 @@
 
 import UIKit
 
-protocol ConfirmationDelegate: class {
-    func didConfirmSchool()
+protocol ConfirmationViewControllerProtocol: Presentable {
+    var didConfirmSchool: (() -> Void)? { get set }
 }
 
-class ConfirmationViewController: SNBaseViewController {
+class ConfirmationViewController: SNBaseViewController, ConfirmationViewControllerProtocol {
 
     //MARK: - Properties
     
     var confirmationView: ConfirmationView!
     var viewModel: ConfirmationViewModelProtocol
+    
+    var didConfirmSchool: (() -> Void)?
     
     init(viewModel: ConfirmationViewModelProtocol) {
         self.viewModel = viewModel
@@ -25,27 +27,44 @@ class ConfirmationViewController: SNBaseViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = PageTitles.confirmation.rawValue
+        self.view.backgroundColor = .white
         setupConfirmationView()
-    }
-    
-    deinit {
-        print("deinit")
+        subscribeToViewModel()
+        viewModel.requestSchoolDetails()
     }
     
     //MARK: - Methods
     
-    func setupConfirmationView(){
+    private func subscribeToViewModel() {
+        viewModel.onNetworkingDidFail = { [weak self] error in
+            DispatchQueue.main.async {
+                self?.present(error.initAlert(), animated: true, completion: nil)
+            }
+        }
+        viewModel.onDidSetSchool = { [weak self] uiModel in
+            DispatchQueue.main.async {
+                self?.confirmationView.customizeUI(uiModel)
+            }
+        }
+        viewModel.onNetworkLoading = { [weak self] in
+            // isLoading
+        }
+    }
+    
+    private func setupConfirmationView(){
         confirmationView = ConfirmationView()
-        confirmationView.customizeUI(selectedSchool)
-        confirmationView.confirmationDelegate = self
+        confirmationView.didTapToConfirmSchool = { [weak self] in
+            self?.didConfirmSchool?()
+        }
         self.view.addSubview(confirmationView)
         
         confirmationView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,64 +72,6 @@ class ConfirmationViewController: SNBaseViewController {
         confirmationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
         confirmationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         confirmationView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-    }
-}
-
-extension ConfirmationViewController: ConfirmationDelegate {
-    
-    func didConfirmSchool() {
-        setUserDefaults()
-        fetchSchoolData()
-    }
-    
-    func setUserDefaults(_ withoutError: Bool = true){
-        let defaults = UserDefaults.standard
-        
-        defaults.set(selectedSchool.schoolId, forKey: UserDefaultKeys.selectedId.rawValue)
-        defaults.set(withoutError, forKey: UserDefaultKeys.schoolChosen.rawValue)
-    }
-    
-    
-    func fetchSchoolData(){
-//        selectedSchool.saveSchoolDetails(update: false) { (completed) in
-//            if completed {
-//                self.fetchSchoolAppConfig()
-//            }
-//        }
-    }
-    
-    func fetchSchoolAppConfig(){
-        SNAppSettings.fetchAppConfigSettings(with: selectedSchool.schoolId, update: false) { (isComplete) in
-            if isComplete {
-                self.getLinksData()
-            }
-        }
-    }
-    
-    func getLinksData(){
-        
-        SCHomeLink.fetchHomeLinks(with: selectedSchool.schoolId, update: false) { (didFinish, err) in
-            if err != nil && !didFinish {
-                
-//                DatabaseManager.removeSchools()
-                self.setUserDefaults(false)
-                
-                DispatchQueue.main.async {
-                    let alert = SCErrors.confirmationError.initAlert()
-                    self.present(alert, animated: true, completion: nil)
-                }
-                
-            } else if didFinish {
-                self.presentHomeView()
-            }
-        }
-    }
-    
-    func presentHomeView(){
-        
-        let tabBarController = SNTabBarController()
-        self.navigationController?.dismiss(animated: true, completion: nil)
-        present(tabBarController, animated: true, completion: nil)
     }
     
 }

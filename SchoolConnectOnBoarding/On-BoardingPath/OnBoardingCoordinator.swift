@@ -12,7 +12,7 @@ final class OnBoardingCoordinator: NavigationFlowCoordinator {
     
     private var splashViewController: LandingViewControllerProtocol?
     private var schoolSearchViewController: SchoolSearchViewControllerProtocol?
-    private var confirmatinViewController: ConfirmationViewController?
+    private var confirmationViewController: ConfirmationViewController?
     
     override func createMainViewController() -> UIViewController? {
         return createSplashViewController()?.toPresent()
@@ -37,6 +37,12 @@ final class OnBoardingCoordinator: NavigationFlowCoordinator {
     }
     
     private func showSchoolConfirmationViewController(with id: String) {
-        
+        let viewModel = ConfirmationViewModel(with: id)
+        confirmationViewController = ConfirmationViewController(viewModel: viewModel)
+        confirmationViewController?.didConfirmSchool = { [weak self] in
+            self?.send(flowEvent: FlowEventType.didSelectSchool)
+        }
+        guard let controller = confirmationViewController?.toPresent() else { return }
+        push(viewController: controller)
     }
 }

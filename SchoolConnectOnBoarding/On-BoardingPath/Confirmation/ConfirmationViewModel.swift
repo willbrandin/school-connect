@@ -9,23 +9,27 @@
 import UIKit
 
 protocol ConfirmationViewModelProtocol {
-    var onDidSetSchool: ((School) -> Void)? { get set }
+    var onDidSetSchool: ((ConfirmationUIModel) -> Void)? { get set }
     var onNetworkLoading: (() -> Void)? { get set }
     var onNetworkingDidFail: ((SCErrors) -> Void)? { get set }
+    
+    func requestSchoolDetails()
 }
 
 class ConfirmationViewModel: ConfirmationViewModelProtocol {
     
     var onNetworkingDidFail: ((SCErrors) -> Void)?
-    var onDidSetSchool: ((School) -> Void)?
+    var onDidSetSchool: ((ConfirmationUIModel) -> Void)?
     var onNetworkLoading: (() -> Void)?
     
     var selectedSchoolId: String
     
     var school: School? {
         didSet {
-            guard let school = school else { return }
-            onDidSetSchool?(school)
+            let uiModel = ConfirmationUIModel(name: school?.schoolName,
+                                              city: school?.schoolCity,
+                                              state: school?.schoolState)
+            onDidSetSchool?(uiModel)
         }
     }
     
@@ -33,7 +37,7 @@ class ConfirmationViewModel: ConfirmationViewModelProtocol {
         self.selectedSchoolId = id
     }
     
-    func getSchoolDetails() {
+    func requestSchoolDetails() {
         fetchDetails { [weak self] result in
             self?.handleSchoolDetailResult(with: result)
         }
