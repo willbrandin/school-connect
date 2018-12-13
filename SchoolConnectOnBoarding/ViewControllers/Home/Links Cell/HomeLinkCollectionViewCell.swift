@@ -48,7 +48,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
     func configureCell(){
         setupTitleConstraints()
         setupTableConstraints()
-        setLinksArrayWithDBData()
+//        setLinksArrayWithDBData()
     }
     
     func setupTableConstraints(){
@@ -81,12 +81,12 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
 //MARK: - Networking
 extension HomeLinkCollectionViewCell {
     
-    //get from database and put in array
-    func setLinksArrayWithDBData(){
-        //SCDataQueManager get links
-        let savedLinks = SCDatabaseQueryManager.getSavedLinks()
-        linksArray = savedLinks
-    }
+//    //get from database and put in array
+//    func setLinksArrayWithDBData(){
+//        //SCDataQueManager get links
+//        let savedLinks = SCDatabaseQueryManager.getSavedLinks()
+//        linksArray = savedLinks
+//    }
     
 }
 

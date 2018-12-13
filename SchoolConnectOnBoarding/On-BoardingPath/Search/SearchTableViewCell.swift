@@ -40,7 +40,7 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
         schoolLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12.0).isActive = true
     }
     
-    func configureCell(_ school: SchoolSearch){
-        schoolLabel.text = school.name
+    func configureCell(_ school: String?){
+        schoolLabel.text = school
     }
 }

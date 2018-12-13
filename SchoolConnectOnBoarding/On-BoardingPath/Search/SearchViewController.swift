@@ -8,11 +8,18 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+protocol SchoolSearchViewControllerProtocol: Presentable {
+    var didSelectSchoolId: ((String) -> Void)? { get set }
+}
+
+class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol {
 
     //MARK - Properties
     
     var searchView: SearchView!
+    var viewModel: SchoolSearchViewModelProtocol
+    
+    var didSelectSchoolId: ((String) -> Void)?
     
     //MARK: - Search Properties
     var schoolList = [SchoolSearch]() {
@@ -25,41 +32,69 @@ class SearchViewController: UIViewController {
     
     var shouldShowSearchResults = false
     
+    init(viewModel: SchoolSearchViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = PageTitles.schoolSearch.rawValue
-        setupNavBar()
+        setupNavigationBar()
         setupLandingView()
         setDelegates()
+        subscribeToViewModel()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         searchView.searchBar.becomeFirstResponder()
     }
     
     //MARK: - Methods
-    func setupLandingView(){
+    private func setupLandingView(){
         searchView = SearchView()
         searchView.customizeUI(shouldShowSearchResults)
         self.view.addSubview(searchView)
         
         searchView.translatesAutoresizingMaskIntoConstraints = false
-        searchView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        searchView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        searchView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        searchView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        searchView.pinToSuperview()
     }
     
-    func setDelegates() {
+    private func subscribeToViewModel() {
+        viewModel.onNetworkingDidFail = { [weak self] error in
+            self?.present(error.initAlert(), animated: true, completion: nil)
+        }
+        
+        viewModel.onDidSetSchools = { [weak self] in
+            DispatchQueue.main.async {
+                self?.searchView.tableView.backgroundView = nil
+                self?.searchView.tableView.separatorStyle = .singleLine
+                self?.searchView.tableView.reloadData()
+            }
+        }
+        
+        viewModel.onDisplayNoSchools = { [weak self] in
+            DispatchQueue.main.async {
+                self?.setEmptyState()
+            }
+        }
+    }
+    
+    private func setDelegates() {
         searchView.tableView.delegate = self
         searchView.tableView.dataSource = self
         searchView.searchBar.delegate = self
         searchView.tableView.register(SearchTableViewCell.self)
     }
     
-    func setupNavBar(){
+    private func setupNavigationBar(){
         let attributes = [NSAttributedStringKey.foregroundColor: SCColors.scGray]
         self.navigationController?.navigationBar.titleTextAttributes = attributes
         self.navigationController?.navigationBar.largeTitleTextAttributes = attributes
@@ -67,63 +102,25 @@ class SearchViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
+    
+    func setEmptyState() {
+        let newView = SearchBlankView()
+        newView.customizeUI()
+        self.searchView.tableView.separatorStyle  = .none
+        self.searchView.tableView.backgroundView = newView
+        self.searchView.tableView.reloadData()
+    }
 }
 
 //MARK: - Search Delegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let str = searchBar.text!
-        if str.count == 0 {
-            shouldShowSearchResults = false
-            self.schoolList.removeAll()
-            let newView = SearchBlankView()
-            newView.customizeUI()
-            self.searchView.tableView.separatorStyle  = .none
-            self.searchView.tableView.backgroundView = newView
-            
-        } else if str.count > 2 {
-            let strResult = str.removeSpecialCharactersFromText()
-            shouldShowSearchResults = true
-            self.searchView.tableView.backgroundView = nil
-            self.searchView.tableView.separatorStyle = .singleLine
-
-            fetchWithSearch(query: strResult)
-        }
+        let searchText = searchBar.text!
+        viewModel.determineFetch(for: searchText)
     }
-    
-    private func fetchWithSearch(query: String) {
-        SchoolSearch.fetchList(with: query, completion: { result in
-            switch result {
-            case .success(let schools):
-                if schools.count == 0 {
-                    self.schoolList.removeAll()
-                } else {
-                    self.schoolList.removeAll()
-                    self.schoolList = schools
-                }
-            case .error:
-                DispatchQueue.main.async {
-                    let alert = SCErrors.fetchError.initAlert()
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        })
-    }
-    
-    private func fetchSelectedSchool(with schoolId: String?, completion: @escaping (School?) -> Void){
-        School.fetchDetails(with: schoolId) { result in
-            switch result {
-            case .success(let school):
-                completion(school)
-            case .error:
-                DispatchQueue.main.async {
-                    let alert = SCErrors.fetchError.initAlert()
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-    }
+//
+//    
     
 }
 
@@ -131,37 +128,23 @@ extension SearchViewController: UISearchBarDelegate {
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if schoolList.count > 0 {
-            return schoolList.count
-        }
-        return 0
+        return viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: SearchTableViewCell = tableView.deqeueReusableCell(for: indexPath)
-        
-        if schoolList.count > 0 {
-            cell.configureCell(schoolList[indexPath.row])
-        }
+        cell.configureCell(viewModel.schoolName(for: indexPath))
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let selectedSchool = schoolList[indexPath.row]
-        
-        fetchSelectedSchool(with: selectedSchool.id) { (selectedSchoolData) in
-            guard let school = selectedSchoolData else { return }
-            
-            DispatchQueue.main.async {
-                let confirmationVC = ConfirmationViewController(selectedSchool: school)
-                self.show(confirmationVC, sender: nil)
-            }
-        }
+        guard let id = viewModel.schoolId(for: indexPath) else { return }
+        didSelectSchoolId?(id)
     }
     
 }

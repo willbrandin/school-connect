@@ -49,15 +49,15 @@ class HomeViewController: SNBaseViewController {
     }
     
     func configureHomeState(){
-        if SCDatabaseQueryManager.savedFeatures().count != 0 && SCDatabaseQueryManager.getSavedLinks().count != 0 {
-            self.homeState = HomeState.premium
-        } else if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.savedFeatures().count > 0 {
-            self.homeState = HomeState.featuresOnly
-        } else if SCDatabaseQueryManager.getSavedLinks().count > 0 && SCDatabaseQueryManager.savedFeatures().count == 0 {
-            self.homeState = HomeState.linksOnly
-        } else {
-            self.homeState = HomeState.basic
-        }
+//        if SCDatabaseQueryManager.savedFeatures().count != 0 && SCDatabaseQueryManager.getSavedLinks().count != 0 {
+//            self.homeState = HomeState.premium
+//        } else if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.savedFeatures().count > 0 {
+//            self.homeState = HomeState.featuresOnly
+//        } else if SCDatabaseQueryManager.getSavedLinks().count > 0 && SCDatabaseQueryManager.savedFeatures().count == 0 {
+//            self.homeState = HomeState.linksOnly
+//        } else {
+//            self.homeState = HomeState.basic
+//        }
     }
     
 }
@@ -104,14 +104,14 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
             cell.configureCell()
             return cell
             
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue && SCDatabaseQueryManager.savedFeatures().count != 0 {
+        } else if indexPath.row == HomeCellIndex.featureCell.rawValue { //&& SCDatabaseQueryManager.savedFeatures().count != 0 {
             
             let cell: HomeFeatureCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
             cell.featureCellDelegate = self
             return cell
             
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue || SCDatabaseQueryManager.getSavedLinks().count != 0 {
+        } else if indexPath.row == HomeCellIndex.linksCell.rawValue { //|| SCDatabaseQueryManager.getSavedLinks().count != 0 {
             
             let cell: HomeLinkCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             
@@ -129,12 +129,12 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         if indexPath.row == HomeCellIndex.greeting.rawValue {
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.6)
 
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue && SCDatabaseQueryManager.savedFeatures().count != 0 {
+        } else if indexPath.row == HomeCellIndex.featureCell.rawValue { //&& SCDatabaseQueryManager.savedFeatures().count != 0 {
             
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
 
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue || SCDatabaseQueryManager.getSavedLinks().count != 0 {
-            if SCDatabaseQueryManager.getSavedLinks().count > 3 {
+        } else if indexPath.row == HomeCellIndex.linksCell.rawValue { //|| SCDatabaseQueryManager.getSavedLinks().count != 0 {
+            if 1 > 2 {//SCDatabaseQueryManager.getSavedLinks().count > 3 {
                 return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.44)
             }
             return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
@@ -142,13 +142,11 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
             if indexPath.row == HomeCellIndex.greeting.rawValue {
                 if let cell = collectionView.cellForItem(at: indexPath) {
                     cell.transform = .init(scaleX: 0.95, y: 0.95)
-                    
                 }
             }
         }

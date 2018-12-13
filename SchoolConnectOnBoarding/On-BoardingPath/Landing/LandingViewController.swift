@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol LandingPageDelegate: class {
-    func didTapContinue()
+protocol LandingViewControllerProtocol: Presentable {
+    var didTapToContinue: (() -> Void)? { get set }
 }
 
-class LandingViewController: UIViewController {
+class LandingViewController: UIViewController, LandingViewControllerProtocol {
 
     //MARK - Properties
     var landingView: LandingScreenView!
+    var didTapToContinue: (() -> Void)?
+    
     //MARK: - Life Cycle
     
     override func viewDidLoad() {
@@ -33,23 +35,13 @@ class LandingViewController: UIViewController {
     //MARK: - Methods
     func setupLandingView(){
         landingView = LandingScreenView()
+        landingView.didTapToContinue = { [weak self] in
+            self?.didTapToContinue?()
+        }
         landingView.customizeUI()
-        landingView.delegate = self
         self.view.addSubview(landingView)
         
         landingView.translatesAutoresizingMaskIntoConstraints = false
-        landingView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        landingView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        landingView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        landingView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        landingView.pinToSuperview()
     }
-}
-
-extension LandingViewController: LandingPageDelegate {
-    
-    func didTapContinue() {
-        let searchVC = SearchViewController()
-        show(searchVC, sender: nil)
-    }
-    
 }

@@ -12,7 +12,7 @@ class LandingScreenView: UIView {
 
     //MARK: - Properties
     
-    weak var delegate: LandingPageDelegate?
+    var didTapToContinue: (() -> Void)?
     
     lazy var schoolConnectTitle: UILabel! = {
         let title = UILabel()
@@ -58,7 +58,9 @@ class LandingScreenView: UIView {
         button.setTitle("Continue", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.formatBoldButtonTitle()
-        button.addTarget(self, action: #selector(handleButtonTap), for: .touchUpInside)
+        button.action { [weak self] in
+            self?.didTapToContinue?()
+        }
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
         
@@ -129,10 +131,6 @@ class LandingScreenView: UIView {
         continueButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30.0).isActive = true
         
-    }
-    
-    @objc func handleButtonTap(){
-        self.delegate?.didTapContinue()
     }
     
 }

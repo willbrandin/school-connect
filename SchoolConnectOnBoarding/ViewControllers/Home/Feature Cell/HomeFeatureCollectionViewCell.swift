@@ -48,7 +48,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
     }
     
     func setArrayValue(){
-        featureArray = SCDatabaseQueryManager.savedFeatures() as! [String]
+//        featureArray = SCDatabaseQueryManager.savedFeatures() as! [String]
     }
     
     func setupCollectionViewConstraints(){

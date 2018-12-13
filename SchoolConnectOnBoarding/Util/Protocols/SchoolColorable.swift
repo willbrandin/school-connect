@@ -18,10 +18,12 @@ protocol SchoolColorable {
 extension SchoolColorable {
     
     var schoolPrimaryColor: UIColor? {
-        return SCDatabaseQueryManager.getSavedPrimaryColor()
+//        return SCDatabaseQueryManager.getSavedPrimaryColor()
+        return .green
     }
     
     var schoolSecondaryColor: UIColor? {
-        return SCDatabaseQueryManager.getSavedSecondaryColor()
+//        return SCDatabaseQueryManager.getSavedSecondaryColor()
+        return .green
     }
 }

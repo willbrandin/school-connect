@@ -7,7 +7,6 @@ target 'SchoolConnectOnBoarding' do
 
   # Pods for SchoolConnectOnBoarding
    
-  pod 'RealmSwift'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher', '~> 4.0'
 

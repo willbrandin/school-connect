@@ -41,8 +41,7 @@ class SNTabBarController: UITabBarController {
     }
     
     func mapViewControllersAndAddNavigation(){
-        viewControllers = addViewControllers().map({ SNBaseNavigationController(rootViewController: $0) })
-        
+        viewControllers = addViewControllers().map { SNBaseNavigationController(rootViewController: $0) }
         setColors()
     }
 

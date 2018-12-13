@@ -7,26 +7,14 @@
 //
 
 import Foundation
-import RealmSwift
 
-class School: RealmSwift.Object, Codable {
+class School: Codable {
     
     //MARK: - Properties
-    @objc dynamic var schoolName: String?
-    @objc dynamic var schoolId: String?
-    @objc dynamic var schoolCity: String?
-    @objc dynamic var schoolState: String?
-    
-    
-    //MARK: - Init
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        schoolName = try values.decodeIfPresent(String.self, forKey: .schoolName)
-        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)
-        schoolCity = try values.decodeIfPresent(String.self, forKey: .schoolCity)
-        schoolState = try values.decodeIfPresent(String.self, forKey: .schoolState)
-    }
+    let schoolName: String?
+    let schoolId: String?
+    let schoolCity: String?
+    let schoolState: String?
     
     enum CodingKeys: String, CodingKey {
         case schoolCity = "city"
@@ -34,51 +22,5 @@ class School: RealmSwift.Object, Codable {
         case schoolName = "name"
         case schoolId = "school"
     }
-    
-    override public static func primaryKey() -> String? {
-        //TODO: Replace with enum raw value.
-        return "schoolId"
-    }
 
-    //MARK: - Methods
-
-    static func fetchDetails(with schoolId: String?, completion: @escaping (Result<School, Error>)->Void) {
-        guard let id = schoolId else {
-            completion(Result.error(SCErrors.noSchoolId))
-            return
-        }
-        
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.schoolDetails(id: id)
-        
-        networkManager.request(for: endpoint, School.self, completion: {result in
-            switch result {
-            case .success(let school):
-                guard let returnedSchool = school as? School else {
-                    completion(.error(SCErrors.fetchError))
-                    return
-                }
-                completion(Result.success(returnedSchool))
-            case .error(let error):
-                completion(Result.error(error))
-            }
-        })
-    }
-    
-    func saveSchoolDetails(update: Bool, completion: @escaping (Bool) -> Void = {_ in } ){
-        DispatchQueue.main.async {
-            autoreleasepool {
-                if update {
-                    DatabaseManager.save(self)
-                    completion(true)
-                } else {
-                    let realm = try! Realm()
-                    try! realm.write {
-                        realm.add(self)
-                        completion(true)
-                    }
-                }
-            }
-        }
-    }
 }

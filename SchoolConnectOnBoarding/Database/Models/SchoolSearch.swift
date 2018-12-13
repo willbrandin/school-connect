@@ -26,26 +26,4 @@ class SchoolSearch: Codable {
         case name
         case id = "_id"
     }
-    
-    //MARK: - Methods
-    static func fetchList(with searchQuery: String?, completion: @escaping (Result<[SchoolSearch], Error?>)->Void){
-        guard let query = searchQuery else {
-            completion(Result.error(SCErrors.noSchoolId))
-            return
-        }
-        
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.schoolSearch(search: query)
-        
-        networkManager.requestWithListResponse(for: endpoint, [SchoolSearch].self) { result in
-            switch result {
-            case .success(let schools):
-                let returnedSchools = schools as! [SchoolSearch]
-                completion(Result.success(returnedSchools))
-            case .error(let err):
-                completion(Result.error(err))
-            }
-        }
-    }
-    
 }

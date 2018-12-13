@@ -17,7 +17,16 @@ class ConfirmationViewController: SNBaseViewController {
     //MARK: - Properties
     
     var confirmationView: ConfirmationView!
-    private let selectedSchool: School!
+    var viewModel: ConfirmationViewModelProtocol
+    
+    init(viewModel: ConfirmationViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     //MARK: - Life Cycle
     
@@ -25,15 +34,6 @@ class ConfirmationViewController: SNBaseViewController {
         super.viewDidLoad()
         self.title = PageTitles.confirmation.rawValue
         setupConfirmationView()
-    }
-    
-    init(selectedSchool: School) {
-        self.selectedSchool = selectedSchool
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     deinit {
@@ -72,11 +72,11 @@ extension ConfirmationViewController: ConfirmationDelegate {
     
     
     func fetchSchoolData(){
-        selectedSchool.saveSchoolDetails(update: false) { (completed) in
-            if completed {
-                self.fetchSchoolAppConfig()
-            }
-        }
+//        selectedSchool.saveSchoolDetails(update: false) { (completed) in
+//            if completed {
+//                self.fetchSchoolAppConfig()
+//            }
+//        }
     }
     
     func fetchSchoolAppConfig(){
@@ -92,7 +92,7 @@ extension ConfirmationViewController: ConfirmationDelegate {
         SCHomeLink.fetchHomeLinks(with: selectedSchool.schoolId, update: false) { (didFinish, err) in
             if err != nil && !didFinish {
                 
-                DatabaseManager.removeSchools()
+//                DatabaseManager.removeSchools()
                 self.setUserDefaults(false)
                 
                 DispatchQueue.main.async {
