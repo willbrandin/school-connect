@@ -8,6 +8,9 @@
 
 import Foundation
 
+typealias NetworkManagerCompletionHandler = (Result<Codable?, APIError>) -> Void
+typealias NetworkManagerListCompletionHandler = (Result<[Codable]?, APIError>) -> Void
+
 struct NetworkManager {
     
     static let sharedInstance = NetworkManager()
@@ -38,17 +41,17 @@ struct NetworkManager {
     }
     
     /**
-     Submits a GET request for the specified endpoint provided.
-     Request should send back a JSON object which can be decoded to the decodingType provided.
+     Submits a request for the specified `Endpoint` provided.
+     Request should send back a JSON object which can be decoded to the Codable` type provided.
      - important:
-     DecodingType must conform to Decodable
+     DecodingType must conform to Codable
      
      - parameters:
         - apiEndpoint: Endpoint of the request.
-        - decodingType: The type to decode. ie. School or SCHomeLink
+        - decodingType: The type to decode. ie. `School` or `SCHomeLink`
         - completion: The Result enum allows for a switch statement to be used when the method is called.
      */
-    func request<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping(Result<Codable?, APIError>) ->()){
+    func request<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping NetworkManagerCompletionHandler){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
             if error != nil {
@@ -79,18 +82,19 @@ struct NetworkManager {
             
         }
     }
+    
     /**
-     Submits a GET request for the specified endpoint provided.
-     Request should send back a list of JSON objects which can be decoded to the decodingType provided.
+     Submits a request for the specified `Endpoint` provided.
+     Request should send back a list of JSON objects which can be decoded to the `Codable` type provided.
      - important:
-     DecodingType must be [Decodable]
+     DecodingType must be [Codable]
      
      - parameters:
         - apiEndpoint: Endpoint of the request.
         - decodingType: The type to decode. ie. School or SCHomeLink
         - completion: The Result enum allows for a switch statement to be used when the method is called.
     */
-    func requestWithListResponse<T:Decodable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping(Result<[Decodable]?, APIError>) ->()){
+    func requestWithListResponse<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping NetworkManagerListCompletionHandler){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
             if error != nil {

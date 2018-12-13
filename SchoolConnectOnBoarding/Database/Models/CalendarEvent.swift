@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CalendarEvent: Decodable {
+class CalendarEvent: Codable {
     
     //MARK: Properties
     var title: String?
@@ -29,14 +29,10 @@ class CalendarEvent: Decodable {
         schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)
     }
     
-    enum CodingKeys: String, CodingKey
-    {
+    enum CodingKeys: String, CodingKey {
         case title, startDate, description, location
-        
         case schoolId = "school"
     }
-    
-    
     
     //MARK: Methods
     
@@ -58,6 +54,5 @@ class CalendarEvent: Decodable {
         }
         
     }
-    
     
 }

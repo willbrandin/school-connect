@@ -54,7 +54,10 @@ class School: RealmSwift.Object, Codable {
         networkManager.request(for: endpoint, School.self, completion: {result in
             switch result {
             case .success(let school):
-                let returnedSchool = school as! School
+                guard let returnedSchool = school as? School else {
+                    completion(.error(SCErrors.fetchError))
+                    return
+                }
                 completion(Result.success(returnedSchool))
             case .error(let error):
                 completion(Result.error(error))

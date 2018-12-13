@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SchoolSearch: Decodable {
+class SchoolSearch: Codable {
     
     //MARK: - Properties
     var name: String?

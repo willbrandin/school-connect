@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NewsArticle: Decodable {
+class NewsArticle: Codable {
     
     //MARK: Properties
     
