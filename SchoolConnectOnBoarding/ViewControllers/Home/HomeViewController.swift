@@ -114,9 +114,7 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue { //|| SCDatabaseQueryManager.getSavedLinks().count != 0 {
             
             let cell: HomeLinkCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
-            
             cell.configureCell()
-        
             return cell
             
         }

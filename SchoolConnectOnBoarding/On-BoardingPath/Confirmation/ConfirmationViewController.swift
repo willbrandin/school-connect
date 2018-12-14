@@ -50,11 +50,13 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
                 self?.present(error.initAlert(), animated: true, completion: nil)
             }
         }
+        
         viewModel.onDidSetSchool = { [weak self] uiModel in
             DispatchQueue.main.async {
                 self?.confirmationView.customizeUI(uiModel)
             }
         }
+        
         viewModel.onNetworkLoading = { [weak self] in
             // isLoading
         }
@@ -62,9 +64,11 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
     
     private func setupConfirmationView(){
         confirmationView = ConfirmationView()
+        
         confirmationView.didTapToConfirmSchool = { [weak self] in
             self?.didConfirmSchool?()
         }
+        
         self.view.addSubview(confirmationView)
         
         confirmationView.translatesAutoresizingMaskIntoConstraints = false

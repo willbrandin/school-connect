@@ -39,6 +39,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
     }
     
     //MARK: - Methods
+    
     func configureCell(){
         setArrayValue()
         setupTitleConstraints()
@@ -89,7 +90,6 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
 extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //number of features
         return featureArray.count
     }
     
@@ -105,7 +105,7 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedFeature = featureArray[indexPath.row] //string
+        let selectedFeature = featureArray[indexPath.row]
         let enumCase = HomeFeature(rawValue: selectedFeature)
         featureCellDelegate?.didTapFeature(enumCase)
     }

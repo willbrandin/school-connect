@@ -18,6 +18,7 @@ extension UIView {
         animation.duration = duration
         layer.add(animation, forKey: kCATransitionFade)
     }
+    
 }
 
 extension UIAlertController {
@@ -30,4 +31,5 @@ extension UIAlertController {
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
         self.addAction(action)
     }
+    
 }

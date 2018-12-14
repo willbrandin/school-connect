@@ -9,10 +9,12 @@
 import UIKit
 
 protocol ConfirmationViewModelProtocol {
+    // MARK: - Closures
     var onDidSetSchool: ((ConfirmationUIModel) -> Void)? { get set }
     var onNetworkLoading: (() -> Void)? { get set }
     var onNetworkingDidFail: ((SCErrors) -> Void)? { get set }
     
+    // MARK: - Methods
     func requestSchoolDetails()
 }
 
