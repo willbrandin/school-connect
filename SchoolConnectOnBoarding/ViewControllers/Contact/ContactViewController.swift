@@ -27,6 +27,7 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
     //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = PageTitles.contact.rawValue
         
         setupContactView()
@@ -39,6 +40,7 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
         contactScreenView = ContactView()
         contactScreenView.customizeUI()
         contactScreenView.formDelegate = self
+        contactScreenView.backgroundColor = .white
         self.view.addSubview(contactScreenView)
         
         contactScreenView.translatesAutoresizingMaskIntoConstraints = false
@@ -110,11 +112,9 @@ extension ContactViewController: UITextViewDelegate {
     }
 
     func textViewDidEndEditing(_ textView: UITextView) {
-        
         if textView == contactScreenView.messageTextTitleView.floatingTextView {
             contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: false)
         }
-
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

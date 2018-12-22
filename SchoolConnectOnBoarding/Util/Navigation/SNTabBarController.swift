@@ -42,8 +42,8 @@ class SNTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapViewControllersAndAddNavigation()
         
+        mapViewControllersAndAddNavigation()
     }
 
     private func addViewControllers() -> [UIViewController] {
@@ -57,7 +57,7 @@ class SNTabBarController: UITabBarController {
         return [homeView, newsView, calendarView, contactView]
     }
     
-    func mapViewControllersAndAddNavigation(){
+    private func mapViewControllersAndAddNavigation(){
         viewControllers = addViewControllers().enumerated().map { index, viewController in
             viewController.tabBarItem = UITabBarItem(title: SNTabBarOption.allCases[index].title,
                                          image: SNTabBarOption.allCases[index].icon,
