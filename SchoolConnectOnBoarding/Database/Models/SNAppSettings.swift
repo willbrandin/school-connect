@@ -26,27 +26,5 @@ class SNAppSettings: Codable {
         case schoolId = "school"
         case settingsId = "_id"
     }
-    
-    //MARK: - Methods
-    
-    static func fetchAppConfigSettings(with schoolId: String?, update: Bool = true, completion: @escaping (Bool)->Void = {_ in } ) {
-        guard let id = schoolId else {
-            completion(false)
-            return
-        }
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.configSettings(id: id)
-        
-        networkManager.request(for: endpoint, SNAppSettings.self, completion: {result in
-            switch result {
-            case .success(let settings):
-                let returnedSettings = settings as! SNAppSettings
-                
-//                returnedSettings.saveConfigSettings(update: update, completion: completion)
-            case .error:
-                completion(false)
-            }
-        })
-    }
-    
+
 }

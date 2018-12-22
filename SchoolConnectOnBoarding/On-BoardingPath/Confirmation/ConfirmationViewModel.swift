@@ -14,6 +14,9 @@ protocol ConfirmationViewModelProtocol {
     var onNetworkLoading: (() -> Void)? { get set }
     var onNetworkingDidFail: ((SCErrors) -> Void)? { get set }
     
+    // MARK: - Properties
+    var schoolId: String? { get }
+    
     // MARK: - Methods
     func requestSchoolDetails()
 }
@@ -33,6 +36,10 @@ class ConfirmationViewModel: ConfirmationViewModelProtocol {
                                               state: school?.schoolState)
             onDidSetSchool?(uiModel)
         }
+    }
+    
+    var schoolId: String? {
+        return selectedSchoolId
     }
     
     init(with id: String) {

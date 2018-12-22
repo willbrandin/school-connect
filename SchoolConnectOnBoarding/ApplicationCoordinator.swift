@@ -33,8 +33,8 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     }
     
     private func createHomeViewController() {
-        let tabBarController = SNTabBarController()
-        pushAndMakeRoot(viewController: tabBarController)
+        navigationController.navigationBar.isHidden = true
+        push(viewController: SNTabBarController())
     }
     
     private func createOnBoardingFlow() {

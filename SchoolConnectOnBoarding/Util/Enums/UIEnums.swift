@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-enum HomeState {
-    case premium
-    case linksOnly
-    case featuresOnly
-    case basic
-}
-
 enum PageTitles: String {
     case home = "Home"
     case news = "News"

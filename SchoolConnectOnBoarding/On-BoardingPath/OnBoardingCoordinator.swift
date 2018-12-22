@@ -39,7 +39,8 @@ final class OnBoardingCoordinator: NavigationFlowCoordinator {
     private func showSchoolConfirmationViewController(with id: String) {
         let viewModel = ConfirmationViewModel(with: id)
         confirmationViewController = ConfirmationViewController(viewModel: viewModel)
-        confirmationViewController?.didConfirmSchool = { [weak self] in
+        confirmationViewController?.didConfirmSchool = { [weak self] id in
+            UserDefaultsManager.selectedUserSchoolId = id
             self?.send(flowEvent: FlowEventType.didSelectSchool)
         }
         guard let controller = confirmationViewController?.toPresent() else { return }

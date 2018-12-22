@@ -8,14 +8,21 @@
 
 import UIKit
 
+protocol ContactViewControllerProtocol: Presentable {
+    var didSubmitForm: (() -> Void)? { get set }
+}
+
 protocol ContactFormDelegate: class {
     func didTapSubmit()
 }
 
-class ContactViewController: SNBaseViewController {
+class ContactViewController: SNBaseViewController, ContactViewControllerProtocol {
     
     //MARK: - Properties
     var contactScreenView: ContactView!
+    
+    // MARK: - ContactViewControllerProtocol
+    var didSubmitForm: (() -> Void)?
     
     //MARK: - Init
     override func viewDidLoad() {

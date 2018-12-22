@@ -23,33 +23,5 @@ class SCHomeLink: Codable {
         case linkId = "_id"
         case schoolId = "school"
     }
-    
-    //MARK: - Methods
-    
-    static func fetchHomeLinks(with schoolId: String?, update: Bool = true, completion: @escaping (Bool, SCErrors?) -> Void = {_,_  in } ){
-        guard let id = schoolId else {
-            completion(false, SCErrors.noSchoolId)
-            return
-        }
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.homeLinks(id: id)
-        
-        networkManager.requestWithListResponse(for: endpoint, [SCHomeLink].self) { result in
-            switch result {
-            case .success(let links):
-                guard let returnedLinks = links as? [SCHomeLink] else {
-                    completion(false, SCErrors.noSchoolLinks)
-                    return
-                }
-//                saveLinksData(links: returnedLinks, update: update) { isComplete in
-//                    if isComplete {
-//                        completion(true, nil)
-//                    }
-//                }
-            case .error:
-                completion(false, SCErrors.noSchoolLinks)
-            }
-        }
-    }
-    
+
 }

@@ -8,11 +8,17 @@
 
 import UIKit
 
-class NewsViewController: SNBaseViewController {
+protocol NewsViewControllerProtocol: Presentable {
+    var didSelectNewsItem: ((NewsArticle?) -> Void)? { get set }
+}
+
+class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
     
     //MARK: - Properties
     var newsView: NewsView!
     var newsArray = [NewsArticle]()
+    
+    var didSelectNewsItem: ((NewsArticle?) -> Void)?
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -112,8 +118,9 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedArticle = newsArray[indexPath.row]
-        let selectedArticleVC = SelectedNewsArticleViewController(selectedArticle: selectedArticle)
-        self.present(selectedArticleVC, animated: true, completion: nil)
+        didSelectNewsItem?(selectedArticle)
+//        let selectedArticleVC = SelectedNewsArticleViewController(selectedArticle: selectedArticle)
+//        self.present(selectedArticleVC, animated: true, completion: nil)
         
 //        show(selectedArticleVC, sender: nil)
     }

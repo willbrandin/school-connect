@@ -109,6 +109,8 @@
 		D206981221C3029A001545BC /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981121C3029A001545BC /* UIButtonExtension.swift */; };
 		D206981521C30894001545BC /* SchoolSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981421C30894001545BC /* SchoolSearchViewModel.swift */; };
 		D206981721C314E5001545BC /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981621C314E5001545BC /* ConfirmationViewModel.swift */; };
+		D206981921C3F6FA001545BC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981821C3F6FA001545BC /* HomeViewModel.swift */; };
+		D206981C21C3F79A001545BC /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981B21C3F79A001545BC /* HomeState.swift */; };
 		D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +234,8 @@
 		D206981121C3029A001545BC /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D206981421C30894001545BC /* SchoolSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewModel.swift; sourceTree = "<group>"; };
 		D206981621C314E5001545BC /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
+		D206981821C3F6FA001545BC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D206981B21C3F79A001545BC /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -574,11 +578,13 @@
 		03930CE52054ACD300128D72 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				D206981A21C3F78D001545BC /* Enums */,
 				032685BB205DAD9100905EB3 /* Greeting Cell */,
 				032685BC205DADA400905EB3 /* Feature Cell */,
 				032685BD205DADAD00905EB3 /* Links Cell */,
 				0312E67D205855E0009327F3 /* HomeViewController.swift */,
 				032685B9205C94E700905EB3 /* HomeView.swift */,
+				D206981821C3F6FA001545BC /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -638,7 +644,6 @@
 			isa = PBXGroup;
 			children = (
 				0312E673205833B5009327F3 /* SCEnums.swift */,
-				03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */,
 				03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */,
 				03C4A493207FF84200A0A2FF /* UIEnums.swift */,
 				03C4A49E208006D700A0A2FF /* SCErrors.swift */,
@@ -691,6 +696,15 @@
 				D206980F21C300B2001545BC /* Presentable.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		D206981A21C3F78D001545BC /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				03C4A48F207FF7E000A0A2FF /* HomeEnums.swift */,
+				D206981B21C3F79A001545BC /* HomeState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -885,6 +899,7 @@
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
 				0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */,
+				D206981C21C3F79A001545BC /* HomeState.swift in Sources */,
 				D206980721C2F8A5001545BC /* ApplicationCoordinator.swift in Sources */,
 				0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */,
 				D206980221C2F860001545BC /* Coordinator.swift in Sources */,
@@ -896,6 +911,7 @@
 				032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */,
 				03D4BB4520877D7D00213A24 /* SCColors.swift in Sources */,
 				035EBD6A2077B96800FBA250 /* TableAndCollectionViewExtensions.swift in Sources */,
+				D206981921C3F6FA001545BC /* HomeViewModel.swift in Sources */,
 				0335DBDE207BEF0E00354815 /* Router.swift in Sources */,
 				03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */,
 				0335DBD0207BEB4600354815 /* Endpoint.swift in Sources */,

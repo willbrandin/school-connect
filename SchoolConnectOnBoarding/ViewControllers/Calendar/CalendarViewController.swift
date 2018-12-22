@@ -8,11 +8,18 @@
 
 import UIKit
 
-class CalendarViewController: SNBaseViewController {
+protocol CalendarViewControllerProtocol: Presentable {
+    var didSelectItem: (() -> Void)? { get set }
+}
+
+class CalendarViewController: SNBaseViewController, CalendarViewControllerProtocol {
 
     //MARK: - Properties
     var calendarView: CalendarView!
     var calendarArray = [CalendarEvent]()
+    
+    // MARK: - CalendarViewControllerProtocol
+    var didSelectItem: (() -> Void)?
     
     //MARK: - View Life cycle
     override func viewDidLoad() {
