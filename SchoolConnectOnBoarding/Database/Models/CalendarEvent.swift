@@ -46,7 +46,7 @@ class CalendarEvent: Codable {
         networkManager.requestWithListResponse(for: endpoint, [CalendarEvent].self) { (result) in
             switch result {
             case .success(let events):
-                let returnedEvents = events as! [CalendarEvent]
+                let returnedEvents = events
                 completion(returnedEvents, nil)
             case .error:
                 completion([], SCErrors.noFetchedEvents)

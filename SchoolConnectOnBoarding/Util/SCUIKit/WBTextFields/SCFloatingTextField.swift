@@ -19,9 +19,9 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     }
     
     required init(type: WBTextValidationType, withShadow: Bool = true) {
-        
         self.validationType = type
         super.init(frame: .zero)
+        
         formatTextField()
         customizeUI(withShadow)
     }
@@ -38,7 +38,6 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
     }
     
     private func formatTextField(){
-        
         self.placeholder = self.validationType.rawValue
         self.borderStyle = .none
         self.backgroundColor = UIColor.white
@@ -47,7 +46,6 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         self.contentVerticalAlignment = .center
         self.font = SCFont.textFieldPlaceholder
         self.textColor = UIColor.black
-
     }
     
     private func addSpacer(){

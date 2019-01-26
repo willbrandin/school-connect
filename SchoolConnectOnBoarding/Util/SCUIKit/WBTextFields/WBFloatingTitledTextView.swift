@@ -13,13 +13,25 @@ import UIKit
  During init, a validation type is provided.
  TextView placeholder text is provided by the validation RawValue.
  */
-class WBFloatingTitledTextView: UIView, TextInputTitleable {
+class WBFloatingTitledTextView: UIView, TextInputTitleable, WBTextFieldBindable {
     
     //MARK: - Properties
+    
+    var onTextChanged: ((String) -> Void)?
+    
     private var validationType: WBTextValidationType!
     ///For convenience. A reference to the text view inside of the WBFloatingTextView
     ///Prevents *.textView.textView* over and over again
     var floatingTextView: WBTextView?
+    
+    var text: String? {
+        get {
+            return textView.floatingTextView.text
+        }
+        set {
+            textView.floatingTextView.text = text
+        }
+    }
     
     //MARK: - UI Elements
     lazy var textInputTitle: UILabel! = {
@@ -74,4 +86,5 @@ class WBFloatingTitledTextView: UIView, TextInputTitleable {
         textView.heightAnchor.constraint(equalToConstant: 250.0).isActive = true
         textInputTitle.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
     }
+  
 }

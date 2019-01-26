@@ -69,11 +69,7 @@ class ConfirmationViewModel: ConfirmationViewModelProtocol {
         networkManager.request(for: endpoint, School.self) { result in
             switch result {
             case .success(let school):
-                guard let returnedSchool = school as? School else {
-                    completion(.error(SCErrors.fetchError))
-                    return
-                }
-                completion(.success(returnedSchool))
+                completion(.success(school))
             case .error(let error):
                 completion(.error(error))
             }

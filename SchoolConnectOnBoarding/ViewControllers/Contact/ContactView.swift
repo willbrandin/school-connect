@@ -8,9 +8,19 @@
 
 import UIKit
 
-class ContactView: UIView {
+protocol ContactViewProtocol: class {
+    var onNameFieldChanged: ((String) -> Void)? { get set }
+    var onEmailFieldChanged: ((String) -> Void)? { get set }
+    var onPhoneNumberFieldChanged: ((String) -> Void)? { get set }
+}
+
+class ContactView: UIView, ContactViewProtocol {
 
     //MARK: - Properties
+    var onNameFieldChanged: ((String) -> Void)?
+    var onEmailFieldChanged: ((String) -> Void)?
+    var onPhoneNumberFieldChanged: ((String) -> Void)?
+    
     weak var formDelegate: ContactFormDelegate?
     var inputs = [WBFloatingTitledTextField?]()
     
@@ -29,6 +39,7 @@ class ContactView: UIView {
     //Name Field
     lazy var nameTextTitleView: WBFloatingTitledTextField! = {
         let field = WBFloatingTitledTextField(type: .name)
+        field.onTextChanged = onNameFieldChanged
         field.textField.returnKeyType = .next
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
@@ -39,7 +50,7 @@ class ContactView: UIView {
         let field = WBFloatingTitledTextField(type: .email)
         field.textField.keyboardType = .emailAddress
         field.textField.returnKeyType = .next
-
+        field.onTextChanged = onEmailFieldChanged
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -49,7 +60,7 @@ class ContactView: UIView {
         let field = WBFloatingTitledTextField(type: .phoneNumber)
         field.textField.keyboardType = .numberPad
         field.textField.returnKeyType = .next
-
+        field.onTextChanged = onPhoneNumberFieldChanged
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -130,17 +141,15 @@ class ContactView: UIView {
     }
     
     func setupButtonContainerConstraints() {
-    
         buttonContainerStackView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
         submitButton.heightAnchor.constraint(equalTo: buttonContainerStackView.heightAnchor, multiplier: 0.5).isActive = true
-        
     }
     
     func setupInputConstraints() {
         let inputArray = [nameTextTitleView, emailTextTitleView, phoneTextTitleView]
         inputs = inputArray
+        
         for input in inputArray {
-            
             input?.widthAnchor.constraint(equalTo: mainStackView.widthAnchor).isActive = true
             input?.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
             input?.heightAnchor.constraint(equalToConstant: 90.0).isActive = true
@@ -150,8 +159,6 @@ class ContactView: UIView {
         messageTextTitleView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         messageTextTitleView.heightAnchor.constraint(equalToConstant: 260.0).isActive = true
     }
- 
-    
     
     @objc func handleSubmitButtonTap(){
         self.formDelegate?.didTapSubmit()

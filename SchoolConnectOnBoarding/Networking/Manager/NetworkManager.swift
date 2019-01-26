@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias NetworkManagerCompletionHandler = (Result<Codable?, APIError>) -> Void
+typealias NetworkManagerCompletionHandler<T> = (Result<T?, APIError>) -> Void
 typealias NetworkManagerListCompletionHandler = (Result<[Codable]?, APIError>) -> Void
 
 struct NetworkManager {
@@ -51,7 +51,7 @@ struct NetworkManager {
         - decodingType: The type to decode. ie. `School` or `SCHomeLink`
         - completion: The Result enum allows for a switch statement to be used when the method is called.
      */
-    func request<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping NetworkManagerCompletionHandler){
+    func request<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: T.Type, completion: @escaping (Result<T, APIError>) -> Void){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
             if error != nil {
@@ -94,7 +94,7 @@ struct NetworkManager {
         - decodingType: The type to decode. ie. School or SCHomeLink
         - completion: The Result enum allows for a switch statement to be used when the method is called.
     */
-    func requestWithListResponse<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping NetworkManagerListCompletionHandler){
+    func requestWithListResponse<T:Codable>(for apiEndpoint: SchoolConnectAPI, _ decodingType: [T].Type, completion: @escaping (Result<[T], APIError>) -> Void){
         //gets data based on url...
         router.request(apiEndpoint) { data, response, error in
             if error != nil {

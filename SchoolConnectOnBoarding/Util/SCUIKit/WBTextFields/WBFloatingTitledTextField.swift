@@ -12,15 +12,26 @@ import UIKit
  During init, a validation type is provided.
  The textField placeholder text is provided by the validation RawValue.
  */
-class WBFloatingTitledTextField: UIView, TextInputTitleable {
+class WBFloatingTitledTextField: UIView, TextInputTitleable, WBTextFieldBindable {
+    
     
     //MARK: - Properties
+    var onTextChanged: ((String) -> Void)?
+    
     private var validationType: WBTextValidationType!
+    
+    var text: String? {
+        get {
+            return textField.text
+        }
+        set {
+            textField.text = text
+        }
+    }
     
     //MARK: - UI Elements
     lazy var textInputTitle: UILabel! = {
         let label = UILabel()
-        //label.text = "Search"
         label.font = SCFont.textFieldTitle
         label.textColor = .lightGray
         label.numberOfLines = 1
@@ -64,6 +75,11 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable {
         inputStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         textInputTitle.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+
     }
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        onTextChanged?(textField.text ?? "")
+    }
 }

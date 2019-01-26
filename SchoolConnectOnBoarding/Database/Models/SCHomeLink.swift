@@ -15,9 +15,7 @@ class SCHomeLink: Codable {
     let linkUrl: String?
     let linkId: String?
     let schoolId: String?
-    
-    //MARK: - Init
-    
+        
     enum CodingKeys: String, CodingKey {
         case title, linkUrl
         case linkId = "_id"

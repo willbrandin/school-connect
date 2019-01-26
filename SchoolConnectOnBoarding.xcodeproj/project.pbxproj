@@ -111,6 +111,8 @@
 		D206981721C314E5001545BC /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981621C314E5001545BC /* ConfirmationViewModel.swift */; };
 		D206981921C3F6FA001545BC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981821C3F6FA001545BC /* HomeViewModel.swift */; };
 		D206981C21C3F79A001545BC /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981B21C3F79A001545BC /* HomeState.swift */; };
+		D2180EF021CF06CE006FF62D /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */; };
+		D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */; };
 		D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +238,8 @@
 		D206981621C314E5001545BC /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
 		D206981821C3F6FA001545BC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D206981B21C3F79A001545BC /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
+		D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTextFieldBindable.swift; sourceTree = "<group>"; };
 		D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +323,7 @@
 			children = (
 				0312E69120587A86009327F3 /* ContactViewController.swift */,
 				03EA2B772062BC4300FACBBA /* ContactView.swift */,
+				D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */,
 			);
 			path = Contact;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				03139DA8209B7B02009F5B77 /* WBFloatingTitledTextField.swift */,
 				03C4A47D207FF55400A0A2FF /* WBFloatingTextView.swift */,
 				03139DAC209B85C3009F5B77 /* WBFloatingTitledTextView.swift */,
+				D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */,
 			);
 			path = WBTextFields;
 			sourceTree = "<group>";
@@ -890,6 +896,7 @@
 				0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */,
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
+				D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */,
 				D206980E21C30018001545BC /* UIView+Constraints.swift in Sources */,
 				0312E674205833B5009327F3 /* SCEnums.swift in Sources */,
 				037733F320605AEC0046D276 /* FeatureCell.swift in Sources */,
@@ -905,6 +912,7 @@
 				D206980221C2F860001545BC /* Coordinator.swift in Sources */,
 				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,
 				03C4A489207FF6B900A0A2FF /* StringExtensions.swift in Sources */,
+				D2180EF021CF06CE006FF62D /* ContactViewModel.swift in Sources */,
 				03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */,
 				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
 				03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */,

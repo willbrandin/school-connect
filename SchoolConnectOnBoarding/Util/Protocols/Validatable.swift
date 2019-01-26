@@ -53,7 +53,7 @@ extension Validatable where Self: WBTextView {
         switch self.validationType {
         case .message: return self.validate([String.isMessageValid])
         default:
-            break
+            brea
         }
         return false
     }

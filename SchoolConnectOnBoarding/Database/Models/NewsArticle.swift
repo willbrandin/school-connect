@@ -52,7 +52,7 @@ class NewsArticle: Codable {
         networkManager.requestWithListResponse(for: endpoint, [NewsArticle].self) { (result) in
             switch result {
             case .success(let news):
-                let returnedNews = news as! [NewsArticle]
+                let returnedNews = news
                 completion(returnedNews, nil)
             case .error:
                 completion([], SCErrors.noFetchedNews)
