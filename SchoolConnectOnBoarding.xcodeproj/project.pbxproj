@@ -113,6 +113,8 @@
 		D206981C21C3F79A001545BC /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981B21C3F79A001545BC /* HomeState.swift */; };
 		D2180EF021CF06CE006FF62D /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */; };
 		D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */; };
+		D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */; };
+		D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */; };
 		D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */; };
 /* End PBXBuildFile section */
 
@@ -240,6 +242,8 @@
 		D206981B21C3F79A001545BC /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTextFieldBindable.swift; sourceTree = "<group>"; };
+		D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
 		D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -628,6 +632,7 @@
 				03C4A481207FF59F00A0A2FF /* SCRoundedSchoolButton.swift */,
 				03C4A483207FF5D500A0A2FF /* SCRoundedButton.swift */,
 				03C4A485207FF60400A0A2FF /* SCHomeCollectionViewCell.swift */,
+				D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */,
 			);
 			path = SCUIKit;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				03D4BB3E20866C1C00213A24 /* TextFieldExtensions.swift */,
 				D206980D21C30018001545BC /* UIView+Constraints.swift */,
 				D206981121C3029A001545BC /* UIButtonExtension.swift */,
+				D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -859,11 +865,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -883,6 +891,7 @@
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
 				03C4A47E207FF55400A0A2FF /* WBFloatingTextView.swift in Sources */,
+				D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */,
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
 				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
 				D206980121C2F860001545BC /* FlowCoordinator.swift in Sources */,
@@ -956,6 +965,7 @@
 				03139DAB209B8576009F5B77 /* TextInputTitleable.swift in Sources */,
 				D206981221C3029A001545BC /* UIButtonExtension.swift in Sources */,
 				03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */,
+				D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */,
 				D206981721C314E5001545BC /* ConfirmationViewModel.swift in Sources */,
 				03930CEA2054B1C700128D72 /* ViewExtensions.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,

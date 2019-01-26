@@ -14,6 +14,10 @@ protocol ContactViewProtocol: class {
     var onPhoneNumberFieldChanged: ((String) -> Void)? { get set }
 }
 
+protocol ContactFormDelegate: class {
+    func didTapSubmit()
+}
+
 class ContactView: UIView, ContactViewProtocol {
 
     //MARK: - Properties

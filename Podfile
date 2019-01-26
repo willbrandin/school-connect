@@ -9,6 +9,7 @@ target 'SchoolConnectOnBoarding' do
    
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher', '~> 4.0'
+  pod 'SkyFloatingLabelTextField', '~> 3.0'
 
   target 'SchoolConnectOnBoardingTests' do
     inherit! :search_paths
