@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RocketNetworking
 
 public struct ContactForm: PropertyLoopable {
     

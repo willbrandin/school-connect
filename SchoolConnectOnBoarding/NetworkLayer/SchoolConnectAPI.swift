@@ -1,38 +1,20 @@
 //
-//  SchoolEndPoint.swift
+//  SchoolConnectApi.swift
 //  SchoolConnectOnBoarding
 //
-//  Created by William Brandin on 4/9/18.
-//  Copyright © 2018 William Brandin. All rights reserved.
+//  Created by Will Brandin on 1/26/19.
+//  Copyright © 2019 William Brandin. All rights reserved.
 //
 
 import Foundation
+import RocketNetworking
 
-public enum APIError: Error {
-    case requestFailed
-    case jsonConversionFailure
-    case invalidData
-    case responseUnsuccessful
-    case jsonParsingFailure
+struct NetworkManager {
+    static let sharedInstance = RocketNetworkManager<SchoolConnectAPI>()
     
-    var localizedDescription: String {
-        switch self {
-        case .requestFailed: return "Request Failed"
-        case .invalidData: return "Invalid Data"
-        case .responseUnsuccessful: return "Response Unsuccessful"
-        case .jsonParsingFailure: return "JSON Parsing Failure"
-        case .jsonConversionFailure: return "JSON Conversion Failure"
-        }
+    static func setEnvironment(for environment: NetworkEnvironment) {
+        NetworkManager.sharedInstance.setupNetworkLayer(in: environment)
     }
-    
-}
-
-enum NetworkEnvironment {
-    case qa
-    case production
-    case staging
-    case development
-    case localDev
 }
 
 public enum SchoolConnectAPI {
@@ -47,22 +29,21 @@ public enum SchoolConnectAPI {
 
 extension SchoolConnectAPI: EndPointType {
     
-    var environmentBaseURL: String {
-        switch NetworkManager.environment {
+    public var environmentBaseURL: String {
+        switch NetworkManager.sharedInstance.environment {
         case .production: return "http://www.schoolconnected.net/api"
         case .qa: return ""
         case .staging: return "http://stg.schoolconnected.net/api"
         case .development: return "http://dev.schoolconnected.net/api"
-        case .localDev: return "http://localhost:3000/api"
         }
     }
     
-    var baseURL: URL {
+    public var baseURL: URL {
         guard let url = URL(string: environmentBaseURL) else { fatalError("base url could not be config") }
         return url
     }
     
-    var path: String {
+    public var path: String {
         switch self {
         case .configSettings(let id):
             return "/config/\(id)" //single GET
@@ -81,7 +62,7 @@ extension SchoolConnectAPI: EndPointType {
         }
     }
     
-    var httpMethod: HTTPMethod {
+    public var httpMethod: HTTPMethod {
         switch self {
         case .calendar, .configSettings, .homeLinks, .news, .schoolDetails, .schoolSearch:
             return .get
@@ -90,7 +71,7 @@ extension SchoolConnectAPI: EndPointType {
         }
     }
     
-    var task: HTTPTask {
+    public var task: HTTPTask {
         switch self {
         case .schoolSearch(let search):
             return .requestParameters(bodyParameters: nil, urlParameters: ["name": search])
@@ -101,8 +82,7 @@ extension SchoolConnectAPI: EndPointType {
         }
     }
     
-    var headers: HTTPHeaders? {
+    public var headers: HTTPHeaders? {
         return nil
     }
-    
 }

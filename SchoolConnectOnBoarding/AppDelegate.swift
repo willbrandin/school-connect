@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        NetworkManager.setEnvironment(for: .staging)
+        
         IQKeyboardManager.shared.enable = true
         
         window = UIWindow.init(frame: UIScreen.main.bounds)

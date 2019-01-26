@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RocketNetworking
 
 protocol ContactViewModelProtocol {
     
@@ -64,7 +65,10 @@ class ContactViewModel: ContactViewModelProtocol {
         let endpoint = SchoolConnectAPI.sendMessage(data: contactForm)
         
         networkManager.request(for: endpoint, ContactForm.self) { (result) in
-            completion(result)
+            switch result {
+            case .success(let contactResponse): completion(.success(contactResponse))
+            case .error(let error): completion(.error(error))
+            }
         }
     }
     

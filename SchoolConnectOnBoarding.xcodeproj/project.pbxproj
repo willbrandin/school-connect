@@ -29,16 +29,6 @@
 		032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */; };
 		032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C4205F0A6700905EB3 /* FeatureCardView.swift */; };
 		032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */; };
-		0335DBD0207BEB4600354815 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBCF207BEB4600354815 /* Endpoint.swift */; };
-		0335DBD2207BEB9A00354815 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD1207BEB9A00354815 /* HTTPMethod.swift */; };
-		0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD3207BEC0000354815 /* HTTPTask.swift */; };
-		0335DBD6207BEC7500354815 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD5207BEC7500354815 /* ParameterEncoding.swift */; };
-		0335DBD8207BECE400354815 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD7207BECE400354815 /* URLParameterEncoder.swift */; };
-		0335DBDA207BEE1400354815 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBD9207BEE1400354815 /* JSONParameterEncoder.swift */; };
-		0335DBDC207BEE9600354815 /* NetworkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBDB207BEE9600354815 /* NetworkRouter.swift */; };
-		0335DBDE207BEF0E00354815 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBDD207BEF0E00354815 /* Router.swift */; };
-		0335DBE0207BF22E00354815 /* SchoolEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBDF207BF22E00354815 /* SchoolEndPoint.swift */; };
-		0335DBE2207BF43E00354815 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0335DBE1207BF43E00354815 /* NetworkManager.swift */; };
 		0349BF6520595E350031CDE9 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6420595E350031CDE9 /* NewsView.swift */; };
 		0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6720595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift */; };
 		0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6920596C500031CDE9 /* NewsCardView.swift */; };
@@ -112,10 +102,11 @@
 		D206981921C3F6FA001545BC /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981821C3F6FA001545BC /* HomeViewModel.swift */; };
 		D206981C21C3F79A001545BC /* HomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981B21C3F79A001545BC /* HomeState.swift */; };
 		D2180EF021CF06CE006FF62D /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */; };
+		D223A30A21FCF102008056EF /* SchoolConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D223A30921FCF102008056EF /* SchoolConnectAPI.swift */; };
+		D223A31F21FCF56F008056EF /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D223A31E21FCF56F008056EF /* Result.swift */; };
 		D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */; };
 		D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */; };
 		D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */; };
-		D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +118,19 @@
 			remoteInfo = SchoolConnectOnBoarding;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D223A30721FCF080008056EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0312E671205831A1009327F3 /* SNAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNAppSettings.swift; sourceTree = "<group>"; };
@@ -151,16 +155,6 @@
 		032685C2205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureCollectionViewCell.swift; sourceTree = "<group>"; };
 		032685C4205F0A6700905EB3 /* FeatureCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCardView.swift; sourceTree = "<group>"; };
 		032685C8205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLinkCollectionViewCell.swift; sourceTree = "<group>"; };
-		0335DBCF207BEB4600354815 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		0335DBD1207BEB9A00354815 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		0335DBD3207BEC0000354815 /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
-		0335DBD5207BEC7500354815 /* ParameterEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
-		0335DBD7207BECE400354815 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
-		0335DBD9207BEE1400354815 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
-		0335DBDB207BEE9600354815 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
-		0335DBDD207BEF0E00354815 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		0335DBDF207BF22E00354815 /* SchoolEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolEndPoint.swift; sourceTree = "<group>"; };
-		0335DBE1207BF43E00354815 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0349BF6420595E350031CDE9 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		0349BF6720595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleCollectionViewCell.swift; sourceTree = "<group>"; };
 		0349BF6920596C500031CDE9 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
@@ -241,10 +235,11 @@
 		D206981821C3F6FA001545BC /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D206981B21C3F79A001545BC /* HomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeState.swift; sourceTree = "<group>"; };
 		D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
+		D223A30921FCF102008056EF /* SchoolConnectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolConnectAPI.swift; sourceTree = "<group>"; };
+		D223A31E21FCF56F008056EF /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTextFieldBindable.swift; sourceTree = "<group>"; };
 		D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
-		D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -380,45 +375,6 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		0335DBCB207BEB1600354815 /* Endpoint */ = {
-			isa = PBXGroup;
-			children = (
-				0335DBCF207BEB4600354815 /* Endpoint.swift */,
-				0335DBDF207BF22E00354815 /* SchoolEndPoint.swift */,
-			);
-			path = Endpoint;
-			sourceTree = "<group>";
-		};
-		0335DBCC207BEB1D00354815 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				0335DBE1207BF43E00354815 /* NetworkManager.swift */,
-			);
-			path = Manager;
-			sourceTree = "<group>";
-		};
-		0335DBCD207BEB2300354815 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				0335DBD1207BEB9A00354815 /* HTTPMethod.swift */,
-				0335DBD3207BEC0000354815 /* HTTPTask.swift */,
-				0335DBDB207BEE9600354815 /* NetworkRouter.swift */,
-				0335DBDD207BEF0E00354815 /* Router.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		0335DBCE207BEB2A00354815 /* Encoding */ = {
-			isa = PBXGroup;
-			children = (
-				0335DBD5207BEC7500354815 /* ParameterEncoding.swift */,
-				0335DBD7207BECE400354815 /* URLParameterEncoder.swift */,
-				0335DBD9207BEE1400354815 /* JSONParameterEncoder.swift */,
-				D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */,
-			);
-			path = Encoding;
-			sourceTree = "<group>";
-		};
 		03466263205830DC00100737 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,17 +426,6 @@
 			path = SelectedNewsArticle;
 			sourceTree = "<group>";
 		};
-		035EBD6B2077C35B00FBA250 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				0335DBCE207BEB2A00354815 /* Encoding */,
-				0335DBCD207BEB2300354815 /* Service */,
-				0335DBCC207BEB1D00354815 /* Manager */,
-				0335DBCB207BEB1600354815 /* Endpoint */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
 		037733F120605AD60046D276 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,11 +474,11 @@
 		03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				D223A30821FCF0F0008056EF /* NetworkLayer */,
 				D20697F921C2F7F8001545BC /* Coordinator */,
 				0312E681205861D5009327F3 /* On-BoardingPath */,
 				033418B72056BFD9003B61CE /* Helper */,
 				03930CF32055FEF000128D72 /* Database */,
-				035EBD6B2077C35B00FBA250 /* Networking */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
@@ -611,6 +556,7 @@
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
 				03D4BB4420877D7D00213A24 /* SCColors.swift */,
 				D206980821C2F991001545BC /* UserDefaultsManager.swift */,
+				D223A31E21FCF56F008056EF /* Result.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -719,6 +665,14 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		D223A30821FCF0F0008056EF /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				D223A30921FCF102008056EF /* SchoolConnectAPI.swift */,
+			);
+			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -731,6 +685,7 @@
 				03930CB52054AB4400128D72 /* Frameworks */,
 				03930CB62054AB4400128D72 /* Resources */,
 				F1F0D4CD242819D803DEBDE5 /* [CP] Embed Pods Frameworks */,
+				D223A30721FCF080008056EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -897,8 +852,6 @@
 				D206980121C2F860001545BC /* FlowCoordinator.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
-				0335DBE2207BF43E00354815 /* NetworkManager.swift in Sources */,
-				0335DBD8207BECE400354815 /* URLParameterEncoder.swift in Sources */,
 				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
 				03D4BB3F20866C1C00213A24 /* TextFieldExtensions.swift in Sources */,
 				03C4A482207FF59F00A0A2FF /* SCRoundedSchoolButton.swift in Sources */,
@@ -910,13 +863,13 @@
 				0312E674205833B5009327F3 /* SCEnums.swift in Sources */,
 				037733F320605AEC0046D276 /* FeatureCell.swift in Sources */,
 				D206980321C2F860001545BC /* NavigationControllerCoordinatorsTracker.swift in Sources */,
-				0335DBDA207BEE1400354815 /* JSONParameterEncoder.swift in Sources */,
 				03C4A492207FF80F00A0A2FF /* CalendarEnums.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
 				0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */,
 				D206981C21C3F79A001545BC /* HomeState.swift in Sources */,
 				D206980721C2F8A5001545BC /* ApplicationCoordinator.swift in Sources */,
+				D223A30A21FCF102008056EF /* SchoolConnectAPI.swift in Sources */,
 				0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */,
 				D206980221C2F860001545BC /* Coordinator.swift in Sources */,
 				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,
@@ -929,32 +882,26 @@
 				03D4BB4520877D7D00213A24 /* SCColors.swift in Sources */,
 				035EBD6A2077B96800FBA250 /* TableAndCollectionViewExtensions.swift in Sources */,
 				D206981921C3F6FA001545BC /* HomeViewModel.swift in Sources */,
-				0335DBDE207BEF0E00354815 /* Router.swift in Sources */,
 				03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */,
-				0335DBD0207BEB4600354815 /* Endpoint.swift in Sources */,
 				0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */,
 				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
 				03C4A49B207FFE0500A0A2FF /* CornerRoundable.swift in Sources */,
-				0335DBE0207BF22E00354815 /* SchoolEndPoint.swift in Sources */,
 				0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */,
 				D206980421C2F860001545BC /* NavigationFlowCoordinator.swift in Sources */,
 				03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */,
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
 				D206981021C300B2001545BC /* Presentable.swift in Sources */,
-				0335DBD2207BEB9A00354815 /* HTTPMethod.swift in Sources */,
-				0335DBD6207BEC7500354815 /* ParameterEncoding.swift in Sources */,
 				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
 				03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */,
-				D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */,
 				D206980021C2F860001545BC /* CoordinatorsTracker.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
+				D223A31F21FCF56F008056EF /* Result.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
 				03C4A497207FF9D900A0A2FF /* Shadowable.swift in Sources */,
 				0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */,
 				0312E68F20587959009327F3 /* SideButton.swift in Sources */,
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
-				0335DBDC207BEE9600354815 /* NetworkRouter.swift in Sources */,
 				03C4A49F208006D700A0A2FF /* SCErrors.swift in Sources */,
 				03D4BB3D2086400F00213A24 /* Validatable.swift in Sources */,
 				03930CF22055FA1300128D72 /* SearchTableViewCell.swift in Sources */,
@@ -971,7 +918,6 @@
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
 				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				D206981521C30894001545BC /* SchoolSearchViewModel.swift in Sources */,
-				0335DBD4207BEC0000354815 /* HTTPTask.swift in Sources */,
 				03C4A48D207FF78E00A0A2FF /* SCImages.swift in Sources */,
 				03139DAD209B85C3009F5B77 /* WBFloatingTitledTextView.swift in Sources */,
 				D206980521C2F860001545BC /* FlowEvent.swift in Sources */,
@@ -1133,9 +1079,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5QM989GLQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SkyFloatingLabelTextField\"",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = SchoolConnectOnBoarding/Helper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1150,9 +1104,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 943F91FC6B6ACEA061A07C59 /* Pods-SchoolConnectOnBoarding.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5QM989GLQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/SkyFloatingLabelTextField\"",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = SchoolConnectOnBoarding/Helper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -114,11 +114,7 @@ class HomeViewModel: HomeViewModelProtocol {
         dispatchGroup.enter()
         networkManager.request(for: endpoint, School.self) { [weak self] result in
             switch result {
-            case .success(let codable):
-                guard let school = codable as? School else {
-                    completion(.error(SCErrors.fetchError))
-                    return
-                }
+            case .success(let school):
                 completion(.success(school))
             case .error:
                 completion(.error(SCErrors.fetchError))
@@ -151,10 +147,6 @@ class HomeViewModel: HomeViewModelProtocol {
         networkManager.request(for: endpoint, SNAppSettings.self) { [weak self] result in
             switch result {
             case .success(let settings):
-                guard let settings = settings as? SNAppSettings else {
-                    completion(.error(SCErrors.fetchError))
-                    return
-                }
                 completion(.success(settings))
             case .error:
                 completion(.error(SCErrors.fetchError))
@@ -185,11 +177,7 @@ class HomeViewModel: HomeViewModelProtocol {
         networkManager.requestWithListResponse(for: endpoint, [SCHomeLink].self) { [weak self] result in
             switch result {
             case .success(let links):
-                guard let returnedLinks = links as? [SCHomeLink] else {
-                    completion(.error(SCErrors.noSchoolLinks))
-                    return
-                }
-                completion(.success(returnedLinks))
+                completion(.success(links))
             case .error:
                 completion(.error(SCErrors.noSchoolLinks))
             }
