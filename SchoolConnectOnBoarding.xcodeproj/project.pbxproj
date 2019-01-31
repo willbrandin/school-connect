@@ -106,6 +106,7 @@
 		D23002EA22028ACA00AAFE52 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002E922028ACA00AAFE52 /* NewsViewModel.swift */; };
 		D23002ED2202922500AAFE52 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002EC2202922500AAFE52 /* CalendarViewModel.swift */; };
 		D23002EF2202962800AAFE52 /* CalendarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002EE2202962800AAFE52 /* CalendarCardView.swift */; };
+		D23002F22203424D00AAFE52 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002F12203424D00AAFE52 /* Style.swift */; };
 		D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */; };
 		D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */; };
 		D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */; };
@@ -241,6 +242,7 @@
 		D23002E922028ACA00AAFE52 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		D23002EC2202922500AAFE52 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
 		D23002EE2202962800AAFE52 /* CalendarCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCardView.swift; sourceTree = "<group>"; };
+		D23002F12203424D00AAFE52 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTextFieldBindable.swift; sourceTree = "<group>"; };
 		D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 		03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				D23002F02203423E00AAFE52 /* Style */,
 				D23002E722028A3900AAFE52 /* Subclasses */,
 				D23002E22202813400AAFE52 /* Storyboard */,
 				D223A30821FCF0F0008056EF /* NetworkLayer */,
@@ -687,6 +690,14 @@
 			path = SelectedNewsArticleViewController;
 			sourceTree = "<group>";
 		};
+		D23002F02203423E00AAFE52 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D23002F12203424D00AAFE52 /* Style.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -911,6 +922,7 @@
 				03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */,
 				D206980021C2F860001545BC /* CoordinatorsTracker.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
+				D23002F22203424D00AAFE52 /* Style.swift in Sources */,
 				D223A31F21FCF56F008056EF /* Result.swift in Sources */,
 				D23002E122027F1D00AAFE52 /* AppDelegate+Configuration.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,

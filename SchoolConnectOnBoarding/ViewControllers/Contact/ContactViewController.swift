@@ -16,7 +16,7 @@ protocol ContactViewControllerProtocol: Presentable {
 class ContactViewController: SNBaseViewController, ContactViewControllerProtocol {
     
     //MARK: - Properties
-    var viewModel: ContactViewModelProtocol!
+    var viewModel: ContactViewModelProtocol = ContactViewModel()
     
     lazy var contactTitleLabel: UILabel! = {
         let label = UILabel()
@@ -45,16 +45,7 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
         textField.placeholder = "Phone Number"
         return textField
     }()
-    
-    lazy var buttonContainerStackView: UIStackView! = {
-        let stackView = UIStackView()
-        stackView.addArrangedSubview(submitButton)
-        stackView.axis = .vertical
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
+
     lazy var submitButton: CustomButton! = {
         let button = CustomButton(content: CustomButtonContent(title: "Submit"))
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,19 +61,10 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(phoneNumberTextField)
-        stackView.addArrangedSubview(buttonContainerStackView)
         stackView.axis = .vertical
         stackView.spacing = 20.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
-    }()
-    
-    lazy var mainScrollView: UIScrollView! = {
-        let scrollView = UIScrollView()
-        scrollView.addSubview(mainStackView)
-        
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        return scrollView
     }()
     
     // MARK: - ContactViewControllerProtocol
@@ -92,17 +74,21 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.setMargins(top: Style.Layout.innerSpacing,
+                        leading: Style.Layout.outerMargin,
+                        bottom:  Style.Layout.innerSpacing,
+                        trailing:  Style.Layout.outerMargin)
+        
         title = PageTitles.contact.rawValue
         view.backgroundColor = .white
+        view.insetsLayoutMarginsFromSafeArea = true
         
-        view.addSubview(mainScrollView)
-        mainScrollView.pinToMargins()
-        mainStackView.pinToSuperview(padding: 16)
+        view.addSubview(mainStackView)
+        mainStackView.pinToTopMargin()
+        mainStackView.pinToLeadingAndTrailingMargins()
         
-        buttonContainerStackView.heightAnchor.constraint(equalToConstant: 120.0).isActive = true
-        submitButton.heightAnchor.constraint(equalTo: buttonContainerStackView.heightAnchor, multiplier: 0.5).isActive = true
-        
-        viewModel = ContactViewModel()
-        
+        view.addSubview(submitButton)
+        submitButton.pinToLeadingAndTrailingMargins()
+        submitButton.pinToBottomMargin()
     }
 }
