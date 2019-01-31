@@ -22,26 +22,4 @@ class CalendarEvent: Codable {
         case title, startDate, description, location
         case schoolId = "school"
     }
-    
-    //MARK: Methods
-    
-    static func fetchEvents(completion: @escaping ([CalendarEvent], Error?) -> Void) {
-        
-        let userDefaults = UserDefaults.standard
-        guard let id = userDefaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return }
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.calendar(id: id)
-        
-        networkManager.requestWithListResponse(for: endpoint, [CalendarEvent].self) { (result) in
-            switch result {
-            case .success(let events):
-                let returnedEvents = events
-                completion(returnedEvents, nil)
-            case .error:
-                completion([], SCErrors.noFetchedEvents)
-            }
-        }
-        
-    }
-    
 }

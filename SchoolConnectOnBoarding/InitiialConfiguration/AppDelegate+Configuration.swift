@@ -17,7 +17,9 @@ extension AppDelegate {
     }
     
     func configureNetworkEnvironment() {
-        guard let buildMode = Bundle.main.infoDictionary!["BuildMode"] as? Int, let environment = getEnvironment(from: buildMode) else {
+        guard let buildModeString = Bundle.main.infoDictionary!["BuildMode"] as? String,
+            let buildMode = Int(buildModeString),
+            let environment = getEnvironment(from: buildMode) else {
             print("Networking Layer could not be configured.")
             return
         }

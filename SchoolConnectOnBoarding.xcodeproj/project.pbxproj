@@ -366,13 +366,6 @@
 			path = "Links Cell";
 			sourceTree = "<group>";
 		};
-		033418B72056BFD9003B61CE /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		03466263205830DC00100737 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,7 +469,6 @@
 				D223A30821FCF0F0008056EF /* NetworkLayer */,
 				D20697F921C2F7F8001545BC /* Coordinator */,
 				0312E681205861D5009327F3 /* On-BoardingPath */,
-				033418B72056BFD9003B61CE /* Helper */,
 				03466263205830DC00100737 /* Models */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
@@ -1091,9 +1083,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "School Connect - Debug";
 				BuildMode = 1;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M5QM989GLQ;
+				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift\"",
@@ -1104,7 +1097,7 @@
 				INFOPLIST_FILE = SchoolConnectOnBoarding/Helper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = willbrandin.com.SchoolConnectOnBoarding;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willbrandin.schoolconnect.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1117,9 +1110,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BUNDLE_DISPLAY_NAME = "School Connect";
 				BuildMode = 4;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = M5QM989GLQ;
+				DEVELOPMENT_TEAM = 2J9S2B5EZD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift\"",
@@ -1130,7 +1124,7 @@
 				INFOPLIST_FILE = SchoolConnectOnBoarding/Helper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = willbrandin.com.SchoolConnectOnBoarding;
+				PRODUCT_BUNDLE_IDENTIFIER = com.willbrandin.schoolconnect.release;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

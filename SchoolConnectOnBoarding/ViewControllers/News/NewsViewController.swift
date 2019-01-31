@@ -53,25 +53,19 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
 extension NewsViewController {
     
     func fetchNewsArticles(){
-        NewsArticle.fetchNewsData { (news, error) in
-            if error != nil {
-                DispatchQueue.main.async {
-                    let alert = SCErrors.noFetchedNews.initAlert()
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-            self.newsArray = news
-            //Sorts based on most recent pub date
-            self.newsArray.sort(by: { $0.pubDate!.stringToDate().timeIntervalSinceNow > $1.pubDate!.stringToDate().timeIntervalSinceNow })
-            DispatchQueue.main.async {
-                self.newsView.collectionView.reloadData()
+        let id = UserDefaultsManager.selectedUserSchoolId ?? ""
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.news(id: id)
+        
+        networkManager.requestWithListResponse(for: endpoint, [NewsArticle].self) { [weak self] (result) in
+            switch result {
+            case .success(let news):
+                self?.newsArray = news
+            case .error:
+                break
             }
         }
-        
     }
-    
-    //TODO: protocol for end of list
-    //func didReachBottomOfList
 }
 
 //MARK: - Delegate
@@ -119,10 +113,8 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedArticle = newsArray[indexPath.row]
         didSelectNewsItem?(selectedArticle)
-//        let selectedArticleVC = SelectedNewsArticleViewController(selectedArticle: selectedArticle)
-//        self.present(selectedArticleVC, animated: true, completion: nil)
-        
-//        show(selectedArticleVC, sender: nil)
+        let selectedArticleVC = SelectedNewsArticleViewController(selectedArticle: selectedArticle)
+        self.present(selectedArticleVC, animated: true, completion: nil)
     }
     
 }

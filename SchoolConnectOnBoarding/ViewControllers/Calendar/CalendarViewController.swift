@@ -59,20 +59,21 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
 
 //MARK: - Network Call
 extension CalendarViewController {
-    
     func fetchCalendarEvents(){
-        CalendarEvent.fetchEvents { (events, error) in
-            if error != nil {
-                DispatchQueue.main.async {
-                    let alert = SCErrors.noFetchedEvents.initAlert()
-                    self.present(alert, animated: true, completion: nil)
+        let id = UserDefaultsManager.selectedUserSchoolId ?? ""
+        let networkManager = NetworkManager.sharedInstance
+        let endpoint = SchoolConnectAPI.calendar(id: id)
+        
+        networkManager.requestWithListResponse(for: endpoint, [CalendarEvent].self) { [weak self] result in
+            switch result {
+            case .success(let events):
+                self?.calendarArray = events
+                self?.calendarArray.sort(by: { $0.startDate!.stringToDate().timeIntervalSinceNow > $1.startDate!.stringToDate().timeIntervalSinceNow })
+                DispatchQueue.main.async { [weak self] in
+                    self?.calendarView.tableView.reloadData()
                 }
-            }
-            self.calendarArray = events
-            //Sorts based on most recent pub date
-            self.calendarArray.sort(by: { $0.startDate!.stringToDate().timeIntervalSinceNow > $1.startDate!.stringToDate().timeIntervalSinceNow })
-            DispatchQueue.main.async {
-                self.calendarView.tableView.reloadData()
+            case .error:
+                break
             }
         }
     }
@@ -82,7 +83,6 @@ extension CalendarViewController {
 //MARK: - Delegate
 
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return calendarArray.count
     }
@@ -125,5 +125,4 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         let selectedEventVC = SelectedCalendarEventViewController(selectedEvent: selectedEvent)
         show(selectedEventVC, sender: nil)
     }
-    
 }
