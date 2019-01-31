@@ -12,20 +12,40 @@ protocol HomeFeatureDelegate: class {
     func didTapFeature(_ feature: HomeFeature?)
 }
 
-class HomeViewController: SNBaseViewController {
+protocol HomeViewControllerProtocol: Presentable {
+    var didSelectFeature: ((HomeFeature?) -> Void)? { get set }
+    var didSelectLink: (() -> Void)? { get set }
+}
+
+class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
 
     //MARK: - Properties
     var homeView: HomeView!
     var homeState: HomeState?
+    
+    var viewModel: HomeViewModelProtocol
+    
+    var didSelectFeature: ((HomeFeature?) -> Void)?
+    var didSelectLink: (() -> Void)?
+    
+    init(viewModel: HomeViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Fatal: Coder not implemented")
+    }
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = PageTitles.home.rawValue
         
-        fetchLinksData()
-        configureHomeState()
         setupHomeView()
+        
+        subscribeToViewModel()
+        viewModel.requestData()
         
         homeView.collectionView.dataSource = self
         homeView.collectionView.delegate = self
@@ -36,11 +56,11 @@ class HomeViewController: SNBaseViewController {
     }
     
     //MARK: - Methods
-    func setupHomeView(){
+    private func setupHomeView(){
         homeView = HomeView()
         homeView.customizeUI()
         self.view.addSubview(homeView)
-        
+        self.view.backgroundColor = .white
         homeView.translatesAutoresizingMaskIntoConstraints = false
         homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -48,27 +68,18 @@ class HomeViewController: SNBaseViewController {
         homeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
     
-    func configureHomeState(){
-//        if SCDatabaseQueryManager.savedFeatures().count != 0 && SCDatabaseQueryManager.getSavedLinks().count != 0 {
-//            self.homeState = HomeState.premium
-//        } else if SCDatabaseQueryManager.getSavedLinks().count == 0 && SCDatabaseQueryManager.savedFeatures().count > 0 {
-//            self.homeState = HomeState.featuresOnly
-//        } else if SCDatabaseQueryManager.getSavedLinks().count > 0 && SCDatabaseQueryManager.savedFeatures().count == 0 {
-//            self.homeState = HomeState.linksOnly
-//        } else {
-//            self.homeState = HomeState.basic
-//        }
-    }
-    
-}
-
-//MARK: - Networking
-extension HomeViewController {
-    
-    func fetchLinksData(){
-        let defaults = UserDefaults.standard
-        let id = defaults.string(forKey: UserDefaultKeys.selectedId.rawValue)
-        SCHomeLink.fetchHomeLinks(with: id)
+    private func subscribeToViewModel() {
+        
+        viewModel.onFetchedSchoolAndSettings = {
+            DispatchQueue.main.async {
+                self.homeView.collectionView.reloadData()
+            }
+        }
+        
+        viewModel.onNetworkingDidFail = { [weak self] error in
+            self?.present(error.initAlert(), animated: true, completion: nil)
+        }
+        
     }
     
 }
@@ -88,12 +99,7 @@ extension HomeViewController: HomeFeatureDelegate {
 extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let state = homeState else { return 1 }
-        switch state {
-        case .premium: return 3
-        case .featuresOnly, .linksOnly: return 2
-        case .basic: return 1
-        }
+        return viewModel.numberOfRowsInHomeCollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -123,42 +129,28 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        if indexPath.row == HomeCellIndex.greeting.rawValue {
-            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.6)
-
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue { //&& SCDatabaseQueryManager.savedFeatures().count != 0 {
-            
-            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.45)
-
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue { //|| SCDatabaseQueryManager.getSavedLinks().count != 0 {
-            if 1 > 2 {//SCDatabaseQueryManager.getSavedLinks().count > 3 {
-                return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.44)
-            }
-            return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
-        }
-        return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.3)
+        return viewModel.layoutFor(indexPath, with: collectionView.frame.width)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.3) {
-            if indexPath.row == HomeCellIndex.greeting.rawValue {
-                if let cell = collectionView.cellForItem(at: indexPath) {
-                    cell.transform = .init(scaleX: 0.95, y: 0.95)
-                }
-            }
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.3) {
-            if indexPath.row == HomeCellIndex.greeting.rawValue {
-                if let cell = collectionView.cellForItem(at: indexPath) {
-                    cell.transform = .identity
-                    
-                }
-            }
-        }
-    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        UIView.animate(withDuration: 0.3) {
+//            if indexPath.row == HomeCellIndex.greeting.rawValue {
+//                if let cell = collectionView.cellForItem(at: indexPath) {
+//                    cell.transform = .init(scaleX: 0.95, y: 0.95)
+//                }
+//            }
+//        }
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+//        UIView.animate(withDuration: 0.3) {
+//            if indexPath.row == HomeCellIndex.greeting.rawValue {
+//                if let cell = collectionView.cellForItem(at: indexPath) {
+//                    cell.transform = .identity
+//
+//                }
+//            }
+//        }
+//    }
     
 }

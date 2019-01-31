@@ -13,6 +13,7 @@ import UIKit
  ie. An invalid entry on an email text field will change the title to red.
  */
 protocol TextInputTitleable {
+    var text: String? { get set }
     var textInputTitle: UILabel! { get set }
 }
 

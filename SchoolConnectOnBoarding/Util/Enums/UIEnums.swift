@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-enum HomeState {
-    case premium
-    case linksOnly
-    case featuresOnly
-    case basic
-}
-
 enum PageTitles: String {
     case home = "Home"
     case news = "News"
@@ -26,7 +19,7 @@ enum PageTitles: String {
     case bullyReporting = "Report Bullying"
     case teacherContact = "Reach a Teacher"
     case mapOfSchool = "School Map"
-    case contactSubtitle = "How may we help you?"
+    case contactSubtitle = "Fill out some information and we will contact you shortly."
 }
 
 enum CellReuseIds: String {

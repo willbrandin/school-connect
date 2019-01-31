@@ -7,164 +7,88 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
-protocol ContactFormDelegate: class {
-    func didTapSubmit()
+protocol ContactViewControllerProtocol: Presentable {
+    var didSubmitForm: (() -> Void)? { get set }
 }
 
-class ContactViewController: SNBaseViewController {
+class ContactViewController: SNBaseViewController, ContactViewControllerProtocol {
     
     //MARK: - Properties
-    var contactScreenView: ContactView!
+    var viewModel: ContactViewModelProtocol = ContactViewModel()
+    
+    lazy var contactTitleLabel: UILabel! = {
+        let label = UILabel()
+        label.font = SCFont.heroTitle
+        label.text = PageTitles.contactSubtitle.rawValue
+        label.textColor = UIColor.black
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var nameTextField: SkyFloatingLabelTextField! = {
+        let textField = SkyFloatingLabelTextField(frame: .zero)
+        textField.placeholder = "Name"
+        return textField
+    }()
+    
+    private lazy var phoneNumberTextField: SkyFloatingLabelTextField! = {
+        let textField = SkyFloatingLabelTextField(frame: .zero)
+        textField.placeholder = "Email"
+        return textField
+    }()
+    
+    private lazy var emailTextField: SkyFloatingLabelTextField! = {
+        let textField = SkyFloatingLabelTextField(frame: .zero)
+        textField.placeholder = "Phone Number"
+        return textField
+    }()
+
+    lazy var submitButton: CustomButton! = {
+        let button = CustomButton(content: CustomButtonContent(title: "Submit"))
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.actionHandler = { [weak self] _ in
+            self?.didSubmitForm?()
+        }
+        return button
+    }()
+    
+    lazy var mainStackView: UIStackView! = {
+        let stackView = UIStackView()
+        stackView.addArrangedSubview(contactTitleLabel)
+        stackView.addArrangedSubview(nameTextField)
+        stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(phoneNumberTextField)
+        stackView.axis = .vertical
+        stackView.spacing = 20.0
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    // MARK: - ContactViewControllerProtocol
+    var didSubmitForm: (() -> Void)?
     
     //MARK: - Init
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = PageTitles.contact.rawValue
         
-        setupContactView()
-        setDelegates()
-    
+        view.setMargins(top: Style.Layout.innerSpacing,
+                        leading: Style.Layout.outerMargin,
+                        bottom:  Style.Layout.innerSpacing,
+                        trailing:  Style.Layout.outerMargin)
+        
+        title = PageTitles.contact.rawValue
+        view.backgroundColor = .white
+        view.insetsLayoutMarginsFromSafeArea = true
+        
+        view.addSubview(mainStackView)
+        mainStackView.pinToTopMargin()
+        mainStackView.pinToLeadingAndTrailingMargins()
+        
+        view.addSubview(submitButton)
+        submitButton.pinToLeadingAndTrailingMargins()
+        submitButton.pinToBottomMargin()
     }
-    
-    //MARK: - Methods
-    func setupContactView(){
-        contactScreenView = ContactView()
-        contactScreenView.customizeUI()
-        contactScreenView.formDelegate = self
-        self.view.addSubview(contactScreenView)
-        
-        contactScreenView.translatesAutoresizingMaskIntoConstraints = false
-        contactScreenView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        contactScreenView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        contactScreenView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        contactScreenView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-    }
-    
-    func setDelegates(){
-        for input in contactScreenView.inputs {
-            if let textField = input?.textField {
-                textField.delegate = self
-            }
-        }
-        contactScreenView.messageTextTitleView.floatingTextView?.delegate = self
-        
-    }
-}
-
-extension ContactViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        for input in contactScreenView.inputs {
-            input?.updateTitleForEditingText()
-        }
-        
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        for input in contactScreenView.inputs {
-            input?.updateTitleForEditingText()
-        }
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if textField == contactScreenView.nameTextTitleView.textField {
-            contactScreenView.nameTextTitleView.textField.resignFirstResponder()
-            contactScreenView.emailTextTitleView.textField.becomeFirstResponder()
-        } else if textField == contactScreenView.emailTextTitleView.textField {
-            contactScreenView.emailTextTitleView.textField.resignFirstResponder()
-            contactScreenView.phoneTextTitleView.textField.becomeFirstResponder()
-        } else if textField == contactScreenView.phoneTextTitleView.textField {
-            contactScreenView.phoneTextTitleView.textField.resignFirstResponder()
-            contactScreenView.messageTextTitleView.floatingTextView?.becomeFirstResponder()
-            return false
-        } else {
-            textField.resignFirstResponder()
-        }
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == contactScreenView.phoneTextTitleView.textField {
-            return textField.canFormatAsPhoneNumber(range: range, inputString: string)
-        }
-        return true
-    }
-    
-}
-
-extension ContactViewController: UITextViewDelegate {
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView == contactScreenView.messageTextTitleView.floatingTextView {
-            contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: true)
-        }
-    }
-
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-        if textView == contactScreenView.messageTextTitleView.floatingTextView {
-            contactScreenView.messageTextTitleView.updateTitleForEditingText(isEditing: false)
-        }
-
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-//        if textView.text.count >= 200 && range.location < 199 {
-//            return false
-//        }
-        return true
-    }
-    
-}
-
-extension ContactViewController: ContactFormDelegate {
-
-    //Web services to POST the message.
-    func didTapSubmit() {
-        
-        if formDataIsValid() {
-            
-            guard let name = contactScreenView.nameTextTitleView.textField.text,
-                let email = contactScreenView.emailTextTitleView.textField.text,
-                let phoneNumber = contactScreenView.phoneTextTitleView.textField.text,
-                let message = contactScreenView.messageTextTitleView.floatingTextView?.text else {
-                
-                return
-            }
-            
-            let contactForm = ContactForm(name: name, email: email, phoneNumber: phoneNumber, message: message)
-            contactForm.postContactForm()
-            view.backgroundColor = SCColors.scGreen
-            
-        } else {
-            view.backgroundColor = SCColors.scRed
-        }
-        
-    }
-    
-    func formDataIsValid() -> Bool {
-        
-        if !contactScreenView.nameTextTitleView.textField.isValid {
-            return false
-        }
-        
-        if !contactScreenView.emailTextTitleView.textField.isValid {
-            return false
-        }
-        
-        if !contactScreenView.nameTextTitleView.textField.isValid {
-            return false
-        }
-        
-        guard let messageIsValid = contactScreenView.messageTextTitleView.floatingTextView?.isValid else { return false }
-        
-        if !messageIsValid {
-            return false
-        }
-        
-        return true
-    }
-    
 }

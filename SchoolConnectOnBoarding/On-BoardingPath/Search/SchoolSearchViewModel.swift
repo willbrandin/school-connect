@@ -91,7 +91,7 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
         networkManager.requestWithListResponse(for: endpoint, [SchoolSearch].self) { result in
             switch result {
             case .success(let schools):
-                let returnedSchools = schools as! [SchoolSearch]
+                let returnedSchools = schools
                 completion(Result.success(returnedSchools))
             case .error(let err):
                 completion(Result.error(err))

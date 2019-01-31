@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ConfirmationViewControllerProtocol: Presentable {
-    var didConfirmSchool: (() -> Void)? { get set }
+    var didConfirmSchool: ((String?) -> Void)? { get set }
 }
 
 class ConfirmationViewController: SNBaseViewController, ConfirmationViewControllerProtocol {
@@ -19,7 +19,7 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
     var confirmationView: ConfirmationView!
     var viewModel: ConfirmationViewModelProtocol
     
-    var didConfirmSchool: (() -> Void)?
+    var didConfirmSchool: ((String?) -> Void)?
     
     init(viewModel: ConfirmationViewModelProtocol) {
         self.viewModel = viewModel
@@ -66,7 +66,7 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
         confirmationView = ConfirmationView()
         
         confirmationView.didTapToConfirmSchool = { [weak self] in
-            self?.didConfirmSchool?()
+            self?.didConfirmSchool?(self?.viewModel.schoolId)
         }
         
         self.view.addSubview(confirmationView)

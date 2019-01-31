@@ -1,0 +1,6 @@
+framework module RocketNetworking {
+  umbrella header "RocketNetworking-umbrella.h"
+
+  export *
+  module * { export * }
+}
