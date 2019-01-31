@@ -9,17 +9,16 @@
 import UIKit
 import Kingfisher
 
-
-protocol SelectedNewsDelegate: class {
-    func didCloseArticle()
+protocol SelectedNewsArticleViewProtocol: class {
+    var onTapToDismiss: (() -> Void)? { get set }
 }
 
-class SelectedNewsArticleView: UIView, SchoolColorable {
+class SelectedNewsArticleView: UIView, SchoolColorable, SelectedNewsArticleViewProtocol {
 
-    
     //MARK: - Properties
+    var onTapToDismiss: (() -> Void)?
+    
     private var newsArticle: NewsArticle?
-    weak var delegate: SelectedNewsDelegate?
     
     //MARK: - UI Elements
     
@@ -27,7 +26,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         let view = UIView()
         
         view.backgroundColor = schoolSecondaryColor?.withAlphaComponent(0.7)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissBtnTap))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissButtonTap))
         view.addGestureRecognizer(gesture)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -181,8 +180,8 @@ class SelectedNewsArticleView: UIView, SchoolColorable {
         fullStoryLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8.0).isActive = true
     }
     
-    @objc func handleDismissBtnTap(){
-        delegate?.didCloseArticle()
+    @objc func handleDismissButtonTap(){
+        onTapToDismiss?()
     }
     
 }

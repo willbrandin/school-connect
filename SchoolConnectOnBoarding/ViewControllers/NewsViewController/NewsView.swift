@@ -15,19 +15,17 @@ class NewsView: UIView {
 
     //MARK: - Init
     func customizeUI() {
-        
         setupCollectionViewConstraints()
     }
     
     //MARK: - Methods
-    func setupCollectionViewConstraints(){
+    private func setupCollectionViewConstraints(){
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        
         
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false

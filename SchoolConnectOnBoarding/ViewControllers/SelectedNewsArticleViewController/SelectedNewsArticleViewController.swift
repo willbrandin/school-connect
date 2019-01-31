@@ -10,9 +10,9 @@ import UIKit
 
 class SelectedNewsArticleViewController: SNBaseViewController {
 
-    
     //MARK: - Properties
     var articleView: SelectedNewsArticleView!
+    
     private var selectedArticle: NewsArticle?
     
     //MARK: - Life Cycle
@@ -36,7 +36,6 @@ class SelectedNewsArticleViewController: SNBaseViewController {
     func setupEventView(){
         articleView = SelectedNewsArticleView()
         articleView.customizeUI(selectedArticle)
-        articleView.delegate = self
         self.view.addSubview(articleView)
         
         articleView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +43,10 @@ class SelectedNewsArticleViewController: SNBaseViewController {
         articleView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         articleView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         articleView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        
+        articleView.onTapToDismiss = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
     }
     
     func setTitle(){
@@ -52,11 +55,4 @@ class SelectedNewsArticleViewController: SNBaseViewController {
         }
     }
     
-}
-
-extension SelectedNewsArticleViewController: SelectedNewsDelegate {
-    
-    func didCloseArticle() {
-        dismiss(animated: true, completion: nil)
-    }
 }

@@ -9,16 +9,17 @@
 import UIKit
 
 protocol NewsViewControllerProtocol: Presentable {
-    var didSelectNewsItem: ((NewsArticle?) -> Void)? { get set }
+    var onDidSelectNewsArticle: ((NewsArticle?) -> Void)? { get set }
 }
 
 class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
     
     //MARK: - Properties
     var newsView: NewsView!
-    var newsArray = [NewsArticle]()
     
-    var didSelectNewsItem: ((NewsArticle?) -> Void)?
+    var onDidSelectNewsArticle: ((NewsArticle?) -> Void)?
+    
+    private var viewModel: NewsViewModelProtocol = NewsViewModel()
     
     //MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -27,12 +28,12 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
         self.title = PageTitles.news.rawValue
         
         setupCustomView()
-        fetchNewsArticles()
         
         newsView.collectionView.dataSource = self
         newsView.collectionView.delegate = self
-        
         newsView.collectionView.register(NewsArticleCollectionViewCell.self)
+        
+        subscribeToViewModel()
     }
     
     //MARK: - Methods
@@ -47,43 +48,34 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
         newsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         newsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-}
-
-//MARK: - Networking
-extension NewsViewController {
     
-    func fetchNewsArticles(){
-        let id = UserDefaultsManager.selectedUserSchoolId ?? ""
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.news(id: id)
-        
-        networkManager.requestWithListResponse(for: endpoint, [NewsArticle].self) { [weak self] (result) in
-            switch result {
-            case .success(let news):
-                self?.newsArray = news
-            case .error:
-                break
+    // MARK: - Private Methods
+    private func subscribeToViewModel() {
+        viewModel.onNewsItemSelected = onDidSelectNewsArticle
+        viewModel.onReceivedNews = { [weak self] in
+            DispatchQueue.main.async {
+                self?.newsView.collectionView.reloadData()
             }
         }
+        viewModel.requestSchoolNews()
     }
 }
 
 //MARK: - Delegate
 extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return newsArray.count
+        return viewModel.numberOfRows(in: section)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return viewModel.numberOfSections
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: NewsArticleCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
-        cell.configureCell(newsArray[indexPath.row])
+        cell.configureCell(viewModel.newsArticle(for: indexPath))
         return cell
     }
     
@@ -96,7 +88,6 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
         UIView.animate(withDuration: 0.3) {
             if let cell = collectionView.cellForItem(at: indexPath) as? NewsArticleCollectionViewCell {
                 cell.transform = .init(scaleX: 0.95, y: 0.95)
- 
             }
         }
     }
@@ -105,16 +96,11 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
         UIView.animate(withDuration: 0.3) {
             if let cell = collectionView.cellForItem(at: indexPath) as? NewsArticleCollectionViewCell {
                 cell.transform = .identity
-                
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectedArticle = newsArray[indexPath.row]
-        didSelectNewsItem?(selectedArticle)
-        let selectedArticleVC = SelectedNewsArticleViewController(selectedArticle: selectedArticle)
-        self.present(selectedArticleVC, animated: true, completion: nil)
+        viewModel.didSelectItem(at: indexPath)
     }
-    
 }
