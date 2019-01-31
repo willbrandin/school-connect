@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol TabCoordinatable: class {
-    var tabBarItem: UITabBarItem { get }
-    var rootViewController: UIViewController? { get }
-}
-
 class HomeCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     
     var tabBarItem: UITabBarItem {
-        return UITabBarItem(title: PageTitles.home.rawValue,
-                                                image: SCImages.TabBarImages.homeIcon,
+        return UITabBarItem(title: SNTabBarOption.home.title,
+                                                image: SNTabBarOption.home.icon,
                                                 tag: 0)
     }
     
@@ -25,14 +20,23 @@ class HomeCoordinator: NavigationFlowCoordinator, TabCoordinatable {
         return mainViewController
     }
     
+    private var homeViewController: HomeViewControllerProtocol?
+    
+    override init() {
+        super.init()
+        
+        start(with: .present, animated: false)
+    }
+    
     override func createMainViewController() -> UIViewController? {
         return createHomeViewController()
     }
     
-    private func createHomeViewController() -> UIViewController {
-        let homeViewController = HomeViewController()
-        homeViewController.tabBarItem = tabBarItem
-        return homeViewController
-//            SNBaseNavigationController(rootViewController: homeViewController)
+    private func createHomeViewController() -> UIViewController? {
+        guard let id = UserDefaultsManager.selectedUserSchoolId else { return nil }
+        homeViewController = HomeViewController(viewModel: HomeViewModel(schoolId: id))
+        guard let controller = homeViewController?.toPresent() else { return nil }
+        controller.tabBarItem = tabBarItem
+        return controller
     }
 }

@@ -33,9 +33,7 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     }
     
     private func createHomeViewController() {
-        navigationController.navigationBar.isHidden = true
-        navigationController.navigationBar.prefersLargeTitles = false
-        push(viewController: SNTabBarController())
+        start(childCoordinator: TabBarCoordinator(), with: .pushAndMakeRoot)
     }
     
     private func createOnBoardingFlow() {

@@ -15,9 +15,17 @@ final class NewsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     }
     
     var tabBarItem: UITabBarItem {
-        return UITabBarItem(title: PageTitles.news.rawValue,
-                            image: SCImages.TabBarImages.newsIcon,
+        return UITabBarItem(title: SNTabBarOption.news.title,
+                            image: SNTabBarOption.news.icon,
                             tag: 1)
+    }
+    
+    private var newsViewController: NewsViewControllerProtocol?
+    
+    override init() {
+        super.init()
+        
+        start(with: .present, animated: false)
     }
     
     override func createMainViewController() -> UIViewController? {
@@ -25,8 +33,12 @@ final class NewsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     }
     
     private func createNewsViewController() -> UIViewController? {
-        let newsViewController = NewsViewController()
-        newsViewController.tabBarItem = tabBarItem
-        return newsViewController
+        newsViewController = NewsViewController()
+        newsViewController?.onDidSelectNewsArticle = { article in
+            
+        }
+        guard let controller = newsViewController?.toPresent() else { return nil }
+        controller.tabBarItem = tabBarItem
+        return controller
     }
 }
