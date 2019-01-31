@@ -11,7 +11,7 @@ target 'SchoolConnectOnBoarding' do
   pod 'Kingfisher', '~> 4.0'
   pod 'SkyFloatingLabelTextField', '~> 3.0'
   pod 'RocketNetworking'
-  
+
   target 'SchoolConnectOnBoardingTests' do
     inherit! :search_paths
     # Pods for testing

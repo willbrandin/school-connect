@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E671205831A1009327F3 /* SNAppSettings.swift */; };
 		0312E674205833B5009327F3 /* SCEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E673205833B5009327F3 /* SCEnums.swift */; };
-		0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67520583A6D009327F3 /* DatabaseManager.swift */; };
 		0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E678205854E0009327F3 /* SNTabBarController.swift */; };
 		0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67B20585524009327F3 /* SNBaseNavigationController.swift */; };
 		0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67D205855E0009327F3 /* HomeViewController.swift */; };
@@ -104,6 +103,7 @@
 		D2180EF021CF06CE006FF62D /* ContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */; };
 		D223A30A21FCF102008056EF /* SchoolConnectAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D223A30921FCF102008056EF /* SchoolConnectAPI.swift */; };
 		D223A31F21FCF56F008056EF /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D223A31E21FCF56F008056EF /* Result.swift */; };
+		D23002E122027F1D00AAFE52 /* AppDelegate+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002E022027F1D00AAFE52 /* AppDelegate+Configuration.swift */; };
 		D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */; };
 		D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */; };
 		D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */; };
@@ -135,7 +135,6 @@
 /* Begin PBXFileReference section */
 		0312E671205831A1009327F3 /* SNAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNAppSettings.swift; sourceTree = "<group>"; };
 		0312E673205833B5009327F3 /* SCEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCEnums.swift; sourceTree = "<group>"; };
-		0312E67520583A6D009327F3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		0312E678205854E0009327F3 /* SNTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNTabBarController.swift; sourceTree = "<group>"; };
 		0312E67B20585524009327F3 /* SNBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseNavigationController.swift; sourceTree = "<group>"; };
 		0312E67D205855E0009327F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +236,7 @@
 		D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactViewModel.swift; sourceTree = "<group>"; };
 		D223A30921FCF102008056EF /* SchoolConnectAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolConnectAPI.swift; sourceTree = "<group>"; };
 		D223A31E21FCF56F008056EF /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		D23002E022027F1D00AAFE52 /* AppDelegate+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Configuration.swift"; sourceTree = "<group>"; };
 		D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTextFieldBindable.swift; sourceTree = "<group>"; };
 		D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
@@ -369,8 +369,6 @@
 		033418B72056BFD9003B61CE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				03930CC82054AB4400128D72 /* LaunchScreen.storyboard */,
-				03930CCB2054AB4400128D72 /* Info.plist */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -474,15 +472,18 @@
 		03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				D23002E22202813400AAFE52 /* Storyboard */,
 				D223A30821FCF0F0008056EF /* NetworkLayer */,
 				D20697F921C2F7F8001545BC /* Coordinator */,
 				0312E681205861D5009327F3 /* On-BoardingPath */,
 				033418B72056BFD9003B61CE /* Helper */,
-				03930CF32055FEF000128D72 /* Database */,
+				03466263205830DC00100737 /* Models */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
+				D23002DF22027F0800AAFE52 /* InitiialConfiguration */,
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
 				D206980621C2F8A5001545BC /* ApplicationCoordinator.swift */,
+				03930CCB2054AB4400128D72 /* Info.plist */,
 				03930CC62054AB4400128D72 /* Assets.xcassets */,
 			);
 			path = SchoolConnectOnBoarding;
@@ -559,15 +560,6 @@
 				D223A31E21FCF56F008056EF /* Result.swift */,
 			);
 			path = Util;
-			sourceTree = "<group>";
-		};
-		03930CF32055FEF000128D72 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				03466263205830DC00100737 /* Models */,
-				0312E67520583A6D009327F3 /* DatabaseManager.swift */,
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 		03C4A47C207FF4FF00A0A2FF /* SCUIKit */ = {
@@ -671,6 +663,22 @@
 				D223A30921FCF102008056EF /* SchoolConnectAPI.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		D23002DF22027F0800AAFE52 /* InitiialConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				D23002E022027F1D00AAFE52 /* AppDelegate+Configuration.swift */,
+			);
+			path = InitiialConfiguration;
+			sourceTree = "<group>";
+		};
+		D23002E22202813400AAFE52 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				03930CC82054AB4400128D72 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -820,12 +828,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/RocketNetworking/RocketNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RocketNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,7 +852,6 @@
 			files = (
 				0349BF712059AA790031CDE9 /* CalendarCardView.swift in Sources */,
 				03C4A48B207FF76F00A0A2FF /* ColorExtensions.swift in Sources */,
-				0312E67620583A6D009327F3 /* DatabaseManager.swift in Sources */,
 				03930CF52055FF0100128D72 /* SchoolSearch.swift in Sources */,
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
 				03C4A47E207FF55400A0A2FF /* WBFloatingTextView.swift in Sources */,
@@ -896,6 +905,7 @@
 				D206980021C2F860001545BC /* CoordinatorsTracker.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				D223A31F21FCF56F008056EF /* Result.swift in Sources */,
+				D23002E122027F1D00AAFE52 /* AppDelegate+Configuration.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
 				03C4A497207FF9D900A0A2FF /* Shadowable.swift in Sources */,
@@ -1081,6 +1091,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BuildMode = 1;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5QM989GLQ;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1106,6 +1117,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				BuildMode = 4;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M5QM989GLQ;
 				FRAMEWORK_SEARCH_PATHS = (

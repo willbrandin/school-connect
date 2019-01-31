@@ -20,8 +20,4 @@ public struct ContactForm: PropertyLoopable {
     enum CodingKeys: String, CodingKey {
         case name, email, phoneNumber, message
     }
-    
-    //MARK: - Methods
-    
-    
 }

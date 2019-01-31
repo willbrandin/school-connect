@@ -18,17 +18,6 @@ class CalendarEvent: Codable {
     var location: String?
     var schoolId: String?
     
-    //MARK: - Init
-    required convenience init(from decoder: Decoder) throws {
-        self.init()
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        title = try values.decodeIfPresent(String.self, forKey: .title)
-        startDate = try values.decodeIfPresent(String.self, forKey: .startDate)
-        description = try values.decodeIfPresent(String.self, forKey: .description)
-        location = try values.decodeIfPresent(String.self, forKey: .location)
-        schoolId = try values.decodeIfPresent(String.self, forKey: .schoolId)
-    }
-    
     enum CodingKeys: String, CodingKey {
         case title, startDate, description, location
         case schoolId = "school"
