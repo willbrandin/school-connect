@@ -109,6 +109,8 @@
 		D206981221C3029A001545BC /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981121C3029A001545BC /* UIButtonExtension.swift */; };
 		D206981521C30894001545BC /* SchoolSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981421C30894001545BC /* SchoolSearchViewModel.swift */; };
 		D206981721C314E5001545BC /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981621C314E5001545BC /* ConfirmationViewModel.swift */; };
+		D23002F522034D8400AAFE52 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002F422034D8400AAFE52 /* HomeCoordinator.swift */; };
+		D23002F72203515C00AAFE52 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23002F62203515C00AAFE52 /* NewsCoordinator.swift */; };
 		D28E06AB21C1C8A4007685D1 /* PropertyLoopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */; };
 /* End PBXBuildFile section */
 
@@ -232,6 +234,8 @@
 		D206981121C3029A001545BC /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D206981421C30894001545BC /* SchoolSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewModel.swift; sourceTree = "<group>"; };
 		D206981621C314E5001545BC /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
+		D23002F422034D8400AAFE52 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		D23002F62203515C00AAFE52 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
 		D28E06AA21C1C8A4007685D1 /* PropertyLoopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyLoopable.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,7 +276,6 @@
 				03930CE32054ACC900128D72 /* Confirmation */,
 				03930CE22054ACBF00128D72 /* Search */,
 				03930CE12054ACBA00128D72 /* Landing */,
-				D206980B21C2FF1A001545BC /* OnBoardingCoordinator.swift */,
 			);
 			path = "On-BoardingPath";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 		03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				D23002F322034D6D00AAFE52 /* Coordinators */,
 				D20697F921C2F7F8001545BC /* Coordinator */,
 				0312E681205861D5009327F3 /* On-BoardingPath */,
 				033418B72056BFD9003B61CE /* Helper */,
@@ -693,6 +697,16 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		D23002F322034D6D00AAFE52 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D206980B21C2FF1A001545BC /* OnBoardingCoordinator.swift */,
+				D23002F422034D8400AAFE52 /* HomeCoordinator.swift */,
+				D23002F62203515C00AAFE52 /* NewsCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -864,6 +878,7 @@
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
 				03C4A47E207FF55400A0A2FF /* WBFloatingTextView.swift in Sources */,
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
+				D23002F72203515C00AAFE52 /* NewsCoordinator.swift in Sources */,
 				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
 				D206980121C2F860001545BC /* FlowCoordinator.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
@@ -934,6 +949,7 @@
 				03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */,
 				D206981721C314E5001545BC /* ConfirmationViewModel.swift in Sources */,
 				03930CEA2054B1C700128D72 /* ViewExtensions.swift in Sources */,
+				D23002F522034D8400AAFE52 /* HomeCoordinator.swift in Sources */,
 				0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */,
 				03C4A480207FF57900A0A2FF /* SCFloatingTextField.swift in Sources */,
 				D206981521C30894001545BC /* SchoolSearchViewModel.swift in Sources */,

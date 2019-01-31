@@ -8,56 +8,64 @@
 
 import UIKit
 
-class SNTabBarController: UITabBarController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        mapViewControllersAndAddNavigation()
-    }
-
-    func addViewControllers() -> [UIViewController]{
-        let homeViewController = HomeViewController()
-        homeViewController.tabBarItem = UITabBarItem(title: PageTitles.home.rawValue,
-                                                     image: SCImages.TabBarImages.homeIcon,
-                                                     tag: 0)
-        
-        let newsViewController = NewsViewController()
-        newsViewController.tabBarItem = UITabBarItem(title: PageTitles.news.rawValue,
-                                                     image: SCImages.TabBarImages.newsIcon,
-                                                     tag: 1)
-        
-        let calendarViewController = CalendarViewController()
-        calendarViewController.tabBarItem = UITabBarItem(title: PageTitles.calendar.rawValue,
-                                                         image: SCImages.TabBarImages.calendarIcon,
-                                                         tag: 2)
-        
-        let contactViewController = ContactViewController()
-        contactViewController.tabBarItem = UITabBarItem(title: PageTitles.contact.rawValue,
-                                                        image: SCImages.TabBarImages.contactIcon
-            ,
-                                                        tag: 3)
-        
-        return [homeViewController, newsViewController, calendarViewController, contactViewController]
+class TabBarCoordinator: NavigationFlowCoordinator {
+    
+    private var tabBarViewControllers = [UIViewController]()
+    private var tabBarController: SNTabBarController?
+    
+    override func createMainViewController() -> UIViewController? {
+        return setupTabBarController()
     }
     
-    func mapViewControllersAndAddNavigation(){
-        viewControllers = addViewControllers().map { SNBaseNavigationController(rootViewController: $0) }
-        setColors()
+    private func setupTabBarController() -> SNTabBarController? {
+        tabBarController = SNTabBarController()
+        setupHomeCoordinator()
+        return tabBarController
     }
-
+//
+//    private func addViewControllers() -> [UIViewController]{
+//        let homeViewController = HomeViewController()
+//        homeViewController.tabBarItem = UITabBarItem(title: PageTitles.home.rawValue,
+//                                                     image: SCImages.TabBarImages.homeIcon,
+//                                                     tag: 0)
+//
+//        let newsViewController = NewsViewController()
+//        newsViewController.tabBarItem = UITabBarItem(title: PageTitles.news.rawValue,
+//                                                     image: SCImages.TabBarImages.newsIcon,
+//                                                     tag: 1)
+//
+//        let calendarViewController = CalendarViewController()
+//        calendarViewController.tabBarItem = UITabBarItem(title: PageTitles.calendar.rawValue,
+//                                                         image: SCImages.TabBarImages.calendarIcon,
+//                                                         tag: 2)
+//
+//        let contactViewController = ContactViewController()
+//        contactViewController.tabBarItem = UITabBarItem(title: PageTitles.contact.rawValue,
+//                                                        image: SCImages.TabBarImages.contactIcon
+//            ,
+//                                                        tag: 3)
+//        return [homeViewController, newsViewController, calendarViewController, contactViewController]
+//    }
+    
+    private func setupHomeCoordinator() {
+        let home = HomeCoordinator()
+        start(childCoordinator: home, with: .present)
+        let news = NewsCoordinator()
+        start(childCoordinator: news, with: .present)
+        tabBarController?.viewControllers = [home.rootViewController!, news.mainViewController!]
+    }
+    
 }
 
-extension SNTabBarController: SchoolColorable {
-    
+class SNTabBarController: UITabBarController, SchoolColorable {
     func setColors(){
-        self.tabBar.barTintColor = schoolPrimaryColor
+        tabBar.barTintColor = schoolPrimaryColor
         tabBar.tintColor = schoolSecondaryColor
         
-        if (tabBar.barTintColor?.isLight)! {
+        if tabBar.barTintColor?.isLight ?? false {
             tabBar.unselectedItemTintColor = UIColor.gray
         } else {
             tabBar.unselectedItemTintColor = UIColor.lightGray
         }
     }
-    
 }

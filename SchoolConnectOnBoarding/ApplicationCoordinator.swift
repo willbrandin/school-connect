@@ -33,8 +33,7 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     }
     
     private func createHomeViewController() {
-        let tabBarController = SNTabBarController()
-        pushAndMakeRoot(viewController: tabBarController)
+        self.start(childCoordinator: TabBarCoordinator(), with: .pushAndMakeRoot)
     }
     
     private func createOnBoardingFlow() {
