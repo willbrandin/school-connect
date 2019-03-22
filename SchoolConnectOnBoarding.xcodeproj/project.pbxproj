@@ -453,7 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				D2F9C4072203559100177743 /* Coordinators */,
-				D2F9C3F82203557F00177743 /* Coordinator */,
+				D2F9C3F82203557F00177743 /* NavigationFlowCoordinator */,
 				D2F9C3F12203554000177743 /* Navigation */,
 				D23002F02203423E00AAFE52 /* Style */,
 				D23002E722028A3900AAFE52 /* Subclasses */,
@@ -694,7 +694,7 @@
 			path = SchoolConnectOnBoarding/Navigation;
 			sourceTree = SOURCE_ROOT;
 		};
-		D2F9C3F82203557F00177743 /* Coordinator */ = {
+		D2F9C3F82203557F00177743 /* NavigationFlowCoordinator */ = {
 			isa = PBXGroup;
 			children = (
 				D2F9C3F92203557F00177743 /* FlowEvent.swift */,
@@ -705,7 +705,7 @@
 				D2F9C3FE2203557F00177743 /* NavigationFlowCoordinator.swift */,
 				D2F9C3FF2203557F00177743 /* Coordinator.swift */,
 			);
-			path = Coordinator;
+			path = NavigationFlowCoordinator;
 			sourceTree = "<group>";
 		};
 		D2F9C4072203559100177743 /* Coordinators */ = {
