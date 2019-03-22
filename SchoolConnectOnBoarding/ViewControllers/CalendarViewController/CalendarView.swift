@@ -22,7 +22,6 @@ class CalendarView: UIView {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
         refreshControl.tintColor = UIColor(red:0.25, green:0.72, blue:0.85, alpha:1.0)
-        
         return refreshControl
     }()
     
@@ -49,6 +48,6 @@ class CalendarView: UIView {
     }
     
     @objc func handleRefresh(){
-        self.refreshControl.beginRefreshing()
+        refreshControl.beginRefreshing()
     }
 }

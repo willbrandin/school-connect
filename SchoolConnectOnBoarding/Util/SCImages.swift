@@ -11,6 +11,9 @@ import UIKit
 
 public struct SCImages {
     
+    static var backIcon: UIImage {
+        return UIImage(named: "icon-back_24pt")!
+    }
     
     static var dismissWhite: UIImage {
         return UIImage(named: "closewhite")!
@@ -36,9 +39,11 @@ public struct SCImages {
         static var bullyReportImage: UIImage {
             return UIImage(named: "classroom")!
         }
+        
         static var teacherContactImage: UIImage {
             return UIImage(named: "landingPageIcon")!
         }
+        
         static var mapOfSchoolImage: UIImage {
             return UIImage(named: "student-walk")!
         }
@@ -61,7 +66,5 @@ public struct SCImages {
         static var contactIcon: UIImage {
             return UIImage(named: "email")!
         }
-        
     }
-
 }

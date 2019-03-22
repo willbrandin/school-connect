@@ -24,5 +24,4 @@ struct Style {
         
         static var textFieldHeight: CGFloat { return 52.0 }
     }
-    
 }

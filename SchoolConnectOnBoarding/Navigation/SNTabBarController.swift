@@ -8,23 +8,24 @@
 
 import UIKit
 
-class SNTabBarController: UITabBarController, SchoolColorable {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
-    func setColors(){
-        self.tabBar.barTintColor = schoolPrimaryColor
-        tabBar.tintColor = schoolSecondaryColor
-        
-        if (tabBar.barTintColor?.isLight)! {
-            tabBar.unselectedItemTintColor = UIColor.gray
-        } else {
-            tabBar.unselectedItemTintColor = UIColor.lightGray
-        }
-    }
-
-}
+//class SNTabBarController: UITabBarController, SchoolColorable {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        setColors()
+//    }
+//
+//    func setColors(){
+//        tabBar.barTintColor = schoolPrimaryColor
+//        tabBar.tintColor = schoolSecondaryColor
+//
+//        if schoolPrimaryColor?.isLight ?? false {
+//            tabBar.unselectedItemTintColor = UIColor.gray
+//        } else {
+//            tabBar.unselectedItemTintColor = UIColor.lightGray
+//        }
+//    }
+//
+//}
 

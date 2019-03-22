@@ -25,7 +25,8 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = PageTitles.calendar.rawValue
+        title = PageTitles.calendar.rawValue
+        
         setupCalendarView()
         setDelegates()
         subscribeToViewModel()
@@ -35,7 +36,7 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
     private func setupCalendarView(){
         calendarView = CalendarView()
         calendarView.customizeUI()
-        self.view.addSubview(calendarView)
+        view.addSubview(calendarView)
         
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
@@ -56,6 +57,7 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
                 self?.calendarView.tableView.reloadData()
             }
         }
+        
         viewModel.onCalendarItemSelected = onDidSelectEvent
         viewModel.requestCalendarEvents()
     }
@@ -80,7 +82,6 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
-    
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {

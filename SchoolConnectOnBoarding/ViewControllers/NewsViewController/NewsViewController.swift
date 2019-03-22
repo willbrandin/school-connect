@@ -25,7 +25,8 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = PageTitles.news.rawValue
+        title = PageTitles.news.rawValue
+        view.backgroundColor = .white
         
         setupCustomView()
         
@@ -40,8 +41,8 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
     func setupCustomView(){
         newsView = NewsView()
         newsView.customizeUI()
-        self.view.addSubview(newsView)
         
+        view.addSubview(newsView)
         newsView.translatesAutoresizingMaskIntoConstraints = false
         newsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         newsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -73,14 +74,12 @@ extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell: NewsArticleCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
         cell.configureCell(viewModel.newsArticle(for: indexPath))
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         return CGSize(width: collectionView.bounds.width, height: self.view.frame.height * 0.58)
     }
     

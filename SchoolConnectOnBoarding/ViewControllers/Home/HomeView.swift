@@ -16,7 +16,7 @@ class HomeView: UIView {
     //MARK: - Init
     
     func customizeUI(){
-        backgroundColor = SCColors.scBlue
+        backgroundColor = .white
         setupCollectionViewConstraints()
     }
     
@@ -41,5 +41,4 @@ class HomeView: UIView {
         collectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
-    
 }

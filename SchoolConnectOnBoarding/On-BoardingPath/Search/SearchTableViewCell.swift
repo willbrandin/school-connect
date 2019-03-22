@@ -10,7 +10,6 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell, CellLoadableView {
 
-    
     //MARK: - Properties
     
     lazy var schoolLabel: UILabel! = {
@@ -24,6 +23,7 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
     //MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         setupLabelConstraints()
     }
     
@@ -33,7 +33,7 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
     
     //MARK: - Methods
     func setupLabelConstraints(){
-        self.contentView.addSubview(schoolLabel)
+        contentView.addSubview(schoolLabel)
         schoolLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
         schoolLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12.0).isActive = true
         schoolLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15.0).isActive = true

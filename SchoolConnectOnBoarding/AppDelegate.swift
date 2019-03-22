@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, SchoolColorable {
 
     var window: UIWindow?
     private var applicationCoordinator: ApplicationCoordinator?
@@ -30,5 +30,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       
         return true
     }
-
 }

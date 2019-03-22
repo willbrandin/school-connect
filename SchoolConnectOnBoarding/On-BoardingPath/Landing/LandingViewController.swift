@@ -38,8 +38,9 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         landingView.didTapToContinue = { [weak self] in
             self?.didTapToContinue?()
         }
+        
         landingView.customizeUI()
-        self.view.addSubview(landingView)
+        view.addSubview(landingView)
         
         landingView.translatesAutoresizingMaskIntoConstraints = false
         landingView.pinToSuperview()

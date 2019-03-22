@@ -15,6 +15,7 @@ class NewsView: UIView {
 
     //MARK: - Init
     func customizeUI() {
+        backgroundColor = .white
         setupCollectionViewConstraints()
     }
     

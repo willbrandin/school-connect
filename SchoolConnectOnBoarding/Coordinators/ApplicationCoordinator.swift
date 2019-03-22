@@ -34,11 +34,11 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
     
     private func createHomeViewController() {
         let coordinator = TabBarCoordinator()
-        self.navigationController.setNavigationBarHidden(true, animated: false)
-        self.start(childCoordinator: coordinator, with: .pushAndMakeRoot)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        start(childCoordinator: coordinator, with: .pushAndMakeRoot)
     }
     
     private func createOnBoardingFlow() {
-        self.start(childCoordinator: OnBoardingCoordinator(), with: .pushAndMakeRoot)
+        start(childCoordinator: OnBoardingCoordinator(), with: .pushAndMakeRoot)
     }
 }

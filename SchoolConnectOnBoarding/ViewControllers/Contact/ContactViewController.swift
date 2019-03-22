@@ -15,7 +15,7 @@ protocol ContactViewControllerProtocol: Presentable {
 
 class ContactViewController: SNBaseViewController, ContactViewControllerProtocol {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var viewModel: ContactViewModelProtocol = ContactViewModel()
     
     lazy var contactTitleLabel: UILabel! = {
@@ -70,7 +70,8 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
     // MARK: - ContactViewControllerProtocol
     var didSubmitForm: (() -> Void)?
     
-    //MARK: - Init
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -47,7 +47,6 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
         super.viewDidLoad()
         
         title = PageTitles.schoolSearch.rawValue
-        setupNavigationBar()
         
         setupLandingView()
         setDelegates()
@@ -103,14 +102,6 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
         searchView.tableView.register(SearchTableViewCell.self)
     }
     
-    private func setupNavigationBar(){
-        let attributes = [NSAttributedStringKey.foregroundColor: SCColors.scGray]
-        navigationController?.navigationBar.titleTextAttributes = attributes
-        navigationController?.navigationBar.largeTitleTextAttributes = attributes
-        navigationController?.navigationBar.tintColor = SCColors.scGrayText
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     func setEmptyState() {
         let newView = SearchBlankView()
         newView.customizeUI()
@@ -127,14 +118,11 @@ extension SearchViewController: UISearchBarDelegate {
         let searchText = searchBar.text!
         viewModel.determineFetch(for: searchText)
     }
-//
-//    
-    
 }
 
 //MARK: - TableView Delegates
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -154,5 +142,4 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let id = viewModel.schoolId(for: indexPath) else { return }
         didSelectSchoolId?(id)
     }
-    
 }

@@ -13,7 +13,6 @@ import CoreGraphics
 class CalendarCellSideButtonView: UIView, SchoolColorable {
     
     override func draw(_ rect: CGRect) {
-        
         let ovalPath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
         schoolSecondaryColor?.setFill()
         ovalPath.fill()

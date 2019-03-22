@@ -38,7 +38,8 @@ class NewsArticleViewController: SNBaseViewController, NewsArticleViewController
     func setupEventView(){
         articleView = NewsArticleView()
         articleView.customizeUI(selectedArticle)
-        self.view.addSubview(articleView)
+        
+        view.addSubview(articleView)
         articleView.pinToSuperview()
         
         articleView.onTapToDismiss = { [weak self] in
@@ -48,8 +49,7 @@ class NewsArticleViewController: SNBaseViewController, NewsArticleViewController
     
     func setTitle(){
         if let event = selectedArticle {
-            self.title = event.title
+            title = event.title
         }
     }
-    
 }

@@ -21,7 +21,7 @@ class CalendarEventViewController: SNBaseViewController, CalendarEventViewContro
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(navigationController!)
+        
         setupEventView()
         setTitle()
     }
@@ -41,15 +41,16 @@ class CalendarEventViewController: SNBaseViewController, CalendarEventViewContro
         eventView.onDidTapAddToCalendar = { [weak self] in
             self?.saveToCalendar()
         }
+        
         eventView.customizeUI(selectedEvent)
-        self.view.addSubview(eventView)
+        view.addSubview(eventView)
         
         eventView.pinToSuperview()
     }
     
     private func setTitle(){
         if let event = selectedEvent {
-            self.title = event.title
+            title = event.title
         }
     }
     
@@ -57,11 +58,8 @@ class CalendarEventViewController: SNBaseViewController, CalendarEventViewContro
     private func saveToCalendar() {
         addEventToCalendar(with: selectedEvent!) { (success, err) in
             if success {
-                //Loading to a check mark
                 print("Added to Calendar")
             } else {
-                //error
-                //Loading and fail
                 print("Error")
             }
         }
@@ -97,7 +95,6 @@ class CalendarEventViewController: SNBaseViewController, CalendarEventViewContro
                 completion?(true, nil)
                 
             } else {
-                
                 completion?(false, error as NSError?)
             }
         })
