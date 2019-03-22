@@ -45,15 +45,24 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = PageTitles.schoolSearch.rawValue
+        
+        title = PageTitles.schoolSearch.rawValue
         setupNavigationBar()
+        
         setupLandingView()
         setDelegates()
         subscribeToViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         searchView.searchBar.becomeFirstResponder()
     }
     
@@ -61,7 +70,7 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
     private func setupLandingView(){
         searchView = SearchView()
         searchView.customizeUI(shouldShowSearchResults)
-        self.view.addSubview(searchView)
+        view.addSubview(searchView)
         
         searchView.translatesAutoresizingMaskIntoConstraints = false
         searchView.pinToSuperview()
@@ -96,19 +105,18 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
     
     private func setupNavigationBar(){
         let attributes = [NSAttributedStringKey.foregroundColor: SCColors.scGray]
-        self.navigationController?.navigationBar.titleTextAttributes = attributes
-        self.navigationController?.navigationBar.largeTitleTextAttributes = attributes
-        self.navigationController?.navigationBar.tintColor = SCColors.scGrayText
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = attributes
+        navigationController?.navigationBar.largeTitleTextAttributes = attributes
+        navigationController?.navigationBar.tintColor = SCColors.scGrayText
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setEmptyState() {
         let newView = SearchBlankView()
         newView.customizeUI()
-        self.searchView.tableView.separatorStyle  = .none
-        self.searchView.tableView.backgroundView = newView
-        self.searchView.tableView.reloadData()
+        searchView.tableView.separatorStyle  = .none
+        searchView.tableView.backgroundView = newView
+        searchView.tableView.reloadData()
     }
 }
 

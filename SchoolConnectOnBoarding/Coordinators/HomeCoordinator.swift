@@ -16,17 +16,11 @@ class HomeCoordinator: NavigationFlowCoordinator, TabCoordinatable {
                                                 tag: 0)
     }
     
-    var rootViewController: UIViewController? {
-        return mainViewController
+    var tabNavigationController: UIViewController? {
+        return mainViewController?.navigationController
     }
     
     private var homeViewController: HomeViewControllerProtocol?
-    
-    override init() {
-        super.init()
-        
-        start(with: .present, animated: false)
-    }
     
     override func createMainViewController() -> UIViewController? {
         return createHomeViewController()

@@ -9,24 +9,23 @@
 import UIKit
 
 protocol CalendarViewControllerProtocol: Presentable {
-    var didSelectItem: ((CalendarEvent) -> Void)? { get set }
+    var onDidSelectEvent: ((CalendarEvent) -> Void)? { get set }
 }
 
 class CalendarViewController: SNBaseViewController, CalendarViewControllerProtocol {
 
     //MARK: - Properties
     var calendarView: CalendarView!
-    
-    // MARK: - CalendarViewControllerProtocol
-    var didSelectItem: ((CalendarEvent) -> Void)?
     private var viewModel: CalendarViewModelProtocol = CalendarViewModel()
 
+    // MARK: - CalendarViewControllerProtocol
+    var onDidSelectEvent: ((CalendarEvent) -> Void)?
+    
     //MARK: - View Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = PageTitles.calendar.rawValue
-        
         setupCalendarView()
         setDelegates()
         subscribeToViewModel()
@@ -57,7 +56,7 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
                 self?.calendarView.tableView.reloadData()
             }
         }
-        viewModel.onCalendarItemSelected = didSelectItem
+        viewModel.onCalendarItemSelected = onDidSelectEvent
         viewModel.requestCalendarEvents()
     }
 }
@@ -70,7 +69,6 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell: CalendarTableViewCell = tableView.deqeueReusableCell(for: indexPath)
         
         cell.configureCell(viewModel.calendarEvent(for: indexPath))
@@ -102,8 +100,5 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectItem(at: indexPath)
-//        let selectedEvent = calendarArray[indexPath.row]
-//        let selectedEventVC = SelectedCalendarEventViewController(selectedEvent: selectedEvent)
-//        show(selectedEventVC, sender: nil)
     }
 }

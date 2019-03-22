@@ -10,8 +10,11 @@ import UIKit
 
 final class NewsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     
-    var rootViewController: UIViewController? {
-        return mainViewController
+    private var newsViewController: NewsViewControllerProtocol?
+    private var newsArticleViewController: NewsArticleViewControllerProtocol?
+    
+    var tabNavigationController: UIViewController? {
+        return mainViewController?.navigationController
     }
     
     var tabBarItem: UITabBarItem {
@@ -20,25 +23,27 @@ final class NewsCoordinator: NavigationFlowCoordinator, TabCoordinatable {
                             tag: 1)
     }
     
-    private var newsViewController: NewsViewControllerProtocol?
-    
-    override init() {
-        super.init()
-        
-        start(with: .present, animated: false)
-    }
-    
     override func createMainViewController() -> UIViewController? {
         return createNewsViewController()
     }
     
     private func createNewsViewController() -> UIViewController? {
         newsViewController = NewsViewController()
-        newsViewController?.onDidSelectNewsArticle = { article in
-            
+        newsViewController?.onDidSelectNewsArticle = { [weak self] article in
+            self?.showNewsArticleViewController(with: article)
         }
         guard let controller = newsViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller
+    }
+    
+    private func showNewsArticleViewController(with article: NewsArticle?) {
+        guard let newsArticle = article else { return }
+        newsArticleViewController = NewsArticleViewController(selectedArticle: newsArticle)
+        newsArticleViewController?.onTapToClose = { [weak self] in
+            self?.dismissLastViewController()
+        }
+        guard let controller = newsArticleViewController?.toPresent() else { return }
+        present(viewController: controller)
     }
 }

@@ -43,6 +43,19 @@ open class NavigationFlowCoordinator: FlowCoordinator {
         return navigationCoordinatorsTracker
     }
     
+    open override func start() {
+        if navigationCoordinatorsTracker == nil {
+            navigationCoordinatorsTracker = NavigationControllerCoordinatorsTracker()
+        }
+        
+        if let viewController = createMainViewController() {
+            mainViewController = viewController
+            navigationController.viewControllers = [viewController]
+        } else {
+            print("failed to create a main view controller")
+        }
+    }
+    
     open override func start(with presentationStyle: NavigationStyle, animated: Bool) {
         if navigationCoordinatorsTracker == nil {
             navigationCoordinatorsTracker = NavigationControllerCoordinatorsTracker()

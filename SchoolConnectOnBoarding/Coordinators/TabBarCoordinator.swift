@@ -11,22 +11,44 @@ import UIKit
 final class TabBarCoordinator: NavigationFlowCoordinator {
     
     private var tabBarController = UITabBarController()
-    
+    private var homeCoordinator = HomeCoordinator()
+    private var newsCoordinator = NewsCoordinator()
+    private var calendarCoordinator = CalendarCoordinator()
+    private var contactCoordinator = ContactCoordinator()
+
     override func createMainViewController() -> UIViewController? {
-        setupHomeCoordinator()
-        setupNewsCoordinator()
+        setupCoordinators()
         return tabBarController
     }
     
+    private func setupCoordinators() {
+        setupHomeCoordinator()
+        setupNewsCoordinator()
+        setupCalendarCoordinator()
+        setupContactCoordinator()
+    }
+    
     private func setupHomeCoordinator() {
-        let coordinator = HomeCoordinator()
-        guard let controller = coordinator.rootViewController else { return }
+        homeCoordinator.start()
+        guard let controller = homeCoordinator.tabNavigationController else { return }
         tabBarController.viewControllers = [controller]
     }
     
     private func setupNewsCoordinator() {
-        let coordinator = NewsCoordinator()
-        guard let controller = coordinator.rootViewController else { return }
+        newsCoordinator.start()
+        guard let controller = newsCoordinator.tabNavigationController else { return }
+        tabBarController.viewControllers?.append(controller)
+    }
+    
+    private func setupCalendarCoordinator() {
+        calendarCoordinator.start()
+        guard let controller = calendarCoordinator.tabNavigationController else { return }
+        tabBarController.viewControllers?.append(controller)
+    }
+    
+    private func setupContactCoordinator() {
+        contactCoordinator.start()
+        guard let controller = contactCoordinator.tabNavigationController else { return }
         tabBarController.viewControllers?.append(controller)
     }
 }

@@ -10,5 +10,5 @@ import UIKit
 
 protocol TabCoordinatable: class {
     var tabBarItem: UITabBarItem { get }
-    var rootViewController: UIViewController? { get }
+    var tabNavigationController: UIViewController? { get }
 }

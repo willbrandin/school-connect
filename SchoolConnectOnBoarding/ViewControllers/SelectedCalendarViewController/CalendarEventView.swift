@@ -8,10 +8,13 @@
 
 import UIKit
 
-class SelectedCalendarEventView: UIView {
+protocol CalendarEventViewProtocol: class {
+    var onDidTapAddToCalendar: (() -> Void)? { get set }
+}
 
-    //MARK: - Properties
-    weak var saveToCalendarDelegate: SaveToCalendarEventDelegate?
+class CalendarEventView: UIView, CalendarEventViewProtocol {
+
+    var onDidTapAddToCalendar: (() -> Void)?
     
     //MARK: - UI Elements
     
@@ -224,6 +227,6 @@ class SelectedCalendarEventView: UIView {
     }
 
     @objc func handleAddToCalendar(){
-        self.saveToCalendarDelegate?.didTapSaveToCalendar()
+        onDidTapAddToCalendar?()
     }
 }
