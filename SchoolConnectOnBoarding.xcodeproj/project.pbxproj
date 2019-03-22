@@ -285,19 +285,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0312E681205861D5009327F3 /* On-BoardingPath */ = {
+		0312E68220586E36009327F3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				03930CE32054ACC900128D72 /* Confirmation */,
 				03930CE22054ACBF00128D72 /* Search */,
 				03930CE12054ACBA00128D72 /* Landing */,
-			);
-			path = "On-BoardingPath";
-			sourceTree = "<group>";
-		};
-		0312E68220586E36009327F3 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
 				D23002E822028A8F00AAFE52 /* SelectedNewsArticleViewController */,
 				D23002E6220289E400AAFE52 /* SelectedCalendarViewController */,
 				0312E69020587A75009327F3 /* Contact */,
@@ -466,7 +459,6 @@
 				D23002E722028A3900AAFE52 /* Subclasses */,
 				D23002E22202813400AAFE52 /* Storyboard */,
 				D223A30821FCF0F0008056EF /* NetworkLayer */,
-				0312E681205861D5009327F3 /* On-BoardingPath */,
 				03466263205830DC00100737 /* Models */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
