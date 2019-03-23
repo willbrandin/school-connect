@@ -27,7 +27,7 @@ class SCValidationTests: XCTestCase {
         super.tearDown()
     }
     
-    //MARK: - Email Test
+    // MARK: - Email Test
     func testEmailValidationPass(){
         textField = SCFloatingTextField(type: .email)
         textField?.text = "test@gmail.com"
@@ -55,7 +55,7 @@ class SCValidationTests: XCTestCase {
         XCTAssertFalse(String.isEmailValid(text: testText), "Email should not be valid")
     }
     
-    //MARK: - Phone number test
+    // MARK: - Phone number test
     
     func testPhoneValidationPass(){
         textField = SCFloatingTextField(type: .phoneNumber)
@@ -78,7 +78,7 @@ class SCValidationTests: XCTestCase {
         XCTAssertFalse(String.isPhoneNumberValid(text: testText), "Phone text should not be valid")
     }
     
-    //MARK: - Message
+    // MARK: - Message
     func testMessageValidationPass(){
         textView = WBFloatingTextView(type: .message)
         textView?.text = "Hello my name is a persons name"
@@ -105,7 +105,7 @@ class SCValidationTests: XCTestCase {
         XCTAssertFalse(String.isMessageValid(text: testText), "Message text should not be valid")
     }
     
-    //MARK: - Name
+    // MARK: - Name
     func testNameValidationPass(){
         textField = SCFloatingTextField(type: .name)
         textField?.text = "William Brandin"

@@ -10,11 +10,11 @@ import UIKit
 
 class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, CellLoadableView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     static var reuseID = CellReuseIds.homeGreetingCollectionCell.rawValue
     var greetingView: HomeGreetingView!
     
-    //MARK: - Init
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, CellLoadableView
         
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func configureCell(){
         setupCardViewConstraints()
         

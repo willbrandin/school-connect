@@ -10,10 +10,10 @@ import UIKit
 
 class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var validationType: WBTextValidationType
     
-    //MARK: - Init
+    // MARK: - Init
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -26,7 +26,7 @@ class SCFloatingTextField: UITextField, Validatable, Shadowable, CornerRoundable
         customizeUI(withShadow)
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     private func customizeUI(_ withShadow: Bool) {
         roundCorners()

@@ -10,11 +10,11 @@ import UIKit
 
 class CalendarTableViewCell: UITableViewCell, CellLoadableView {
 
-    //MARK: - Properties
+    // MARK: - Properties
     //static var cellId = CellReuseIds.calendarCell.rawValue
     var cardView: CalendarCardView!
     
-    //MARK: - Life Cycle and Init
+    // MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         

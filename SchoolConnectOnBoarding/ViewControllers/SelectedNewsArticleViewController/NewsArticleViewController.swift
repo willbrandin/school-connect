@@ -10,14 +10,14 @@ import UIKit
 
 class NewsArticleViewController: SNBaseViewController, NewsArticleViewControllerProtocol {
 
-    //MARK: - Properties
+    // MARK: - Properties
     var articleView: NewsArticleView!
     private var selectedArticle: NewsArticle?
     
     // MARK: - NewsArticleViewControllerProtocol
     var onTapToClose: (() -> Void)?
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +34,7 @@ class NewsArticleViewController: SNBaseViewController, NewsArticleViewController
         fatalError("init(coder:) has not been implemented")
     }
 
-    //MARK: - Methods
+    // MARK: - Methods
     func setupEventView(){
         articleView = NewsArticleView()
         articleView.customizeUI(selectedArticle)

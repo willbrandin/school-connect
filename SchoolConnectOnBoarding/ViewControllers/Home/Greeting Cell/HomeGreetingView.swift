@@ -10,7 +10,7 @@ import UIKit
 
 class HomeGreetingView: UIView, CornerRoundable {
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     lazy var welcomeTitleLabel: UILabel! = {
         let label = UILabel()
         label.font = SCFont.heroTitle
@@ -39,7 +39,7 @@ class HomeGreetingView: UIView, CornerRoundable {
         return imageView
     }()
     
-    //MARK: - StackView
+    // MARK: - StackView
     
     lazy var titleTextStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -55,7 +55,7 @@ class HomeGreetingView: UIView, CornerRoundable {
         return stackView
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     //TODO: - Need School Obj.
     func customizeUI(){
         backgroundColor = UIColor.white
@@ -68,7 +68,7 @@ class HomeGreetingView: UIView, CornerRoundable {
         roundCorners()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func setupStackViewContraints(){
         addSubview(titleTextStackView)

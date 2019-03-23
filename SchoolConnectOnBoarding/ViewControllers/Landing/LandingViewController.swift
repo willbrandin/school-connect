@@ -14,11 +14,11 @@ protocol LandingViewControllerProtocol: Presentable {
 
 class LandingViewController: UIViewController, LandingViewControllerProtocol {
 
-    //MARK - Properties
+    // MARK - Properties
     var landingView: LandingScreenView!
     var didTapToContinue: (() -> Void)?
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
-    //MARK: - Methods
+    // MARK: - Methods
     func setupLandingView(){
         landingView = LandingScreenView()
         landingView.didTapToContinue = { [weak self] in

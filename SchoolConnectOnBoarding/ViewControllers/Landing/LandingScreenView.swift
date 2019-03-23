@@ -10,7 +10,7 @@ import UIKit
 
 class LandingScreenView: UIView {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     var didTapToContinue: (() -> Void)?
     
@@ -66,7 +66,7 @@ class LandingScreenView: UIView {
         
     }()
     
-    //MARK: - Stack Views
+    // MARK: - Stack Views
     
     lazy var bodyTextStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -92,7 +92,7 @@ class LandingScreenView: UIView {
         return stackView
     }()
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func customizeUI() {
         backgroundColor = UIColor.white

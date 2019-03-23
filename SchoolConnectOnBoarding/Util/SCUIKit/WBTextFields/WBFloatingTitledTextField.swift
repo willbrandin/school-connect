@@ -15,7 +15,7 @@ import UIKit
 class WBFloatingTitledTextField: UIView, TextInputTitleable, WBTextFieldBindable {
     
     
-    //MARK: - Properties
+    // MARK: - Properties
     var onTextChanged: ((String) -> Void)?
     
     private var validationType: WBTextValidationType!
@@ -29,7 +29,7 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable, WBTextFieldBindable
         }
     }
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     lazy var textInputTitle: UILabel! = {
         let label = UILabel()
         label.font = SCFont.textFieldTitle
@@ -54,7 +54,7 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable, WBTextFieldBindable
         return stackView
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -66,7 +66,7 @@ class WBFloatingTitledTextField: UIView, TextInputTitleable, WBTextFieldBindable
         setupStackViewConstraints()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     private func setupStackViewConstraints(){
         addSubview(inputStackView)
         inputStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true

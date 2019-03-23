@@ -20,7 +20,7 @@ protocol ContactFormDelegate: class {
 
 class ContactView: UIView, ContactViewProtocol {
 
-    //MARK: - Properties
+    // MARK: - Properties
     var onNameFieldChanged: ((String) -> Void)?
     var onEmailFieldChanged: ((String) -> Void)?
     var onPhoneNumberFieldChanged: ((String) -> Void)?
@@ -28,7 +28,7 @@ class ContactView: UIView, ContactViewProtocol {
     weak var formDelegate: ContactFormDelegate?
     var inputs = [WBFloatingTitledTextField?]()
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var contactTitleLabel: UILabel! = {
         let label = UILabel()
@@ -95,7 +95,7 @@ class ContactView: UIView, ContactViewProtocol {
         return button
     }()
     
-    //MARK: - Main stack and scroll view
+    // MARK: - Main stack and scroll view
     
     lazy var mainStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -119,7 +119,7 @@ class ContactView: UIView, ContactViewProtocol {
         return scrollView
     }()
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func customizeUI(){
         setupScrollViewConstraints()

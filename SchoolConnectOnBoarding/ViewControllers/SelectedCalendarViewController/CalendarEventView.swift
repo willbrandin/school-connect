@@ -16,7 +16,7 @@ class CalendarEventView: UIView, CalendarEventViewProtocol {
 
     var onDidTapAddToCalendar: (() -> Void)?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var informationTitleLabel: UILabel! = {
         let label = UILabel()
@@ -92,7 +92,7 @@ class CalendarEventView: UIView, CalendarEventViewProtocol {
         return label
     }()
     
-    //MARK: - StackView
+    // MARK: - StackView
     
     lazy var infoStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -177,7 +177,7 @@ class CalendarEventView: UIView, CalendarEventViewProtocol {
                    trailing: Style.Layout.margin)
     }
     
-    //MARK: - Init
+    // MARK: - Init
     func customizeUI(_ calendarEvent: CalendarEvent?){
         setupScrollViewConstraints()
         setupStackViewConstraints()
@@ -190,7 +190,7 @@ class CalendarEventView: UIView, CalendarEventViewProtocol {
         }
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func setupScrollViewConstraints(){
         addSubview(mainScrollView)
         mainScrollView.pinToMargins()

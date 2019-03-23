@@ -121,7 +121,7 @@ class NewsArticleView: UIView, SchoolColorable, NewsArticleViewProtocol {
         setupBodyTextConstraints()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func setupImageConstraints(){
         addSubview(newsImageView)

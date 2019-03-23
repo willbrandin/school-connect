@@ -14,11 +14,11 @@ protocol CalendarEventViewControllerProtocol: Presentable {
 
 class CalendarEventViewController: SNBaseViewController, CalendarEventViewControllerProtocol {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var eventView: CalendarEventView!
     private let selectedEvent: CalendarEvent?
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,7 +35,7 @@ class CalendarEventViewController: SNBaseViewController, CalendarEventViewContro
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func setupEventView(){
         eventView = CalendarEventView()
         eventView.onDidTapAddToCalendar = { [weak self] in

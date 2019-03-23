@@ -9,10 +9,10 @@ import UIKit
 
 class CalendarCardView: UIView, CornerRoundable, Shadowable {
 
-    //MARK: - Properties
+    // MARK: - Properties
     var calendarEvent: CalendarEvent?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var titleLabel: UILabel! = {
         let label = UILabel()
@@ -38,7 +38,7 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
         return arrowImg
     }()
     
-    //MARK: - StackViews
+    // MARK: - StackViews
     lazy var mainStackView: UIStackView! = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
@@ -63,7 +63,7 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
         return stackView
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     
     func customizeUI(){
         backgroundColor = UIColor.white
@@ -80,7 +80,7 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
         customizeUI()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
 
     func setupMainStackViewConstraints(){
         addSubview(mainStackView)

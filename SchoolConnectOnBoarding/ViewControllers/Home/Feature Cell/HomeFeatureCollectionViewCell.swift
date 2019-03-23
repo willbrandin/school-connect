@@ -10,12 +10,12 @@ import UIKit
 
 class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var collectionView: UICollectionView!
     var featureArray = [String]()
     weak var featureCellDelegate: HomeFeatureDelegate?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
 
     lazy var featureTitleLabel: UILabel! = {
         let label = UILabel()
@@ -27,7 +27,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
         return label
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,7 +38,7 @@ class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
         
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func configureCell(){
         setArrayValue()

@@ -71,7 +71,7 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
     }
 }
 
-//MARK: - Delegate
+// MARK: - Delegate
 extension NewsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -19,7 +19,7 @@ protocol HomeViewControllerProtocol: Presentable {
 
 class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
 
-    //MARK: - Properties
+    // MARK: - Properties
     var homeView: HomeView!
     var homeState: HomeState?
     
@@ -37,7 +37,7 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
         fatalError("Fatal: Coder not implemented")
     }
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +57,7 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
         homeView.collectionView.register(HomeLinkCollectionViewCell.self)
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     private func setupHomeView(){
         homeView = HomeView()
         homeView.customizeUI()
@@ -83,7 +83,7 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
     }
 }
 
-//MARK: - Feature Cell Selection Delegate
+// MARK: - Feature Cell Selection Delegate
 extension HomeViewController: HomeFeatureDelegate {
     
     func didTapFeature(_ feature: HomeFeature?) {
@@ -94,7 +94,7 @@ extension HomeViewController: HomeFeatureDelegate {
     }
 }
 
-//MARK: - Collection Delegate
+// MARK: - Collection Delegate
 extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

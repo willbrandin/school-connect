@@ -10,11 +10,11 @@ import UIKit
 
 class FeatureCell: SCHomeCollectionViewCell, CellLoadableView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var cardView: FeatureCardView!
     static var reuseID = CellReuseIds.featureCollectionCell.rawValue
 
-    //MARK: - Init
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class FeatureCell: SCHomeCollectionViewCell, CellLoadableView {
         
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func configureCell(_ feature: HomeFeature?){
         setupCardViewConstraints()
         guard let featureType = feature else { return }

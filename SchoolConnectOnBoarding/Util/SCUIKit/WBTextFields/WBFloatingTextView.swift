@@ -16,17 +16,17 @@ import UIKit
 */
 class WBFloatingTextView: UIView, Shadowable {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var validationType: WBTextValidationType
 
-    //MARK: - UIElements
+    // MARK: - UIElements
     lazy var floatingTextView: WBTextView! = {
         let textView = WBTextView(type: validationType)
         textView.translatesAutoresizingMaskIntoConstraints = false
         return textView
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -44,7 +44,7 @@ class WBFloatingTextView: UIView, Shadowable {
         customizeUI(withShadow)
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     private func setupTextView(){
         addSubview(floatingTextView)
         floatingTextView.topAnchor.constraint(equalTo: self.topAnchor, constant: 3.0).isActive = true
@@ -69,10 +69,10 @@ class WBFloatingTextView: UIView, Shadowable {
 class WBTextView: UITextView, Validatable, CornerRoundable {
     
     
-    //MARK: - Properties
+    // MARK: - Properties
     var validationType: WBTextValidationType
 
-    //MARK: - Init
+    // MARK: - Init
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -88,7 +88,7 @@ class WBTextView: UITextView, Validatable, CornerRoundable {
         formatTextView()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     ///Style formating
     private func formatTextView(){

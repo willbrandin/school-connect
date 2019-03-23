@@ -10,10 +10,10 @@ import UIKit
 
 class LinkCell: UITableViewCell {
 
-    //MARK: - Properties
+    // MARK: - Properties
     static var cellId = CellReuseIds.linkTableCell.rawValue
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var linkTitleLabel: UILabel! = {
         let label = UILabel()
@@ -23,7 +23,7 @@ class LinkCell: UITableViewCell {
         return label
     }()
     
-    //MARK: - Inits
+    // MARK: - Inits
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -39,7 +39,7 @@ class LinkCell: UITableViewCell {
         }
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
 
     func setupTitleConstraints(){
         addSubview(linkTitleLabel)

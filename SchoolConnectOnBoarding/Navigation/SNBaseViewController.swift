@@ -14,7 +14,7 @@ class SNBaseViewController: UIViewController {
         return .lightContent
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func showAlert(withTitle: String, message: String){
         let alert = UIAlertController(title: withTitle, message: message, preferredStyle: .alert)

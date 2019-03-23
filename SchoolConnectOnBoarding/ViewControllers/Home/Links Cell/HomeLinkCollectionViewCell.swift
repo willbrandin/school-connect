@@ -10,10 +10,10 @@ import UIKit
 
 class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var linksArray = [SCHomeLink]()
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var linkTitleLabel: UILabel! = {
         let label = UILabel()
@@ -32,7 +32,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
         return tableView
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,7 +44,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
         
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func configureCell(){
         setupTitleConstraints()
         setupTableConstraints()
@@ -78,7 +78,7 @@ class HomeLinkCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
 }
 
-//MARK: - Networking
+// MARK: - Networking
 extension HomeLinkCollectionViewCell {
     
 //    //get from database and put in array
