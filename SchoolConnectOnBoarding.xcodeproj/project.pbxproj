@@ -284,15 +284,15 @@
 		0312E68220586E36009327F3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				03930CE32054ACC900128D72 /* Confirmation */,
-				03930CE22054ACBF00128D72 /* Search */,
-				03930CE12054ACBA00128D72 /* Landing */,
+				03930CE32054ACC900128D72 /* ConfirmationViewController */,
+				03930CE22054ACBF00128D72 /* SearchViewController */,
+				03930CE12054ACBA00128D72 /* LandingViewController */,
 				D23002E822028A8F00AAFE52 /* SelectedNewsArticleViewController */,
 				D23002E6220289E400AAFE52 /* SelectedCalendarViewController */,
-				0312E69020587A75009327F3 /* Contact */,
+				0312E69020587A75009327F3 /* ContactViewController */,
 				0312E688205872EE009327F3 /* CalendarViewController */,
 				0312E68320586E5D009327F3 /* NewsViewController */,
-				03930CE52054ACD300128D72 /* Home */,
+				03930CE52054ACD300128D72 /* HomeViewController */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -319,14 +319,14 @@
 			path = CalendarViewController;
 			sourceTree = "<group>";
 		};
-		0312E69020587A75009327F3 /* Contact */ = {
+		0312E69020587A75009327F3 /* ContactViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0312E69120587A86009327F3 /* ContactViewController.swift */,
 				03EA2B772062BC4300FACBBA /* ContactView.swift */,
 				D2180EEF21CF06CE006FF62D /* ContactViewModel.swift */,
 			);
-			path = Contact;
+			path = ContactViewController;
 			sourceTree = "<group>";
 		};
 		03139DAE209BA901009F5B77 /* WBTextFields */ = {
@@ -477,16 +477,16 @@
 			path = SchoolConnectOnBoardingTests;
 			sourceTree = "<group>";
 		};
-		03930CE12054ACBA00128D72 /* Landing */ = {
+		03930CE12054ACBA00128D72 /* LandingViewController */ = {
 			isa = PBXGroup;
 			children = (
 				03930CDF2054AB8C00128D72 /* LandingViewController.swift */,
 				03930CE62054ACF500128D72 /* LandingScreenView.swift */,
 			);
-			path = Landing;
+			path = LandingViewController;
 			sourceTree = "<group>";
 		};
-		03930CE22054ACBF00128D72 /* Search */ = {
+		03930CE22054ACBF00128D72 /* SearchViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0382F67A2056FAF600284055 /* TableViewBGs */,
@@ -495,20 +495,20 @@
 				03930CF12055FA1300128D72 /* SearchTableViewCell.swift */,
 				D206981421C30894001545BC /* SchoolSearchViewModel.swift */,
 			);
-			path = Search;
+			path = SearchViewController;
 			sourceTree = "<group>";
 		};
-		03930CE32054ACC900128D72 /* Confirmation */ = {
+		03930CE32054ACC900128D72 /* ConfirmationViewController */ = {
 			isa = PBXGroup;
 			children = (
 				0382F67E205701E800284055 /* ConfirmationView.swift */,
 				0382F680205701F800284055 /* ConfirmationViewController.swift */,
 				D206981621C314E5001545BC /* ConfirmationViewModel.swift */,
 			);
-			path = Confirmation;
+			path = ConfirmationViewController;
 			sourceTree = "<group>";
 		};
-		03930CE52054ACD300128D72 /* Home */ = {
+		03930CE52054ACD300128D72 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D206981A21C3F78D001545BC /* Enums */,
@@ -519,7 +519,7 @@
 				032685B9205C94E700905EB3 /* HomeView.swift */,
 				D206981821C3F6FA001545BC /* HomeViewModel.swift */,
 			);
-			path = Home;
+			path = HomeViewController;
 			sourceTree = "<group>";
 		};
 		03930CE82054B1B800128D72 /* Util */ = {
