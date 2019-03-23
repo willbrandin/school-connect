@@ -9,18 +9,19 @@
 import UIKit
 import Kingfisher
 
-protocol SelectedNewsArticleViewProtocol: class {
+protocol NewsArticleViewProtocol: class {
     var onTapToDismiss: (() -> Void)? { get set }
 }
 
-class SelectedNewsArticleView: UIView, SchoolColorable, SelectedNewsArticleViewProtocol {
+class NewsArticleView: UIView, SchoolColorable, NewsArticleViewProtocol {
 
-    //MARK: - Properties
+    // MARK: - Properties
+    
     var onTapToDismiss: (() -> Void)?
     
     private var newsArticle: NewsArticle?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var dismissView: UIView! = {
         let view = UIView()
@@ -98,7 +99,7 @@ class SelectedNewsArticleView: UIView, SchoolColorable, SelectedNewsArticleViewP
         return label
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     
     func customizeUI(_ newsArticle: NewsArticle?){
         if let news = newsArticle {
@@ -137,7 +138,6 @@ class SelectedNewsArticleView: UIView, SchoolColorable, SelectedNewsArticleViewP
         newsTitle.topAnchor.constraint(equalTo: newsImageView.bottomAnchor, constant: 10.0).isActive = true
         newsTitle.leadingAnchor.constraint(equalTo: newsImageView.leadingAnchor, constant: 8.0).isActive = true
         newsTitle.trailingAnchor.constraint(equalTo: newsImageView.trailingAnchor, constant: -8.0).isActive = true
-        
     }
     
     func setupDismissView(){
@@ -148,14 +148,11 @@ class SelectedNewsArticleView: UIView, SchoolColorable, SelectedNewsArticleViewP
         dismissView.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
         dismissView.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         
-        
         dismissView.addSubview(dismissButton)
         dismissButton.centerXAnchor.constraint(equalTo: dismissView.centerXAnchor).isActive = true
         dismissButton.centerYAnchor.constraint(equalTo: dismissView.centerYAnchor).isActive = true
         dismissButton.heightAnchor.constraint(equalTo: dismissView.heightAnchor, multiplier: 0.4).isActive = true
         dismissButton.widthAnchor.constraint(equalTo: dismissView.widthAnchor, multiplier: 0.4).isActive = true
-
-        
     }
     
     func setupSubtitleConstraints(){
@@ -183,5 +180,4 @@ class SelectedNewsArticleView: UIView, SchoolColorable, SelectedNewsArticleViewP
     @objc func handleDismissButtonTap(){
         onTapToDismiss?()
     }
-    
 }

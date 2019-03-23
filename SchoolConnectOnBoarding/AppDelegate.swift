@@ -23,12 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = UIColor.white
         
         applicationCoordinator = ApplicationCoordinator()
-        applicationCoordinator?.start(with: .push, animated: false)
+        applicationCoordinator?.start()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = applicationCoordinator?.navigationController
         window?.makeKeyAndVisible()
       
         return true
     }
-
 }

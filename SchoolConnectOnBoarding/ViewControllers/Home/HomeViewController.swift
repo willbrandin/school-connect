@@ -40,8 +40,10 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
     //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = PageTitles.home.rawValue
         
+        title = PageTitles.home.rawValue
+        view.backgroundColor = .white
+
         setupHomeView()
         
         subscribeToViewModel()
@@ -59,8 +61,8 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
     private func setupHomeView(){
         homeView = HomeView()
         homeView.customizeUI()
-        self.view.addSubview(homeView)
-        self.view.backgroundColor = .white
+        
+        view.addSubview(homeView)
         homeView.translatesAutoresizingMaskIntoConstraints = false
         homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
         homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
@@ -69,7 +71,6 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
     }
     
     private func subscribeToViewModel() {
-        
         viewModel.onFetchedSchoolAndSettings = {
             DispatchQueue.main.async {
                 self.homeView.collectionView.reloadData()
@@ -79,9 +80,7 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
         viewModel.onNetworkingDidFail = { [weak self] error in
             self?.present(error.initAlert(), animated: true, completion: nil)
         }
-        
     }
-    
 }
 
 //MARK: - Feature Cell Selection Delegate
@@ -103,26 +102,22 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if indexPath.row == HomeCellIndex.greeting.rawValue {
-            
             let cell: HomeGreetingCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
+            
             return cell
-            
         } else if indexPath.row == HomeCellIndex.featureCell.rawValue { //&& SCDatabaseQueryManager.savedFeatures().count != 0 {
-            
             let cell: HomeFeatureCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
             cell.featureCellDelegate = self
+            
             return cell
-            
         } else if indexPath.row == HomeCellIndex.linksCell.rawValue { //|| SCDatabaseQueryManager.getSavedLinks().count != 0 {
-            
             let cell: HomeLinkCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
             cell.configureCell()
-            return cell
             
+            return cell
         }
         
         return UICollectionViewCell()
@@ -152,5 +147,4 @@ extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDeleg
 //            }
 //        }
 //    }
-    
 }

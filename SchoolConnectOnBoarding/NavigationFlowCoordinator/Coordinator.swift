@@ -16,6 +16,7 @@ import Foundation
 
 public protocol Coordinator: class {
     /// starts coordinator flow
+    func start()
     func start(with presentationStyle: NavigationStyle, animated: Bool)
 
     /// finish coordinator flow

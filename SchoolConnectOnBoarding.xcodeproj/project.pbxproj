@@ -9,10 +9,7 @@
 /* Begin PBXBuildFile section */
 		0312E672205831A1009327F3 /* SNAppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E671205831A1009327F3 /* SNAppSettings.swift */; };
 		0312E674205833B5009327F3 /* SCEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E673205833B5009327F3 /* SCEnums.swift */; };
-		0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E678205854E0009327F3 /* SNTabBarController.swift */; };
-		0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67B20585524009327F3 /* SNBaseNavigationController.swift */; };
 		0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67D205855E0009327F3 /* HomeViewController.swift */; };
-		0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E67F2058571C009327F3 /* SNBaseViewController.swift */; };
 		0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68420586E6D009327F3 /* NewsViewController.swift */; };
 		0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68620586EF4009327F3 /* NewsArticle.swift */; };
 		0312E68B20587307009327F3 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0312E68A20587307009327F3 /* CalendarViewController.swift */; };
@@ -33,10 +30,8 @@
 		0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6920596C500031CDE9 /* NewsCardView.swift */; };
 		0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6B205980430031CDE9 /* CalendarView.swift */; };
 		0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF6D205982780031CDE9 /* CalendarTableViewCell.swift */; };
-		0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */; };
-		0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */; };
-		0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */; };
-		0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */; };
+		0349BF762059C2010031CDE9 /* CalendarEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF752059C2010031CDE9 /* CalendarEventViewController.swift */; };
+		0349BF782059C2160031CDE9 /* CalendarEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0349BF772059C2160031CDE9 /* CalendarEventView.swift */; };
 		035EBD6A2077B96800FBA250 /* TableAndCollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035EBD692077B96800FBA250 /* TableAndCollectionViewExtensions.swift */; };
 		037733F320605AEC0046D276 /* FeatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F220605AEC0046D276 /* FeatureCell.swift */; };
 		037733F6206144BD0046D276 /* LinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 037733F5206144BD0046D276 /* LinkCell.swift */; };
@@ -83,17 +78,9 @@
 		03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EA2B772062BC4300FACBBA /* ContactView.swift */; };
 		5E5C635B9A1B21BCA74E5572 /* Pods_SchoolConnectOnBoarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04357D378694E8878B954186 /* Pods_SchoolConnectOnBoarding.framework */; };
 		85B0A6D1F125BFC07351B73E /* Pods_SchoolConnectOnBoardingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */; };
-		D206980021C2F860001545BC /* CoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20697FA21C2F860001545BC /* CoordinatorsTracker.swift */; };
-		D206980121C2F860001545BC /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20697FB21C2F860001545BC /* FlowCoordinator.swift */; };
-		D206980221C2F860001545BC /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20697FC21C2F860001545BC /* Coordinator.swift */; };
-		D206980321C2F860001545BC /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20697FD21C2F860001545BC /* NavigationControllerCoordinatorsTracker.swift */; };
-		D206980421C2F860001545BC /* NavigationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20697FE21C2F860001545BC /* NavigationFlowCoordinator.swift */; };
-		D206980521C2F860001545BC /* FlowEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20697FF21C2F860001545BC /* FlowEvent.swift */; };
 		D206980721C2F8A5001545BC /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206980621C2F8A5001545BC /* ApplicationCoordinator.swift */; };
 		D206980921C2F991001545BC /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206980821C2F991001545BC /* UserDefaultsManager.swift */; };
-		D206980C21C2FF1A001545BC /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206980B21C2FF1A001545BC /* OnBoardingCoordinator.swift */; };
 		D206980E21C30018001545BC /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206980D21C30018001545BC /* UIView+Constraints.swift */; };
-		D206981021C300B2001545BC /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206980F21C300B2001545BC /* Presentable.swift */; };
 		D206981221C3029A001545BC /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981121C3029A001545BC /* UIButtonExtension.swift */; };
 		D206981521C30894001545BC /* SchoolSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981421C30894001545BC /* SchoolSearchViewModel.swift */; };
 		D206981721C314E5001545BC /* ConfirmationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D206981621C314E5001545BC /* ConfirmationViewModel.swift */; };
@@ -110,6 +97,25 @@
 		D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */; };
 		D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */; };
 		D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */; };
+		D2F9C3F52203554000177743 /* SNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3F22203554000177743 /* SNBaseViewController.swift */; };
+		D2F9C4002203557F00177743 /* FlowEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3F92203557F00177743 /* FlowEvent.swift */; };
+		D2F9C4012203557F00177743 /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FA2203557F00177743 /* NavigationControllerCoordinatorsTracker.swift */; };
+		D2F9C4022203557F00177743 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FB2203557F00177743 /* FlowCoordinator.swift */; };
+		D2F9C4032203557F00177743 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FC2203557F00177743 /* Presentable.swift */; };
+		D2F9C4042203557F00177743 /* CoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FD2203557F00177743 /* CoordinatorsTracker.swift */; };
+		D2F9C4052203557F00177743 /* NavigationFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FE2203557F00177743 /* NavigationFlowCoordinator.swift */; };
+		D2F9C4062203557F00177743 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FF2203557F00177743 /* Coordinator.swift */; };
+		D2F9C40B2203559100177743 /* OnBoardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C4082203559100177743 /* OnBoardingCoordinator.swift */; };
+		D2F9C40C2203559100177743 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C4092203559100177743 /* HomeCoordinator.swift */; };
+		D2F9C40D2203559100177743 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C40A2203559100177743 /* NewsCoordinator.swift */; };
+		D2F9C40F220364B900177743 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C40E220364B900177743 /* TabBarCoordinator.swift */; };
+		D2F9C411220364EB00177743 /* SNTabBarOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C410220364EB00177743 /* SNTabBarOption.swift */; };
+		D2F9C4132203683C00177743 /* TabCoordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C4122203683C00177743 /* TabCoordinatable.swift */; };
+		D2F9C4152203692000177743 /* CalendarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C4142203692000177743 /* CalendarCoordinator.swift */; };
+		D2F9C417220369D300177743 /* ContactCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C416220369D300177743 /* ContactCoordinator.swift */; };
+		D2F9C41922036AFE00177743 /* NewsArticleViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C41822036AFE00177743 /* NewsArticleViewControllerProtocol.swift */; };
+		D2F9C41B22036B5500177743 /* NewsArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C41A22036B5500177743 /* NewsArticleViewController.swift */; };
+		D2F9C41D22036BCD00177743 /* NewsArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C41C22036BCD00177743 /* NewsArticleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,10 +144,7 @@
 /* Begin PBXFileReference section */
 		0312E671205831A1009327F3 /* SNAppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNAppSettings.swift; sourceTree = "<group>"; };
 		0312E673205833B5009327F3 /* SCEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCEnums.swift; sourceTree = "<group>"; };
-		0312E678205854E0009327F3 /* SNTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNTabBarController.swift; sourceTree = "<group>"; };
-		0312E67B20585524009327F3 /* SNBaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseNavigationController.swift; sourceTree = "<group>"; };
 		0312E67D205855E0009327F3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		0312E67F2058571C009327F3 /* SNBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNBaseViewController.swift; sourceTree = "<group>"; };
 		0312E68420586E6D009327F3 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		0312E68620586EF4009327F3 /* NewsArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticle.swift; sourceTree = "<group>"; };
 		0312E68A20587307009327F3 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -162,10 +165,8 @@
 		0349BF6920596C500031CDE9 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
 		0349BF6B205980430031CDE9 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0349BF6D205982780031CDE9 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
-		0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventViewController.swift; sourceTree = "<group>"; };
-		0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCalendarEventView.swift; sourceTree = "<group>"; };
-		0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleView.swift; sourceTree = "<group>"; };
-		0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedNewsArticleViewController.swift; sourceTree = "<group>"; };
+		0349BF752059C2010031CDE9 /* CalendarEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventViewController.swift; sourceTree = "<group>"; };
+		0349BF772059C2160031CDE9 /* CalendarEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarEventView.swift; sourceTree = "<group>"; };
 		035EBD692077B96800FBA250 /* TableAndCollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAndCollectionViewExtensions.swift; sourceTree = "<group>"; };
 		037733F220605AEC0046D276 /* FeatureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureCell.swift; sourceTree = "<group>"; };
 		037733F5206144BD0046D276 /* LinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCell.swift; sourceTree = "<group>"; };
@@ -219,17 +220,9 @@
 		A85DE3813FDEBD6EA3129232 /* Pods-SchoolConnectOnBoardingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoardingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoardingTests/Pods-SchoolConnectOnBoardingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B37DFBC900746CCB19D9EB16 /* Pods-SchoolConnectOnBoardingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoardingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoardingTests/Pods-SchoolConnectOnBoardingTests.release.xcconfig"; sourceTree = "<group>"; };
 		CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchoolConnectOnBoardingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D20697FA21C2F860001545BC /* CoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsTracker.swift; sourceTree = "<group>"; };
-		D20697FB21C2F860001545BC /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
-		D20697FC21C2F860001545BC /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		D20697FD21C2F860001545BC /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
-		D20697FE21C2F860001545BC /* NavigationFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlowCoordinator.swift; sourceTree = "<group>"; };
-		D20697FF21C2F860001545BC /* FlowEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowEvent.swift; sourceTree = "<group>"; };
 		D206980621C2F8A5001545BC /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		D206980821C2F991001545BC /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		D206980B21C2FF1A001545BC /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
 		D206980D21C30018001545BC /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		D206980F21C300B2001545BC /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		D206981121C3029A001545BC /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		D206981421C30894001545BC /* SchoolSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchoolSearchViewModel.swift; sourceTree = "<group>"; };
 		D206981621C314E5001545BC /* ConfirmationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +239,25 @@
 		D23FE97421FBBB4100EC0EB5 /* WBTextFieldBindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBTextFieldBindable.swift; sourceTree = "<group>"; };
 		D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
+		D2F9C3F22203554000177743 /* SNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNBaseViewController.swift; sourceTree = "<group>"; };
+		D2F9C3F92203557F00177743 /* FlowEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowEvent.swift; sourceTree = "<group>"; };
+		D2F9C3FA2203557F00177743 /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
+		D2F9C3FB2203557F00177743 /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C3FC2203557F00177743 /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		D2F9C3FD2203557F00177743 /* CoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorsTracker.swift; sourceTree = "<group>"; };
+		D2F9C3FE2203557F00177743 /* NavigationFlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationFlowCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C3FF2203557F00177743 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		D2F9C4082203559100177743 /* OnBoardingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C4092203559100177743 /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C40A2203559100177743 /* NewsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C40E220364B900177743 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C410220364EB00177743 /* SNTabBarOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNTabBarOption.swift; sourceTree = "<group>"; };
+		D2F9C4122203683C00177743 /* TabCoordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinatable.swift; sourceTree = "<group>"; };
+		D2F9C4142203692000177743 /* CalendarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C416220369D300177743 /* ContactCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCoordinator.swift; sourceTree = "<group>"; };
+		D2F9C41822036AFE00177743 /* NewsArticleViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsArticleViewControllerProtocol.swift; sourceTree = "<group>"; };
+		D2F9C41A22036B5500177743 /* NewsArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleViewController.swift; sourceTree = "<group>"; };
+		D2F9C41C22036BCD00177743 /* NewsArticleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsArticleView.swift; sourceTree = "<group>"; };
 		F2B4A22E52D5DEA7A229CE85 /* Pods-SchoolConnectOnBoarding.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchoolConnectOnBoarding.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchoolConnectOnBoarding/Pods-SchoolConnectOnBoarding.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,30 +281,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0312E677205854C0009327F3 /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				0312E678205854E0009327F3 /* SNTabBarController.swift */,
-				0312E67B20585524009327F3 /* SNBaseNavigationController.swift */,
-				0312E67F2058571C009327F3 /* SNBaseViewController.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
-		0312E681205861D5009327F3 /* On-BoardingPath */ = {
+		0312E68220586E36009327F3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				03930CE32054ACC900128D72 /* Confirmation */,
 				03930CE22054ACBF00128D72 /* Search */,
 				03930CE12054ACBA00128D72 /* Landing */,
-				D206980B21C2FF1A001545BC /* OnBoardingCoordinator.swift */,
-			);
-			path = "On-BoardingPath";
-			sourceTree = "<group>";
-		};
-		0312E68220586E36009327F3 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
 				D23002E822028A8F00AAFE52 /* SelectedNewsArticleViewController */,
 				D23002E6220289E400AAFE52 /* SelectedCalendarViewController */,
 				0312E69020587A75009327F3 /* Contact */,
@@ -454,18 +448,18 @@
 		03930CBA2054AB4400128D72 /* SchoolConnectOnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				D2F9C4072203559100177743 /* Coordinators */,
+				D2F9C3F82203557F00177743 /* NavigationFlowCoordinator */,
+				D2F9C3F12203554000177743 /* Navigation */,
 				D23002F02203423E00AAFE52 /* Style */,
 				D23002E722028A3900AAFE52 /* Subclasses */,
 				D23002E22202813400AAFE52 /* Storyboard */,
 				D223A30821FCF0F0008056EF /* NetworkLayer */,
-				D20697F921C2F7F8001545BC /* Coordinator */,
-				0312E681205861D5009327F3 /* On-BoardingPath */,
 				03466263205830DC00100737 /* Models */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
 				D23002DF22027F0800AAFE52 /* InitiialConfiguration */,
 				03930CBB2054AB4400128D72 /* AppDelegate.swift */,
-				D206980621C2F8A5001545BC /* ApplicationCoordinator.swift */,
 				03930CCB2054AB4400128D72 /* Info.plist */,
 				03930CC62054AB4400128D72 /* Assets.xcassets */,
 			);
@@ -535,7 +529,6 @@
 				03C4A48E207FF7BF00A0A2FF /* Enums */,
 				03C4A487207FF6A800A0A2FF /* Extensions */,
 				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
-				0312E677205854C0009327F3 /* Navigation */,
 				03C4A48C207FF78E00A0A2FF /* SCImages.swift */,
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
 				03D4BB4420877D7D00213A24 /* SCColors.swift */,
@@ -580,6 +573,7 @@
 				03C4A491207FF80F00A0A2FF /* CalendarEnums.swift */,
 				03C4A493207FF84200A0A2FF /* UIEnums.swift */,
 				03C4A49E208006D700A0A2FF /* SCErrors.swift */,
+				D2F9C410220364EB00177743 /* SNTabBarOption.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -615,20 +609,6 @@
 				CAEB3BAE57C70E101F82204C /* Pods_SchoolConnectOnBoardingTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		D20697F921C2F7F8001545BC /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				D20697FC21C2F860001545BC /* Coordinator.swift */,
-				D20697FA21C2F860001545BC /* CoordinatorsTracker.swift */,
-				D20697FB21C2F860001545BC /* FlowCoordinator.swift */,
-				D20697FF21C2F860001545BC /* FlowEvent.swift */,
-				D20697FD21C2F860001545BC /* NavigationControllerCoordinatorsTracker.swift */,
-				D20697FE21C2F860001545BC /* NavigationFlowCoordinator.swift */,
-				D206980F21C300B2001545BC /* Presentable.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		D206981A21C3F78D001545BC /* Enums */ = {
@@ -667,8 +647,8 @@
 		D23002E6220289E400AAFE52 /* SelectedCalendarViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0349BF752059C2010031CDE9 /* SelectedCalendarEventViewController.swift */,
-				0349BF772059C2160031CDE9 /* SelectedCalendarEventView.swift */,
+				0349BF752059C2010031CDE9 /* CalendarEventViewController.swift */,
+				0349BF772059C2160031CDE9 /* CalendarEventView.swift */,
 			);
 			path = SelectedCalendarViewController;
 			sourceTree = "<group>";
@@ -684,8 +664,9 @@
 		D23002E822028A8F00AAFE52 /* SelectedNewsArticleViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0349BF7B2059C6810031CDE9 /* SelectedNewsArticleViewController.swift */,
-				0349BF792059C65F0031CDE9 /* SelectedNewsArticleView.swift */,
+				D2F9C41C22036BCD00177743 /* NewsArticleView.swift */,
+				D2F9C41A22036B5500177743 /* NewsArticleViewController.swift */,
+				D2F9C41822036AFE00177743 /* NewsArticleViewControllerProtocol.swift */,
 			);
 			path = SelectedNewsArticleViewController;
 			sourceTree = "<group>";
@@ -696,6 +677,44 @@
 				D23002F12203424D00AAFE52 /* Style.swift */,
 			);
 			path = Style;
+			sourceTree = "<group>";
+		};
+		D2F9C3F12203554000177743 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				D2F9C3F22203554000177743 /* SNBaseViewController.swift */,
+			);
+			name = Navigation;
+			path = SchoolConnectOnBoarding/Navigation;
+			sourceTree = SOURCE_ROOT;
+		};
+		D2F9C3F82203557F00177743 /* NavigationFlowCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				D2F9C3F92203557F00177743 /* FlowEvent.swift */,
+				D2F9C3FA2203557F00177743 /* NavigationControllerCoordinatorsTracker.swift */,
+				D2F9C3FB2203557F00177743 /* FlowCoordinator.swift */,
+				D2F9C3FC2203557F00177743 /* Presentable.swift */,
+				D2F9C3FD2203557F00177743 /* CoordinatorsTracker.swift */,
+				D2F9C3FE2203557F00177743 /* NavigationFlowCoordinator.swift */,
+				D2F9C3FF2203557F00177743 /* Coordinator.swift */,
+			);
+			path = NavigationFlowCoordinator;
+			sourceTree = "<group>";
+		};
+		D2F9C4072203559100177743 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				D206980621C2F8A5001545BC /* ApplicationCoordinator.swift */,
+				D2F9C4142203692000177743 /* CalendarCoordinator.swift */,
+				D2F9C4082203559100177743 /* OnBoardingCoordinator.swift */,
+				D2F9C4092203559100177743 /* HomeCoordinator.swift */,
+				D2F9C40A2203559100177743 /* NewsCoordinator.swift */,
+				D2F9C40E220364B900177743 /* TabBarCoordinator.swift */,
+				D2F9C4122203683C00177743 /* TabCoordinatable.swift */,
+				D2F9C416220369D300177743 /* ContactCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -873,9 +892,10 @@
 				0349BF6820595F2F0031CDE9 /* NewsArticleCollectionViewCell.swift in Sources */,
 				03C4A47E207FF55400A0A2FF /* WBFloatingTextView.swift in Sources */,
 				D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */,
+				D2F9C4052203557F00177743 /* NavigationFlowCoordinator.swift in Sources */,
+				D2F9C4132203683C00177743 /* TabCoordinatable.swift in Sources */,
 				032685C9205F0B0F00905EB3 /* HomeLinkCollectionViewCell.swift in Sources */,
 				037733F6206144BD0046D276 /* LinkCell.swift in Sources */,
-				D206980121C2F860001545BC /* FlowCoordinator.swift in Sources */,
 				0312E67E205855E0009327F3 /* HomeViewController.swift in Sources */,
 				0382F67F205701E800284055 /* ConfirmationView.swift in Sources */,
 				032685BF205DAE3800905EB3 /* HomeGreetingCollectionViewCell.swift in Sources */,
@@ -885,42 +905,41 @@
 				03930CEE2055D71000128D72 /* SearchViewController.swift in Sources */,
 				03930CE72054ACF500128D72 /* LandingScreenView.swift in Sources */,
 				D23FE97521FBBB4100EC0EB5 /* WBTextFieldBindable.swift in Sources */,
+				D2F9C40B2203559100177743 /* OnBoardingCoordinator.swift in Sources */,
 				D206980E21C30018001545BC /* UIView+Constraints.swift in Sources */,
 				0312E674205833B5009327F3 /* SCEnums.swift in Sources */,
 				037733F320605AEC0046D276 /* FeatureCell.swift in Sources */,
-				D206980321C2F860001545BC /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				03C4A492207FF80F00A0A2FF /* CalendarEnums.swift in Sources */,
 				0382F67C2056FB1000284055 /* SearchBlankView.swift in Sources */,
 				0382F6792056F6D800284055 /* School.swift in Sources */,
 				0349BF6E205982780031CDE9 /* CalendarTableViewCell.swift in Sources */,
 				D206981C21C3F79A001545BC /* HomeState.swift in Sources */,
 				D206980721C2F8A5001545BC /* ApplicationCoordinator.swift in Sources */,
+				D2F9C4062203557F00177743 /* Coordinator.swift in Sources */,
+				D2F9C3F52203554000177743 /* SNBaseViewController.swift in Sources */,
 				D223A30A21FCF102008056EF /* SchoolConnectAPI.swift in Sources */,
 				0312E68D20587525009327F3 /* CalendarEvent.swift in Sources */,
-				D206980221C2F860001545BC /* Coordinator.swift in Sources */,
-				0312E67C20585524009327F3 /* SNBaseNavigationController.swift in Sources */,
 				03C4A489207FF6B900A0A2FF /* StringExtensions.swift in Sources */,
 				D2180EF021CF06CE006FF62D /* ContactViewModel.swift in Sources */,
 				03930CE02054AB8C00128D72 /* LandingViewController.swift in Sources */,
-				0312E679205854E0009327F3 /* SNTabBarController.swift in Sources */,
 				03C4A494207FF84200A0A2FF /* UIEnums.swift in Sources */,
 				032685C3205F0A3C00905EB3 /* HomeFeatureCollectionViewCell.swift in Sources */,
 				03D4BB4520877D7D00213A24 /* SCColors.swift in Sources */,
 				035EBD6A2077B96800FBA250 /* TableAndCollectionViewExtensions.swift in Sources */,
+				D2F9C4042203557F00177743 /* CoordinatorsTracker.swift in Sources */,
 				D206981921C3F6FA001545BC /* HomeViewModel.swift in Sources */,
 				D23002EA22028ACA00AAFE52 /* NewsViewModel.swift in Sources */,
 				03EA2B782062BC4300FACBBA /* ContactView.swift in Sources */,
-				0312E6802058571C009327F3 /* SNBaseViewController.swift in Sources */,
 				0312E69220587A86009327F3 /* ContactViewController.swift in Sources */,
 				03C4A49B207FFE0500A0A2FF /* CornerRoundable.swift in Sources */,
+				D2F9C41B22036B5500177743 /* NewsArticleViewController.swift in Sources */,
 				0349BF6A20596C500031CDE9 /* NewsCardView.swift in Sources */,
-				D206980421C2F860001545BC /* NavigationFlowCoordinator.swift in Sources */,
 				03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */,
+				D2F9C4012203557F00177743 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
-				D206981021C300B2001545BC /* Presentable.swift in Sources */,
-				0349BF762059C2010031CDE9 /* SelectedCalendarEventViewController.swift in Sources */,
+				D2F9C40F220364B900177743 /* TabBarCoordinator.swift in Sources */,
+				0349BF762059C2010031CDE9 /* CalendarEventViewController.swift in Sources */,
 				03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */,
-				D206980021C2F860001545BC /* CoordinatorsTracker.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				D23002F22203424D00AAFE52 /* Style.swift in Sources */,
 				D223A31F21FCF56F008056EF /* Result.swift in Sources */,
@@ -929,7 +948,9 @@
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,
 				03C4A497207FF9D900A0A2FF /* Shadowable.swift in Sources */,
 				0349BF6C205980430031CDE9 /* CalendarView.swift in Sources */,
+				D2F9C40C2203559100177743 /* HomeCoordinator.swift in Sources */,
 				0312E68F20587959009327F3 /* CalendarCellSideButtonView.swift in Sources */,
+				D2F9C4002203557F00177743 /* FlowEvent.swift in Sources */,
 				03930CBC2054AB4400128D72 /* AppDelegate.swift in Sources */,
 				03C4A49F208006D700A0A2FF /* SCErrors.swift in Sources */,
 				03D4BB3D2086400F00213A24 /* Validatable.swift in Sources */,
@@ -937,7 +958,6 @@
 				0349BF6520595E350031CDE9 /* NewsView.swift in Sources */,
 				03EA2B7420615E4300FACBBA /* SCHomeLink.swift in Sources */,
 				03139DA9209B7B03009F5B77 /* WBFloatingTitledTextField.swift in Sources */,
-				D206980C21C2FF1A001545BC /* OnBoardingCoordinator.swift in Sources */,
 				03139DAB209B8576009F5B77 /* TextInputTitleable.swift in Sources */,
 				D206981221C3029A001545BC /* UIButtonExtension.swift in Sources */,
 				03E0D7842063E28500BE00E6 /* SCFontUtil.swift in Sources */,
@@ -949,18 +969,23 @@
 				D206981521C30894001545BC /* SchoolSearchViewModel.swift in Sources */,
 				03C4A48D207FF78E00A0A2FF /* SCImages.swift in Sources */,
 				03139DAD209B85C3009F5B77 /* WBFloatingTitledTextView.swift in Sources */,
-				D206980521C2F860001545BC /* FlowEvent.swift in Sources */,
+				D2F9C40D2203559100177743 /* NewsCoordinator.swift in Sources */,
 				03C4A49D2080008600A0A2FF /* SchoolColorable.swift in Sources */,
-				0349BF782059C2160031CDE9 /* SelectedCalendarEventView.swift in Sources */,
-				0349BF7C2059C6810031CDE9 /* SelectedNewsArticleViewController.swift in Sources */,
+				D2F9C411220364EB00177743 /* SNTabBarOption.swift in Sources */,
+				0349BF782059C2160031CDE9 /* CalendarEventView.swift in Sources */,
 				0312E68520586E6D009327F3 /* NewsViewController.swift in Sources */,
+				D2F9C4022203557F00177743 /* FlowCoordinator.swift in Sources */,
 				03C4A484207FF5D500A0A2FF /* SCRoundedButton.swift in Sources */,
+				D2F9C4152203692000177743 /* CalendarCoordinator.swift in Sources */,
 				03D4BB472087CFA200213A24 /* ContactForm.swift in Sources */,
 				032685C1205DAE6A00905EB3 /* HomeGreetingView.swift in Sources */,
+				D2F9C4032203557F00177743 /* Presentable.swift in Sources */,
 				D23002ED2202922500AAFE52 /* CalendarViewModel.swift in Sources */,
-				0349BF7A2059C65F0031CDE9 /* SelectedNewsArticleView.swift in Sources */,
+				D2F9C417220369D300177743 /* ContactCoordinator.swift in Sources */,
+				D2F9C41922036AFE00177743 /* NewsArticleViewControllerProtocol.swift in Sources */,
 				D206980921C2F991001545BC /* UserDefaultsManager.swift in Sources */,
 				0382F681205701F800284055 /* ConfirmationViewController.swift in Sources */,
+				D2F9C41D22036BCD00177743 /* NewsArticleView.swift in Sources */,
 				03930CEC2054B23700128D72 /* SCCircleImage.swift in Sources */,
 				03C4A490207FF7E000A0A2FF /* HomeEnums.swift in Sources */,
 			);

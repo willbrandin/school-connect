@@ -8,12 +8,14 @@
 
 import UIKit
 
-class SelectedNewsArticleViewController: SNBaseViewController {
+class NewsArticleViewController: SNBaseViewController, NewsArticleViewControllerProtocol {
 
     //MARK: - Properties
-    var articleView: SelectedNewsArticleView!
-    
+    var articleView: NewsArticleView!
     private var selectedArticle: NewsArticle?
+    
+    // MARK: - NewsArticleViewControllerProtocol
+    var onTapToClose: (() -> Void)?
     
     //MARK: - Life Cycle
     override func viewDidLoad() {
@@ -34,15 +36,11 @@ class SelectedNewsArticleViewController: SNBaseViewController {
 
     //MARK: - Methods
     func setupEventView(){
-        articleView = SelectedNewsArticleView()
+        articleView = NewsArticleView()
         articleView.customizeUI(selectedArticle)
-        self.view.addSubview(articleView)
         
-        articleView.translatesAutoresizingMaskIntoConstraints = false
-        articleView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        articleView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        articleView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        articleView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+        view.addSubview(articleView)
+        articleView.pinToSuperview()
         
         articleView.onTapToDismiss = { [weak self] in
             self?.dismiss(animated: true, completion: nil)
@@ -51,8 +49,7 @@ class SelectedNewsArticleViewController: SNBaseViewController {
     
     func setTitle(){
         if let event = selectedArticle {
-            self.title = event.title
+            title = event.title
         }
     }
-    
 }

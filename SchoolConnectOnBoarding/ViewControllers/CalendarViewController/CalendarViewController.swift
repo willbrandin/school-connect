@@ -9,40 +9,45 @@
 import UIKit
 
 protocol CalendarViewControllerProtocol: Presentable {
-    var didSelectItem: ((CalendarEvent) -> Void)? { get set }
+    var onDidSelectEvent: ((CalendarEvent) -> Void)? { get set }
 }
 
 class CalendarViewController: SNBaseViewController, CalendarViewControllerProtocol {
 
-    //MARK: - Properties
-    var calendarView: CalendarView!
+    // MARK: - Properties
     
-    // MARK: - CalendarViewControllerProtocol
-    var didSelectItem: ((CalendarEvent) -> Void)?
+    private var calendarView: CalendarView!
     private var viewModel: CalendarViewModelProtocol = CalendarViewModel()
 
-    //MARK: - View Life cycle
+    // MARK: - CalendarViewControllerProtocol
+    
+    var onDidSelectEvent: ((CalendarEvent) -> Void)?
+    
+    // MARK: - View Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = PageTitles.calendar.rawValue
+        title = PageTitles.calendar.rawValue
         
         setupCalendarView()
         setDelegates()
         subscribeToViewModel()
     }
 
-    //MARK: - Private Methods
+    // MARK: - Private Methods
+    
     private func setupCalendarView(){
         calendarView = CalendarView()
-        calendarView.customizeUI()
-        self.view.addSubview(calendarView)
+        view.addSubview(calendarView)
         
+        calendarView.onRefresh = { [weak self] in
+            self?.viewModel.requestCalendarEvents()
+            self?.calendarView.refreshControl.beginRefreshing()
+        }
+    
         calendarView.translatesAutoresizingMaskIntoConstraints = false
-        calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        calendarView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        calendarView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        calendarView.pinToSuperview()
     }
     
     private func setDelegates() {
@@ -53,16 +58,21 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
     
     private func subscribeToViewModel() {
         viewModel.onReceivedData = { [weak self] in
+            guard let weakSelf = self else { return }
             DispatchQueue.main.async {
-                self?.calendarView.tableView.reloadData()
+                if weakSelf.calendarView.refreshControl.isRefreshing {
+                    weakSelf.calendarView.refreshControl.endRefreshing()
+                }
+                weakSelf.calendarView.tableView.reloadData()
             }
         }
-        viewModel.onCalendarItemSelected = didSelectItem
+        
+        viewModel.onCalendarItemSelected = onDidSelectEvent
         viewModel.requestCalendarEvents()
     }
 }
 
-//MARK: - Delegate
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,7 +80,6 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cell: CalendarTableViewCell = tableView.deqeueReusableCell(for: indexPath)
         
         cell.configureCell(viewModel.calendarEvent(for: indexPath))
@@ -80,9 +89,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return viewModel.cellHeight
     }
-    
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         UIView.animate(withDuration: 0.3) {
@@ -102,8 +110,5 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.didSelectItem(at: indexPath)
-//        let selectedEvent = calendarArray[indexPath.row]
-//        let selectedEventVC = SelectedCalendarEventViewController(selectedEvent: selectedEvent)
-//        show(selectedEventVC, sender: nil)
     }
 }

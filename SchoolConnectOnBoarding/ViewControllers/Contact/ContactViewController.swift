@@ -15,7 +15,7 @@ protocol ContactViewControllerProtocol: Presentable {
 
 class ContactViewController: SNBaseViewController, ContactViewControllerProtocol {
     
-    //MARK: - Properties
+    // MARK: - Properties
     var viewModel: ContactViewModelProtocol = ContactViewModel()
     
     lazy var contactTitleLabel: UILabel! = {
@@ -70,14 +70,15 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
     // MARK: - ContactViewControllerProtocol
     var didSubmitForm: (() -> Void)?
     
-    //MARK: - Init
+    // MARK: - Init
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.setMargins(top: Style.Layout.innerSpacing,
-                        leading: Style.Layout.outerMargin,
+                        leading: Style.Layout.margin,
                         bottom:  Style.Layout.innerSpacing,
-                        trailing:  Style.Layout.outerMargin)
+                        trailing:  Style.Layout.margin)
         
         title = PageTitles.contact.rawValue
         view.backgroundColor = .white

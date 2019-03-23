@@ -12,7 +12,7 @@ protocol SchoolSearchViewControllerProtocol: Presentable {
     var didSelectSchoolId: ((String) -> Void)? { get set }
 }
 
-class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol {
+class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProtocol {
 
     //MARK - Properties
     
@@ -45,15 +45,23 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = PageTitles.schoolSearch.rawValue
-        setupNavigationBar()
+        
+        title = PageTitles.schoolSearch.rawValue
+        
         setupLandingView()
         setDelegates()
         subscribeToViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         searchView.searchBar.becomeFirstResponder()
     }
     
@@ -61,7 +69,7 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
     private func setupLandingView(){
         searchView = SearchView()
         searchView.customizeUI(shouldShowSearchResults)
-        self.view.addSubview(searchView)
+        view.addSubview(searchView)
         
         searchView.translatesAutoresizingMaskIntoConstraints = false
         searchView.pinToSuperview()
@@ -94,21 +102,12 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
         searchView.tableView.register(SearchTableViewCell.self)
     }
     
-    private func setupNavigationBar(){
-        let attributes = [NSAttributedStringKey.foregroundColor: SCColors.scGray]
-        self.navigationController?.navigationBar.titleTextAttributes = attributes
-        self.navigationController?.navigationBar.largeTitleTextAttributes = attributes
-        self.navigationController?.navigationBar.tintColor = SCColors.scGrayText
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
     func setEmptyState() {
         let newView = SearchBlankView()
         newView.customizeUI()
-        self.searchView.tableView.separatorStyle  = .none
-        self.searchView.tableView.backgroundView = newView
-        self.searchView.tableView.reloadData()
+        searchView.tableView.separatorStyle  = .none
+        searchView.tableView.backgroundView = newView
+        searchView.tableView.reloadData()
     }
 }
 
@@ -119,14 +118,11 @@ extension SearchViewController: UISearchBarDelegate {
         let searchText = searchBar.text!
         viewModel.determineFetch(for: searchText)
     }
-//
-//    
-    
 }
 
 //MARK: - TableView Delegates
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRows
     }
@@ -146,5 +142,4 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         guard let id = viewModel.schoolId(for: indexPath) else { return }
         didSelectSchoolId?(id)
     }
-    
 }

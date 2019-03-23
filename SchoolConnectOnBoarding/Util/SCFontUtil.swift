@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 enum FontBook: String {
     
     case bold = "AvenirNext-Bold"
@@ -20,7 +19,6 @@ enum FontBook: String {
     func of(size: CGFloat) -> UIFont {
         return UIFont(name: self.rawValue, size: size)!
     }
-    
 }
 
 struct SCFont {

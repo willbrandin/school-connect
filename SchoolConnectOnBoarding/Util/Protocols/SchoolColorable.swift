@@ -19,11 +19,11 @@ extension SchoolColorable {
     
     var schoolPrimaryColor: UIColor? {
 //        return SCDatabaseQueryManager.getSavedPrimaryColor()
-        return .red
+        return SCColors.scGreen
     }
     
     var schoolSecondaryColor: UIColor? {
 //        return SCDatabaseQueryManager.getSavedSecondaryColor()
-        return .gray
+        return SCColors.scGray
     }
 }

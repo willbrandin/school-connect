@@ -35,8 +35,8 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = PageTitles.confirmation.rawValue
-        self.view.backgroundColor = .white
+        title = PageTitles.confirmation.rawValue
+        view.backgroundColor = .white
         setupConfirmationView()
         subscribeToViewModel()
         viewModel.requestSchoolDetails()
@@ -69,7 +69,7 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
             self?.didConfirmSchool?(self?.viewModel.schoolId)
         }
         
-        self.view.addSubview(confirmationView)
+        view.addSubview(confirmationView)
         
         confirmationView.translatesAutoresizingMaskIntoConstraints = false
         confirmationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true

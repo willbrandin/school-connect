@@ -24,12 +24,13 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         super.viewDidLoad()
         
         setupLandingView()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     //MARK: - Methods
@@ -38,8 +39,9 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         landingView.didTapToContinue = { [weak self] in
             self?.didTapToContinue?()
         }
+        
         landingView.customizeUI()
-        self.view.addSubview(landingView)
+        view.addSubview(landingView)
         
         landingView.translatesAutoresizingMaskIntoConstraints = false
         landingView.pinToSuperview()

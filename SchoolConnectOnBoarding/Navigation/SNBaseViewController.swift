@@ -14,10 +14,6 @@ class SNBaseViewController: UIViewController {
         return .lightContent
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     //MARK: - Methods
     
     func showAlert(withTitle: String, message: String){
