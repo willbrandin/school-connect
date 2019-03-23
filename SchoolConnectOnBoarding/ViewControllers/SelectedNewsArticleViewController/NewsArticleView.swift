@@ -15,12 +15,13 @@ protocol NewsArticleViewProtocol: class {
 
 class NewsArticleView: UIView, SchoolColorable, NewsArticleViewProtocol {
 
-    //MARK: - Properties
+    // MARK: - Properties
+    
     var onTapToDismiss: (() -> Void)?
     
     private var newsArticle: NewsArticle?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     lazy var dismissView: UIView! = {
         let view = UIView()
@@ -98,7 +99,7 @@ class NewsArticleView: UIView, SchoolColorable, NewsArticleViewProtocol {
         return label
     }()
     
-    //MARK: - Init
+    // MARK: - Init
     
     func customizeUI(_ newsArticle: NewsArticle?){
         if let news = newsArticle {
@@ -179,5 +180,4 @@ class NewsArticleView: UIView, SchoolColorable, NewsArticleViewProtocol {
     @objc func handleDismissButtonTap(){
         onTapToDismiss?()
     }
-    
 }

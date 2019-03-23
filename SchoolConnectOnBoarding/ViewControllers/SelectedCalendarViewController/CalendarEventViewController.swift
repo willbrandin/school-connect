@@ -44,7 +44,6 @@ class CalendarEventViewController: SNBaseViewController, CalendarEventViewContro
         
         eventView.customizeUI(selectedEvent)
         view.addSubview(eventView)
-        
         eventView.pinToSuperview()
     }
     
