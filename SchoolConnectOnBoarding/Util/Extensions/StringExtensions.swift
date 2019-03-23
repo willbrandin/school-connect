@@ -11,7 +11,6 @@ import Foundation
 extension String {
     
     func removeSpecialCharactersFromText() -> String {
-        
         let notAllowedChars: CharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ").inverted
         return self.components(separatedBy: notAllowedChars).joined(separator: "")
     }
@@ -26,13 +25,11 @@ extension String {
     }
     
     func stringWithDateFormat(_ format: WBDateFormat) -> String {
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format.rawValue // Your New Date format as per requirement change it own
         let date = self.stringToDate()
         
         return dateFormatter.string(from: date)
-        
     }
     
     func isValidEmail() -> Bool{
@@ -43,13 +40,11 @@ extension String {
     }
     
     func isValidPasswordForSignUp() -> Bool {
- 
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
         return passwordTest.evaluate(with: self)
     }
     
     static func formatStringAsPhoneNumber(_ length: Int, _ decimalString: NSString) -> String {
-        
         var index = 0 as Int
         let formattedString = NSMutableString()
         

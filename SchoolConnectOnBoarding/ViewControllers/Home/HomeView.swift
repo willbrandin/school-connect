@@ -10,17 +10,17 @@ import UIKit
 
 class HomeView: UIView {
 
-    //MARK: - Properties
+    // MARK: - Properties
     var collectionView: UICollectionView!
   
-    //MARK: - Init
+    // MARK: - Init
     
     func customizeUI(){
         backgroundColor = .white
         setupCollectionViewConstraints()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func setupCollectionViewConstraints(){
         
         let layout = UICollectionViewFlowLayout()

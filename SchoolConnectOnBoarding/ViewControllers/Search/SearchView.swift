@@ -10,7 +10,7 @@ import UIKit
 
 class SearchView: UIView {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     lazy var searchBar: UISearchBar! = {
         let searchBar = UISearchBar()
@@ -28,7 +28,7 @@ class SearchView: UIView {
         return tableView
     }()
     
-    //MARK: - Methods
+    // MARK: - Methods
     func customizeUI(_ showingCells: Bool) {
         backgroundColor = UIColor.white
         setupSearchBarConstraints()

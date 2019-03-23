@@ -64,5 +64,4 @@ extension SCRoundedSchoolButton: SchoolColorable {
             }
         }
     }
-    
 }

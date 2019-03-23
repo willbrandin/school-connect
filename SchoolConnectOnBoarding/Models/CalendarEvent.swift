@@ -10,10 +10,11 @@ import Foundation
 
 class CalendarEvent: Codable {
     
-    //MARK: Properties
+    // MARK: Properties
+    
     var title: String?
     var startDate: String?
-    var endDate: String? = "2018-04-22T13:20:55.302Z"
+    var endDate: String?
     var description: String?
     var location: String?
     var schoolId: String?

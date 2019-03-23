@@ -10,7 +10,8 @@ import Foundation
 
 class SNAppSettings: Codable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    
     let primaryColor: String?
     let secondaryColor: String?
     let defaultImgUrl: String?
@@ -19,12 +20,9 @@ class SNAppSettings: Codable {
     var features: [String]?
     var featuresList: [String]?
     
-    //MARK: - Init
-    
     enum CodingKeys: String, CodingKey {
         case primaryColor, secondaryColor, defaultImgUrl, features
         case schoolId = "school"
         case settingsId = "_id"
     }
-
 }

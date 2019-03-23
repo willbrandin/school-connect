@@ -14,14 +14,14 @@ protocol SchoolSearchViewControllerProtocol: Presentable {
 
 class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProtocol {
 
-    //MARK - Properties
+    // MARK - Properties
     
     var searchView: SearchView!
     var viewModel: SchoolSearchViewModelProtocol
     
     var didSelectSchoolId: ((String) -> Void)?
     
-    //MARK: - Search Properties
+    // MARK: - Search Properties
     var schoolList = [SchoolSearch]() {
         didSet {
             DispatchQueue.main.async {
@@ -41,7 +41,7 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
         searchView.searchBar.becomeFirstResponder()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     private func setupLandingView(){
         searchView = SearchView()
         searchView.customizeUI(shouldShowSearchResults)
@@ -111,7 +111,7 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
     }
 }
 
-//MARK: - Search Delegate
+// MARK: - Search Delegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -120,7 +120,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-//MARK: - TableView Delegates
+// MARK: - TableView Delegates
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

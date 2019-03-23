@@ -17,7 +17,6 @@ protocol TextInputTitleable {
     var textInputTitle: UILabel! { get set }
 }
 
-
 extension TextInputTitleable where Self: WBFloatingTitledTextField {
     /**
      Configures the title appearence for the text field.
@@ -97,7 +96,6 @@ extension TextInputTitleable where Self: WBFloatingTitledTextView {
                 titleLbl?.textColor = SCColors.scBlue
                 titleLbl?.text = inputView?.validationType.rawValue
             }
-            
         } else {
             let inputView = floatingTextView
             let titleLbl = textInputTitle

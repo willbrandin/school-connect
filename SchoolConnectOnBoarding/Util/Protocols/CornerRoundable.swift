@@ -39,7 +39,6 @@ extension CornerRoundable where Self: UIButton {
     
     func roundCorners(){
         self.layer.cornerRadius = frame.size.height/10
-
     }
 }
 
@@ -60,6 +59,7 @@ extension CornerRoundable where Self: CalendarCardView {
 }
 
 extension CornerRoundable where Self: SCCircleImage {
+    
     func roundCorners(){
         self.layer.cornerRadius = self.frame.size.width / 2
         self.clipsToBounds = true

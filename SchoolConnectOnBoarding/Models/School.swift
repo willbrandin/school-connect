@@ -10,7 +10,8 @@ import Foundation
 
 class School: Codable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    
     let schoolName: String?
     let schoolId: String?
     let schoolCity: String?
@@ -22,5 +23,4 @@ class School: Codable {
         case schoolName = "name"
         case schoolId = "school"
     }
-
 }

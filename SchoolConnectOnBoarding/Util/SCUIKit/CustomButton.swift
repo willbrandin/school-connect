@@ -237,7 +237,6 @@ public class CustomButtonContent {
         self.isLoading = isLoading
         self.actionHandler = actionHandler
     }
-    
 }
 
 // MARK: - CustomButtonStyle
@@ -277,7 +276,6 @@ open class CustomButtonStyle {
     public var type: ButtonSizingType = .normal
     
     public var titleCaseMutator: TextCaseMutator = .none
-    
 }
 
 public extension CustomButtonStyle {

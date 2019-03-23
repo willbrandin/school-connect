@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 protocol SchoolColorable {
-    
     var schoolPrimaryColor: UIColor? { get }
     var schoolSecondaryColor: UIColor? { get }
 }

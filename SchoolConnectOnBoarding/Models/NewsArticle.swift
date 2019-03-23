@@ -10,7 +10,7 @@ import Foundation
 
 class NewsArticle: Codable {
     
-    //MARK: Properties
+    // MARK: Properties
     
     var title: String?
     var subtitle: String?
@@ -23,25 +23,5 @@ class NewsArticle: Codable {
         case title, subtitle, pubDate, imgUrl
         case fullStory = "story"
         case schoolId = "school"
-    }
-    
-    //MARK: Methods
-    static func fetchNewsData(completion: @escaping ([NewsArticle], Error?) -> Void) {
-        
-        let userDefaults = UserDefaults.standard
-        guard let id = userDefaults.string(forKey: UserDefaultKeys.selectedId.rawValue) else { return }
-        
-        let networkManager = NetworkManager.sharedInstance
-        let endpoint = SchoolConnectAPI.news(id: id)
-        
-        networkManager.requestWithListResponse(for: endpoint, [NewsArticle].self) { (result) in
-            switch result {
-            case .success(let news):
-                let returnedNews = news
-                completion(returnedNews, nil)
-            case .error:
-                completion([], SCErrors.noFetchedNews)
-            }
-        }
     }
 }

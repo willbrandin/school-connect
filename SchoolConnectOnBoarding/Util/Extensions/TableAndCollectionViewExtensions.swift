@@ -36,5 +36,4 @@ extension UICollectionView {
         }
         return cell
     }
-    
 }

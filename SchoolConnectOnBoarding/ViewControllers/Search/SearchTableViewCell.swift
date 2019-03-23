@@ -10,7 +10,7 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell, CellLoadableView {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     lazy var schoolLabel: UILabel! = {
         let label = UILabel()
@@ -20,7 +20,7 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
         return label
     }()
     
-    //MARK: - Life Cycle and Init
+    // MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -31,7 +31,7 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
         super.init(coder: aDecoder)
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     func setupLabelConstraints(){
         contentView.addSubview(schoolLabel)
         schoolLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true

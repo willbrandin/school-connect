@@ -14,7 +14,6 @@ protocol Injectable {
     func inject(_: T)
 }
 
-
 //protocol ReusableView {}
 //
 //extension ReusableView where Self: UIView {

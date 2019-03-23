@@ -9,6 +9,7 @@
 import Foundation
 
 class UserDefaultsManager {
+    
     // MARK: - User Default Keys
     
     private static let selectedUserSchoolIdKey = "selectedUserSchoolIdKey"

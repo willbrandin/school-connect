@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    
+
     func fadeTransition(_ duration:CFTimeInterval) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
@@ -18,7 +18,6 @@ extension UIView {
         animation.duration = duration
         layer.add(animation, forKey: kCATransitionFade)
     }
-    
 }
 
 extension UIAlertController {
@@ -31,5 +30,4 @@ extension UIAlertController {
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
         self.addAction(action)
     }
-    
 }

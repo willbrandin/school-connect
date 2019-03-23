@@ -39,7 +39,6 @@ extension Validatable where Self: SCFloatingTextField {
         }
         return false
     }
-    
 }
 
 extension Validatable where Self: WBTextView {
@@ -49,7 +48,6 @@ extension Validatable where Self: WBTextView {
     }
     
     var isValid: Bool {
-       
         switch self.validationType {
         case .message: return self.validate([String.isMessageValid])
         default:
@@ -57,5 +55,4 @@ extension Validatable where Self: WBTextView {
         }
         return false
     }
-    
 }

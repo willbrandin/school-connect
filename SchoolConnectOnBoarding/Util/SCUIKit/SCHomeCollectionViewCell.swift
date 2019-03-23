@@ -13,5 +13,4 @@ class SCHomeCollectionViewCell: UICollectionViewCell, Shadowable {
     override func layoutSubviews() {
         makeShadow()
     }
-    
 }

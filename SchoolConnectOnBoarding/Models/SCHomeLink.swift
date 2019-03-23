@@ -10,7 +10,8 @@ import Foundation
 
 class SCHomeLink: Codable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    
     let title: String?
     let linkUrl: String?
     let linkId: String?
@@ -21,5 +22,4 @@ class SCHomeLink: Codable {
         case linkId = "_id"
         case schoolId = "school"
     }
-
 }

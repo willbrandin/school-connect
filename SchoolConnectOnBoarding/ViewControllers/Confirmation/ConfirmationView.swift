@@ -16,10 +16,10 @@ struct ConfirmationUIModel {
 
 class ConfirmationView: UIView {
 
-    //MARK: - Properties
+    // MARK: - Properties
     var didTapToConfirmSchool: (() -> Void)?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
     
     var logoImgView: SCCircleImage! = {
         let imageView = SCCircleImage()
@@ -72,7 +72,7 @@ class ConfirmationView: UIView {
         return stackView
     }()
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func customizeUI(_ school: ConfirmationUIModel){
         backgroundColor = UIColor.white
@@ -108,7 +108,5 @@ class ConfirmationView: UIView {
         confirmButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
         confirmButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         confirmButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -30.0).isActive = true
-        
     }
-    
 }

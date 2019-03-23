@@ -14,7 +14,7 @@ protocol ConfirmationViewControllerProtocol: Presentable {
 
 class ConfirmationViewController: SNBaseViewController, ConfirmationViewControllerProtocol {
 
-    //MARK: - Properties
+    // MARK: - Properties
     
     var confirmationView: ConfirmationView!
     var viewModel: ConfirmationViewModelProtocol
@@ -30,7 +30,7 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: - Life Cycle
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +42,7 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
         viewModel.requestSchoolDetails()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     private func subscribeToViewModel() {
         viewModel.onNetworkingDidFail = { [weak self] error in
@@ -77,5 +77,4 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
         confirmationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         confirmationView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
     }
-    
 }

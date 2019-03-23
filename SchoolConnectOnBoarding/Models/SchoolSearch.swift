@@ -10,11 +10,11 @@ import Foundation
 
 class SchoolSearch: Codable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    
     var name: String?
     var id: String?
     
-    //MARK: - Init
     enum CodingKeys: String, CodingKey {
         case name
         case id = "_id"

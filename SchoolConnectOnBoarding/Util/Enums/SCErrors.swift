@@ -14,7 +14,6 @@ enum SCErrors: Error {
     case noSchoolId
     case noFetchedNews
     case noFetchedEvents
-    
     case confirmationError
     case fetchError
     
@@ -43,5 +42,4 @@ enum SCErrors: Error {
             return alert
         }
     }
-    
 }

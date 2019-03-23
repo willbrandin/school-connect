@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol Shadowable {
     func makeShadow()
 }
@@ -21,7 +20,6 @@ extension Shadowable where Self: WBFloatingTextView {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 5.0)
         self.layer.shadowOpacity = 0.2
-        
     }
 }
 
@@ -33,7 +31,6 @@ extension Shadowable where Self: SCFloatingTextField {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 4.0)
         self.layer.shadowOpacity = 0.1
-
     }
 }
 
@@ -59,6 +56,7 @@ extension Shadowable where Self: UIButton {
 }
 
 extension Shadowable where Self: CalendarCardView {
+    
     func makeShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 5)

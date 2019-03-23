@@ -11,7 +11,8 @@ import RocketNetworking
 
 public struct ContactForm: PropertyLoopable {
     
-    //MARK: - Properties
+    // MARK: - Properties
+    
     var name: String?
     var email: String?
     var phoneNumber: String?
