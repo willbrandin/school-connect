@@ -10,7 +10,9 @@ import Foundation
 import IQKeyboardManagerSwift
 import RocketNetworking
 
-extension AppDelegate {
+extension AppDelegate: SchoolColorable {
+    
+    // MARK: - Methods
     
     func setupKeyboard() {
         IQKeyboardManager.shared.enable = true
@@ -25,6 +27,8 @@ extension AppDelegate {
         }
         configureNetworkManager(in: environment)
     }
+    
+    // MARK: - Private Methods
     
     private func getEnvironment(from buildMode: Int) -> NetworkEnvironment? {
         switch buildMode {

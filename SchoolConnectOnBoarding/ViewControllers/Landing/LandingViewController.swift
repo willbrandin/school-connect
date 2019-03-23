@@ -24,12 +24,13 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         super.viewDidLoad()
         
         setupLandingView()
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     //MARK: - Methods

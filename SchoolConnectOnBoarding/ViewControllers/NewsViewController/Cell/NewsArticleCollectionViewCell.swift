@@ -10,42 +10,45 @@ import UIKit
 
 class NewsArticleCollectionViewCell: UICollectionViewCell, CellLoadableView, Shadowable {
     
-    //MARK: - Properties
+    // MARK: - UI Elements
+
     var cardView: NewsCardView!
     
-    //MARK: - UI Elements
+    // MARK: - Init
     
-    //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        setupCardViewConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
+        
         makeShadow()
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
+    
     func configureCell(_ article: NewsArticle?){
-        setupCardViewConstraints()
         if let news = article {
             cardView.newsArticle = news
             cardView.customizeUI()
         }
     }
     
-    func setupCardViewConstraints(){
-        cardView = NewsCardView()
+    private func setupCardViewConstraints(){
+        cardView = NewsCardView(frame: .zero)
+        
         addSubview(cardView)
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 15.0).isActive = true
         cardView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
         cardView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
         cardView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.90).isActive = true
-
     }
-    
 }

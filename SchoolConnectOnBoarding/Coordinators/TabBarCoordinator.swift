@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TabBarCoordinator: NavigationFlowCoordinator {
+final class TabBarCoordinator: NavigationFlowCoordinator, SchoolColorable {
     
     private var tabBarController = UITabBarController()
     private var homeCoordinator = HomeCoordinator()

@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, SchoolColorable {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     private var applicationCoordinator: ApplicationCoordinator?
@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SchoolColorable {
         window?.backgroundColor = UIColor.white
         
         applicationCoordinator = ApplicationCoordinator()
-        applicationCoordinator?.start(with: .push, animated: false)
+        applicationCoordinator?.start()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = applicationCoordinator?.navigationController
         window?.makeKeyAndVisible()

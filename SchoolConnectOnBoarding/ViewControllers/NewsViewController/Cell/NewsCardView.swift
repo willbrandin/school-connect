@@ -10,10 +10,12 @@ import UIKit
 
 class NewsCardView: UIView, CornerRoundable {
 
-    //MARK: - Properties
+    // MARK: - Properties
+    
     var newsArticle: NewsArticle?
     
-    //MARK: - UI Elements
+    // MARK: - UI Elements
+    
     var newsImgView: UIImageView! = {
         let imageView = UIImageView()
         //imageView.image = SCImages.OnBoardingImages.landingPageIcon
@@ -47,7 +49,7 @@ class NewsCardView: UIView, CornerRoundable {
         return label
     }()
     
-    //MARK: - StackView
+    // MARK: - StackView
     
     lazy var bodyTextStackView: UIStackView! = {
         let stackView = UIStackView()
@@ -62,10 +64,21 @@ class NewsCardView: UIView, CornerRoundable {
         return stackView
     }()
     
-    //MARK: - Init
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        roundCorners()
+        setupStackViewContraints()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func customizeUI(){
         backgroundColor = UIColor.white
-        setupStackViewContraints()
         
         if let news = newsArticle {
             pubDateLabel.text = news.pubDate?.stringWithDateFormat(.simpleDate)
@@ -76,11 +89,8 @@ class NewsCardView: UIView, CornerRoundable {
         }
     }
     
-    override func layoutSubviews() {
-        roundCorners()
-    }
+    // MARK: - Methods
     
-    //MARK: - Methods
     func setupImageConstraints(){
         addSubview(newsImgView)
         newsImgView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
@@ -104,5 +114,4 @@ class NewsCardView: UIView, CornerRoundable {
     func setupTitleLabelConstraints(){
         //titleLabel.heightAnchor.constraint(equalToConstant: 64.0).isActive = true
     }
-
 }

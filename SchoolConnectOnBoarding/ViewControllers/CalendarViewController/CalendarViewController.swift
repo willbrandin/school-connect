@@ -14,14 +14,17 @@ protocol CalendarViewControllerProtocol: Presentable {
 
 class CalendarViewController: SNBaseViewController, CalendarViewControllerProtocol {
 
-    //MARK: - Properties
-    var calendarView: CalendarView!
+    // MARK: - Properties
+    
+    private var calendarView: CalendarView!
     private var viewModel: CalendarViewModelProtocol = CalendarViewModel()
 
     // MARK: - CalendarViewControllerProtocol
+    
     var onDidSelectEvent: ((CalendarEvent) -> Void)?
     
-    //MARK: - View Life cycle
+    // MARK: - View Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,17 +35,19 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
         subscribeToViewModel()
     }
 
-    //MARK: - Private Methods
+    // MARK: - Private Methods
+    
     private func setupCalendarView(){
         calendarView = CalendarView()
-        calendarView.customizeUI()
         view.addSubview(calendarView)
         
+        calendarView.onRefresh = { [weak self] in
+            self?.viewModel.requestCalendarEvents()
+            self?.calendarView.refreshControl.beginRefreshing()
+        }
+    
         calendarView.translatesAutoresizingMaskIntoConstraints = false
-        calendarView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        calendarView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        calendarView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-        calendarView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        calendarView.pinToSuperview()
     }
     
     private func setDelegates() {
@@ -53,8 +58,12 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
     
     private func subscribeToViewModel() {
         viewModel.onReceivedData = { [weak self] in
+            guard let weakSelf = self else { return }
             DispatchQueue.main.async {
-                self?.calendarView.tableView.reloadData()
+                if weakSelf.calendarView.refreshControl.isRefreshing {
+                    weakSelf.calendarView.refreshControl.endRefreshing()
+                }
+                weakSelf.calendarView.tableView.reloadData()
             }
         }
         
@@ -63,7 +72,7 @@ class CalendarViewController: SNBaseViewController, CalendarViewControllerProtoc
     }
 }
 
-//MARK: - Delegate
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,7 +89,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return viewModel.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

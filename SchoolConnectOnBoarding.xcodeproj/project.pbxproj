@@ -98,8 +98,6 @@
 		D23FE97721FCD43A00EC0EB5 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */; };
 		D23FE97921FCD47C00EC0EB5 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */; };
 		D2F9C3F52203554000177743 /* SNBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3F22203554000177743 /* SNBaseViewController.swift */; };
-		D2F9C3F62203554000177743 /* SNBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3F32203554000177743 /* SNBaseNavigationController.swift */; };
-		D2F9C3F72203554000177743 /* SNTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3F42203554000177743 /* SNTabBarController.swift */; };
 		D2F9C4002203557F00177743 /* FlowEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3F92203557F00177743 /* FlowEvent.swift */; };
 		D2F9C4012203557F00177743 /* NavigationControllerCoordinatorsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FA2203557F00177743 /* NavigationControllerCoordinatorsTracker.swift */; };
 		D2F9C4022203557F00177743 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F9C3FB2203557F00177743 /* FlowCoordinator.swift */; };
@@ -242,8 +240,6 @@
 		D23FE97621FCD43A00EC0EB5 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D23FE97821FCD47C00EC0EB5 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
 		D2F9C3F22203554000177743 /* SNBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNBaseViewController.swift; sourceTree = "<group>"; };
-		D2F9C3F32203554000177743 /* SNBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNBaseNavigationController.swift; sourceTree = "<group>"; };
-		D2F9C3F42203554000177743 /* SNTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNTabBarController.swift; sourceTree = "<group>"; };
 		D2F9C3F92203557F00177743 /* FlowEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowEvent.swift; sourceTree = "<group>"; };
 		D2F9C3FA2203557F00177743 /* NavigationControllerCoordinatorsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerCoordinatorsTracker.swift; sourceTree = "<group>"; };
 		D2F9C3FB2203557F00177743 /* FlowCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
@@ -687,8 +683,6 @@
 			isa = PBXGroup;
 			children = (
 				D2F9C3F22203554000177743 /* SNBaseViewController.swift */,
-				D2F9C3F32203554000177743 /* SNBaseNavigationController.swift */,
-				D2F9C3F42203554000177743 /* SNTabBarController.swift */,
 			);
 			name = Navigation;
 			path = SchoolConnectOnBoarding/Navigation;
@@ -943,14 +937,12 @@
 				03C4A486207FF60400A0A2FF /* SCHomeCollectionViewCell.swift in Sources */,
 				D2F9C4012203557F00177743 /* NavigationControllerCoordinatorsTracker.swift in Sources */,
 				0312E68720586EF4009327F3 /* NewsArticle.swift in Sources */,
-				D2F9C3F62203554000177743 /* SNBaseNavigationController.swift in Sources */,
 				D2F9C40F220364B900177743 /* TabBarCoordinator.swift in Sources */,
 				0349BF762059C2010031CDE9 /* CalendarEventViewController.swift in Sources */,
 				03C4A499207FFD5F00A0A2FF /* CellReusable.swift in Sources */,
 				03930CF02055D83A00128D72 /* SearchView.swift in Sources */,
 				D23002F22203424D00AAFE52 /* Style.swift in Sources */,
 				D223A31F21FCF56F008056EF /* Result.swift in Sources */,
-				D2F9C3F72203554000177743 /* SNTabBarController.swift in Sources */,
 				D23002E122027F1D00AAFE52 /* AppDelegate+Configuration.swift in Sources */,
 				032685C5205F0A6700905EB3 /* FeatureCardView.swift in Sources */,
 				032685BA205C94E700905EB3 /* HomeView.swift in Sources */,

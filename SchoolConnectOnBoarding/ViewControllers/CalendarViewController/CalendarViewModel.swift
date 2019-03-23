@@ -6,7 +6,7 @@
 //  Copyright © 2019 William Brandin. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol CalendarViewModelProtocol: class {
     var onCalendarItemSelected:((CalendarEvent) -> Void)? { get set }
@@ -14,6 +14,7 @@ protocol CalendarViewModelProtocol: class {
     var onNetworkIsLoading: ((Bool) -> Void)? { get set }
     var onErrorReceived: (() -> Bool)? { get set }
     
+    var cellHeight: CGFloat { get }
     var numberOfSections: Int { get }
     
     func numberOfRows(in section: Int) -> Int
@@ -39,6 +40,10 @@ final class CalendarViewModel: CalendarViewModelProtocol {
     
     var numberOfSections: Int {
         return 1
+    }
+    
+    var cellHeight: CGFloat {
+        return 120
     }
     
     func requestCalendarEvents() {

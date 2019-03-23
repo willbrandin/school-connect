@@ -14,14 +14,17 @@ protocol NewsViewControllerProtocol: Presentable {
 
 class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
     
-    //MARK: - Properties
-    var newsView: NewsView!
+    // MARK: - Properties
+    
+    private var newsView: NewsView!
+    private var viewModel: NewsViewModelProtocol = NewsViewModel()
+    
+    // MARK: - NewsViewControllerProtocol
     
     var onDidSelectNewsArticle: ((NewsArticle?) -> Void)?
     
-    private var viewModel: NewsViewModelProtocol = NewsViewModel()
+    // MARK: - View Life Cycle
     
-    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,35 +32,41 @@ class NewsViewController: SNBaseViewController, NewsViewControllerProtocol {
         view.backgroundColor = .white
         
         setupCustomView()
-        
-        newsView.collectionView.dataSource = self
-        newsView.collectionView.delegate = self
-        newsView.collectionView.register(NewsArticleCollectionViewCell.self)
-        
+        setupDelegates()
         subscribeToViewModel()
     }
     
-    //MARK: - Methods
-    func setupCustomView(){
+    // MARK: - Private Methods
+    private func setupCustomView(){
         newsView = NewsView()
-        newsView.customizeUI()
+        
+        newsView.onRefresh = { [weak self] in
+            self?.viewModel.requestSchoolNews()
+            self?.newsView.refreshControl.beginRefreshing()
+        }
         
         view.addSubview(newsView)
-        newsView.translatesAutoresizingMaskIntoConstraints = false
-        newsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        newsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        newsView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        newsView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        newsView.pinToSuperview()
     }
     
-    // MARK: - Private Methods
+    private func setupDelegates() {
+        newsView.collectionView.dataSource = self
+        newsView.collectionView.delegate = self
+        newsView.collectionView.register(NewsArticleCollectionViewCell.self)
+    }
+    
     private func subscribeToViewModel() {
-        viewModel.onNewsItemSelected = onDidSelectNewsArticle
         viewModel.onReceivedNews = { [weak self] in
+            guard let weakSelf = self else { return }
             DispatchQueue.main.async {
-                self?.newsView.collectionView.reloadData()
+                if weakSelf.newsView.refreshControl.isRefreshing {
+                    weakSelf.newsView.refreshControl.endRefreshing()
+                }
+                weakSelf.newsView.collectionView.reloadData()
             }
         }
+        
+        viewModel.onNewsItemSelected = onDidSelectNewsArticle
         viewModel.requestSchoolNews()
     }
 }

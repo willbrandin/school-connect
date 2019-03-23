@@ -9,35 +9,53 @@
 import UIKit
 
 class NewsView: UIView {
-
-    //MARK: - Properties
-    var collectionView: UICollectionView!
-
-    //MARK: - Init
-    func customizeUI() {
-        backgroundColor = .white
-        setupCollectionViewConstraints()
-    }
     
-    //MARK: - Methods
-    private func setupCollectionViewConstraints(){
-        
+    // MARK: - Closures
+    var onRefresh: (() -> Void)?
+    
+    // MARK: - Properties
+    
+    var collectionViewLayout: UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
-        
-        collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
+        return layout
+    }
+    
+    lazy var collectionView: UICollectionView! = {
+        let collectionView = UICollectionView(frame: self.frame, collectionViewLayout: collectionViewLayout)
+        collectionView.backgroundColor = .white
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    lazy var refreshControl: UIRefreshControl! = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    // MARK: - Init
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        collectionView.backgroundColor = UIColor.white
+        backgroundColor = .white
         
         addSubview(collectionView)
-        
-        collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        collectionView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        collectionView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        collectionView.pinToSuperview()
+        collectionView.refreshControl = refreshControl
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Private Methods
+    
+    @objc private func handleRefresh(){
+        onRefresh?()
     }
 }

@@ -12,7 +12,7 @@ protocol SchoolSearchViewControllerProtocol: Presentable {
     var didSelectSchoolId: ((String) -> Void)? { get set }
 }
 
-class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol {
+class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProtocol {
 
     //MARK - Properties
     
@@ -56,7 +56,7 @@ class SearchViewController: UIViewController, SchoolSearchViewControllerProtocol
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -76,9 +76,9 @@ class ContactViewController: SNBaseViewController, ContactViewControllerProtocol
         super.viewDidLoad()
         
         view.setMargins(top: Style.Layout.innerSpacing,
-                        leading: Style.Layout.outerMargin,
+                        leading: Style.Layout.margin,
                         bottom:  Style.Layout.innerSpacing,
-                        trailing:  Style.Layout.outerMargin)
+                        trailing:  Style.Layout.margin)
         
         title = PageTitles.contact.rawValue
         view.backgroundColor = .white

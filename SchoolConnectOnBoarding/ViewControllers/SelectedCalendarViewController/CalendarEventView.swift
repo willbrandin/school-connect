@@ -168,6 +168,14 @@ class CalendarEventView: UIView, CalendarEventViewProtocol {
         return button
     }()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setMargins(top: Style.Layout.margin,
+                   leading: Style.Layout.margin,
+                   bottom: Style.Layout.margin,
+                   trailing: Style.Layout.margin)
+    }
     
     //MARK: - Init
     func customizeUI(_ calendarEvent: CalendarEvent?){
@@ -178,31 +186,23 @@ class CalendarEventView: UIView, CalendarEventViewProtocol {
             backgroundColor = UIColor.white
             informationLabel.text = event.description
             locationLabel.text = event.location
-            
             formatForStartAndEndDate(event)
-            
         }
     }
     
     //MARK: - Methods
     func setupScrollViewConstraints(){
         addSubview(mainScrollView)
-        mainScrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        mainScrollView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        mainScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        mainScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        mainScrollView.pinToMargins()
     }
     
     func setupStackViewConstraints(){
-        addSubview(bodyTextStackView)
-        bodyTextStackView.topAnchor.constraint(equalTo: mainScrollView.topAnchor, constant: 10.0).isActive = true
-        bodyTextStackView.bottomAnchor.constraint(equalTo: mainScrollView.bottomAnchor, constant: -30.0).isActive = true
-        bodyTextStackView.leadingAnchor.constraint(equalTo: mainScrollView.leadingAnchor, constant: 15.0).isActive = true
-        bodyTextStackView.trailingAnchor.constraint(equalTo: mainScrollView.trailingAnchor, constant: -15.0).isActive = true
+        bodyTextStackView.pinToTop()
+        bodyTextStackView.pinToLeadingAndTrailingMargins()
+        bodyTextStackView.pinToBottom()
     }
     
     func setupButtonConstraints(){
-        addSubview(saveToCalendarButton)
         saveToCalendarButton.topAnchor.constraint(equalTo: bodyTextStackView.bottomAnchor, constant: 40.0).isActive = true
         saveToCalendarButton.centerXAnchor.constraint(equalTo: mainScrollView.centerXAnchor).isActive = true
         saveToCalendarButton.widthAnchor.constraint(equalTo: mainScrollView.widthAnchor, multiplier: 0.6).isActive = true

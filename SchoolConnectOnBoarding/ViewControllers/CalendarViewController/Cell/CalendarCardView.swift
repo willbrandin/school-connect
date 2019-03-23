@@ -66,18 +66,18 @@ class CalendarCardView: UIView, CornerRoundable, Shadowable {
     //MARK: - Init
     
     func customizeUI(){
-         self.backgroundColor = UIColor.white
+        backgroundColor = UIColor.white
         setupMainStackViewConstraints()
         if let event = calendarEvent {
             titleLabel.text = event.title
             eventDateLabel.text = event.startDate?.stringWithDateFormat(.simpleDate)
-            
         }
         roundCorners()
     }
     
     override func layoutSubviews() {
         makeShadow()
+        customizeUI()
     }
     
     //MARK: - Methods

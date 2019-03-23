@@ -17,24 +17,24 @@ class CalendarTableViewCell: UITableViewCell, CellLoadableView {
     //MARK: - Life Cycle and Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupCardViewConstraints()
+        contentView.backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    //MARK: - Methods
+    // MARK: - Methods
     
     func configureCell(_ calendarEvent: CalendarEvent?){
-        setupCardViewConstraints()
-        self.contentView.backgroundColor = UIColor.white
         if let event = calendarEvent {
             cardView.calendarEvent = event
-            cardView.customizeUI()
         }
     }
     
-    func setupCardViewConstraints(){
+    private func setupCardViewConstraints(){
         cardView = CalendarCardView()
         addSubview(cardView)
         cardView.translatesAutoresizingMaskIntoConstraints = false
