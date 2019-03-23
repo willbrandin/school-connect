@@ -15,6 +15,7 @@ protocol LandingViewControllerProtocol: Presentable {
 class LandingViewController: UIViewController, LandingViewControllerProtocol {
 
     // MARK - Properties
+    
     var landingView: LandingScreenView!
     var didTapToContinue: (() -> Void)?
     
@@ -33,14 +34,14 @@ class LandingViewController: UIViewController, LandingViewControllerProtocol {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
-    // MARK: - Methods
-    func setupLandingView(){
+    // MARK: - Private Methods
+    
+    private func setupLandingView(){
         landingView = LandingScreenView()
         landingView.didTapToContinue = { [weak self] in
             self?.didTapToContinue?()
         }
         
-        landingView.customizeUI()
         view.addSubview(landingView)
         
         landingView.translatesAutoresizingMaskIntoConstraints = false

@@ -21,7 +21,6 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
     
     var didSelectSchoolId: ((String) -> Void)?
     
-    // MARK: - Search Properties
     var schoolList = [SchoolSearch]() {
         didSet {
             DispatchQueue.main.async {
@@ -31,6 +30,8 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
     }
     
     var shouldShowSearchResults = false
+    
+    // MARK: - Init
     
     init(viewModel: SchoolSearchViewModelProtocol) {
         self.viewModel = viewModel
@@ -49,6 +50,7 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
         title = PageTitles.schoolSearch.rawValue
         
         setupLandingView()
+        setEmptyState()
         setDelegates()
         subscribeToViewModel()
     }
@@ -65,12 +67,11 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
         searchView.searchBar.becomeFirstResponder()
     }
     
-    // MARK: - Methods
+    // MARK: - Private Methods
+    
     private func setupLandingView(){
         searchView = SearchView()
-        searchView.customizeUI(shouldShowSearchResults)
         view.addSubview(searchView)
-        
         searchView.translatesAutoresizingMaskIntoConstraints = false
         searchView.pinToSuperview()
     }
@@ -102,16 +103,16 @@ class SearchViewController: SNBaseViewController, SchoolSearchViewControllerProt
         searchView.tableView.register(SearchTableViewCell.self)
     }
     
-    func setEmptyState() {
+    private func setEmptyState() {
         let newView = SearchBlankView()
-        newView.customizeUI()
         searchView.tableView.separatorStyle  = .none
         searchView.tableView.backgroundView = newView
         searchView.tableView.reloadData()
     }
 }
 
-// MARK: - Search Delegate
+// MARK: - UISearchBarDelegate
+
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -120,7 +121,8 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-// MARK: - TableView Delegates
+// MARK: - UITableViewDelegate, UITableViewDataSource
+
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -17,6 +17,7 @@ struct ConfirmationUIModel {
 class ConfirmationView: UIView {
 
     // MARK: - Properties
+    
     var didTapToConfirmSchool: (() -> Void)?
     
     // MARK: - UI Elements
@@ -72,21 +73,29 @@ class ConfirmationView: UIView {
         return stackView
     }()
     
-    // MARK: - Methods
+    // MARK : - Life Cycle
     
-    func customizeUI(_ school: ConfirmationUIModel){
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         backgroundColor = UIColor.white
         setupButtonConstraints()
         setupImageConstraints()
         setupSchoolInfoStackViewConstraints()
-
+    }
+    
+    // MARK: - Methods
+    
+    func injectSchoolDetails(uiModel school: ConfirmationUIModel) {
         if let name = school.name, let city = school.city, let state = school.state {
             schoolNameLabel.text = name
             schoolCityStateLabel.text = "\(city), \(state)"
         }
     }
     
-    func setupImageConstraints() {
+    // MARK: - Private Methods
+    
+    private func setupImageConstraints() {
         addSubview(logoImgView)
         logoImgView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         logoImgView.bottomAnchor.constraint(equalTo: self.centerYAnchor, constant: -20.0).isActive = true
@@ -94,7 +103,7 @@ class ConfirmationView: UIView {
         logoImgView.widthAnchor.constraint(equalTo: logoImgView.heightAnchor).isActive = true
     }
     
-    func setupSchoolInfoStackViewConstraints() {
+    private func setupSchoolInfoStackViewConstraints() {
         addSubview(bodyTextStackView)
         
         bodyTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
@@ -102,7 +111,7 @@ class ConfirmationView: UIView {
         bodyTextStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 50.0).isActive = true
     }
     
-    func setupButtonConstraints() {
+    private func setupButtonConstraints() {
         addSubview(confirmButton)
         confirmButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         confirmButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true

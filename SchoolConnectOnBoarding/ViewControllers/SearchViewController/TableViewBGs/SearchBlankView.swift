@@ -10,6 +10,8 @@ import UIKit
 
 class SearchBlankView: UIView {
 
+    // MARK: - Properties
+    
     var searchImgView: SCCircleImage! = {
         let imageView = SCCircleImage()
         imageView.image = SCImages.OnBoardingImages.searchIcon
@@ -31,13 +33,20 @@ class SearchBlankView: UIView {
         return label
     }()
     
-    func customizeUI(){
-        self.backgroundColor = UIColor.white
+    // MARK: - Life Cycle
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        backgroundColor = UIColor.white
+
         setupImageConstraints()
         setupLabelConstraints()
     }
     
-    func setupImageConstraints(){
+    // MARK: - Private Methods
+    
+    private func setupImageConstraints(){
         addSubview(searchImgView)
         searchImgView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         searchImgView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50.0).isActive = true
@@ -45,7 +54,7 @@ class SearchBlankView: UIView {
         searchImgView.widthAnchor.constraint(equalTo: searchImgView.heightAnchor).isActive = true
     }
     
-    func setupLabelConstraints(){
+    private func setupLabelConstraints(){
         addSubview(searchLabel)
         searchLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 40.0).isActive = true
         searchLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true

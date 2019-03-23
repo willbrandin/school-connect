@@ -92,16 +92,20 @@ class LandingScreenView: UIView {
         return stackView
     }()
     
-    // MARK: - Methods
+    // MARK: - Life Cycle
     
-    func customizeUI() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         backgroundColor = UIColor.white
         setupButtonConstraints()
         setupTitleConstraints()
         setupMainStackViewConstraints()
     }
     
-    func setupMainStackViewConstraints() {
+    // MARK: - Private Methods
+    
+    private func setupMainStackViewConstraints() {
         addSubview(landingMainStackView)
         
         landingMainStackView.topAnchor.constraint(equalTo: schoolConnectTitle.bottomAnchor, constant: 75.0).isActive = true
@@ -112,11 +116,11 @@ class LandingScreenView: UIView {
         setupImageConstraints()
     }
     
-    func setupImageConstraints() {
+    private func setupImageConstraints() {
         schoolHouseImgView.heightAnchor.constraint(equalTo: schoolHouseImgView.widthAnchor, multiplier: 1.0).isActive = true
     }
     
-    func setupTitleConstraints() {
+    private func setupTitleConstraints() {
         addSubview(schoolConnectTitle)
         schoolConnectTitle.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 25.0).isActive = true
         schoolConnectTitle.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
@@ -124,13 +128,11 @@ class LandingScreenView: UIView {
         schoolConnectTitle.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -12.0).isActive = true
     }
     
-    func setupButtonConstraints() {
+    private func setupButtonConstraints() {
         addSubview(continueButton)
         continueButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
         continueButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         continueButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -30.0).isActive = true
-        
     }
-    
 }

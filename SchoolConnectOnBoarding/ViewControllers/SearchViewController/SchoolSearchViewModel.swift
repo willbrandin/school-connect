@@ -9,15 +9,20 @@
 import UIKit
 
 protocol SchoolSearchViewModelProtocol {
+    
     // MARK: - Properties
+    
     var numberOfRows: Int { get }
     var numberOfSections: Int { get }
+    
     // MARK: - Closures
+    
     var onNetworkingDidFail: ((SCErrors) -> Void)? { get set }
     var onDidSetSchools: (() -> Void)? { get set }
     var onDisplayNoSchools: (() -> Void)? { get set }
     
     // MARK: - Methods
+    
     func determineFetch(for search: String)
     func schoolName(for indexPath: IndexPath) -> String?
     func schoolId(for indexPath: IndexPath) -> String?
@@ -25,6 +30,7 @@ protocol SchoolSearchViewModelProtocol {
 
 class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     
+    // MARK: - Properties
     var onNetworkingDidFail: ((SCErrors) -> Void)?
     var onDidSetSchools: (() -> Void)?
     var onDisplayNoSchools: (() -> Void)?
@@ -46,6 +52,8 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
     var numberOfSections: Int {
         return 1
     }
+    
+    // MARK: - Methods
     
     func schoolName(for indexPath: IndexPath) -> String? {
         return schools[indexPath.row].name
@@ -98,5 +106,4 @@ class SchoolSearchViewModel: SchoolSearchViewModelProtocol {
             }
         }
     }
-    
 }

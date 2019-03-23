@@ -19,8 +19,8 @@ struct Style {
         /// innerSpacing 8 points
         static var innerSpacing: CGFloat { return 8.0 }
         
-        /// Single line cell height 72 points
-        static var cellHeight: CGFloat { return 72.0 }
+        /// Single line cell height 48 points
+        static var cellHeight: CGFloat { return 48.0 }
         
         static var textFieldHeight: CGFloat { return 52.0 }
     }

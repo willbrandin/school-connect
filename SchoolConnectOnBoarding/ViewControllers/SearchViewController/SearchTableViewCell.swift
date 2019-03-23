@@ -20,9 +20,16 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
         return label
     }()
     
-    // MARK: - Life Cycle and Init
+    // MARK: - Init
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.heightAnchor.constraint(equalToConstant: Style.Layout.cellHeight).isActive = true
+        contentView.setMargins(top: Style.Layout.innerSpacing,
+                               leading: Style.Layout.innerSpacing,
+                               bottom: Style.Layout.innerSpacing,
+                               trailing: Style.Layout.innerSpacing)
         
         setupLabelConstraints()
     }
@@ -32,12 +39,10 @@ class SearchTableViewCell: UITableViewCell, CellLoadableView {
     }
     
     // MARK: - Methods
+    
     func setupLabelConstraints(){
         contentView.addSubview(schoolLabel)
-        schoolLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 12.0).isActive = true
-        schoolLabel.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -12.0).isActive = true
-        schoolLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 15.0).isActive = true
-        schoolLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -12.0).isActive = true
+        schoolLabel.pinToMargins()
     }
     
     func configureCell(_ school: String?){

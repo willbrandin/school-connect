@@ -10,6 +10,8 @@ import UIKit
 
 class SNBaseViewController: UIViewController {
 
+    // MARK: - Properties
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -23,5 +25,4 @@ class SNBaseViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
 }

@@ -37,9 +37,9 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
         
         title = PageTitles.confirmation.rawValue
         view.backgroundColor = .white
+        
         setupConfirmationView()
         subscribeToViewModel()
-        viewModel.requestSchoolDetails()
     }
     
     // MARK: - Methods
@@ -53,28 +53,24 @@ class ConfirmationViewController: SNBaseViewController, ConfirmationViewControll
         
         viewModel.onDidSetSchool = { [weak self] uiModel in
             DispatchQueue.main.async {
-                self?.confirmationView.customizeUI(uiModel)
+                self?.confirmationView.injectSchoolDetails(uiModel: uiModel)
             }
         }
         
         viewModel.onNetworkLoading = { [weak self] in
-            // isLoading
         }
+        
+        viewModel.requestSchoolDetails()
     }
     
     private func setupConfirmationView(){
         confirmationView = ConfirmationView()
-        
+    
         confirmationView.didTapToConfirmSchool = { [weak self] in
             self?.didConfirmSchool?(self?.viewModel.schoolId)
         }
         
         view.addSubview(confirmationView)
-        
-        confirmationView.translatesAutoresizingMaskIntoConstraints = false
-        confirmationView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        confirmationView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        confirmationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        confirmationView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        confirmationView.pinToSafeArea()
     }
 }

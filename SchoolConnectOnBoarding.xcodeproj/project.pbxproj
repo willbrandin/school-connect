@@ -284,6 +284,7 @@
 		0312E68220586E36009327F3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D29201D0224690A800981F27 /* SNBaseViewController */,
 				03930CE32054ACC900128D72 /* ConfirmationViewController */,
 				03930CE22054ACBF00128D72 /* SearchViewController */,
 				03930CE12054ACBA00128D72 /* LandingViewController */,
@@ -450,12 +451,13 @@
 			children = (
 				D2F9C4072203559100177743 /* Coordinators */,
 				D2F9C3F82203557F00177743 /* NavigationFlowCoordinator */,
-				D2F9C3F12203554000177743 /* Navigation */,
 				D23002F02203423E00AAFE52 /* Style */,
 				D23002E722028A3900AAFE52 /* Subclasses */,
 				D23002E22202813400AAFE52 /* Storyboard */,
 				D223A30821FCF0F0008056EF /* NetworkLayer */,
 				03466263205830DC00100737 /* Models */,
+				03C4A495207FF9AD00A0A2FF /* Protocols */,
+				03C4A48E207FF7BF00A0A2FF /* Enums */,
 				03930CE82054B1B800128D72 /* Util */,
 				0312E68220586E36009327F3 /* ViewControllers */,
 				D23002DF22027F0800AAFE52 /* InitiialConfiguration */,
@@ -490,9 +492,9 @@
 			isa = PBXGroup;
 			children = (
 				0382F67A2056FAF600284055 /* TableViewBGs */,
-				03930CED2055D71000128D72 /* SearchViewController.swift */,
 				03930CEF2055D83A00128D72 /* SearchView.swift */,
 				03930CF12055FA1300128D72 /* SearchTableViewCell.swift */,
+				03930CED2055D71000128D72 /* SearchViewController.swift */,
 				D206981421C30894001545BC /* SchoolSearchViewModel.swift */,
 			);
 			path = SearchViewController;
@@ -525,10 +527,7 @@
 		03930CE82054B1B800128D72 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				03C4A495207FF9AD00A0A2FF /* Protocols */,
-				03C4A48E207FF7BF00A0A2FF /* Enums */,
 				03C4A487207FF6A800A0A2FF /* Extensions */,
-				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
 				03C4A48C207FF78E00A0A2FF /* SCImages.swift */,
 				03E0D7832063E28500BE00E6 /* SCFontUtil.swift */,
 				03D4BB4420877D7D00213A24 /* SCColors.swift */,
@@ -656,6 +655,7 @@
 		D23002E722028A3900AAFE52 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				03C4A47C207FF4FF00A0A2FF /* SCUIKit */,
 				0312E68E20587959009327F3 /* CalendarCellSideButtonView.swift */,
 			);
 			path = Subclasses;
@@ -679,14 +679,13 @@
 			path = Style;
 			sourceTree = "<group>";
 		};
-		D2F9C3F12203554000177743 /* Navigation */ = {
+		D29201D0224690A800981F27 /* SNBaseViewController */ = {
 			isa = PBXGroup;
 			children = (
 				D2F9C3F22203554000177743 /* SNBaseViewController.swift */,
 			);
-			name = Navigation;
-			path = SchoolConnectOnBoarding/Navigation;
-			sourceTree = SOURCE_ROOT;
+			path = SNBaseViewController;
+			sourceTree = "<group>";
 		};
 		D2F9C3F82203557F00177743 /* NavigationFlowCoordinator */ = {
 			isa = PBXGroup;

@@ -56,6 +56,17 @@ public extension UIView {
         }
     }
     
+    public func pinToTopSafeArea() {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let superview = superview {
+            if #available(iOS 11.0, *) {
+                topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor).isActive = true
+            } else {
+                topAnchor.constraint(equalTo: superview.layoutMarginsGuide.topAnchor).isActive = true
+            }
+        }
+    }
+    
     /// Pin view to superview center
     public func pinToCenter() {
         translatesAutoresizingMaskIntoConstraints = false
