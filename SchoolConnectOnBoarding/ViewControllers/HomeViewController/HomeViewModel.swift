@@ -9,16 +9,24 @@
 import UIKit
 
 protocol HomeViewModelProtocol {
+    
     // MARK: - Properties
-    var numberOfRowsInHomeCollectionView: Int { get }
+    var heroMultiplier: CGFloat { get }
+    var featureMultiplier: CGFloat { get }
+    var linksMultiplier: CGFloat { get }
+    
+    var featuresIncluded: Bool { get }
+    var linksIncluded: Bool { get}
+    var scrollViewHeightMultiplier: CGFloat { get }
     
     // MARK: - Closures
+    
     var onNetworkingDidFail: ((SCErrors) -> Void)? { get set }
     var onFetchedSchoolAndSettings: (() -> Void)? { get set }
     
     // MARK: - Methods
+    
     func requestData()
-    func layoutFor(_ indexPath: IndexPath, with width: CGFloat) -> CGSize
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -30,7 +38,50 @@ class HomeViewModel: HomeViewModelProtocol {
     
     private let dispatchGroup = DispatchGroup()
     
-    var numberOfRowsInHomeCollectionView: Int {
+    var heroMultiplier: CGFloat {
+        return 0.6
+    }
+    var featureMultiplier: CGFloat {
+        return 0.5
+    }
+    var linksMultiplier: CGFloat {
+        return 0.4
+    }
+    
+    var featuresIncluded: Bool {
+        guard let features = appSettings?.features else { return false }
+        return !features.isEmpty
+    }
+    
+    var linksIncluded: Bool {
+        return !homeLinks.isEmpty
+    }
+    
+    var scrollViewHeightMultiplier: CGFloat {
+        switch numberOfRowsInHomeCollectionView {
+        case 3:
+            return heroMultiplier + featureMultiplier + linksMultiplier
+            
+        case 2:
+            if featuresIncluded {
+                return heroMultiplier + featureMultiplier
+            } else if linksIncluded {
+                return heroMultiplier + linksMultiplier
+            }
+            return 0
+            
+        case 1:
+            return heroMultiplier
+            
+        default:
+            return 0
+        }
+    }
+    
+    var onNetworkingDidFail: ((SCErrors) -> Void)?
+    var onFetchedSchoolAndSettings: (() -> Void)?
+    
+    private var numberOfRowsInHomeCollectionView: Int {
         if featuresIncluded && linksIncluded {
             return 3
         } else if featuresIncluded || linksIncluded {
@@ -38,18 +89,6 @@ class HomeViewModel: HomeViewModelProtocol {
         }
         return 1
     }
-    
-    private var featuresIncluded: Bool {
-        guard let features = appSettings?.features else { return false }
-        return !features.isEmpty
-    }
-    
-    private var linksIncluded: Bool {
-        return !homeLinks.isEmpty
-    }
-    
-    var onNetworkingDidFail: ((SCErrors) -> Void)?
-    var onFetchedSchoolAndSettings: (() -> Void)?
     
     init(schoolId: String?) {
         self.schoolId = schoolId
@@ -63,24 +102,6 @@ class HomeViewModel: HomeViewModelProtocol {
         dispatchGroup.notify(queue: .main) { [weak self] in
             self?.onFetchedSchoolAndSettings?()
         }
-    }
-    
-    func layoutFor(_ indexPath: IndexPath, with width: CGFloat) -> CGSize {
-        let screenHeight = UIScreen.main.bounds.height
-        if indexPath.row == HomeCellIndex.greeting.rawValue {
-            return CGSize(width: width, height: screenHeight * 0.6)
-            
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue && featuresIncluded {
-            return CGSize(width: width, height: screenHeight * 0.45)
-            
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue || linksIncluded {
-            if homeLinks.count > 3 {
-                return CGSize(width: width, height: screenHeight
-                    * 0.44)
-            }
-            return CGSize(width: width, height: screenHeight * 0.3)
-        }
-        return CGSize(width: width, height: screenHeight * 0.3)
     }
     
     private func requestSchool() {
@@ -100,6 +121,9 @@ class HomeViewModel: HomeViewModelProtocol {
             self?.handleFetchHomeLinksResult(with: result)
         }
     }
+}
+
+extension HomeViewModel {
     
     private func fetchSchool(with schoolId: String?, completion: @escaping ((Result<School, SCErrors>) -> Void)) {
         
@@ -193,5 +217,4 @@ class HomeViewModel: HomeViewModelProtocol {
             onNetworkingDidFail?(error)
         }
     }
-    
 }

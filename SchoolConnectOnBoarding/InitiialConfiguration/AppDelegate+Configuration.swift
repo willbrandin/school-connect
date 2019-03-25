@@ -25,7 +25,7 @@ extension AppDelegate: SchoolColorable {
             print("Networking Layer could not be configured.")
             return
         }
-        configureNetworkManager(in: environment)
+        configureNetworkManager(in: .staging)
     }
     
     // MARK: - Private Methods

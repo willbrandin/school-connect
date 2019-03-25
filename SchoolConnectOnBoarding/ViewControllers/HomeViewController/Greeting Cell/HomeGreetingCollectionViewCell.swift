@@ -29,7 +29,6 @@ class HomeGreetingCollectionViewCell: SCHomeCollectionViewCell, CellLoadableView
     func configureCell(){
         setupCardViewConstraints()
         
-        greetingView.customizeUI()
     }
     
     func setupCardViewConstraints(){

@@ -29,6 +29,13 @@ class HomeCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     private func createHomeViewController() -> UIViewController? {
         guard let id = UserDefaultsManager.selectedUserSchoolId else { return nil }
         homeViewController = HomeViewController(viewModel: HomeViewModel(schoolId: id))
+        
+        homeViewController?.onDidSelectLink = { _ in
+        }
+        
+        homeViewController?.onDidSelectFeature = { _ in
+        }
+        
         guard let controller = homeViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller

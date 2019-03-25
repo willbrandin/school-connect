@@ -8,25 +8,46 @@
 
 import UIKit
 
-protocol HomeFeatureDelegate: class {
-    func didTapFeature(_ feature: HomeFeature?)
-}
-
 protocol HomeViewControllerProtocol: Presentable {
-    var didSelectFeature: ((HomeFeature?) -> Void)? { get set }
-    var didSelectLink: (() -> Void)? { get set }
+    var onDidSelectFeature: ((HomeFeature?) -> Void)? { get set }
+    var onDidSelectLink: ((String) -> Void)? { get set }
 }
 
 class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
 
     // MARK: - Properties
-    var homeView: HomeView!
-    var homeState: HomeState?
     
-    var viewModel: HomeViewModelProtocol
+    private var viewModel: HomeViewModelProtocol
+    private let scrollView = UIScrollView(frame: .zero)
+    private let wrapperView = UIView(frame: .zero)
     
-    var didSelectFeature: ((HomeFeature?) -> Void)?
-    var didSelectLink: (() -> Void)?
+    private var wrapperHeightConstraint: NSLayoutConstraint?
+    
+    private lazy var heroSectionView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var featureView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
+    }()
+    
+    private var linksListView: SchoolLinksListViewProtocol = SchoolLinksListView()
+    
+    private var totalHeight: CGFloat {
+        return view.bounds.size.height * viewModel.scrollViewHeightMultiplier
+    }
+    
+    // MARK: - HomeViewControllerProtocol
+    
+    var onDidSelectFeature: ((HomeFeature?) -> Void)?
+    var onDidSelectLink: ((String) -> Void)?
+    
+    // MARK: - Init
     
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
@@ -38,113 +59,100 @@ class HomeViewController: SNBaseViewController, HomeViewControllerProtocol {
     }
     
     // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = PageTitles.home.rawValue
         view.backgroundColor = .white
+        
+        view.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.pinToSafeArea()
+        
+        scrollView.addSubview(wrapperView)
+        wrapperView.translatesAutoresizingMaskIntoConstraints = false
+        wrapperView.pinToSuperview()
+        
+        wrapperHeightConstraint = wrapperView.heightAnchor.constraint(equalToConstant: totalHeight)
+        wrapperHeightConstraint?.isActive = true
+        wrapperView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        subscribeToLinksView()
+        subscribeToViewModel()
 
+        guard let linksListView = linksListView as? SchoolLinksListView else { return }
+
+        wrapperView.addSubview(heroSectionView)
+        wrapperView.addSubview(featureView)
+        wrapperView.addSubview(linksListView)
+        
         setupHomeView()
         
-        subscribeToViewModel()
         viewModel.requestData()
-        
-        homeView.collectionView.dataSource = self
-        homeView.collectionView.delegate = self
-        
-        homeView.collectionView.register(HomeGreetingCollectionViewCell.self)
-        homeView.collectionView.register(HomeFeatureCollectionViewCell.self)
-        homeView.collectionView.register(HomeLinkCollectionViewCell.self)
     }
     
     // MARK: - Methods
+    
+    private func subscribeToLinksView() {
+        linksListView.onDidSelectLink = onDidSelectLink
+    }
+    
     private func setupHomeView(){
-        homeView = HomeView()
-        homeView.customizeUI()
+        guard let linksListView = linksListView as? SchoolLinksListView else { return }
         
-        view.addSubview(homeView)
-        homeView.translatesAutoresizingMaskIntoConstraints = false
-        homeView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        homeView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        homeView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        homeView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        heroSectionView.pinToTop()
+        heroSectionView.pinToLeadingAndTrailing()
+        heroSectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: viewModel.heroMultiplier).isActive = true
+        setupHeroSubview()
+        
+        if viewModel.featuresIncluded && viewModel.linksIncluded {
+            featureView.pinBelowView(view: heroSectionView)
+            featureView.pinToLeadingAndTrailing()
+            featureView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: viewModel.featureMultiplier).isActive = true
+            
+            linksListView.pinBelowView(view: featureView)
+            linksListView.pinToLeadingAndTrailing()
+            linksListView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: viewModel.linksMultiplier).isActive = true
+        } else if viewModel.featuresIncluded {
+            featureView.pinBelowView(view: heroSectionView)
+            featureView.pinToLeadingAndTrailing()
+            featureView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: viewModel.featureMultiplier).isActive = true
+        } else if viewModel.linksIncluded {
+            linksListView.pinBelowView(view: heroSectionView)
+            linksListView.pinToLeadingAndTrailing()
+            linksListView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: viewModel.linksMultiplier).isActive = true
+        }
+        
+        wrapperHeightConstraint?.constant = totalHeight
+        view.layoutIfNeeded()
+    }
+    
+    private func setupHeroSubview() {
+        heroSectionView.subviews.forEach { $0.removeFromSuperview() }
+        heroSectionView.setMargins(top: Style.Layout.innerSpacing,
+                            leading: Style.Layout.marginXL,
+                            bottom: Style.Layout.marginXL,
+                            trailing: Style.Layout.marginXL)
+        
+        let mainHeroView = HomeGreetingView()
+        heroSectionView.addSubview(mainHeroView)
+        mainHeroView.translatesAutoresizingMaskIntoConstraints = false
+        mainHeroView.pinToMargins()
     }
     
     private func subscribeToViewModel() {
-        viewModel.onFetchedSchoolAndSettings = {
+        viewModel.onFetchedSchoolAndSettings = { [weak self] in
             DispatchQueue.main.async {
-                self.homeView.collectionView.reloadData()
+                self?.setupHomeView()
             }
         }
         
         viewModel.onNetworkingDidFail = { [weak self] error in
-            self?.present(error.initAlert(), animated: true, completion: nil)
+            DispatchQueue.main.async {
+                self?.present(error.initAlert(), animated: true, completion: nil)
+            }
         }
     }
-}
-
-// MARK: - Feature Cell Selection Delegate
-extension HomeViewController: HomeFeatureDelegate {
-    
-    func didTapFeature(_ feature: HomeFeature?) {
-        guard let featureType = feature else { return }
-        let featureVC = featureType.setFeatureView()
-        featureVC.view.backgroundColor = UIColor.white
-        show(featureVC, sender: nil)
-    }
-}
-
-// MARK: - Collection Delegate
-extension HomeViewController:  UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsInHomeCollectionView
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row == HomeCellIndex.greeting.rawValue {
-            let cell: HomeGreetingCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
-            cell.configureCell()
-            
-            return cell
-        } else if indexPath.row == HomeCellIndex.featureCell.rawValue { //&& SCDatabaseQueryManager.savedFeatures().count != 0 {
-            let cell: HomeFeatureCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
-            cell.configureCell()
-            cell.featureCellDelegate = self
-            
-            return cell
-        } else if indexPath.row == HomeCellIndex.linksCell.rawValue { //|| SCDatabaseQueryManager.getSavedLinks().count != 0 {
-            let cell: HomeLinkCollectionViewCell = collectionView.deqeueReusableCell(for: indexPath)
-            cell.configureCell()
-            
-            return cell
-        }
-        
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return viewModel.layoutFor(indexPath, with: collectionView.frame.width)
-    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-//        UIView.animate(withDuration: 0.3) {
-//            if indexPath.row == HomeCellIndex.greeting.rawValue {
-//                if let cell = collectionView.cellForItem(at: indexPath) {
-//                    cell.transform = .init(scaleX: 0.95, y: 0.95)
-//                }
-//            }
-//        }
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-//        UIView.animate(withDuration: 0.3) {
-//            if indexPath.row == HomeCellIndex.greeting.rawValue {
-//                if let cell = collectionView.cellForItem(at: indexPath) {
-//                    cell.transform = .identity
-//
-//                }
-//            }
-//        }
-//    }
 }

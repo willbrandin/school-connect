@@ -27,6 +27,10 @@ final class ContactCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     
     private func createContactViewController() -> UIViewController? {
         contactViewController = ContactViewController()
+        
+        contactViewController?.didSubmitForm = {
+        }
+        
         guard let controller = contactViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller

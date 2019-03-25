@@ -10,6 +10,8 @@ import UIKit
 
 final class CalendarCoordinator: NavigationFlowCoordinator, TabCoordinatable {
     
+    // MARK: - Properties
+    
     private var calendarViewController: CalendarViewControllerProtocol?
     private var calendarEventViewController: CalendarEventViewControllerProtocol?
     
@@ -23,16 +25,22 @@ final class CalendarCoordinator: NavigationFlowCoordinator, TabCoordinatable {
                             tag: 2)
     }
     
+    // MARK: - createMainViewController
+    
     override func createMainViewController() -> UIViewController? {
         print(navigationController)
         return createCalendarViewController()
     }
     
+    // MARK: - Private methods
+    
     private func createCalendarViewController() -> UIViewController? {
         calendarViewController = CalendarViewController()
+        
         calendarViewController?.onDidSelectEvent = { [weak self] calendarEvent in
             self?.showCalendarEventViewController(with: calendarEvent)
         }
+        
         guard let controller = calendarViewController?.toPresent() else { return nil }
         controller.tabBarItem = tabBarItem
         return controller
@@ -44,5 +52,4 @@ final class CalendarCoordinator: NavigationFlowCoordinator, TabCoordinatable {
         guard let controller = calendarEventViewController?.toPresent() else { return }
         push(viewController: controller)
     }
-    
 }

@@ -10,6 +10,8 @@ import UIKit
 
 final class ApplicationCoordinator: NavigationFlowCoordinator {
 
+    // MARK: - Flow Events
+    
     override func handle(flowEvent: FlowEvent) -> Bool {
         guard let event = flowEvent as? FlowEventType else { return false }
         switch event {
@@ -19,10 +21,14 @@ final class ApplicationCoordinator: NavigationFlowCoordinator {
         }
     }
     
+    // MARK: - createMainViewController
+    
     override func createMainViewController() -> UIViewController? {
         determineRootViewController()
         return nil
     }
+    
+    // MARK: - Private Methods
     
     private func determineRootViewController() {
         if UserDefaultsManager.selectedUserSchoolId != nil && UserDefaultsManager.userSelectedSchool != nil {

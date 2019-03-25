@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeGreetingView: UIView, CornerRoundable {
+class HomeGreetingView: UIView, CornerRoundable, Shadowable {
     
     // MARK: - UI Elements
     lazy var welcomeTitleLabel: UILabel! = {
@@ -27,12 +27,13 @@ class HomeGreetingView: UIView, CornerRoundable {
         label.textColor = SCColors.scGrayText
         label.text = "Today's Date: 12/25/2018"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.sizeToFit()
         return label
     }()
     
-    var homeHeroImg: UIImageView! = {
+    var heroImage: UIImageView! = {
         let imageView = UIImageView()
-        imageView.image = SCImages.OnBoardingImages.landingPageIcon
+        imageView.image = SCImages.FeatureImages.mapOfSchoolImage
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,52 +51,46 @@ class HomeGreetingView: UIView, CornerRoundable {
         
         stackView.distribution = .fill
         stackView.alignment = .leading
-        stackView.spacing = 5.0
+        stackView.spacing = Style.Layout.innerSpacing
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
-    // MARK: - Init
-    //TODO: - Need School Obj.
-    func customizeUI(){
-        backgroundColor = UIColor.white
-
-        setupStackViewContraints()
-        todaysDateLabel.sizeToFit()
-    }
+    // MARK: - Life Cycle
     
     override func layoutSubviews() {
-        roundCorners()
+        super.layoutSubviews()
+        
+        backgroundColor = UIColor.white
+        makeShadow()
+        setupStackViewContraints()
     }
     
     // MARK: - Methods
     
-    func setupStackViewContraints(){
+    func makeShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowOpacity = 0.1
+        layer.shadowRadius = 5.0
+        layer.masksToBounds = false
+    }
+       
+    // MARK: - Private Methods
+    
+    private func setupStackViewContraints() {
         addSubview(titleTextStackView)
+        titleTextStackView.pinToBottomMargin(constant: -Style.Layout.innerSpacing)
+        titleTextStackView.pinToLeadingAndTrailingMargins()
+        titleTextStackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.25).isActive = true
         
-        titleTextStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15.0).isActive = true
-        titleTextStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -15.0).isActive = true
-        titleTextStackView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5.0).isActive = true
-        titleTextStackView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.27).isActive = true
-        
-        setupImgConstraints()
+        setupImageConstraints()
     }
     
-    func setupImgConstraints(){
-        addSubview(homeHeroImg)
-        //1/4th of the calculated height above
-        if let cellSuperView = superview {
-            let calculatedHeight = cellSuperView.frame.height * 0.25 * 0.25
-            homeHeroImg.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-            homeHeroImg.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-            homeHeroImg.topAnchor.constraint(equalTo: titleTextStackView.bottomAnchor, constant: calculatedHeight).isActive = true
-            homeHeroImg.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        } else {
-            homeHeroImg.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-            homeHeroImg.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-            homeHeroImg.topAnchor.constraint(equalTo: titleTextStackView.bottomAnchor, constant: 15.0).isActive = true
-            homeHeroImg.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        }
+    private func setupImageConstraints() {
+        addSubview(heroImage)
+        heroImage.pinToTop()
+        heroImage.pinToLeadingAndTrailing()
+        heroImage.pinAboveView(view: titleTextStackView, constant: Style.Layout.innerSpacing)
     }
-    
 }

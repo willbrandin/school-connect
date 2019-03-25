@@ -7,13 +7,12 @@
 //
 
 import UIKit
-
+// TODO: - Make Child view controller of home
 class HomeFeatureCollectionViewCell: UICollectionViewCell, CellLoadableView {
     
     // MARK: - Properties
     var collectionView: UICollectionView!
     var featureArray = [String]()
-    weak var featureCellDelegate: HomeFeatureDelegate?
     
     // MARK: - UI Elements
 
@@ -107,7 +106,6 @@ extension HomeFeatureCollectionViewCell: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let selectedFeature = featureArray[indexPath.row]
         let enumCase = HomeFeature(rawValue: selectedFeature)
-        featureCellDelegate?.didTapFeature(enumCase)
     }
     
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
